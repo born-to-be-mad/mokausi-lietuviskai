@@ -1,4 +1,4 @@
-// Тренажёр слов Конституции: колоды «термины / глаголы / прилагательные»; карточки (интервальное повторение
+// Тренажёр Конституции: колоды «термины / глаголы / прилагательные / факты»; карточки (интервальное повторение
 // по Лейтнеру), тест, прогресс. Данные — window.KONST из data/decks.js (генерирует scripts/web.py).
 // Прогресс — localStorage этого браузера.
 (() => {
@@ -99,6 +99,7 @@
   }
 
   function backDetails(t) {
+    if (prefs.deck === 'facts') return t.art ? el('div', { class: 'ex' }, el('span', { class: 'art' }, cite(t))) : null;
     const label = deck().forms;
     return [
       label || t.gram ? el('div', { class: 'gram' }, [label, t.gram].filter(Boolean).join(' · ')) : null,
@@ -112,9 +113,10 @@
     meter();
     if (!queue.length) return cardsDone();
     const t = queue[0], ltFirst = prefs.dir === 'lt-ru';
+    const fc = isFacts() ? 'front fact' : 'front';   // факт — целое предложение: шрифт поменьше
     const front = ltFirst
-      ? el('div', { class: 'front' }, ltForms(t))
-      : el('div', { class: 'front ru-side' }, t.ru);
+      ? el('div', { class: fc }, ltForms(t))
+      : el('div', { class: fc + ' ru-side' }, t.ru);
     const hint = !ltFirst && dupRu().has(t.ru) && t.exru ? el('div', { class: 'hint' }, `Pvz. (напр.): ${t.exru}`) : null;
     const back = el('div', { class: 'back', hidden: true },
       ltFirst ? el('div', { class: 'main ru-side' }, t.ru) : el('div', { class: 'main' }, ltForms(t)),
@@ -162,8 +164,19 @@
     nextQuestion();
   }
 
+  // факты: вопрос «число» (в факте спрятано число) или «смысл» (какой перевод верный); слова: перевод / лемма
+  const isFacts = () => prefs.deck === 'facts';
   function options(t) {
     const ltFirst = prefs.dir === 'lt-ru';
+    if (isFacts() && t.num) return shuffle(t.num.options).map(o => ({ t: o === t.num.answer ? t : null, label: o }));
+    if (isFacts()) {            // неверные — другие факты той же главы (их надо прочитать); перевод отличается
+      const val = x => ltFirst ? x.ru : x.lt;
+      // факты с числом в неверные варианты не берём — иначе перевод подскажет ответ на «Koks skaičius?»
+      const pool2 = items().filter(x => x.key !== t.key && !x.num);
+      const cand = [...shuffle(pool2.filter(x => x.sk === t.sk)), ...shuffle(pool2.filter(x => x.sk !== t.sk))]
+        .filter((x, i, a) => a.findIndex(y => val(y) === val(x)) === i);
+      return shuffle([t, ...cand.slice(0, 3)]).map(x => ({ t: x, label: val(x) }));
+    }
     const val = x => ltFirst ? x.ru : x.lemma;
     const near = pool().length >= 4 ? pool() : items();             // варианты — из той же главы, если хватает
     // неверный вариант не должен оказаться верным: не синоним, без общих слов в переводе
@@ -181,12 +194,16 @@
     const opts = options(t);
     const next = el('button', { class: 'btn primary', hidden: true, on: { click: () => { quiz.i++; nextQuestion(); } } }, 'Kitas (дальше)');
     const buttons = opts.map((o, k) => el('button', { on: { click: () => pick(k) } }, `${k + 1}. ${o.label}`));
+    // после ответа на вопрос по факту — весь факт на обоих языках
+    const feedback = isFacts() ? el('div', { class: 'feedback', hidden: true },
+      el('div', {}, forms(t.lt), ' ', el('span', { class: 'art' }, cite(t))), el('div', { class: 'exru' }, t.ru)) : null;
     function pick(k) {
       if (!next.hidden) return;
       const ok = opts[k].t === t;
       buttons.forEach((b, j) => { b.disabled = true; if (opts[j].t === t) b.classList.add('ok'); });
       if (!ok) { buttons[k].classList.add('wrong'); quiz.mistakes.push(t); } else quiz.score++;
       grade(t, ok);
+      if (feedback) feedback.hidden = false;
       next.hidden = false; next.focus();
     }
     keyHandler = e => {
@@ -194,12 +211,22 @@
       if (n >= 1 && n <= opts.length) pick(n - 1);
       else if ((e.key === 'Enter' || e.key === ' ') && !next.hidden) { e.preventDefault(); next.click(); }
     };
+    let prompt;
+    if (isFacts() && t.num) {
+      const [a, b] = t.num.text.split('___');
+      prompt = [el('div', { class: 'ask' }, 'Koks skaičius? (какое число?)'),
+        el('div', { class: 'front fact' }, a, el('span', { class: 'blank' }, '___'), b)];
+    } else if (isFacts()) {
+      prompt = [el('div', { class: 'ask' }, ltFirst ? 'Ką tai reiškia? (что это значит?)' : 'Kaip tai lietuviškai? (как это по-литовски?)'),
+        ltFirst ? el('div', { class: 'front fact' }, t.lt) : el('div', { class: 'front fact ru-side' }, t.ru)];
+    } else {
+      prompt = [ltFirst ? el('div', { class: 'front' }, t.lemma) : el('div', { class: 'front ru-side' }, t.ru),
+        !ltFirst && dupRu().has(t.ru) && t.exru ? el('div', { class: 'hint' }, `Pvz. (напр.): ${t.exru}`) : null];
+    }
     app.replaceChildren(
       el('div', { class: 'card' },
         el('div', { class: 'tag' }, `${quiz.i + 1} / ${quiz.items.length} · ${deck().lt} · ${chTag(t)}`),
-        ltFirst ? el('div', { class: 'front' }, t.lemma) : el('div', { class: 'front ru-side' }, t.ru),
-        !ltFirst && dupRu().has(t.ru) && t.exru ? el('div', { class: 'hint' }, `Pvz. (напр.): ${t.exru}`) : null,
-        el('div', { class: 'opts' }, buttons)),
+        prompt, el('div', { class: 'opts' + (isFacts() && !t.num ? ' long' : '') }, buttons), feedback),
       next);
   }
 

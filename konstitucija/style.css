@@ -92,6 +92,13 @@ select {
   text-align: left; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line);
   background: var(--card); cursor: pointer; font-size: 1.05rem;
 }
+.opts.long button { font-size: .95rem; line-height: 1.35; }
+.front.fact { font-size: 1.2rem; font-weight: 600; line-height: 1.4; }
+.ask { font-size: .85rem; color: var(--muted); margin-bottom: 6px; }
+.blank { display: inline-block; min-width: 3.2em; border-bottom: 2px solid var(--accent); color: transparent; }
+.feedback { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); }
+.feedback .exru { color: var(--accent); font-size: .92rem; }
+.feedback .art { color: var(--muted); font-style: italic; font-size: .85rem; }
 .opts button.ok { background: var(--good-bg); border-color: var(--good); }
 .opts button.wrong { background: var(--bad-bg); border-color: var(--bad); }
 .opts button:disabled { cursor: default; }
