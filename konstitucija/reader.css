@@ -138,5 +138,23 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
 .storyend .pn { display: flex; gap: 14px; }
 .storyend .pn a { color: var(--accent); text-decoration: none; font-weight: 600; }
 
+/* произношение */
+.say {
+  display: inline-flex; align-items: center; justify-content: center; vertical-align: -3px;
+  width: 26px; height: 26px; margin-right: 6px; border-radius: 50%; border: 1px solid var(--line);
+  background: var(--card); color: var(--accent); cursor: pointer; padding: 0;
+}
+.say svg { width: 15px; height: 15px; }
+.say:hover, .say:focus { border-color: var(--accent); outline: none; }
+.row.speaking { background: var(--zinai-bg); border-radius: 6px; }
+.listen {
+  font: .85rem/1.2 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--accent); background: var(--card);
+  border: 1px solid var(--line); border-radius: 18px; padding: 6px 12px; cursor: pointer; margin: 0 0 8px;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.listen.on { border-color: var(--accent); }
+#slow[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+@media (max-width: 719px) { .layout { display: none; } }   /* на телефоне перевод всегда под строкой — выбор лишний */
+.novoice { font: .85rem/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--muted); margin: 12px 0 0; }
 .foot { color: var(--muted); font: .8rem/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; padding: 28px 16px 36px; }
 .foot a { color: var(--accent); }

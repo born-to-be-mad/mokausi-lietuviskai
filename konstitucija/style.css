@@ -75,6 +75,15 @@ select {
 .ex .exru { color: var(--accent); font-size: .92rem; }
 .ex .art { color: var(--muted); font-style: italic; font-size: .85rem; }
 .end { color: var(--ending); font-weight: 700; }
+/* произношение */
+.say {
+  display: inline-flex; align-items: center; justify-content: center; vertical-align: middle;
+  width: 36px; height: 36px; margin-left: 8px; border-radius: 50%; border: 1px solid var(--line);
+  background: var(--card); color: var(--accent); cursor: pointer; padding: 0; flex: none;
+}
+.say:hover, .say:focus { border-color: var(--accent); outline: none; }
+.ex .say { width: 30px; height: 30px; margin-left: 4px; }
+.novoice { font-size: .82rem; color: var(--muted); margin: -6px 0 12px; }
 
 .actions { display: flex; gap: 10px; }
 .actions button, .btn {

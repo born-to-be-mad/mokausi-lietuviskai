@@ -24,11 +24,14 @@
     <button data-layout="under" type="button">Po sakiniu <span class="ru">под строкой</span></button>
   </span>
   <span class="offhint">Paspauskite sakinį <span class="ru">— нажмите на предложение, чтобы увидеть перевод</span></span>
+  <button id="slow" type="button" hidden aria-pressed="false" title="Lėtesnis skaitymas balsu (медленнее)">Lėtai <span class="ru">медленно</span></button>
   <span class="sizes"><button data-size="-1" type="button" aria-label="Mažesnis šriftas (меньше)">A−</button><button data-size="1" type="button" aria-label="Didesnis šriftas (больше)">A+</button></span>
 </div>
 
 <main>
   <div id="resume" hidden></div>
+  <p class="novoice" id="novoice" hidden>Чтобы слушать произношение, нужен литовский голос в браузере: он есть в Safari и Chrome
+    на Mac и iPhone (голос Ona), на Android (Google) и в Edge на Windows.</p>
   <nav id="turinys" class="toc" aria-label="Turinys">
     <h2>Turinys <span class="ru">содержание</span> <span class="ru" id="count"></span></h2>
     <ul>
@@ -125,6 +128,7 @@
   <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
   <br><span class="ru">Отметки «прочитано» и место чтения хранятся только в этом браузере.</span>
 </footer>
+<script src="speak.js"></script>
 <script src="reader.js"></script>
 </body>
 </html>

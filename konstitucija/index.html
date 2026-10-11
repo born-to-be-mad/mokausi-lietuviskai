@@ -18,6 +18,12 @@
     <label><span>Skirsnis <span class="ru">(глава)</span></span>
       <select id="sk"></select>
     </label>
+    <label id="voiceCtl" hidden><span>Garsas <span class="ru">(произношение)</span></span>
+      <select id="rate">
+        <option value="0.9">Normaliai (обычно)</option>
+        <option value="0.7">Lėtai (медленно)</option>
+      </select>
+    </label>
     <label><span>Kryptis <span class="ru">(направление)</span></span>
       <select id="dir">
         <option value="lt-ru">LT → RU</option>
@@ -31,6 +37,8 @@
     <button role="tab" data-mode="progress">Pažanga <span class="ru">прогресс</span></button>
   </nav>
   <div class="meter" id="meter"></div>
+  <p class="novoice" id="novoice" hidden>Чтобы слушать произношение, нужен литовский голос в браузере: он есть в Safari и Chrome
+    на Mac и iPhone (голос Ona), на Android (Google) и в Edge на Windows.</p>
 </header>
 
 <main id="app" aria-live="polite"></main>
@@ -42,6 +50,7 @@
 </footer>
 
 <script src="data/decks.js"></script>
+<script src="speak.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

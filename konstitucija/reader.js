@@ -73,5 +73,51 @@
     box.append('Tęsti skaitymą (продолжить чтение): ', a);
     box.hidden = false;
   }
+  // ---------- произношение (speak.js): кнопка у каждого предложения, «слушать весь рассказ» ----------
+  const S = window.Speak;
+  let playing = null;                                  // {story, rows, i, btn}
+  function stopPlay() {
+    if (!playing) return;
+    playing.rows.forEach(r => r.classList.remove('speaking'));
+    playing.btn.classList.remove('on'); playing.btn.lastChild.textContent = ' Klausyti viską (слушать весь рассказ)';
+    playing = null; S.stop();
+  }
+  function playNext() {
+    if (!playing) return;
+    const p = playing;
+    p.rows.forEach(r => r.classList.remove('speaking'));
+    if (p.i >= p.rows.length) return stopPlay();
+    const row = p.rows[p.i++];
+    row.classList.add('speaking');
+    const r = row.getBoundingClientRect();
+    if (r.top < 70 || r.bottom > innerHeight) row.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    S.say(row.querySelector('.lt').textContent, { onend: () => { if (playing === p) playNext(); } });
+  }
+  if (S) S.onReady(ok => {
+    document.getElementById(ok ? 'slow' : 'novoice').hidden = false;
+    if (!ok) return;
+    const slow = document.getElementById('slow');
+    slow.setAttribute('aria-pressed', String(S.rate === 0.7));
+    slow.addEventListener('click', () => { S.rate = S.rate === 0.7 ? 0.9 : 0.7; slow.setAttribute('aria-pressed', String(S.rate === 0.7)); });
+    $$('.row').forEach(row => {
+      const lt = row.querySelector('.lt');
+      lt.prepend(S.button(() => { stopPlay(); return lt.textContent; }));
+    });
+    stories.forEach(st => {
+      const btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'listen';
+      btn.append(S.icon(), document.createTextNode(' Klausyti viską (слушать весь рассказ)'));
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        if (playing && playing.story === st) return stopPlay();
+        stopPlay();
+        playing = { story: st, rows: [...st.querySelectorAll('.row')], i: 0, btn };
+        btn.classList.add('on'); btn.lastChild.textContent = ' Sustabdyti (остановить)';
+        playNext();
+      });
+      st.querySelector('h2').after(btn);
+    });
+  });
+
   applyTr(); applySize(); applyDone();
 })();

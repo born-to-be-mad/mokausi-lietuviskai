@@ -62,6 +62,11 @@
     out.push(s.slice(last));
     return out;
   }
+  // произношение (speak.js): что читать вслух — у глаголов формы с паузами, у фактов весь факт
+  const S = window.Speak;
+  const sayText = t => prefs.deck === 'verbs' ? t.lt.split(' ').join(', ') : t.lt;
+  let speakNow = null;              // что прочитать по клавише S на текущем экране
+  const sayBtn = text => (S && S.available() ? S.button(text) : null);
   // формы слова в карточке: у глаголов три формы через « · »
   const ltForms = t => forms(prefs.deck === 'verbs' ? t.lt.split(' ').join(' · ') : t.lt);
   const cite = t => t.art ? `(${t.artsk} SK. ${t.art} str.)` : '';
@@ -104,7 +109,7 @@
     return [
       label || t.gram ? el('div', { class: 'gram' }, [label, t.gram].filter(Boolean).join(' · ')) : null,
       t.syn && t.syn.length ? el('div', { class: 'syn' }, `≈ ${t.syn.join(', ')} `, el('span', { class: 'ru' }, '(синонимы)')) : null,
-      t.ex ? el('div', { class: 'ex' }, el('div', {}, forms(t.ex), ' ', el('span', { class: 'art' }, cite(t))),
+      t.ex ? el('div', { class: 'ex' }, el('div', {}, forms(t.ex), sayBtn(t.ex), ' ', el('span', { class: 'art' }, cite(t))),
         el('div', { class: 'exru' }, t.exru)) : null,
     ];
   }
@@ -115,17 +120,18 @@
     const t = queue[0], ltFirst = prefs.dir === 'lt-ru';
     const fc = isFacts() ? 'front fact' : 'front';   // факт — целое предложение: шрифт поменьше
     const front = ltFirst
-      ? el('div', { class: fc }, ltForms(t))
+      ? el('div', { class: fc }, ltForms(t), sayBtn(sayText(t)))
       : el('div', { class: fc + ' ru-side' }, t.ru);
     const hint = !ltFirst && dupRu().has(t.ru) && t.exru ? el('div', { class: 'hint' }, `Pvz. (напр.): ${t.exru}`) : null;
     const back = el('div', { class: 'back', hidden: true },
-      ltFirst ? el('div', { class: 'main ru-side' }, t.ru) : el('div', { class: 'main' }, ltForms(t)),
+      ltFirst ? el('div', { class: 'main ru-side' }, t.ru) : el('div', { class: 'main' }, ltForms(t), sayBtn(sayText(t))),
       backDetails(t));
     const answer = ok => { grade(t, ok); queue.shift(); if (ok) session.right++; else { session.wrong++; queue.push(t); } nextCard(); };
     const show = el('button', { class: 'primary', on: { click: reveal } }, 'Rodyti (показать) ', el('span', { class: 'key' }, '␣'));
     const no = el('button', { class: 'no', hidden: true, on: { click: () => answer(false) } }, 'Nežinojau (не знал) ', el('span', { class: 'key' }, '1'));
     const yes = el('button', { class: 'yes', hidden: true, on: { click: () => answer(true) } }, 'Žinojau (знал) ', el('span', { class: 'key' }, '2'));
-    function reveal() { back.hidden = false; show.hidden = true; no.hidden = false; yes.hidden = false; yes.focus(); }
+    function reveal() { back.hidden = false; show.hidden = true; no.hidden = false; yes.hidden = false; yes.focus(); speakNow = () => S.say(sayText(t)); }
+    speakNow = ltFirst ? () => S.say(sayText(t)) : null;     // RU → LT: литовское — только после «Rodyti»
     keyHandler = e => {
       if (e.key === ' ' || e.key === 'Enter') { if (!show.hidden) { e.preventDefault(); reveal(); } }
       else if (show.hidden && e.key === '1') answer(false);
@@ -154,7 +160,7 @@
   }
 
   // ---------- тест ----------
-  let quiz = null;
+  let quiz = null, answered = false;
   function startQuiz() {
     const list = pool();
     // сначала то, что пора повторить, затем новое, затем выученное — внутри групп случайно
@@ -192,17 +198,19 @@
     if (quiz.i >= quiz.items.length) return quizDone();
     const t = quiz.items[quiz.i], ltFirst = prefs.dir === 'lt-ru';
     const opts = options(t);
+    answered = false;
     const next = el('button', { class: 'btn primary', hidden: true, on: { click: () => { quiz.i++; nextQuestion(); } } }, 'Kitas (дальше)');
     const buttons = opts.map((o, k) => el('button', { on: { click: () => pick(k) } }, `${k + 1}. ${o.label}`));
     // после ответа на вопрос по факту — весь факт на обоих языках
     const feedback = isFacts() ? el('div', { class: 'feedback', hidden: true },
-      el('div', {}, forms(t.lt), ' ', el('span', { class: 'art' }, cite(t))), el('div', { class: 'exru' }, t.ru)) : null;
+      el('div', {}, forms(t.lt), sayBtn(t.lt), ' ', el('span', { class: 'art' }, cite(t))), el('div', { class: 'exru' }, t.ru)) : null;
     function pick(k) {
       if (!next.hidden) return;
       const ok = opts[k].t === t;
       buttons.forEach((b, j) => { b.disabled = true; if (opts[j].t === t) b.classList.add('ok'); });
       if (!ok) { buttons[k].classList.add('wrong'); quiz.mistakes.push(t); } else quiz.score++;
       grade(t, ok);
+      answered = true;
       if (feedback) feedback.hidden = false;
       next.hidden = false; next.focus();
     }
@@ -212,15 +220,19 @@
       else if ((e.key === 'Enter' || e.key === ' ') && !next.hidden) { e.preventDefault(); next.click(); }
     };
     let prompt;
+    speakNow = null;
     if (isFacts() && t.num) {
       const [a, b] = t.num.text.split('___');
+      speakNow = () => S.say(t.num.text);
       prompt = [el('div', { class: 'ask' }, 'Koks skaičius? (какое число?)'),
-        el('div', { class: 'front fact' }, a, el('span', { class: 'blank' }, '___'), b)];
+        el('div', { class: 'front fact' }, a, el('span', { class: 'blank' }, '___'), b, sayBtn(t.num.text))];
     } else if (isFacts()) {
+      if (ltFirst) speakNow = () => S.say(t.lt);
       prompt = [el('div', { class: 'ask' }, ltFirst ? 'Ką tai reiškia? (что это значит?)' : 'Kaip tai lietuviškai? (как это по-литовски?)'),
-        ltFirst ? el('div', { class: 'front fact' }, t.lt) : el('div', { class: 'front fact ru-side' }, t.ru)];
+        ltFirst ? el('div', { class: 'front fact' }, t.lt, sayBtn(t.lt)) : el('div', { class: 'front fact ru-side' }, t.ru)];
     } else {
-      prompt = [ltFirst ? el('div', { class: 'front' }, t.lemma) : el('div', { class: 'front ru-side' }, t.ru),
+      if (ltFirst) speakNow = () => S.say(t.lemma);
+      prompt = [ltFirst ? el('div', { class: 'front' }, t.lemma, sayBtn(t.lemma)) : el('div', { class: 'front ru-side' }, t.ru),
         !ltFirst && dupRu().has(t.ru) && t.exru ? el('div', { class: 'hint' }, `Pvz. (напр.): ${t.exru}`) : null];
     }
     app.replaceChildren(
@@ -300,7 +312,20 @@
   dirSel.addEventListener('change', () => { prefs.dir = dirSel.value; setMode(prefs.mode); });
   document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
   document.addEventListener('keydown', e => {
+    if ((e.key === 's' || e.key === 'S' || e.key === 'š' || e.key === 'Š') && speakNow && !e.ctrlKey && !e.metaKey && !e.altKey
+        && !/^(SELECT|INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) { speakNow(); return; }
     if (keyHandler && !e.ctrlKey && !e.metaKey && !e.altKey && !/^(SELECT|INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) keyHandler(e);
+  });
+  // голос: есть литовский — показать выбор скорости и перерисовать экран с кнопками; нет — подсказка
+  if (S) S.onReady(ok => {
+    document.getElementById(ok ? 'voiceCtl' : 'novoice').hidden = false;
+    if (!ok) return;
+    const rate = document.getElementById('rate');
+    rate.value = String(S.rate === 0.7 ? 0.7 : 0.9);
+    rate.addEventListener('change', () => { S.rate = Number(rate.value); });
+    // перерисовать текущий экран с кнопками, не сбрасывая сессию (вопрос — только если ещё без ответа)
+    if (prefs.mode === 'cards' && queue.length) nextCard();
+    else if (prefs.mode === 'quiz' && quiz && !answered && quiz.i < quiz.items.length) nextQuestion();
   });
   setMode(prefs.mode);
 })();
