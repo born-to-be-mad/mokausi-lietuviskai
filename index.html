@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mokausi lietuviškai</title>
+<meta name="description" content="Учу литовский: бесплатные тренажёры и материалы (A2). Mokausi lietuviškai – nemokami treniruokliai ir medžiaga.">
+<style>
+:root {
+  --bg: #f7f6f2; --card: #ffffff; --text: #1d1d1f; --muted: #6b6b70; --line: #dedcd5;
+  --accent: #2e5a88; --flag-y: #fdb913; --flag-g: #006a44; --flag-r: #c1272d;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40;
+    --accent: #8cb4e0; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40;
+  --accent: #8cb4e0; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 17px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; }
+main, footer { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+.flag { display: flex; height: 6px; }
+.flag span { flex: 1; } .flag .y { background: var(--flag-y); } .flag .g { background: var(--flag-g); } .flag .r { background: var(--flag-r); }
+h1 { font-size: 1.8rem; margin: 28px 0 4px; }
+.lead { color: var(--muted); margin: 0 0 24px; }
+.ru { color: var(--muted); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin-bottom: 14px; }
+.card h2 { font-size: 1.2rem; margin: 0 0 4px; }
+.card p { margin: 0 0 12px; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; }
+.links a { flex: 1 1 220px; display: block; padding: 12px 14px; border-radius: 10px; text-decoration: none;
+  border: 1px solid var(--accent); color: var(--accent); font-weight: 600; }
+.links a.primary { background: var(--accent); color: var(--bg); }
+.links a span { display: block; font-weight: 400; font-size: .85rem; opacity: .85; }
+.soon { color: var(--muted); }
+footer { color: var(--muted); font-size: .8rem; padding: 24px 16px 32px; }
+footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="flag" aria-hidden="true"><span class="y"></span><span class="g"></span><span class="r"></span></div>
+<main>
+  <h1>Mokausi lietuviškai</h1>
+  <p class="lead">Учу литовский — бесплатные тренажёры и материалы для уровня A2 (LT ↔ RU).</p>
+
+  <section class="card">
+    <h2>Lietuvos Konstitucija <span class="ru">· Конституция Литвы</span></h2>
+    <p>Подготовка к экзамену по Конституции: термины, факты, тексты статей с параллельным переводом, тесты.</p>
+    <div class="links">
+      <a class="primary" href="konstitucija/">Terminų treniruoklė <span>тренажёр терминов: карточки, тест, прогресс</span></a>
+      <a href="konstitucija/Lietuvos_Konstitucijos_vadovas.pdf">Knyga (PDF) <span>книга-пособие, бесплатно</span></a>
+    </div>
+  </section>
+
+  <p class="soon">Netrukus <span class="ru">(скоро)</span>: veiksmažodžiai, būdvardžiai, faktai…</p>
+</main>
+<footer>
+  © 2026 Marudau Dzmitry · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+</footer>
+</body>
+</html>
