@@ -3,15 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Konstitucijos terminai</title>
-<meta name="description" content="Тренажёр терминов Конституции Литвы (A2): карточки, тест, прогресс. Lietuvos Konstitucijos terminai.">
+<title>Konstitucijos žodžiai</title>
+<meta name="description" content="Тренажёр слов Конституции Литвы (A2): термины, глаголы, прилагательные — карточки, тест, прогресс. Lietuvos Konstitucijos žodžiai.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="top">
   <a class="home" href="../">← Mokausi lietuviškai</a>
-  <h1>Konstitucijos terminai <span class="sub">тренажёр терминов · A2</span></h1>
+  <h1>Konstitucijos žodžiai <span class="sub">тренажёр слов: термины, глаголы, прилагательные · A2</span></h1>
   <div class="controls">
+    <label><span>Rinkinys <span class="ru">(набор)</span></span>
+      <select id="deck"></select>
+    </label>
     <label><span>Skirsnis <span class="ru">(глава)</span></span>
       <select id="sk"></select>
     </label>
@@ -38,7 +41,7 @@
   <br><span class="ru">Прогресс хранится только в этом браузере.</span>
 </footer>
 
-<script src="data/terms.js"></script>
+<script src="data/decks.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

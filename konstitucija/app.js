@@ -1,10 +1,11 @@
-// Тренажёр терминов Конституции: карточки (интервальное повторение по Лейтнеру), тест, прогресс.
-// Данные — window.KONST из data/terms.js (генерирует scripts/web.py). Прогресс — localStorage этого браузера.
+// Тренажёр слов Конституции: колоды «термины / глаголы / прилагательные»; карточки (интервальное повторение
+// по Лейтнеру), тест, прогресс. Данные — window.KONST из data/decks.js (генерирует scripts/web.py).
+// Прогресс — localStorage этого браузера.
 (() => {
   'use strict';
   const D = window.KONST;
   const app = document.getElementById('app');
-  const STORE = 'konst.terms.v1', PREFS = 'konst.prefs.v1';
+  const STORE = 'konst.terms.v1', PREFS = 'konst.prefs.v1';   // имена ключей прежние: прогресс терминов сохраняется
   const MIN = 60e3, DAY = 864e5;
   const INTERVAL = [0, 10 * MIN, DAY, 3 * DAY, 7 * DAY, 14 * DAY];   // по номеру коробки 0…5
   const LEARNED = 3;            // коробка ≥ 3 — «выучено»
@@ -15,25 +16,31 @@
   const read = (k, dflt) => { try { return JSON.parse(localStorage.getItem(k)) || dflt; } catch { return dflt; } };
   const write = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* приватный режим */ } };
   let progress = read(STORE, {});
-  const prefs = Object.assign({ sk: 'all', dir: 'lt-ru', mode: 'cards' }, read(PREFS, {}));
+  const prefs = Object.assign({ deck: 'terms', sk: 'all', dir: 'lt-ru', mode: 'cards' }, read(PREFS, {}));
+  if (!D.decks[prefs.deck]) prefs.deck = 'terms';
   const savePrefs = () => write(PREFS, prefs);
 
-  const rec = id => progress[id] || { box: 0, due: 0, right: 0, wrong: 0 };
-  function grade(id, ok) {
-    const r = Object.assign({}, rec(id));
+  const rec = t => progress[t.key] || { box: 0, due: 0, right: 0, wrong: 0 };
+  function grade(t, ok) {
+    const r = Object.assign({}, rec(t));
     if (ok) { r.box = Math.min(5, r.box + 1); r.right++; } else { r.box = 1; r.wrong++; }
     r.due = Date.now() + INTERVAL[r.box];
-    progress[id] = r;
+    progress[t.key] = r;
     write(STORE, progress);
   }
 
   // ---------- помощники ----------
+  const deck = () => D.decks[prefs.deck];
+  const items = () => deck().items;
   const chapter = no => D.chapters.find(c => c.no === no);
-  const pool = () => prefs.sk === 'all' ? D.terms : D.terms.filter(t => t.sk === +prefs.sk);
+  const pool = () => prefs.sk === 'all' ? items() : items().filter(t => t.sk === +prefs.sk);
   const plain = s => (s || '').replace(/\|/g, '');
   const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-  const isDue = t => { const r = rec(t.id); return r.box > 0 && r.due <= Date.now(); };
-  const dupRu = new Set(D.terms.map(t => t.ru).filter((ru, i, a) => a.indexOf(ru) !== i));
+  const isDue = t => { const r = rec(t); return r.box > 0 && r.due <= Date.now(); };
+  const dupRu = () => new Set(items().map(t => t.ru).filter((ru, i, a) => a.indexOf(ru) !== i));
+  // слова RU-перевода (≥ 4 букв): «гарантировать, обеспечивать» и «обеспечивать» — пересекаются
+  const ruWords = s => new Set((s.toLowerCase().match(/[а-яё]{4,}/g) || []));
+  const overlaps = (a, b) => { const w = ruWords(b); for (const x of ruWords(a)) if (w.has(x)) return true; return false; };
 
   function el(tag, attrs, ...kids) {
     const n = document.createElement(tag);
@@ -55,6 +62,8 @@
     out.push(s.slice(last));
     return out;
   }
+  // формы слова в карточке: у глаголов три формы через « · »
+  const ltForms = t => forms(prefs.deck === 'verbs' ? t.lt.split(' ').join(' · ') : t.lt);
   const cite = t => t.art ? `(${t.artsk} SK. ${t.art} str.)` : '';
   const chTag = t => { const c = chapter(t.sk); return c ? `${c.roman}. ${c.lt}` : ''; };
 
@@ -62,7 +71,7 @@
     const now = Date.now();
     let learned = 0, due = 0, fresh = 0;
     for (const t of list) {
-      const r = rec(t.id);
+      const r = rec(t);
       if (r.box >= LEARNED) learned++;
       if (r.box === 0) fresh++; else if (r.due <= now) due++;
     }
@@ -72,8 +81,7 @@
 
   function meter() {
     const s = stats(pool());
-    const m = document.getElementById('meter');
-    m.replaceChildren(
+    document.getElementById('meter').replaceChildren(
       `Išmokta (выучено): ${s.learned} / ${s.total} · kartoti (повторить): ${s.due} · nauji (новые): ${s.fresh}`,
       bar(s.learned, s.total));
   }
@@ -83,11 +91,21 @@
 
   function startCards() {
     const list = pool();
-    const due = list.filter(isDue).sort((a, b) => rec(a.id).due - rec(b.id).due);
-    const fresh = list.filter(t => rec(t.id).box === 0).slice(0, NEW_PER_SESSION);
+    const due = list.filter(isDue).sort((a, b) => rec(a).due - rec(b).due);
+    const fresh = list.filter(t => rec(t).box === 0).slice(0, NEW_PER_SESSION);
     queue = [...due, ...fresh];
     session = { right: 0, wrong: 0, total: queue.length };
     nextCard();
+  }
+
+  function backDetails(t) {
+    const label = deck().forms;
+    return [
+      label || t.gram ? el('div', { class: 'gram' }, [label, t.gram].filter(Boolean).join(' · ')) : null,
+      t.syn && t.syn.length ? el('div', { class: 'syn' }, `≈ ${t.syn.join(', ')} `, el('span', { class: 'ru' }, '(синонимы)')) : null,
+      t.ex ? el('div', { class: 'ex' }, el('div', {}, forms(t.ex), ' ', el('span', { class: 'art' }, cite(t))),
+        el('div', { class: 'exru' }, t.exru)) : null,
+    ];
   }
 
   function nextCard() {
@@ -95,15 +113,13 @@
     if (!queue.length) return cardsDone();
     const t = queue[0], ltFirst = prefs.dir === 'lt-ru';
     const front = ltFirst
-      ? el('div', { class: 'front' }, forms(t.lt))
+      ? el('div', { class: 'front' }, ltForms(t))
       : el('div', { class: 'front ru-side' }, t.ru);
-    const hint = !ltFirst && dupRu.has(t.ru) && t.exru ? el('div', { class: 'hint' }, `Pvz. (напр.): ${t.exru}`) : null;
+    const hint = !ltFirst && dupRu().has(t.ru) && t.exru ? el('div', { class: 'hint' }, `Pvz. (напр.): ${t.exru}`) : null;
     const back = el('div', { class: 'back', hidden: true },
-      ltFirst ? el('div', { class: 'main ru-side' }, t.ru) : el('div', { class: 'main' }, forms(t.lt)),
-      t.gram ? el('div', { class: 'gram' }, t.gram) : null,
-      t.ex ? el('div', { class: 'ex' }, el('div', {}, forms(t.ex), ' ', el('span', { class: 'art' }, cite(t))),
-        el('div', { class: 'exru' }, t.exru)) : null);
-    const answer = ok => { grade(t.id, ok); queue.shift(); if (ok) session.right++; else { session.wrong++; queue.push(t); } nextCard(); };
+      ltFirst ? el('div', { class: 'main ru-side' }, t.ru) : el('div', { class: 'main' }, ltForms(t)),
+      backDetails(t));
+    const answer = ok => { grade(t, ok); queue.shift(); if (ok) session.right++; else { session.wrong++; queue.push(t); } nextCard(); };
     const show = el('button', { class: 'primary', on: { click: reveal } }, 'Rodyti (показать) ', el('span', { class: 'key' }, '␣'));
     const no = el('button', { class: 'no', hidden: true, on: { click: () => answer(false) } }, 'Nežinojau (не знал) ', el('span', { class: 'key' }, '1'));
     const yes = el('button', { class: 'yes', hidden: true, on: { click: () => answer(true) } }, 'Žinojau (знал) ', el('span', { class: 'key' }, '2'));
@@ -115,7 +131,7 @@
     };
     app.replaceChildren(
       el('div', { class: 'card' },
-        el('div', { class: 'tag' }, `${chTag(t)} · liko (осталось): ${queue.length}`),
+        el('div', { class: 'tag' }, `${deck().lt} · ${chTag(t)} · liko (осталось): ${queue.length}`),
         front, hint, back),
       el('div', { class: 'actions' }, show, no, yes));
     show.focus();
@@ -123,7 +139,7 @@
 
   function cardsDone() {
     keyHandler = null;
-    const left = pool().filter(t => rec(t.id).box === 0).length;
+    const left = pool().filter(t => rec(t).box === 0).length;
     app.replaceChildren(el('div', { class: 'card empty' },
       session.total
         ? el('p', { class: 'summary' }, `Atlikta! (готово) Žinojau (знал): ${session.right}, nežinojau (не знал): ${session.wrong}.`)
@@ -140,18 +156,21 @@
   function startQuiz() {
     const list = pool();
     // сначала то, что пора повторить, затем новое, затем выученное — внутри групп случайно
-    const prio = t => isDue(t) ? 0 : rec(t.id).box === 0 ? 1 : 2;
-    const items = shuffle(list).sort((a, b) => prio(a) - prio(b)).slice(0, QUIZ_LEN);
-    quiz = { items, i: 0, score: 0, mistakes: [] };
+    const prio = t => isDue(t) ? 0 : rec(t).box === 0 ? 1 : 2;
+    const chosen = shuffle(list).sort((a, b) => prio(a) - prio(b)).slice(0, QUIZ_LEN);
+    quiz = { items: chosen, i: 0, score: 0, mistakes: [] };
     nextQuestion();
   }
 
   function options(t) {
     const ltFirst = prefs.dir === 'lt-ru';
-    const val = x => ltFirst ? x.ru : plain(x.lt);
-    const near = pool().length >= 4 ? pool() : D.terms;            // варианты — из той же главы, если хватает
-    const cand = [...shuffle(near), ...shuffle(D.terms)]
-      .filter((x, i, a) => x.id !== t.id && x.ru !== t.ru && a.findIndex(y => val(y) === val(x)) === i);
+    const val = x => ltFirst ? x.ru : x.lemma;
+    const near = pool().length >= 4 ? pool() : items();             // варианты — из той же главы, если хватает
+    // неверный вариант не должен оказаться верным: не синоним, без общих слов в переводе
+    const wrongOk = x => x.key !== t.key && x.ru !== t.ru && !overlaps(x.ru, t.ru)
+      && !(t.syn || []).includes(x.lemma) && !(x.syn || []).includes(t.lemma);
+    const cand = [...shuffle(near), ...shuffle(items())]
+      .filter((x, i, a) => wrongOk(x) && a.findIndex(y => val(y) === val(x)) === i);
     return shuffle([t, ...cand.slice(0, 3)]).map(x => ({ t: x, label: val(x) }));
   }
 
@@ -167,7 +186,7 @@
       const ok = opts[k].t === t;
       buttons.forEach((b, j) => { b.disabled = true; if (opts[j].t === t) b.classList.add('ok'); });
       if (!ok) { buttons[k].classList.add('wrong'); quiz.mistakes.push(t); } else quiz.score++;
-      grade(t.id, ok);
+      grade(t, ok);
       next.hidden = false; next.focus();
     }
     keyHandler = e => {
@@ -177,9 +196,9 @@
     };
     app.replaceChildren(
       el('div', { class: 'card' },
-        el('div', { class: 'tag' }, `${quiz.i + 1} / ${quiz.items.length} · ${chTag(t)}`),
-        ltFirst ? el('div', { class: 'front' }, plain(t.lt)) : el('div', { class: 'front ru-side' }, t.ru),
-        !ltFirst && dupRu.has(t.ru) && t.exru ? el('div', { class: 'hint' }, `Pvz. (напр.): ${t.exru}`) : null,
+        el('div', { class: 'tag' }, `${quiz.i + 1} / ${quiz.items.length} · ${deck().lt} · ${chTag(t)}`),
+        ltFirst ? el('div', { class: 'front' }, t.lemma) : el('div', { class: 'front ru-side' }, t.ru),
+        !ltFirst && dupRu().has(t.ru) && t.exru ? el('div', { class: 'hint' }, `Pvz. (напр.): ${t.exru}`) : null,
         el('div', { class: 'opts' }, buttons)),
       next);
   }
@@ -192,7 +211,7 @@
       bar(q.score, q.items.length),
       q.mistakes.length ? el('div', {},
         el('p', {}, 'Klaidos (ошибки) — jos grįš į korteles (вернутся в карточки):'),
-        el('ul', { class: 'mistakes' }, q.mistakes.map(t => el('li', {}, forms(t.lt), ' — ', t.ru)))) : null),
+        el('ul', { class: 'mistakes' }, q.mistakes.map(t => el('li', {}, ltForms(t), ' — ', t.ru)))) : null),
       el('div', { class: 'actions' }, el('button', { class: 'primary', on: { click: startQuiz } }, 'Dar kartą (ещё раз)')));
   }
 
@@ -201,7 +220,7 @@
     keyHandler = null;
     meter();
     const rows = D.chapters.map(c => {
-      const list = D.terms.filter(t => t.sk === c.no);
+      const list = items().filter(t => t.sk === c.no);
       if (!list.length) return null;
       const s = stats(list);
       return el('tr', {},
@@ -209,33 +228,47 @@
         el('td', { class: 'num' }, `${s.learned}/${s.total}`, s.due ? el('div', {}, `↻ ${s.due}`) : null),
         el('td', {}, el('button', { on: { click: () => { prefs.sk = String(c.no); setMode('cards'); } } }, 'Mokytis')));
     });
-    const all = stats(D.terms);
+    const decksRow = Object.entries(D.decks).map(([k, d]) => {
+      const s = stats(d.items);
+      return el('div', { class: 'deckstat' }, el('div', {}, `${d.lt} `, el('span', { class: 'ru' }, `(${d.ru})`), ` — ${s.learned} / ${s.total}`), bar(s.learned, s.total));
+    });
     app.replaceChildren(
       el('div', { class: 'card' },
-        el('p', { class: 'summary' }, `Iš viso išmokta (всего выучено): ${all.learned} / ${all.total}`),
-        bar(all.learned, all.total),
-        el('p', { class: 'ru' }, `«Выучено» — термин узнан правильно ${LEARNED} раза подряд с перерывами (10 минут, потом день). ↻ — пора повторить.`),
+        el('p', { class: 'summary' }, 'Visi rinkiniai (все наборы)'),
+        decksRow,
+        el('p', { class: 'ru' }, `«Выучено» — слово узнано правильно ${LEARNED} раза подряд с перерывами (10 минут, потом день). ↻ — пора повторить.`)),
+      el('div', { class: 'card' },
+        el('p', { class: 'summary' }, `${deck().lt} (${deck().ru}) — pagal skirsnius (по главам)`),
         el('table', { class: 'stats' }, el('tbody', {}, rows))),
       el('div', { class: 'actions' }, el('button', {
-        on: { click: () => { if (confirm('Ištrinti visą pažangą? (Удалить весь прогресс?)')) { progress = {}; write(STORE, progress); showProgress(); } } }
+        on: { click: () => { if (confirm('Ištrinti visą pažangą? (Удалить весь прогресс во всех наборах?)')) { progress = {}; write(STORE, progress); showProgress(); } } }
       }, 'Pradėti iš naujo (сбросить прогресс)')));
   }
 
   // ---------- каркас ----------
+  const deckSel = document.getElementById('deck'), skSel = document.getElementById('sk'), dirSel = document.getElementById('dir');
+
+  function fillChapters() {     // главы, в которых в текущей колоде есть слова
+    skSel.replaceChildren(el('option', { value: 'all' }, `Visi skirsniai (все главы) — ${items().length}`),
+      ...D.chapters.map(c => {
+        const n = items().filter(t => t.sk === c.no).length;
+        return n ? el('option', { value: String(c.no) }, `${c.roman}. ${c.lt} — ${n}`) : null;
+      }));
+    if (![...skSel.options].some(o => o.value === prefs.sk)) prefs.sk = 'all';
+    skSel.value = prefs.sk;
+  }
+
   function setMode(mode) {
     prefs.mode = mode; savePrefs();
-    document.getElementById('sk').value = prefs.sk;
+    skSel.value = prefs.sk;
     document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.mode === mode)));
     ({ cards: startCards, quiz: startQuiz, progress: showProgress })[mode]();
   }
 
-  const skSel = document.getElementById('sk'), dirSel = document.getElementById('dir');
-  skSel.append(el('option', { value: 'all' }, `Visi skirsniai (все главы) — ${D.terms.length}`),
-    ...D.chapters.map(c => {
-      const n = D.terms.filter(t => t.sk === c.no).length;
-      return n ? el('option', { value: String(c.no) }, `${c.roman}. ${c.lt} — ${n}`) : null;
-    }));
-  skSel.value = prefs.sk; dirSel.value = prefs.dir;
+  deckSel.append(...Object.entries(D.decks).map(([k, d]) => el('option', { value: k }, `${d.lt} — ${d.items.length}`)));
+  deckSel.value = prefs.deck; dirSel.value = prefs.dir;
+  fillChapters();
+  deckSel.addEventListener('change', () => { prefs.deck = deckSel.value; fillChapters(); setMode(prefs.mode); });
   skSel.addEventListener('change', () => { prefs.sk = skSel.value; setMode(prefs.mode === 'progress' ? 'cards' : prefs.mode); });
   dirSel.addEventListener('change', () => { prefs.dir = dirSel.value; setMode(prefs.mode); });
   document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
