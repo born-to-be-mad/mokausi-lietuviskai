@@ -1,6 +1,0 @@
-/* Флаг Литвы — полоса во всю ширину вверху каждой страницы, видна всегда (fixed): жёлтый, зелёный, красный. */
-:root { --flag-h: 12px; }
-.flag { position: fixed; top: 0; left: 0; right: 0; height: var(--flag-h); z-index: 100;
-  background: linear-gradient(#fdb913 0 33.34%, #006a44 0 66.67%, #c1272d 0); }
-body { padding-top: var(--flag-h); }
-@media print { .flag { display: none; } body { padding-top: 0; } }

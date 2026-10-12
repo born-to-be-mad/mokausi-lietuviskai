@@ -6,13 +6,18 @@
 <title>Konstitucijos žodžiai</title>
 <meta name="description" content="Тренажёр по Конституции Литвы (A2): термины, глаголы, прилагательные и ключевые факты — карточки, тест, прогресс. Lietuvos Konstitucijos žodžiai ir faktai.">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="flag.css">
+<link rel="stylesheet" href="shell.css">
 </head>
 <body>
-<div class="flag" aria-hidden="true"></div>
-<header class="top">
+<header class="shell-head">
+<div class="flag" aria-hidden="true"><span class="y"></span><span class="g"></span><span class="r"></span></div>
+<div class="top">
   <a class="home" href="../">← Mokausi lietuviškai</a> · <a class="home" href="skaitymas.html">Arbatos vakarai <span class="ru">(чтение)</span></a> · <a class="home" href="egzaminas.html">Egzaminas <span class="ru">(экзамен)</span></a> · <a class="home" href="atmintine.html">Atmintinė <span class="ru">(памятка)</span></a>
   <h1>Konstitucijos žodžiai <span class="sub">тренажёр: термины, глаголы, прилагательные, ключевые факты · A2</span></h1>
+</div>
+</header>
+<div class="shell-main" tabindex="-1" autofocus>
+<div class="top">
   <div class="controls">
     <label><span>Rinkinys <span class="ru">(набор)</span></span>
       <select id="deck"></select>
@@ -42,15 +47,16 @@
   <div class="meter" id="meter"></div>
   <p class="novoice" id="novoice" hidden>В этом браузере нет литовского голоса, поэтому кнопок озвучки нет. Браузеры на Mac литовский
     не озвучивают (системный голос Ona им недоступен); голоса Ona и Leonas есть, например, в браузере Microsoft Edge.</p>
-</header>
+</div>
 
 <main id="app" aria-live="polite"></main>
+<p class="note">Прогресс хранится только в этом браузере.</p>
+</div>
 
-<footer class="foot">
-  © 2026 Marudau Dzmitry · Lietuvos Konstitucijos vadovas ·
+<footer class="shell-foot"><div class="foot">
+  © 2026 Marudau Dzmitry · <span class="long">Lietuvos Konstitucijos vadovas ·</span>
   <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
-  <br><span class="ru">Прогресс хранится только в этом браузере.</span>
-</footer>
+</div></footer>
 
 <script src="data/decks.js"></script>
 <script src="data/audio.js"></script>
