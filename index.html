@@ -51,6 +51,10 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
 .steps li::before { content: counter(s); position: absolute; left: 14px; top: 12px; width: 26px; height: 26px; border-radius: 50%;
   background: var(--accent); color: var(--bg); font-weight: 700; display: grid; place-items: center; font-size: .9rem; }
 .steps b { display: block; }
+.steps b a { color: var(--accent); text-decoration: none; }
+.steps b a::after { content: ""; position: absolute; inset: 0; border-radius: 12px; }   /* вся карточка — ссылка */
+.steps li:hover { border-color: var(--accent); }
+.steps li:hover b a, .steps b a:focus-visible { text-decoration: underline; }
 .topic { margin-top: 34px; }
 .topic > p { margin: 0 0 6px; }
 .edition { color: var(--muted); font-size: .8rem; line-height: 1.45; margin: 0 0 16px; }
@@ -83,11 +87,11 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
 
   <h2>Nuo ko pradėti? <span class="ru">С чего начать</span></h2>
   <ol class="steps">
-    <li><b>Skaitykite <span class="ru">— читайте</span></b> короткие рассказы о Конституции: литовский текст с переводом
+    <li><b><a href="konstitucija/skaitymas.html">Skaitykite <span class="ru">— читайте</span> →</a></b> короткие рассказы о Конституции: литовский текст с переводом
       предложение к предложению, перевод можно выключить, текст можно послушать.</li>
-    <li><b>Mokykitės žodžių <span class="ru">— учите слова</span></b> в тренажёре: карточки сами напомнят повторить то,
+    <li><b><a href="konstitucija/">Mokykitės žodžių <span class="ru">— учите слова</span> →</a></b> в тренажёре: карточки сами напомнят повторить то,
       что вы забываете; прогресс виден по главам.</li>
-    <li><b>Pasitikrinkite <span class="ru">— проверьте себя</span></b> пробным экзаменом: 20 вопросов, как на настоящем;
+    <li><b><a href="konstitucija/egzaminas.html">Pasitikrinkite <span class="ru">— проверьте себя</span> →</a></b> пробным экзаменом: 20 вопросов, как на настоящем;
       ошибки разобраны со ссылками на статьи.</li>
   </ol>
 
