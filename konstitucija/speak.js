@@ -1,33 +1,28 @@
-// Произношение: литовский голос самого браузера/системы (Web Speech API) — Ona (macOS/iOS), Google lt-LT (Android),
-// Microsoft Ona/Leonas (Edge). Ничего не записываем и не раздаём: говорит устройство читателя.
-// window.Speak: available() · say(text, {onend}) · stop() · rate (0.8 / 1) · onReady(cb) · icon() · clean(text).
+// Произношение: сначала записанный звук (Azure lt-LT-OnaNeural: web/audio/*.mp3 по словарю window.KONST_AUDIO
+// из data/audio.js — генерирует scripts/tts.py); если записи нет — литовский голос браузера (Web Speech API,
+// напр. Microsoft Ona/Leonas в Edge). На Mac браузеры литовского голоса не дают — там работают только записи.
+// window.Speak: available() · say(text, {onend}) · stop() · rate (0.9 / 0.7) · onReady(cb) · icon() · button() · clean(text).
 (() => {
   'use strict';
   const synth = window.speechSynthesis;
   const KEY = 'konst.speak.v1';
-  let voice = null, ready = false;
+  const REC = window.KONST_AUDIO || {};                 // текст (после clean) → путь к mp3
+  const hasRec = Object.keys(REC).length > 0;
+  let voice = null, ready = false, player = null;
   const waiters = [];
   const prefs = (() => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } })();
 
-  // лучший литовский голос: «естественные»/онлайн-голоса выше системных компактных
+  // лучший литовский голос браузера: «естественные»/онлайн-голоса выше системных компактных
   function pickVoice() {
     const lt = (synth ? synth.getVoices() : []).filter(v => /^lt([-_]|$)/i.test(v.lang));
     const score = v => (/natural|neural|online/i.test(v.name) ? 4 : 0) + (/ona|leonas/i.test(v.name) ? 2 : 0) + (/google/i.test(v.name) ? 1 : 0);
     voice = lt.sort((a, b) => score(b) - score(a))[0] || null;
-    if (!ready && (voice || (synth && synth.getVoices().length))) {
-      ready = true;
-      waiters.splice(0).forEach(cb => cb(!!voice));
-    }
+    if (!ready && (voice || hasRec || (synth && synth.getVoices().length))) finishReady();
   }
-  if (synth) {
-    pickVoice();
-    synth.addEventListener && synth.addEventListener('voiceschanged', pickVoice);
-    setTimeout(() => { if (!ready) { ready = true; waiters.splice(0).forEach(cb => cb(!!voice)); } }, 2500);
-  } else {
-    ready = true;
-  }
+  function finishReady() { ready = true; waiters.splice(0).forEach(cb => cb(api.available())); }
 
-  // текст из данных → для голоса: без разметки, дроби — словами, пропуск — пауза
+  // текст из данных → для голоса: без разметки, дроби — словами, пропуск — пауза.
+  // ТА ЖЕ функция — clean() в scripts/tts.py: по её результату ищется запись (менять обе вместе!)
   const FRAC = { '1/2': 'pusė', '1/3': 'trečdalis', '1/4': 'ketvirtadalis', '1/5': 'penktadalis', '2/3': 'du trečdaliai',
                  '3/4': 'trys ketvirtadaliai', '3/5': 'trys penktadaliai', '4/5': 'keturi penktadaliai', '1/12': 'dvyliktoji dalis' };
   function clean(s) {
@@ -40,21 +35,37 @@
       .trim();
   }
 
+  function speakVoice(text, opts) {                     // голос браузера (если есть литовский)
+    if (!voice) return false;
+    const u = new SpeechSynthesisUtterance(clean(text));
+    u.voice = voice; u.lang = voice.lang; u.rate = api.rate;
+    if (opts.onend) { u.onend = opts.onend; u.onerror = opts.onend; }
+    synth.speak(u);
+    return true;
+  }
+
   const api = {
     get rate() { return prefs.rate || 0.9; },
     set rate(r) { prefs.rate = r; try { localStorage.setItem(KEY, JSON.stringify(prefs)); } catch { /* приватный режим */ } },
-    available: () => !!voice,
-    onReady(cb) { ready ? cb(!!voice) : waiters.push(cb); },
+    available: () => hasRec || !!voice,
+    onReady(cb) { ready ? cb(api.available()) : waiters.push(cb); },
     clean,
-    stop() { if (synth) synth.cancel(); },
+    stop() {
+      if (player) { player.onended = player.onerror = null; player.pause(); player = null; }
+      if (synth) synth.cancel();
+    },
     say(text, opts = {}) {
-      if (!voice) return false;
-      synth.cancel();
-      const u = new SpeechSynthesisUtterance(clean(text));
-      u.voice = voice; u.lang = voice.lang; u.rate = api.rate;
-      if (opts.onend) { u.onend = opts.onend; u.onerror = opts.onend; }
-      synth.speak(u);
-      return true;
+      api.stop();
+      const src = REC[clean(text)];
+      if (src) {                                          // запись; «lėtai» — через playbackRate (тон сохраняется)
+        const a = player = new Audio(src);
+        a.playbackRate = api.rate <= 0.75 ? 0.75 : 1;
+        a.onended = () => { if (player === a) player = null; if (opts.onend) opts.onend(); };
+        a.onerror = () => { if (player === a) player = null; if (!speakVoice(text, opts) && opts.onend) opts.onend(); };
+        a.play().catch(() => {});
+        return true;
+      }
+      return speakVoice(text, opts);
     },
     // кнопка-динамик (SVG, без эмодзи)
     icon() {
@@ -72,5 +83,13 @@
       return b;
     },
   };
+
+  if (synth) {
+    pickVoice();
+    synth.addEventListener && synth.addEventListener('voiceschanged', pickVoice);
+    setTimeout(() => { if (!ready) finishReady(); }, hasRec ? 0 : 2500);
+  } else {
+    finishReady();
+  }
   window.Speak = api;
 })();
