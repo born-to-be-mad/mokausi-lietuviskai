@@ -5226,6 +5226,572 @@ window.KONST = {
     }
    ]
   },
+  "kiti": {
+   "lt": "Kiti žodžiai",
+   "ru": "прочие слова",
+   "forms": "",
+   "items": [
+    {
+     "key": "k:niekas",
+     "lemma": "niekas",
+     "lt": "niek|as",
+     "ru": "никто, ничто",
+     "gram": "įvardis",
+     "syn": [],
+     "ex": "Niek|as negali varžyti suvereniteto.",
+     "exru": "Никто не может стеснять суверенитет.",
+     "art": "3",
+     "artsk": "I",
+     "sk": 1
+    },
+    {
+     "key": "k:kiekvienas",
+     "lemma": "kiekvienas",
+     "lt": "kiekvien|as",
+     "ru": "каждый",
+     "gram": "įvardis",
+     "syn": [],
+     "ex": "Kiekvien|as pilietis turi teisę.",
+     "exru": "Каждый гражданин имеет право.",
+     "art": "3",
+     "artsk": "I",
+     "sk": 1
+    },
+    {
+     "key": "k:tiesiogiai",
+     "lemma": "tiesiogiai",
+     "lt": "tiesiogiai",
+     "ru": "непосредственно, прямо",
+     "gram": "prieveiksmis",
+     "syn": [],
+     "ex": "Tauta valdžią vykdo tiesiogiai.",
+     "exru": "Народ осуществляет власть непосредственно.",
+     "art": "4",
+     "artsk": "I",
+     "sk": 1
+    },
+    {
+     "key": "k:prievarta",
+     "lemma": "prievarta",
+     "lt": "prievarta",
+     "ru": "насильственно, силой",
+     "gram": "prieveiksmis",
+     "syn": [],
+     "ex": "kas prievarta kėsinasi į nepriklausomybę",
+     "exru": "кто насильственно посягает на независимость",
+     "art": "3",
+     "artsk": "I",
+     "sk": 1
+    },
+    {
+     "key": "k:tik",
+     "lemma": "tik",
+     "lt": "tik",
+     "ru": "только, лишь",
+     "gram": "dalelytė",
+     "syn": [],
+     "ex": "Galioja tik paskelbti įstatymai.",
+     "exru": "Действуют только обнародованные законы.",
+     "art": "7",
+     "artsk": "I",
+     "sk": 1
+    },
+    {
+     "key": "k:ar",
+     "lemma": "ar",
+     "lt": "ar",
+     "ru": "или; ли",
+     "gram": "jungtukas",
+     "syn": [],
+     "ex": "Niekas negali varžyti ar riboti.",
+     "exru": "Никто не может стеснять или ограничивать.",
+     "art": "3",
+     "artsk": "I",
+     "sk": 1
+    },
+    {
+     "key": "k:bei",
+     "lemma": "bei",
+     "lt": "bei",
+     "ru": "и",
+     "gram": "jungtukas",
+     "syn": [],
+     "ex": "Valstybės bei Tautos klausimai.",
+     "exru": "Вопросы Государства и Народа.",
+     "art": "9",
+     "artsk": "I",
+     "sk": 1
+    },
+    {
+     "key": "k:jeigu",
+     "lemma": "jeigu",
+     "lt": "jeigu",
+     "ru": "если",
+     "gram": "jungtukas",
+     "syn": [],
+     "ex": "jeigu referendumo reikalauja piliečiai",
+     "exru": "если референдума требуют граждане",
+     "art": "9",
+     "artsk": "I",
+     "sk": 1
+    },
+    {
+     "key": "k:per",
+     "lemma": "per",
+     "lt": "per",
+     "ru": "через, сквозь",
+     "gram": "prielinksnis",
+     "syn": [],
+     "ex": "valdžią vykdo per atstovus",
+     "exru": "власть осуществляет через представителей",
+     "art": "4",
+     "artsk": "I",
+     "sk": 1
+    },
+    {
+     "key": "k:savavališkai",
+     "lemma": "savavališkai",
+     "lt": "savavališkai",
+     "ru": "произвольно",
+     "gram": "prieveiksmis",
+     "syn": [],
+     "ex": "Niekas negali būti savavališkai sulaikytas.",
+     "exru": "Никто не может быть произвольно задержан.",
+     "art": "20",
+     "artsk": "II",
+     "sk": 2
+    },
+    {
+     "key": "k:laisvai",
+     "lemma": "laisvai",
+     "lt": "laisvai",
+     "ru": "свободно",
+     "gram": "prieveiksmis",
+     "syn": [],
+     "ex": "Teisė laisvai reikšti įsitikinimus.",
+     "exru": "Право свободно выражать убеждения.",
+     "art": "25",
+     "artsk": "II",
+     "sk": 2
+    },
+    {
+     "key": "k:viešai",
+     "lemma": "viešai",
+     "lt": "viešai",
+     "ru": "публично, открыто",
+     "gram": "prieveiksmis",
+     "syn": [],
+     "ex": "Teismas viešai išnagrinėja bylą.",
+     "exru": "Суд публично рассматривает дело.",
+     "art": "31",
+     "artsk": "II",
+     "sk": 2
+    },
+    {
+     "key": "k:kol",
+     "lemma": "kol",
+     "lt": "kol",
+     "ru": "пока, до тех пор как",
+     "gram": "jungtukas",
+     "syn": [],
+     "ex": "kol kaltumas neįrodytas",
+     "exru": "пока вина не доказана",
+     "art": "31",
+     "artsk": "II",
+     "sk": 2
+    },
+    {
+     "key": "k:bet kuris",
+     "lemma": "bet kuris",
+     "lt": "bet kur|is",
+     "ru": "любой",
+     "gram": "įvardis",
+     "syn": [],
+     "ex": "pasirinkti bet kuri|ą religiją",
+     "exru": "выбрать любую религию",
+     "art": "26",
+     "artsk": "II",
+     "sk": 2
+    },
+    {
+     "key": "k:prieš",
+     "lemma": "prieš",
+     "lt": "prieš",
+     "ru": "против",
+     "gram": "prielinksnis",
+     "syn": [],
+     "ex": "duoti parodymus prieš save",
+     "exru": "давать показания против себя",
+     "art": "31",
+     "artsk": "II",
+     "sk": 2
+    },
+    {
+     "key": "k:be",
+     "lemma": "be",
+     "lt": "be",
+     "ru": "без",
+     "gram": "prielinksnis",
+     "syn": [],
+     "ex": "rinktis be ginklo",
+     "exru": "собираться без оружия",
+     "art": "36",
+     "artsk": "II",
+     "sk": 2
+    },
+    {
+     "key": "k:pagal",
+     "lemma": "pagal",
+     "lt": "pagal",
+     "ru": "по, согласно",
+     "gram": "prielinksnis",
+     "syn": [],
+     "ex": "pagal įstatymo nustatytą tvarką",
+     "exru": "согласно установленному законом порядку",
+     "art": "20",
+     "artsk": "II",
+     "sk": 2
+    },
+    {
+     "key": "k:dėl",
+     "lemma": "dėl",
+     "lt": "dėl",
+     "ru": "из-за, по причине",
+     "gram": "prielinksnis",
+     "syn": [],
+     "ex": "varžyti teises dėl lyties ar rasės",
+     "exru": "ограничивать права из-за пола или расы",
+     "art": "29",
+     "artsk": "II",
+     "sk": 2
+    },
+    {
+     "key": "k:savarankiškai",
+     "lemma": "savarankiškai",
+     "lt": "savarankiškai",
+     "ru": "самостоятельно",
+     "gram": "prieveiksmis",
+     "syn": [],
+     "ex": "Bendrijos tvarkosi savarankiškai.",
+     "exru": "Общины распоряжаются самостоятельно.",
+     "art": "45",
+     "artsk": "III",
+     "sk": 3
+    },
+    {
+     "key": "k:iki",
+     "lemma": "iki",
+     "lt": "iki",
+     "ru": "до",
+     "gram": "prielinksnis",
+     "syn": [],
+     "ex": "išlaikyti iki pilnametystės",
+     "exru": "содержать до совершеннолетия",
+     "art": "38",
+     "artsk": "III",
+     "sk": 3
+    },
+    {
+     "key": "k:po",
+     "lemma": "po",
+     "lt": "po",
+     "ru": "после",
+     "gram": "prielinksnis",
+     "syn": [],
+     "ex": "atostogos iki gimdymo ir po jo",
+     "exru": "отпуск до родов и после них",
+     "art": "39",
+     "artsk": "III",
+     "sk": 3
+    },
+    {
+     "key": "k:arba",
+     "lemma": "arba",
+     "lt": "arba",
+     "ru": "или",
+     "gram": "jungtukas",
+     "syn": [],
+     "ex": "nustatoma susitarimu arba įstatymu",
+     "exru": "устанавливается соглашением или законом",
+     "art": "43",
+     "artsk": "III",
+     "sk": 3
+    },
+    {
+     "key": "k:taip pat",
+     "lemma": "taip pat",
+     "lt": "taip pat",
+     "ru": "а также",
+     "gram": "jungtukas",
+     "syn": [],
+     "ex": "saugo mokslo, taip pat meno kūrybą",
+     "exru": "охраняет научное, а также художественное творчество",
+     "art": "42",
+     "artsk": "III",
+     "sk": 3
+    },
+    {
+     "key": "k:su",
+     "lemma": "su",
+     "lt": "su",
+     "ru": "с",
+     "gram": "prielinksnis",
+     "syn": [],
+     "ex": "interesai, susiję su kūryba",
+     "exru": "интересы, связанные с творчеством",
+     "art": "42",
+     "artsk": "III",
+     "sk": 3
+    },
+    {
+     "key": "k:nuo",
+     "lemma": "nuo",
+     "lt": "nuo",
+     "ru": "от",
+     "gram": "prielinksnis",
+     "syn": [],
+     "ex": "saugoti aplinką nuo kenksmingų poveikių",
+     "exru": "охранять среду от вредных воздействий",
+     "art": "53",
+     "artsk": "IV",
+     "sk": 4
+    },
+    {
+     "key": "k:virš",
+     "lemma": "virš",
+     "lt": "virš",
+     "ru": "над",
+     "gram": "prielinksnis",
+     "syn": [],
+     "ex": "oro erdvė virš teritorijos",
+     "exru": "воздушное пространство над территорией",
+     "art": "47",
+     "artsk": "IV",
+     "sk": 4
+    },
+    {
+     "key": "k:už",
+     "lemma": "už",
+     "lt": "už",
+     "ru": "за",
+     "gram": "prielinksnis",
+     "syn": [],
+     "ex": "apmokėjimas už darbą",
+     "exru": "оплата за труд",
+     "art": "48",
+     "artsk": "IV",
+     "sk": 4
+    },
+    {
+     "key": "k:ypač",
+     "lemma": "ypač",
+     "lt": "ypač",
+     "ru": "особенно",
+     "gram": "prieveiksmis",
+     "syn": [],
+     "ex": "ypač vertingų vietovių apsauga",
+     "exru": "охрана особо ценных местностей",
+     "art": "54",
+     "artsk": "IV",
+     "sk": 4
+    },
+    {
+     "key": "k:kad",
+     "lemma": "kad",
+     "lt": "kad",
+     "ru": "чтобы; что",
+     "gram": "jungtukas",
+     "syn": [],
+     "ex": "reguliuoja taip, kad tarnautų gerovei",
+     "exru": "регулирует так, чтобы служило благу",
+     "art": "46",
+     "artsk": "IV",
+     "sk": 4
+    },
+    {
+     "key": "k:kitas",
+     "lemma": "kitas",
+     "lt": "kit|as",
+     "ru": "другой",
+     "gram": "įvardis",
+     "syn": [],
+     "ex": "kit|ais įstatymų numatytais atvejais",
+     "exru": "в других предусмотренных законом случаях",
+     "art": "52",
+     "artsk": "IV",
+     "sk": 4
+    },
+    {
+     "key": "k:tačiau",
+     "lemma": "tačiau",
+     "lt": "tačiau",
+     "ru": "однако, но",
+     "gram": "jungtukas",
+     "syn": [],
+     "ex": "Tačiau jis gali būti traukiamas atsakomybėn.",
+     "exru": "Однако он может привлекаться к ответственности.",
+     "art": "62",
+     "artsk": "V",
+     "sk": 5
+    },
+    {
+     "key": "k:jog",
+     "lemma": "jog",
+     "lt": "jog",
+     "ru": "что",
+     "gram": "jungtukas",
+     "syn": [],
+     "ex": "Seimas gali nutarti, jog atsakymas nepatenkinamas.",
+     "exru": "Сейм может постановить, что ответ неудовлетворителен.",
+     "art": "61",
+     "artsk": "V",
+     "sk": 5
+    },
+    {
+     "key": "k:išskyrus",
+     "lemma": "išskyrus",
+     "lt": "išskyrus",
+     "ru": "за исключением, кроме",
+     "gram": "prielinksnis",
+     "syn": [],
+     "ex": "visi pareigūnai, išskyrus teisėjus",
+     "exru": "все должностные лица, кроме судей",
+     "art": "73",
+     "artsk": "V",
+     "sk": 5
+    },
+    {
+     "key": "k:kai",
+     "lemma": "kai",
+     "lt": "kai",
+     "ru": "когда",
+     "gram": "jungtukas",
+     "syn": [],
+     "ex": "Įgaliojimai nutrūksta, kai pasibaigia laikas.",
+     "exru": "Полномочия прекращаются, когда истекает срок.",
+     "art": "63",
+     "artsk": "V",
+     "sk": 5
+    },
+    {
+     "key": "k:negu",
+     "lemma": "negu",
+     "lt": "negu",
+     "ru": "чем",
+     "gram": "jungtukas",
+     "syn": [],
+     "ex": "mažiau negu trys metai",
+     "exru": "менее чем три года",
+     "art": "87",
+     "artsk": "VI",
+     "sk": 6
+    },
+    {
+     "key": "k:nuolat",
+     "lemma": "nuolat",
+     "lt": "nuolat",
+     "ru": "постоянно",
+     "gram": "prieveiksmis",
+     "syn": [],
+     "ex": "kandidatas nuolat gyvena Lietuvoje",
+     "exru": "кандидат постоянно живёт в Литве",
+     "art": "78",
+     "artsk": "VI",
+     "sk": 6
+    },
+    {
+     "key": "k:kartu",
+     "lemma": "kartu",
+     "lt": "kartu",
+     "ru": "вместе",
+     "gram": "prieveiksmis",
+     "syn": [],
+     "ex": "Prezidentas kartu su Vyriausybe vykdo politiką",
+     "exru": "Президент вместе с Правительством ведёт политику",
+     "art": "84",
+     "artsk": "VI",
+     "sk": 6
+    },
+    {
+     "key": "k:laikinai",
+     "lemma": "laikinai",
+     "lt": "laikinai",
+     "ru": "временно",
+     "gram": "prieveiksmis",
+     "syn": [],
+     "ex": "Seimo Pirmininkas laikinai eina pareigas",
+     "exru": "Председатель Сейма временно исполняет обязанности",
+     "art": "89",
+     "artsk": "VI",
+     "sk": 6
+    },
+    {
+     "key": "k:tarp",
+     "lemma": "tarp",
+     "lt": "tarp",
+     "ru": "между",
+     "gram": "prielinksnis",
+     "syn": [],
+     "ex": "tarp Seimo sesijų",
+     "exru": "между сессиями Сейма",
+     "art": "100",
+     "artsk": "VII",
+     "sk": 7
+    },
+    {
+     "key": "k:o",
+     "lemma": "o",
+     "lt": "o",
+     "ru": "а",
+     "gram": "jungtukas",
+     "syn": [],
+     "ex": "atsako Seimui, o tarp sesijų — Prezidentui",
+     "exru": "отвечает Сейму, а между сессиями — Президенту",
+     "art": "100",
+     "artsk": "VII",
+     "sk": 7
+    },
+    {
+     "key": "k:toliau",
+     "lemma": "toliau",
+     "lt": "toliau",
+     "ru": "далее, дальше",
+     "gram": "prieveiksmis",
+     "syn": [],
+     "ex": "ar Prezidentas gali toliau eiti pareigas",
+     "exru": "может ли Президент далее исполнять обязанности",
+     "art": "105",
+     "artsk": "VIII",
+     "sk": 8
+    },
+    {
+     "key": "k:nedelsiant",
+     "lemma": "nedelsiant",
+     "lt": "nedelsiant",
+     "ru": "немедленно",
+     "gram": "prieveiksmis",
+     "syn": [],
+     "ex": "Prezidentas nedelsiant priima sprendimą dėl gynybos",
+     "exru": "Президент немедленно принимает решение о защите",
+     "art": "142",
+     "artsk": "XIII",
+     "sk": 13
+    },
+    {
+     "key": "k:prie",
+     "lemma": "prie",
+     "lt": "prie",
+     "ru": "к, у",
+     "gram": "prielinksnis",
+     "syn": [],
+     "ex": "prisideda prie tarptautinės tvarkos kūrimo",
+     "exru": "участвует в создании международного порядка",
+     "art": "135",
+     "artsk": "XIII",
+     "sk": 13
+    }
+   ]
+  },
   "facts": {
    "lt": "Faktai",
    "ru": "факты",
@@ -5243,7 +5809,13 @@ window.KONST = {
      "art": "1",
      "artsk": "I",
      "sk": 1,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Lietuvos valstybė yra ___ demokratinė respublika.",
+      "answer": "nepriklausoma",
+      "lemma": "nepriklausomas",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:2",
@@ -5257,7 +5829,13 @@ window.KONST = {
      "art": "2",
      "artsk": "I",
      "sk": 1,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ priklauso Tautai.",
+      "answer": "Suverenitetas",
+      "lemma": "suverenitetas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:3",
@@ -5271,7 +5849,13 @@ window.KONST = {
      "art": "4",
      "artsk": "I",
      "sk": 1,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Aukščiausią suverenią galią Tauta vykdo ___ ar per išrinktus atstovus.",
+      "answer": "tiesiogiai",
+      "lemma": "tiesiogiai",
+      "cat": "other"
+     }
     },
     {
      "key": "f:4",
@@ -5285,7 +5869,13 @@ window.KONST = {
      "art": "5",
      "artsk": "I",
      "sk": 1,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Valstybės valdžią vykdo Seimas, Respublikos ___ ir Vyriausybė, Teismas.",
+      "answer": "Prezidentas",
+      "lemma": "Prezidentas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:5",
@@ -5299,7 +5889,13 @@ window.KONST = {
      "art": "9",
      "artsk": "I",
      "sk": 1,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Svarbiausi ___ bei Tautos klausimai sprendžiami referendumu.",
+      "answer": "Valstybės",
+      "lemma": "valstybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:6",
@@ -5313,7 +5909,13 @@ window.KONST = {
      "art": "12",
      "artsk": "I",
      "sk": 1,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Lietuvos Respublikos ___ įgyjama gimstant.",
+      "answer": "pilietybė",
+      "lemma": "pilietybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:7",
@@ -5327,7 +5929,13 @@ window.KONST = {
      "art": "14",
      "artsk": "I",
      "sk": 1,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ kalba — lietuvių kalba.",
+      "answer": "Valstybinė",
+      "lemma": "valstybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:8",
@@ -5341,7 +5949,13 @@ window.KONST = {
      "art": "15",
      "artsk": "I",
      "sk": 1,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ vėliavos spalvos — geltona, žalia, raudona.",
+      "answer": "Valstybės",
+      "lemma": "valstybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:9",
@@ -5355,7 +5969,13 @@ window.KONST = {
      "art": "15",
      "artsk": "I",
      "sk": 1,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ herbas — baltas Vytis raudoname lauke.",
+      "answer": "Valstybės",
+      "lemma": "valstybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:10",
@@ -5369,7 +5989,13 @@ window.KONST = {
      "art": "16",
      "artsk": "I",
      "sk": 1,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ himnas — Vinco Kudirkos „Tautiška giesmė“.",
+      "answer": "Valstybės",
+      "lemma": "valstybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:11",
@@ -5383,7 +6009,8 @@ window.KONST = {
      "art": "17",
      "artsk": "I",
      "sk": 1,
-     "num": null
+     "num": null,
+     "cloze": null
     },
     {
      "key": "f:12",
@@ -5397,7 +6024,13 @@ window.KONST = {
      "art": "18",
      "artsk": "II",
      "sk": 2,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Žmogaus teisės ir ___ yra prigimtinės.",
+      "answer": "laisvės",
+      "lemma": "laisvė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:13",
@@ -5411,7 +6044,13 @@ window.KONST = {
      "art": "19",
      "artsk": "II",
      "sk": 2,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Žmogaus teisę į gyvybę saugo ___.",
+      "answer": "įstatymas",
+      "lemma": "įstatymas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:14",
@@ -5425,7 +6064,13 @@ window.KONST = {
      "art": "20",
      "artsk": "II",
      "sk": 2,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Žmogaus laisvė ___.",
+      "answer": "neliečiama",
+      "lemma": "neliečiamas",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:15",
@@ -5439,7 +6084,13 @@ window.KONST = {
      "art": "21",
      "artsk": "II",
      "sk": 2,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Žmogaus orumą gina ___.",
+      "answer": "įstatymas",
+      "lemma": "įstatymas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:16",
@@ -5453,7 +6104,13 @@ window.KONST = {
      "art": "22",
      "artsk": "II",
      "sk": 2,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Žmogaus privatus gyvenimas ___.",
+      "answer": "neliečiamas",
+      "lemma": "neliečiamas",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:17",
@@ -5467,7 +6124,13 @@ window.KONST = {
      "art": "23",
      "artsk": "II",
      "sk": 2,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Nuosavybė ___.",
+      "answer": "neliečiama",
+      "lemma": "neliečiamas",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:18",
@@ -5481,7 +6144,13 @@ window.KONST = {
      "art": "24",
      "artsk": "II",
      "sk": 2,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Žmogaus būstas ___.",
+      "answer": "neliečiamas",
+      "lemma": "neliečiamas",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:19",
@@ -5495,7 +6164,13 @@ window.KONST = {
      "art": "26",
      "artsk": "II",
      "sk": 2,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Minties, tikėjimo ir sąžinės ___ yra nevaržoma.",
+      "answer": "laisvė",
+      "lemma": "laisvė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:20",
@@ -5509,7 +6184,13 @@ window.KONST = {
      "art": "29",
      "artsk": "II",
      "sk": 2,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Įstatymui ir ___ visi asmenys lygūs.",
+      "answer": "teismui",
+      "lemma": "teisė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:21",
@@ -5523,7 +6204,13 @@ window.KONST = {
      "art": "31",
      "artsk": "II",
      "sk": 2,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ laikomas nekaltu, kol jo kaltumas neįrodytas.",
+      "answer": "Asmuo",
+      "lemma": "asmuo",
+      "cat": "term"
+     }
     },
     {
      "key": "f:22",
@@ -5537,7 +6224,13 @@ window.KONST = {
      "art": "33",
      "artsk": "II",
      "sk": 2,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Piliečiai turi teisę ___ valdant savo šalį.",
+      "answer": "dalyvauti",
+      "lemma": "dalyvauti",
+      "cat": "verb"
+     }
     },
     {
      "key": "f:23",
@@ -5560,6 +6253,12 @@ window.KONST = {
        "20",
        "21"
       ]
+     },
+     "cloze": {
+      "text": "Piliečiai, kuriems sukako 18 metų, turi rinkimų ___.",
+      "answer": "teisę",
+      "lemma": "teisė",
+      "cat": "term"
      }
     },
     {
@@ -5574,7 +6273,13 @@ window.KONST = {
      "art": "36",
      "artsk": "II",
      "sk": 2,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Piliečiai gali ___ be ginklo į taikius susirinkimus.",
+      "answer": "rinktis",
+      "lemma": "rinktis",
+      "cat": "verb"
+     }
     },
     {
      "key": "f:25",
@@ -5588,7 +6293,13 @@ window.KONST = {
      "art": "38",
      "artsk": "III",
      "sk": 3,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Šeima yra ___ ir valstybės pagrindas.",
+      "answer": "visuomenės",
+      "lemma": "visuomenė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:26",
@@ -5602,7 +6313,13 @@ window.KONST = {
      "art": "38",
      "artsk": "III",
      "sk": 3,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ sudaroma laisvu vyro ir moters sutarimu.",
+      "answer": "Santuoka",
+      "lemma": "santuoka",
+      "cat": "term"
+     }
     },
     {
      "key": "f:27",
@@ -5616,7 +6333,13 @@ window.KONST = {
      "art": "38",
      "artsk": "III",
      "sk": 3,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Sutuoktinių ___ šeimoje lygios.",
+      "answer": "teisės",
+      "lemma": "teisė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:28",
@@ -5630,7 +6353,13 @@ window.KONST = {
      "art": "39",
      "artsk": "III",
      "sk": 3,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Nepilnamečius vaikus gina ___.",
+      "answer": "įstatymas",
+      "lemma": "įstatymas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:29",
@@ -5644,7 +6373,13 @@ window.KONST = {
      "art": "40",
      "artsk": "III",
      "sk": 3,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ mokymo įstaigos yra pasaulietinės.",
+      "answer": "Valstybinės",
+      "lemma": "valstybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:30",
@@ -5667,6 +6402,12 @@ window.KONST = {
        "18",
        "20"
       ]
+     },
+     "cloze": {
+      "text": "Asmenims iki 16 metų mokslas ___.",
+      "answer": "privalomas",
+      "lemma": "privalomas",
+      "cat": "adj"
      }
     },
     {
@@ -5681,7 +6422,13 @@ window.KONST = {
      "art": "41",
      "artsk": "III",
      "sk": 3,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Mokymas valstybinėse mokyklose yra ___.",
+      "answer": "nemokamas",
+      "lemma": "nemokamas",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:32",
@@ -5695,7 +6442,13 @@ window.KONST = {
      "art": "42",
      "artsk": "III",
      "sk": 3,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Kultūra, ___ ir tyrinėjimai yra laisvi.",
+      "answer": "mokslas",
+      "lemma": "mokslas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:33",
@@ -5709,7 +6462,13 @@ window.KONST = {
      "art": "43",
      "artsk": "III",
      "sk": 3,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Lietuvoje nėra ___ religijos.",
+      "answer": "valstybinės",
+      "lemma": "valstybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:34",
@@ -5723,7 +6482,13 @@ window.KONST = {
      "art": "44",
      "artsk": "III",
      "sk": 3,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Masinės informacijos ___ draudžiama.",
+      "answer": "cenzūra",
+      "lemma": "cenzūra",
+      "cat": "term"
+     }
     },
     {
      "key": "f:35",
@@ -5737,7 +6502,13 @@ window.KONST = {
      "art": "46",
      "artsk": "IV",
      "sk": 4,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Lietuvos ūkis grindžiamas privačios ___ teise.",
+      "answer": "nuosavybės",
+      "lemma": "nuosavybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:36",
@@ -5751,7 +6522,13 @@ window.KONST = {
      "art": "46",
      "artsk": "IV",
      "sk": 4,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Įstatymas draudžia ___ gamybą ir rinką.",
+      "answer": "monopolizuoti",
+      "lemma": "monopolizuoti",
+      "cat": "verb"
+     }
     },
     {
      "key": "f:37",
@@ -5765,7 +6542,13 @@ window.KONST = {
      "art": "46",
      "artsk": "IV",
      "sk": 4,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ gina vartotojo interesus.",
+      "answer": "Valstybė",
+      "lemma": "valstybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:38",
@@ -5779,7 +6562,13 @@ window.KONST = {
      "art": "48",
      "artsk": "IV",
      "sk": 4,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ gali laisvai pasirinkti darbą bei verslą.",
+      "answer": "Kiekvienas",
+      "lemma": "kiekvienas",
+      "cat": "other"
+     }
     },
     {
      "key": "f:39",
@@ -5793,7 +6582,13 @@ window.KONST = {
      "art": "48",
      "artsk": "IV",
      "sk": 4,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ darbas draudžiamas.",
+      "answer": "Priverčiamasis",
+      "lemma": "priverčiamasis",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:40",
@@ -5807,7 +6602,13 @@ window.KONST = {
      "art": "49",
      "artsk": "IV",
      "sk": 4,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ dirbantis žmogus turi teisę į kasmetines mokamas atostogas.",
+      "answer": "Kiekvienas",
+      "lemma": "kiekvienas",
+      "cat": "other"
+     }
     },
     {
      "key": "f:41",
@@ -5821,7 +6622,13 @@ window.KONST = {
      "art": "50",
      "artsk": "IV",
      "sk": 4,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Profesinės sąjungos kuriasi laisvai ir veikia ___.",
+      "answer": "savarankiškai",
+      "lemma": "savarankiškai",
+      "cat": "other"
+     }
     },
     {
      "key": "f:42",
@@ -5835,7 +6642,13 @@ window.KONST = {
      "art": "51",
      "artsk": "IV",
      "sk": 4,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ turi teisę streikuoti.",
+      "answer": "Darbuotojai",
+      "lemma": "darbuotojas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:43",
@@ -5849,7 +6662,13 @@ window.KONST = {
      "art": "52",
      "artsk": "IV",
      "sk": 4,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ laiduoja teisę gauti senatvės ir invalidumo pensijas.",
+      "answer": "Valstybė",
+      "lemma": "valstybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:44",
@@ -5863,7 +6682,13 @@ window.KONST = {
      "art": "53",
      "artsk": "IV",
      "sk": 4,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Valstybė ir ___ asmuo privalo saugoti aplinką.",
+      "answer": "kiekvienas",
+      "lemma": "kiekvienas",
+      "cat": "other"
+     }
     },
     {
      "key": "f:45",
@@ -5886,6 +6711,12 @@ window.KONST = {
        "141",
        "151"
       ]
+     },
+     "cloze": {
+      "text": "Seimą sudaro 141 Seimo ___.",
+      "answer": "narys",
+      "lemma": "narys",
+      "cat": "term"
      }
     },
     {
@@ -5900,7 +6731,8 @@ window.KONST = {
      "art": "55",
      "artsk": "V",
      "sk": 5,
-     "num": null
+     "num": null,
+     "cloze": null
     },
     {
      "key": "f:47",
@@ -5923,6 +6755,12 @@ window.KONST = {
        "21",
        "25"
       ]
+     },
+     "cloze": {
+      "text": "Seimo nariu gali būti renkamas ___, ne jaunesnis kaip 21 metų.",
+      "answer": "pilietis",
+      "lemma": "pilietis",
+      "cat": "term"
      }
     },
     {
@@ -5937,7 +6775,13 @@ window.KONST = {
      "art": "59",
      "artsk": "V",
      "sk": 5,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Seimo ___ prisiekia būti ištikimas Lietuvos Respublikai.",
+      "answer": "narys",
+      "lemma": "narys",
+      "cat": "term"
+     }
     },
     {
      "key": "f:49",
@@ -5951,7 +6795,13 @@ window.KONST = {
      "art": "62",
      "artsk": "V",
      "sk": 5,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Seimo nario asmuo ___.",
+      "answer": "neliečiamas",
+      "lemma": "neliečiamas",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:50",
@@ -5965,7 +6815,13 @@ window.KONST = {
      "art": "64",
      "artsk": "V",
      "sk": 5,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ kasmet renkasi į dvi sesijas — pavasario ir rudens.",
+      "answer": "Seimas",
+      "lemma": "Seimas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:51",
@@ -5979,7 +6835,13 @@ window.KONST = {
      "art": "67",
      "artsk": "V",
      "sk": 5,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Seimas leidžia įstatymus ir tvirtina ___ biudžetą.",
+      "answer": "valstybės",
+      "lemma": "valstybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:52",
@@ -6002,6 +6864,12 @@ window.KONST = {
        "50",
        "100"
       ]
+     },
+     "cloze": {
+      "text": "50 tūkstančių piliečių gali ___ Seimui įstatymo projektą.",
+      "answer": "teikti",
+      "lemma": "teikti",
+      "cat": "verb"
      }
     },
     {
@@ -6016,7 +6884,13 @@ window.KONST = {
      "art": "70",
      "artsk": "V",
      "sk": 5,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Įstatymus pasirašo ir paskelbia Respublikos ___.",
+      "answer": "Prezidentas",
+      "lemma": "Prezidentas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:54",
@@ -6030,7 +6904,13 @@ window.KONST = {
      "art": "76",
      "artsk": "V",
      "sk": 5,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Seimo struktūrą ir darbo tvarką nustato Seimo ___.",
+      "answer": "statutas",
+      "lemma": "statutas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:55",
@@ -6044,7 +6924,13 @@ window.KONST = {
      "art": "77",
      "artsk": "VI",
      "sk": 6,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Respublikos ___ yra valstybės vadovas.",
+      "answer": "Prezidentas",
+      "lemma": "Prezidentas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:56",
@@ -6067,6 +6953,12 @@ window.KONST = {
        "40",
        "45"
       ]
+     },
+     "cloze": {
+      "text": "Prezidentu gali būti renkamas ___, ne jaunesnis kaip 40 metų.",
+      "answer": "pilietis",
+      "lemma": "pilietis",
+      "cat": "term"
      }
     },
     {
@@ -6081,7 +6973,8 @@ window.KONST = {
      "art": "78",
      "artsk": "VI",
      "sk": 6,
-     "num": null
+     "num": null,
+     "cloze": null
     },
     {
      "key": "f:58",
@@ -6095,7 +6988,13 @@ window.KONST = {
      "art": "78",
      "artsk": "VI",
      "sk": 6,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Tas pats ___ gali būti Prezidentu ne daugiau kaip du kartus iš eilės.",
+      "answer": "asmuo",
+      "lemma": "asmuo",
+      "cat": "term"
+     }
     },
     {
      "key": "f:59",
@@ -6118,7 +7017,8 @@ window.KONST = {
        "30",
        "50"
       ]
-     }
+     },
+     "cloze": null
     },
     {
      "key": "f:60",
@@ -6132,7 +7032,13 @@ window.KONST = {
      "art": "82",
      "artsk": "VI",
      "sk": 6,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Prezidentas prisiekia Tautai būti ištikimas ___.",
+      "answer": "Konstitucijai",
+      "lemma": "Konstitucija",
+      "cat": "term"
+     }
     },
     {
      "key": "f:61",
@@ -6146,7 +7052,13 @@ window.KONST = {
      "art": "84",
      "artsk": "VI",
      "sk": 6,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ vykdo užsienio politiką kartu su Vyriausybe.",
+      "answer": "Prezidentas",
+      "lemma": "Prezidentas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:62",
@@ -6160,7 +7072,13 @@ window.KONST = {
      "art": "84",
      "artsk": "VI",
      "sk": 6,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ teikia malonę nuteistiesiems.",
+      "answer": "Prezidentas",
+      "lemma": "Prezidentas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:63",
@@ -6174,7 +7092,13 @@ window.KONST = {
      "art": "85",
      "artsk": "VI",
      "sk": 6,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ leidžia dekretus.",
+      "answer": "Prezidentas",
+      "lemma": "Prezidentas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:64",
@@ -6188,7 +7112,13 @@ window.KONST = {
      "art": "86",
      "artsk": "VI",
      "sk": 6,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Respublikos Prezidento asmuo ___.",
+      "answer": "neliečiamas",
+      "lemma": "neliečiamas",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:65",
@@ -6202,7 +7132,13 @@ window.KONST = {
      "art": "91",
      "artsk": "VII",
      "sk": 7,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Vyriausybę sudaro ___ ir ministrai.",
+      "answer": "Ministras Pirmininkas",
+      "lemma": "Ministras Pirmininkas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:66",
@@ -6216,7 +7152,13 @@ window.KONST = {
      "art": "92",
      "artsk": "VII",
      "sk": 7,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Ministrą Pirmininką Seimo pritarimu skiria Respublikos ___.",
+      "answer": "Prezidentas",
+      "lemma": "Prezidentas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:67",
@@ -6230,7 +7172,13 @@ window.KONST = {
      "art": "92",
      "artsk": "VII",
      "sk": 7,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ gauna įgaliojimus, kai Seimas pritaria jos programai.",
+      "answer": "Vyriausybė",
+      "lemma": "Vyriausybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:68",
@@ -6244,7 +7192,13 @@ window.KONST = {
      "art": "93",
      "artsk": "VII",
      "sk": 7,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ ir ministrai prisiekia laikytis Konstitucijos.",
+      "answer": "Ministras Pirmininkas",
+      "lemma": "Ministras Pirmininkas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:69",
@@ -6258,7 +7212,13 @@ window.KONST = {
      "art": "94",
      "artsk": "VII",
      "sk": 7,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ vykdo įstatymus ir rengia valstybės biudžeto projektą.",
+      "answer": "Vyriausybė",
+      "lemma": "Vyriausybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:70",
@@ -6272,7 +7232,13 @@ window.KONST = {
      "art": "96",
      "artsk": "VII",
      "sk": 7,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ solidariai atsako Seimui už savo veiklą.",
+      "answer": "Vyriausybė",
+      "lemma": "Vyriausybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:71",
@@ -6286,7 +7252,13 @@ window.KONST = {
      "art": "97",
      "artsk": "VII",
      "sk": 7,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ vadovauja Vyriausybės veiklai.",
+      "answer": "Ministras Pirmininkas",
+      "lemma": "Ministras Pirmininkas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:72",
@@ -6300,7 +7272,13 @@ window.KONST = {
      "art": "98",
      "artsk": "VII",
      "sk": 7,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Ministras vadovauja ___.",
+      "answer": "ministerijai",
+      "lemma": "ministerija",
+      "cat": "term"
+     }
     },
     {
      "key": "f:73",
@@ -6314,7 +7292,13 @@ window.KONST = {
      "art": "101",
      "artsk": "VII",
      "sk": 7,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Po Seimo rinkimų sudaroma nauja ___.",
+      "answer": "Vyriausybė",
+      "lemma": "Vyriausybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:74",
@@ -6328,7 +7312,13 @@ window.KONST = {
      "art": "102",
      "artsk": "VIII",
      "sk": 8,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ Teismas sprendžia, ar įstatymai neprieštarauja Konstitucijai.",
+      "answer": "Konstitucinis",
+      "lemma": "konstitucinis",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:75",
@@ -6351,6 +7341,12 @@ window.KONST = {
        "7",
        "9"
       ]
+     },
+     "cloze": {
+      "text": "Konstitucinį Teismą sudaro 9 ___.",
+      "answer": "teisėjai",
+      "lemma": "teisėjas",
+      "cat": "term"
      }
     },
     {
@@ -6365,7 +7361,13 @@ window.KONST = {
      "art": "103",
      "artsk": "VIII",
      "sk": 8,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Teisėjai skiriami devyneriems metams ir tik vienai ___.",
+      "answer": "kadencijai",
+      "lemma": "kadencija",
+      "cat": "term"
+     }
     },
     {
      "key": "f:77",
@@ -6379,7 +7381,13 @@ window.KONST = {
      "art": "103",
      "artsk": "VIII",
      "sk": 8,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Teisėju gali būti ___, turintis aukštąjį teisinį išsilavinimą.",
+      "answer": "pilietis",
+      "lemma": "pilietis",
+      "cat": "term"
+     }
     },
     {
      "key": "f:78",
@@ -6393,7 +7401,13 @@ window.KONST = {
      "art": "104",
      "artsk": "VIII",
      "sk": 8,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ Teismo teisėjai yra nepriklausomi.",
+      "answer": "Konstitucinio",
+      "lemma": "konstitucinis",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:79",
@@ -6407,7 +7421,13 @@ window.KONST = {
      "art": "105",
      "artsk": "VIII",
      "sk": 8,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ Teismas teikia išvadas dėl rinkimų ir apkaltos.",
+      "answer": "Konstitucinis",
+      "lemma": "konstitucinis",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:80",
@@ -6430,6 +7450,12 @@ window.KONST = {
        "1/3",
        "1/2"
       ]
+     },
+     "cloze": {
+      "text": "Į Konstitucinį Teismą gali kreiptis ___, ne mažiau kaip 1/5 visų Seimo narių ir teismai.",
+      "answer": "Vyriausybė",
+      "lemma": "Vyriausybė",
+      "cat": "term"
      }
     },
     {
@@ -6444,7 +7470,13 @@ window.KONST = {
      "art": "106",
      "artsk": "VIII",
      "sk": 8,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ asmuo gali kreiptis į Konstitucinį Teismą, jeigu pažeistos jo konstitucinės teisės ar laisvės ir jis išnaudojo visas teisinės gynybos priemones.",
+      "answer": "Kiekvienas",
+      "lemma": "kiekvienas",
+      "cat": "other"
+     }
     },
     {
      "key": "f:82",
@@ -6458,7 +7490,13 @@ window.KONST = {
      "art": "107",
      "artsk": "VIII",
      "sk": 8,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ Teismo sprendimai yra galutiniai ir neskundžiami.",
+      "answer": "Konstitucinio",
+      "lemma": "konstitucinis",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:83",
@@ -6472,7 +7510,13 @@ window.KONST = {
      "art": "109",
      "artsk": "IX",
      "sk": 9,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Teisingumą Lietuvoje vykdo tik ___.",
+      "answer": "teismai",
+      "lemma": "teismas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:84",
@@ -6486,7 +7530,13 @@ window.KONST = {
      "art": "109",
      "artsk": "IX",
      "sk": 9,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ ir teismai, vykdydami teisingumą, yra nepriklausomi.",
+      "answer": "Teisėjai",
+      "lemma": "teisėjas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:85",
@@ -6500,7 +7550,13 @@ window.KONST = {
      "art": "109",
      "artsk": "IX",
      "sk": 9,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ priima sprendimus Lietuvos Respublikos vardu.",
+      "answer": "Teismas",
+      "lemma": "teismas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:86",
@@ -6514,7 +7570,13 @@ window.KONST = {
      "art": "111",
      "artsk": "IX",
      "sk": 9,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Lietuvos teismai — ___, apeliacinis, apygardų ir apylinkių teismai.",
+      "answer": "Aukščiausiasis",
+      "lemma": "aukščiausias",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:87",
@@ -6528,7 +7590,13 @@ window.KONST = {
      "art": "112",
      "artsk": "IX",
      "sk": 9,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ Lietuvoje gali būti tik Lietuvos Respublikos piliečiai.",
+      "answer": "Teisėjais",
+      "lemma": "teisėjas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:88",
@@ -6542,7 +7610,13 @@ window.KONST = {
      "art": "114",
      "artsk": "IX",
      "sk": 9,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ į teisėjo ar teismo veiklą draudžiamas.",
+      "answer": "Kišimasis",
+      "lemma": "kišimasis",
+      "cat": "term"
+     }
     },
     {
      "key": "f:89",
@@ -6556,7 +7630,13 @@ window.KONST = {
      "art": "117",
      "artsk": "IX",
      "sk": 9,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Visuose teismuose bylos nagrinėjamos ___.",
+      "answer": "viešai",
+      "lemma": "viešas",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:90",
@@ -6570,7 +7650,13 @@ window.KONST = {
      "art": "117",
      "artsk": "IX",
      "sk": 9,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Teismo procesas vyksta ___ kalba.",
+      "answer": "valstybine",
+      "lemma": "valstybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:91",
@@ -6584,7 +7670,13 @@ window.KONST = {
      "art": "118",
      "artsk": "IX",
      "sk": 9,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Ikiteisminį tyrimą organizuoja ir jam vadovauja ___.",
+      "answer": "prokuroras",
+      "lemma": "prokuroras",
+      "cat": "term"
+     }
     },
     {
      "key": "f:92",
@@ -6598,7 +7690,13 @@ window.KONST = {
      "art": "119",
      "artsk": "X",
      "sk": 10,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Savivaldos teisė įgyvendinama per savivaldybių ___ ir savivaldybių merus.",
+      "answer": "tarybas",
+      "lemma": "taryba",
+      "cat": "term"
+     }
     },
     {
      "key": "f:93",
@@ -6612,7 +7710,13 @@ window.KONST = {
      "art": "119",
      "artsk": "X",
      "sk": 10,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ tarybas renka gyventojai ketveriems metams.",
+      "answer": "Savivaldybių",
+      "lemma": "savivaldybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:94",
@@ -6626,7 +7730,13 @@ window.KONST = {
      "art": "119",
      "artsk": "X",
      "sk": 10,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ merus ketveriems metams renka gyventojai; meru gali būti tik Lietuvos Respublikos pilietis.",
+      "answer": "Savivaldybių",
+      "lemma": "savivaldybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:95",
@@ -6640,7 +7750,13 @@ window.KONST = {
      "art": "120",
      "artsk": "X",
      "sk": 10,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Savivaldybės veikia laisvai ir ___.",
+      "answer": "savarankiškai",
+      "lemma": "savarankiškai",
+      "cat": "other"
+     }
     },
     {
      "key": "f:96",
@@ -6654,7 +7770,13 @@ window.KONST = {
      "art": "121",
      "artsk": "X",
      "sk": 10,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ sudaro ir tvirtina savo biudžetą.",
+      "answer": "Savivaldybės",
+      "lemma": "savivaldybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:97",
@@ -6668,7 +7790,13 @@ window.KONST = {
      "art": "123",
      "artsk": "X",
      "sk": 10,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Seimas gali ___ įvesti tiesioginį valdymą.",
+      "answer": "laikinai",
+      "lemma": "laikinas",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:98",
@@ -6682,7 +7810,13 @@ window.KONST = {
      "art": "125",
      "artsk": "XI",
      "sk": 11,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Lietuvos ___ bankas yra Lietuvos bankas.",
+      "answer": "centrinis",
+      "lemma": "centrinis",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:99",
@@ -6696,7 +7830,13 @@ window.KONST = {
      "art": "126",
      "artsk": "XI",
      "sk": 11,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Lietuvos banko ___ pirmininką penkeriems metams skiria Seimas.",
+      "answer": "valdybos",
+      "lemma": "valdyba",
+      "cat": "term"
+     }
     },
     {
      "key": "f:100",
@@ -6710,7 +7850,13 @@ window.KONST = {
      "art": "127",
      "artsk": "XI",
      "sk": 11,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ biudžeto pajamos formuojamos iš mokesčių.",
+      "answer": "Valstybės",
+      "lemma": "valstybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:101",
@@ -6733,6 +7879,12 @@ window.KONST = {
        "3",
        "4"
       ]
+     },
+     "cloze": {
+      "text": "___ metai prasideda sausio 1 ir baigiasi gruodžio 31 dieną.",
+      "answer": "Biudžetiniai",
+      "lemma": "biudžetinis",
+      "cat": "adj"
      }
     },
     {
@@ -6747,7 +7899,13 @@ window.KONST = {
      "art": "130",
      "artsk": "XI",
      "sk": 11,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Valstybės biudžeto projektą sudaro ___.",
+      "answer": "Vyriausybė",
+      "lemma": "Vyriausybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:103",
@@ -6761,7 +7919,13 @@ window.KONST = {
      "art": "131",
      "artsk": "XI",
      "sk": 11,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ biudžetą tvirtina Seimas įstatymu.",
+      "answer": "Valstybės",
+      "lemma": "valstybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:104",
@@ -6775,7 +7939,13 @@ window.KONST = {
      "art": "133",
      "artsk": "XII",
      "sk": 12,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Valstybės kontrolei vadovauja valstybės ___.",
+      "answer": "kontrolierius",
+      "lemma": "kontrolierius",
+      "cat": "term"
+     }
     },
     {
      "key": "f:105",
@@ -6789,7 +7959,13 @@ window.KONST = {
      "art": "133",
      "artsk": "XII",
      "sk": 12,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ kontrolierių penkeriems metams skiria Seimas.",
+      "answer": "Valstybės",
+      "lemma": "valstybė",
+      "cat": "term"
+     }
     },
     {
      "key": "f:106",
@@ -6803,7 +7979,13 @@ window.KONST = {
      "art": "134",
      "artsk": "XII",
      "sk": 12,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Valstybės kontrolė prižiūri, kaip vykdomas valstybės ___.",
+      "answer": "biudžetas",
+      "lemma": "biudžetas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:107",
@@ -6817,7 +7999,13 @@ window.KONST = {
      "art": "135",
      "artsk": "XIII",
      "sk": 13,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Lietuva užsienio politikoje vadovaujasi tarptautinės teisės ___.",
+      "answer": "principais",
+      "lemma": "principas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:108",
@@ -6831,7 +8019,13 @@ window.KONST = {
      "art": "135",
      "artsk": "XIII",
      "sk": 13,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Lietuvoje karo ___ draudžiama.",
+      "answer": "propaganda",
+      "lemma": "propaganda",
+      "cat": "term"
+     }
     },
     {
      "key": "f:109",
@@ -6845,7 +8039,13 @@ window.KONST = {
      "art": "137",
      "artsk": "XIII",
      "sk": 13,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Lietuvos ___ negali būti masinio naikinimo ginklų ir užsienio karinių bazių.",
+      "answer": "teritorijoje",
+      "lemma": "teritorija",
+      "cat": "term"
+     }
     },
     {
      "key": "f:110",
@@ -6859,7 +8059,13 @@ window.KONST = {
      "art": "139",
      "artsk": "XIII",
      "sk": 13,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Lietuvos gynimas — kiekvieno piliečio teisė ir ___.",
+      "answer": "pareiga",
+      "lemma": "pareiga",
+      "cat": "term"
+     }
     },
     {
      "key": "f:111",
@@ -6873,7 +8079,13 @@ window.KONST = {
      "art": "139",
      "artsk": "XIII",
      "sk": 13,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Piliečiai privalo atlikti karo ar alternatyviąją ___.",
+      "answer": "tarnybą",
+      "lemma": "tarnyba",
+      "cat": "term"
+     }
     },
     {
      "key": "f:112",
@@ -6887,7 +8099,13 @@ window.KONST = {
      "art": "140",
      "artsk": "XIII",
      "sk": 13,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ ginkluotųjų pajėgų vadas yra Respublikos Prezidentas.",
+      "answer": "Vyriausiasis",
+      "lemma": "vyriausiasis",
+      "cat": "adj"
+     }
     },
     {
      "key": "f:113",
@@ -6901,7 +8119,13 @@ window.KONST = {
      "art": "142",
      "artsk": "XIII",
      "sk": 13,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Seimas įveda karo padėtį ir skelbia ___.",
+      "answer": "mobilizaciją",
+      "lemma": "mobilizacija",
+      "cat": "term"
+     }
     },
     {
      "key": "f:114",
@@ -6915,7 +8139,13 @@ window.KONST = {
      "art": "144",
      "artsk": "XIII",
      "sk": 13,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "___ gali įvesti nepaprastąją padėtį iki šešių mėnesių.",
+      "answer": "Seimas",
+      "lemma": "Seimas",
+      "cat": "term"
+     }
     },
     {
      "key": "f:115",
@@ -6938,6 +8168,12 @@ window.KONST = {
        "1/3",
        "1/2"
       ]
+     },
+     "cloze": {
+      "text": "Sumanymą keisti ___ gali pateikti 1/4 Seimo narių arba 300 tūkstančių rinkėjų.",
+      "answer": "Konstituciją",
+      "lemma": "Konstitucija",
+      "cat": "term"
      }
     },
     {
@@ -6952,7 +8188,13 @@ window.KONST = {
      "art": "147",
      "artsk": "XIV",
      "sk": 14,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Karo ar nepaprastosios padėties metu ___ negali būti taisoma.",
+      "answer": "Konstitucija",
+      "lemma": "Konstitucija",
+      "cat": "term"
+     }
     },
     {
      "key": "f:117",
@@ -6966,7 +8208,13 @@ window.KONST = {
      "art": "148",
      "artsk": "XIV",
      "sk": 14,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Pirmojo ___ nuostatą galima pakeisti tik referendumu.",
+      "answer": "straipsnio",
+      "lemma": "straipsnis",
+      "cat": "term"
+     }
     },
     {
      "key": "f:118",
@@ -6980,7 +8228,13 @@ window.KONST = {
      "art": "148",
      "artsk": "XIV",
      "sk": 14,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Pataisos dėl kitų ___ Seime svarstomos ir balsuojamos du kartus.",
+      "answer": "skirsnių",
+      "lemma": "skirsnis",
+      "cat": "term"
+     }
     },
     {
      "key": "f:119",
@@ -6994,7 +8248,13 @@ window.KONST = {
      "art": "149",
      "artsk": "XIV",
      "sk": 14,
-     "num": null
+     "num": null,
+     "cloze": {
+      "text": "Įstatymas dėl ___ keitimo įsigalioja ne anksčiau kaip po vieno mėnesio.",
+      "answer": "Konstitucijos",
+      "lemma": "Konstitucija",
+      "cat": "term"
+     }
     }
    ]
   }

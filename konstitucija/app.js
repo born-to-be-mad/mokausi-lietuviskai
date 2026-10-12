@@ -21,7 +21,7 @@
   const qp = new URLSearchParams(location.search);
   if (D.decks[qp.get('d')]) { prefs.deck = qp.get('d'); prefs.sk = 'all'; }
   if (/^\d+$/.test(qp.get('sk') || '')) prefs.sk = qp.get('sk');
-  if (['cards', 'quiz', 'progress'].includes(qp.get('m'))) prefs.mode = qp.get('m');
+  if (['cards', 'quiz', 'tasks', 'progress'].includes(qp.get('m'))) prefs.mode = qp.get('m');
   if (!D.decks[prefs.deck]) prefs.deck = 'terms';
   const savePrefs = () => write(PREFS, prefs);
 
@@ -259,6 +259,125 @@
       el('div', { class: 'actions' }, el('button', { class: 'primary', on: { click: startQuiz } }, 'Dar kartą (ещё раз)')));
   }
 
+  // ---------- задания (как тесты 7.4, 7.7, 7.8 книги) ----------
+  const CAT_NAME = { terms: ['daiktavardis', 'daiktavardžiai', 'сущ.'], verbs: ['veiksmažodis', 'veiksmažodžiai', 'глаг.'],
+                     adjs: ['būdvardis', 'būdvardžiai', 'прил.'] };
+  const CAT_DECK = { term: 'terms', verb: 'verbs', adj: 'adjs', other: 'kiti' };
+  const inChapter = list => { if (prefs.sk === 'all') return list; const f = list.filter(t => t.sk === +prefs.sk); return f.length >= 4 ? f : list; };
+  const simple = w => /^[a-ząčęėįšųūž]+$/.test(w);          // одно слово со строчной — без подсказки формой
+  const TASKS = {
+    syn: { lt: 'Sinonimai', ru: 'синонимы', about: 'Глагол → какой глагол значит то же самое?', make() {
+      const verbs = D.decks.verbs.items, by = Object.fromEntries(verbs.map(v => [v.lemma, v]));
+      const aspect = (a, b) => a.endsWith(b) || b.endsWith(a);   // skelbti → paskelbti — вид, а не синоним
+      const pairs = [];
+      for (const a of inChapter(verbs)) for (const s of a.syn || []) if (by[s] && !aspect(a.lemma, s)) pairs.push([a, by[s]]);
+      return shuffle(pairs).slice(0, QUIZ_LEN).map(([a, b]) => {
+        const wrong = shuffle(verbs.filter(x => x !== a && x !== b && !(a.syn || []).includes(x.lemma)
+          && !overlaps(x.ru, a.ru) && !overlaps(x.ru, b.ru))).slice(0, 3);
+        const opts = shuffle([b, ...wrong]);
+        return { ask: 'Kuris žodis reiškia tą patį? (какое слово значит то же?)', prompt: a.lemma, say: a.lemma,
+          opts: opts.map(x => x.lemma), correct: opts.indexOf(b), grade: a,
+          explain: [el('b', {}, `${a.lemma} ≈ ${b.lemma}`), ` — ${a.ru}`] };
+      });
+    } },
+    odd: { lt: 'Kuris žodis netinka?', ru: 'лишнее слово', about: 'Три слова одной части речи и одно другой — найдите лишнее.', make() {
+      const cats = Object.keys(CAT_NAME), out = [];
+      const words = c => inChapter(D.decks[c].items).filter(t => simple(t.lemma));
+      for (let i = 0; i < QUIZ_LEN; i++) {
+        const [m, o] = shuffle(cats);
+        const three = shuffle(words(m)).slice(0, 3), odd = shuffle(words(o))[0];
+        if (three.length < 3 || !odd) continue;
+        const opts = shuffle([...three, odd]);
+        out.push({ ask: 'Kuris žodis netinka? (какое слово лишнее?)', prompt: '', opts: opts.map(x => x.lemma),
+          correct: opts.indexOf(odd),
+          explain: [el('b', {}, odd.lemma), ` — ${CAT_NAME[o][0]} (${CAT_NAME[o][2]}); kiti — ${CAT_NAME[m][1]} (${CAT_NAME[m][2]})`] });
+      }
+      return out;
+    } },
+    cloze: { lt: 'Įrašykite žodį', ru: 'пропущенное слово', about: 'В ключевом факте пропущено слово — выберите его (в начальной форме).', make() {
+      const shape = w => `${/^[A-ZĄČĘĖĮŠŲŪŽ]/.test(w)}:${w.split(' ').length}`;
+      // факт берём, только если найдутся ≥ 3 неверных варианта того же вида, что ответ
+      const fair = f => D.decks[CAT_DECK[f.cloze.cat]].items.filter(x => x.lemma !== f.cloze.lemma && shape(x.lemma) === shape(f.cloze.lemma)).length >= 3;
+      const facts = inChapter(D.decks.facts.items).filter(f => f.cloze && CAT_DECK[f.cloze.cat] && fair(f));
+      return shuffle(facts).slice(0, QUIZ_LEN).map(f => {
+        const c = f.cloze, deckItems = D.decks[CAT_DECK[c.cat]].items, ans = deckItems.find(x => x.lemma === c.lemma);
+        const low = f.lt.toLowerCase();
+        // неверные: та же часть речи, другой смысл, нет в самом факте; сначала — из других глав (меньше шанс подойти)
+        const ok = x => x.lemma !== c.lemma && !low.includes(x.lemma.slice(0, -1).toLowerCase()) && (!ans || !overlaps(x.ru, ans.ru));
+        // и того же вида, что ответ (заглавная буква, число слов) — иначе «Ministras Pirmininkas» среди строчных выдаёт себя
+        const want = shape(c.lemma);
+        const rank = x => (shape(x.lemma) === want ? 0 : 2) + (x.sk !== f.sk ? 0 : 1);
+        const cand = shuffle(deckItems.filter(ok)).sort((a, b) => rank(a) - rank(b));
+        const opts = shuffle([c.lemma, ...cand.slice(0, 3).map(x => x.lemma)]);
+        const [pre, post] = c.text.split('___');
+        return { ask: 'Kuris žodis tinka? (какое слово подходит?)', prompt: [pre, el('span', { class: 'blank' }, '___'), post],
+          opts, correct: opts.indexOf(c.lemma), grade: f, sayAfter: f.lt,
+          explain: [el('div', {}, pre, el('b', {}, c.answer), post, ' ', el('span', { class: 'art' }, cite(f))),
+            el('div', { class: 'exru' }, f.ru), c.answer.toLowerCase() !== c.lemma.toLowerCase() ? el('div', { class: 'ru' }, `forma (форма): ${c.lemma} → ${c.answer}`) : null] };
+      });
+    } },
+  };
+
+  let task = null;
+  function showTasks() {
+    keyHandler = null; speakNow = null; meter();
+    const c = prefs.sk === 'all' ? null : chapter(+prefs.sk);
+    app.replaceChildren(
+      el('div', { class: 'card' },
+        el('p', { class: 'summary' }, 'Užduotys (задания)'),
+        el('p', { class: 'ru' }, 'Как тесты в книге: по 10 вопросов, проверка сразу. ' + (c ? `Глава: ${c.roman}. ${c.lt}.` : 'Все главы (главу можно выбрать выше).'))),
+      ...Object.entries(TASKS).map(([k, t]) => el('div', { class: 'card task' },
+        el('div', { class: 'front fact' }, t.lt, ' ', el('span', { class: 'ru' }, `(${t.ru})`)),
+        el('p', { class: 'ru' }, t.about),
+        el('div', { class: 'actions' }, el('button', { class: 'primary', on: { click: () => startTask(k) } }, 'Pradėti (начать)')))));
+  }
+  function startTask(kind) {
+    const items = TASKS[kind].make();
+    if (!items.length) { app.replaceChildren(el('div', { class: 'card empty' }, 'Šiai temai užduočių nėra (для этой главы заданий нет).')); return; }
+    task = { kind, items, i: 0, score: 0, mistakes: [] };
+    taskQuestion();
+  }
+  function taskQuestion() {
+    if (task.i >= task.items.length) return taskDone();
+    const q = task.items[task.i];
+    let done = false;
+    const next = el('button', { class: 'btn primary', hidden: true, on: { click: () => { task.i++; taskQuestion(); } } }, 'Kitas (дальше)');
+    const buttons = q.opts.map((o, k) => el('button', { on: { click: () => pick(k) } }, `${k + 1}. ${o}`));
+    const feedback = el('div', { class: 'feedback', hidden: true }, q.explain, q.sayAfter ? sayBtn(q.sayAfter) : null);
+    function pick(k) {
+      if (done) return;
+      done = true;
+      const ok = k === q.correct;
+      buttons.forEach((b, j) => { b.disabled = true; if (j === q.correct) b.classList.add('ok'); });
+      if (!ok) { buttons[k].classList.add('wrong'); task.mistakes.push(q); } else task.score++;
+      if (q.grade) grade(q.grade, ok);
+      feedback.hidden = false; next.hidden = false; next.focus();
+      speakNow = q.sayAfter ? () => S.say(q.sayAfter) : speakNow;
+    }
+    speakNow = q.say ? () => S.say(q.say) : null;
+    keyHandler = e => {
+      const n = +e.key;
+      if (n >= 1 && n <= q.opts.length) pick(n - 1);
+      else if ((e.key === 'Enter' || e.key === ' ') && done) { e.preventDefault(); next.click(); }
+    };
+    app.replaceChildren(
+      el('div', { class: 'card' },
+        el('div', { class: 'tag' }, `${task.i + 1} / ${task.items.length} · ${TASKS[task.kind].lt}`),
+        el('div', { class: 'ask' }, q.ask),
+        q.prompt ? el('div', { class: 'front fact' }, q.prompt, q.say ? sayBtn(q.say) : null) : null,
+        el('div', { class: 'opts' }, buttons), feedback),
+      next);
+  }
+  function taskDone() {
+    keyHandler = null; speakNow = null;
+    app.replaceChildren(el('div', { class: 'card' },
+      el('p', { class: 'summary' }, `${TASKS[task.kind].lt}: ${task.score} / ${task.items.length}`),
+      bar(task.score, task.items.length)),
+      el('div', { class: 'actions' },
+        el('button', { class: 'primary', on: { click: () => startTask(task.kind) } }, 'Dar kartą (ещё раз)'),
+        el('button', { on: { click: showTasks } }, 'Kitos užduotys (другие задания)')));
+  }
+
   // ---------- прогресс ----------
   function showProgress() {
     keyHandler = null;
@@ -306,7 +425,7 @@
     prefs.mode = mode; savePrefs();
     skSel.value = prefs.sk;
     document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.mode === mode)));
-    ({ cards: startCards, quiz: startQuiz, progress: showProgress })[mode]();
+    ({ cards: startCards, quiz: startQuiz, tasks: showTasks, progress: showProgress })[mode]();
   }
 
   deckSel.append(...Object.entries(D.decks).map(([k, d]) => el('option', { value: k }, `${d.lt} — ${d.items.length}`)));
