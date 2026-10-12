@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mokausi lietuviškai</title>
-<meta name="description" content="Учу литовский: бесплатные тренажёры и материалы (A2). Mokausi lietuviškai – nemokami treniruokliai ir medžiaga.">
+<meta name="description" content="Бесплатные материалы для изучения литовского (A2) и подготовки к экзамену по Конституции Литвы: рассказы с переводом, тренажёр слов с произношением, пробный экзамен, книга-пособие. Mokausi lietuviškai.">
+<!-- Шаблон: index.html собирает scripts/web.py ({{…}} — числа из данных и PDF). -->
 <style>
 :root {
   --bg: #f7f6f2; --card: #ffffff; --text: #1d1d1f; --muted: #6b6b70; --line: #dedcd5;
@@ -23,45 +24,104 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text);
-  font: 17px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; }
-main, footer { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+  font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; }
+main, footer { max-width: 860px; margin: 0 auto; padding: 0 16px; }
 .flag { display: flex; height: 6px; }
 .flag span { flex: 1; } .flag .y { background: var(--flag-y); } .flag .g { background: var(--flag-g); } .flag .r { background: var(--flag-r); }
-h1 { font-size: 1.8rem; margin: 28px 0 4px; }
-.lead { color: var(--muted); margin: 0 0 24px; }
-.ru { color: var(--muted); }
-.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin-bottom: 14px; }
-.card h2 { font-size: 1.2rem; margin: 0 0 4px; }
-.card p { margin: 0 0 12px; }
-.links { display: flex; flex-wrap: wrap; gap: 10px; }
-.links a { flex: 1 1 220px; display: block; padding: 12px 14px; border-radius: 10px; text-decoration: none;
-  border: 1px solid var(--accent); color: var(--accent); font-weight: 600; }
-.links a.primary { background: var(--accent); color: var(--bg); }
-.links a span { display: block; font-weight: 400; font-size: .85rem; opacity: .85; }
-.soon { color: var(--muted); }
-footer { color: var(--muted); font-size: .8rem; padding: 24px 16px 32px; }
-footer a { color: var(--accent); }
+h1 { font-size: 2rem; margin: 30px 0 6px; line-height: 1.15; }
+.lead { font-size: 1.1rem; margin: 0 0 8px; }
+.ru, .muted { color: var(--muted); }
+.author { color: var(--muted); font-size: .95rem; margin: 0 0 22px; }
+h2 { font-size: 1.35rem; margin: 30px 0 10px; }
+h2 .ru { font-weight: 400; font-size: 1rem; }
+.steps { list-style: none; counter-reset: s; padding: 0; margin: 0 0 8px; display: grid; gap: 10px; }
+.steps li { counter-increment: s; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px 12px 52px; position: relative; }
+.steps li::before { content: counter(s); position: absolute; left: 14px; top: 12px; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--accent); color: var(--bg); font-weight: 700; display: grid; place-items: center; font-size: .9rem; }
+.steps b { display: block; }
+.topic { margin-top: 34px; }
+.topic > p { margin: 0 0 14px; }
+.groups { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .groups { grid-template-columns: 1fr 1fr; } }
+.group { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 16px 14px; display: flex; flex-direction: column; }
+.group h3 { margin: 0 0 2px; font-size: 1.15rem; }
+.group h3 .ru { font-weight: 400; font-size: .95rem; }
+.group p { margin: 6px 0 12px; font-size: .95rem; }
+.group .links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; }
+.group .links a { flex: 1 1 140px; display: block; padding: 10px 12px; border-radius: 10px; text-decoration: none;
+  border: 1px solid var(--accent); color: var(--accent); font-weight: 600; font-size: .95rem; }
+.group .links a.primary { background: var(--accent); color: var(--bg); flex-basis: 100%; }
+.group .links a span { display: block; font-weight: 400; font-size: .8rem; opacity: .85; }
+.free { margin: 26px 0 0; padding: 14px 16px; border-radius: 12px; background: var(--card); border: 1px solid var(--line); font-size: .95rem; }
+footer { color: var(--muted); font-size: .85rem; padding: 26px 16px 36px; }
+footer a, .free a { color: var(--accent); }
 </style>
 </head>
 <body>
 <div class="flag" aria-hidden="true"><span class="y"></span><span class="g"></span><span class="r"></span></div>
 <main>
   <h1>Mokausi lietuviškai</h1>
-  <p class="lead">Учу литовский — бесплатные тренажёры и материалы для уровня A2 (LT ↔ RU).</p>
+  <p class="lead">Учу литовский: бесплатные материалы для уровня A2 — и для подготовки к экзамену по Конституции Литвы,
+    который сдают для гражданства и постоянного вида на жительство.</p>
+  <p class="author">Автор — Marudau Dzmitry. Всё на литовском с переводом на русский, работает на телефоне и компьютере.</p>
 
-  <section class="card">
+  <h2>Nuo ko pradėti? <span class="ru">С чего начать</span></h2>
+  <ol class="steps">
+    <li><b>Skaitykite <span class="ru">— читайте</span></b> короткие рассказы о Конституции: литовский текст с переводом
+      предложение к предложению, перевод можно выключить, текст можно послушать.</li>
+    <li><b>Mokykitės žodžių <span class="ru">— учите слова</span></b> в тренажёре: карточки сами напомнят повторить то,
+      что вы забываете; прогресс виден по главам.</li>
+    <li><b>Pasitikrinkite <span class="ru">— проверьте себя</span></b> пробным экзаменом: 20 вопросов, как на настоящем;
+      ошибки разобраны со ссылками на статьи.</li>
+  </ol>
+
+  <section class="topic">
     <h2>Lietuvos Konstitucija <span class="ru">· Конституция Литвы</span></h2>
-    <p>Подготовка к экзамену по Конституции: термины, факты, тексты статей с параллельным переводом, тесты.</p>
-    <div class="links">
-      <a class="primary" href="konstitucija/">Treniruoklė <span>термины, глаголы, прилагательные, ключевые факты: карточки, тест, прогресс</span></a>
-      <a class="primary" href="konstitucija/egzaminas.html">Bandomasis egzaminas <span>пробный экзамен: 20 вопросов, как на экзамене</span></a>
-      <a href="konstitucija/skaitymas.html">Arbatos vakarai su Konstitucija <span>лёгкое чтение: рассказы, LT + перевод</span></a>
-      <a href="konstitucija/Lietuvos_Konstitucijos_vadovas.pdf">Knyga (PDF) <span>книга-пособие, бесплатно</span></a>
-      <a href="konstitucija/Lietuvos_Konstitucijos_vadovas_QR.pdf">Knyga su QR kodais <span>для печати: QR-коды ведут на сайт</span></a>
+    <p class="muted">Всё по официальному тексту Конституции (редакция 22.05.2022), по всем 14 главам.</p>
+    <div class="groups">
+      <div class="group">
+        <h3>Skaitymas <span class="ru">· чтение</span></h3>
+        <p>«Arbatos vakarai su Konstitucija» — 24 коротких рассказа обо всех главах: семья Казлаускасов и соседка
+          Ольга, которая готовится к экзамену. Перевод — рядом, под строкой или по нажатию; озвучка; отметки «прочитано».</p>
+        <div class="links">
+          <a class="primary" href="konstitucija/skaitymas.html">Skaityti <span>читать и слушать</span></a>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Treniruoklė <span class="ru">· тренажёр</span></h3>
+        <p>Карточки с интервальным повторением, тест и прогресс по главам; окончания выделены, у слова есть пример из
+          Конституции и произношение.</p>
+        <div class="links">
+          <a href="konstitucija/?d=terms">Terminai <span>179 терминов</span></a>
+          <a href="konstitucija/?d=verbs">Veiksmažodžiai <span>134 глагола</span></a>
+          <a href="konstitucija/?d=adjs">Būdvardžiai <span>76 прилагательных</span></a>
+          <a href="konstitucija/?d=facts">Faktai <span>119 ключевых фактов</span></a>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Egzaminas <span class="ru">· экзамен</span></h3>
+        <p>Пробный экзамен: 20 вопросов на литовском, по 3 варианта, нужно не меньше 14 верных. Режим тренировки с
+          проверкой сразу, перевод вопросов, история попыток. Банк — 126 вопросов.</p>
+        <div class="links">
+          <a class="primary" href="konstitucija/egzaminas.html">Bandomasis egzaminas <span>пробный экзамен</span></a>
+          <a href="konstitucija/?d=facts&amp;m=quiz">Faktų testas <span>тест по фактам и числам</span></a>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Knygos <span class="ru">· книги</span></h3>
+        <p>«Lietuvos Konstitucijos vadovas» — пособие: факты, термины, глаголы, прилагательные, рассказы, вся Конституция
+          с параллельным переводом, тесты с ответами. Вторая версия — для печати: QR-коды ведут на этот сайт.</p>
+        <div class="links">
+          <a href="konstitucija/Lietuvos_Konstitucijos_vadovas.pdf">Knyga (PDF) <span>145 стр., для экрана</span></a>
+          <a href="konstitucija/Lietuvos_Konstitucijos_vadovas_QR.pdf">Knyga su QR kodais <span>149 стр., для печати</span></a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <p class="soon">Netrukus <span class="ru">(скоро)</span>: kitos temos <span class="ru">(другие темы)</span>…</p>
+  <p class="free">Бесплатно и свободно: материалы под лицензией CC BY-SA 4.0 — можно копировать, печатать и делиться,
+    указав автора. Перевод Конституции на русский — неофициальный. Нашли ошибку или есть идея —
+    <a href="https://github.com/born-to-be-mad/mokausi-lietuviskai/issues">напишите здесь</a> (нужен аккаунт GitHub).</p>
 </main>
 <footer>
   © 2026 Marudau Dzmitry · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
