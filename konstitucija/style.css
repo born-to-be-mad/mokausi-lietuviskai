@@ -121,3 +121,25 @@ table.stats button { padding: 6px 10px; border-radius: 8px; border: 1px solid va
 .foot { color: var(--muted); font-size: .8rem; padding: 24px 16px 32px; }
 .foot a { color: var(--accent); }
 .empty { text-align: center; padding: 30px 10px; }
+
+/* пробный экзамен */
+.examhead { display: flex; justify-content: space-between; font-size: .9rem; color: var(--muted); margin: 4px 0 8px; }
+.dots { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+.dot { width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--line); background: var(--card); font-size: .8rem; cursor: pointer; color: var(--muted); padding: 0; }
+.dot.done { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.dot.cur { box-shadow: 0 0 0 2px var(--text); }
+.opts button.picked { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.result { text-align: center; }
+.result .big { font-size: 2.6rem; font-weight: 700; margin: 4px 0; }
+.result.pass { border-color: var(--good); background: var(--good-bg); }
+.result.fail { border-color: var(--bad); background: var(--bad-bg); }
+.review { padding-left: 22px; margin: 0; }
+.review li { margin-bottom: 12px; }
+.review .rq { font-weight: 600; }
+.review .bad { color: var(--bad); }
+.review .good { color: var(--good); }
+.review .art, .feedback .art { color: var(--muted); font-style: italic; font-size: .85rem; }
+.check { display: flex; gap: 8px; align-items: center; font-size: .92rem; cursor: pointer; }
+.check input { width: 20px; height: 20px; }
+td.okc { color: var(--good); font-weight: 700; }
+td.badc { color: var(--bad); font-weight: 700; }

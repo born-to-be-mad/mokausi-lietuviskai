@@ -17,6 +17,11 @@
   const write = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* приватный режим */ } };
   let progress = read(STORE, {});
   const prefs = Object.assign({ deck: 'terms', sk: 'all', dir: 'lt-ru', mode: 'cards' }, read(PREFS, {}));
+  // прямые ссылки (QR-коды в книге): ?d=facts|terms|verbs|adjs, ?sk=N (глава), ?m=cards|quiz|progress
+  const qp = new URLSearchParams(location.search);
+  if (D.decks[qp.get('d')]) { prefs.deck = qp.get('d'); prefs.sk = 'all'; }
+  if (/^\d+$/.test(qp.get('sk') || '')) prefs.sk = qp.get('sk');
+  if (['cards', 'quiz', 'progress'].includes(qp.get('m'))) prefs.mode = qp.get('m');
   if (!D.decks[prefs.deck]) prefs.deck = 'terms';
   const savePrefs = () => write(PREFS, prefs);
 
