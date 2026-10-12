@@ -26,8 +26,10 @@
 body { margin: 0; background: var(--bg); color: var(--text);
   font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; }
 main, footer { max-width: 860px; margin: 0 auto; padding: 0 16px; }
-.flag { display: flex; height: 6px; }
-.flag span { flex: 1; } .flag .y { background: var(--flag-y); } .flag .g { background: var(--flag-g); } .flag .r { background: var(--flag-r); }
+/* флаг Литвы — полоса вверху, видна всегда (как на страницах разделов: konstitucija/flag.css) */
+.flag { position: fixed; top: 0; left: 0; right: 0; height: 12px; z-index: 100;
+  background: linear-gradient(var(--flag-y) 0 33.34%, var(--flag-g) 0 66.67%, var(--flag-r) 0); }
+body { padding-top: 12px; }
 h1 { font-size: 2rem; margin: 30px 0 6px; line-height: 1.15; }
 .lead { font-size: 1.1rem; margin: 0 0 8px; }
 .ru, .muted { color: var(--muted); }
@@ -58,7 +60,7 @@ footer a, .free a { color: var(--accent); }
 </style>
 </head>
 <body>
-<div class="flag" aria-hidden="true"><span class="y"></span><span class="g"></span><span class="r"></span></div>
+<div class="flag" aria-hidden="true"></div>
 <main>
   <h1>Mokausi lietuviškai</h1>
   <p class="lead">Учу литовский: бесплатные материалы для уровня A2 — и для подготовки к экзамену по Конституции Литвы,

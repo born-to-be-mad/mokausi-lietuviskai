@@ -90,7 +90,7 @@
     const row = p.rows[p.i++];
     row.classList.add('speaking');
     const r = row.getBoundingClientRect();
-    if (r.top < 70 || r.bottom > innerHeight) row.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    if (r.top < 82 || r.bottom > innerHeight) row.scrollIntoView({ block: 'center', behavior: 'smooth' });   // 82 = флаг + панель перевода
     S.say(row.querySelector('.lt').textContent, { onend: () => { if (playing === p) playNext(); } });
   }
   if (S) S.onReady(ok => {
