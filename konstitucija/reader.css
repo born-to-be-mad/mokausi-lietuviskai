@@ -24,7 +24,7 @@
 }
 
 * { box-sizing: border-box; }
-html, .shell-main { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0; background: var(--bg); color: var(--text);
   font: var(--fs)/1.55 Georgia, "Noto Serif", "Times New Roman", serif;
@@ -68,36 +68,70 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
 .toolbar .sizes button { min-width: 44px; font-weight: 600; }
 @media (max-width: 560px) {          /* телефон: панель в одну строку — без подписей по-русски */
   .toolbar { gap: 4px; padding: 6px 10px; }
-  .toolbar button .ru, .offhint .ru { display: none; }
+  .toolbar button .ru, .tr-off .offhint { display: none; }   /* место под «☰ Turinys»; подсказка есть во «Įžanga» */
   .toolbar button { padding: 6px 9px; min-height: 38px; }
   .toolbar .sizes button { min-width: 38px; }
 }
 
-#resume {
-  margin: 14px 0 0; padding: 10px 14px; border-radius: 10px; background: var(--zinai-bg);
-  font: .95rem/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+/* раскладка: слева — оглавление (своя прокрутка), справа — одна страница-рассказ (своя прокрутка) */
+.reader { flex: 1; min-height: 0; display: flex; position: relative; }
+.toc {
+  flex: none; width: 300px; overflow-y: auto; overscroll-behavior-y: contain; background: var(--bg);
+  border-right: 1px solid var(--line); padding: 8px 10px 24px; font: .92rem/1.35 system-ui, -apple-system, "Segoe UI", sans-serif;
 }
-#resume a { color: var(--accent); font-weight: 600; }
-
-.toc { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 4px 18px 12px; margin: 16px 0 28px; }
-.toc h2 { font-size: 1.15rem; margin: 12px 0 6px; }
+.tochead { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.toc h2 { font-size: 1.05rem; margin: 6px 8px 4px; }
+.navclose { display: none; }
+.toc h2 .ru { display: block; font-size: .8rem; font-weight: 400; margin-top: 2px; }
 .toc ul { list-style: none; margin: 0; padding: 0; }
-.toc li { padding: 3px 0; }
-.toc li.grp { margin-top: 10px; font-weight: 700; font-size: .85rem; letter-spacing: .02em; color: var(--accent); }
-.toc li.grp .ru { font-size: .8rem; }
-.toc a { color: var(--text); text-decoration: none; border-bottom: 1px dotted var(--muted); }
-.toc a.isdone::before { content: "✓ "; color: #2e7d4f; font-weight: 700; }
-.toc li .ru { font-size: .85rem; }
+.toc li.grp {
+  margin: 14px 8px 4px; font-weight: 700; font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; color: var(--accent);
+}
+.toc li.grp .ru { display: block; font-size: .75rem; font-weight: 400; letter-spacing: 0; text-transform: none; }
+.toc a {                              /* заголовок рассказа, под ним — перевод */
+  display: block; padding: 6px 8px 6px 10px; border-radius: 8px; border-left: 3px solid transparent;
+  color: var(--text); text-decoration: none;
+}
+.toc a .t { display: block; }
+.toc a .ru { display: block; font-size: .82rem; margin-top: 1px; }
+.toc a:hover { background: var(--card); }
+.toc a[aria-current="page"] { background: var(--card); border-left-color: var(--accent); }
+.toc a[aria-current="page"] .t { font-weight: 700; }
+.toc a.isdone .t::before { content: "✓ "; color: #2e7d4f; font-weight: 700; }
+.pane { flex: 1; min-width: 0; overflow-y: auto; overscroll-behavior-y: contain; scroll-behavior: smooth; container-type: inline-size; }
+.pane:focus { outline: none; }
+.js .page:not(.current) { display: none; }     /* с JS видна одна страница; без JS — все подряд */
+.navbtn { display: none; }
+.storyend .pn .tocl { display: none; }          /* оглавление и так рядом */
+@media (max-width: 899px) {                     /* узкий экран: оглавление — по кнопке «☰ Turinys», поверх текста */
+  .js .toc { position: absolute; inset: 0; z-index: 20; width: auto; border-right: 0; padding: 8px 16px 24px; display: none; }
+  .js .nav-open .toc { display: block; }
+  .js .navbtn { display: inline-flex; }
+  .js .tochead { position: sticky; top: -8px; z-index: 1; background: var(--bg); padding-top: 4px; border-bottom: 1px solid var(--line); }
+  .js .navclose {
+    display: block; flex: none; width: 40px; height: 40px; margin: 2px 0 6px; border: 1px solid var(--line); border-radius: 8px;
+    background: var(--card); color: inherit; font-size: 1.1rem; cursor: pointer;
+  }
+  .js .storyend .pn .tocl { display: inline; }
+  html:not(.js) .reader { display: block; overflow-y: auto; }
+  html:not(.js) .toc { width: auto; overflow: visible; border-right: 0; }
+  html:not(.js) .pane { overflow: visible; }
+}
+.page { padding-bottom: 8px; }
+#apie .intro { font-size: .98rem; }
+.start { display: inline-block; margin-top: 6px; padding: 10px 16px; border-radius: 10px; background: var(--accent); color: var(--bg);
+  text-decoration: none; font: 600 1rem/1.3 system-ui, -apple-system, "Segoe UI", sans-serif; }
+.start .ru { color: inherit; opacity: .85; }
 
 /* рассказ */
 .label {
-  display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin: 34px 0 6px;
+  display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin: 18px 0 6px;
   padding-bottom: 4px; border-bottom: 2px solid var(--accent);
   font: 700 .78rem/1.3 system-ui, -apple-system, "Segoe UI", sans-serif; letter-spacing: .04em; text-transform: uppercase; color: var(--accent);
 }
-.story { scroll-margin-top: 64px; margin-bottom: 26px; }
-.story h2 { font-size: 1.35rem; margin: 14px 0 10px; line-height: 1.25; }
-.story h2 .ru { display: block; font-size: .95rem; font-style: italic; margin-top: 2px; }
+.story { margin-bottom: 26px; }
+.page h2 { font-size: 1.35rem; margin: 14px 0 10px; line-height: 1.25; }
+.page h2 .ru { display: block; font-size: .95rem; font-style: italic; margin-top: 2px; }
 
 .row { padding: 5px 0; }
 .row p { margin: 0; }
@@ -106,8 +140,8 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
 .row.scena .lt { color: var(--muted); }
 .row.dial .lt { padding-left: .2em; }
 
-/* перевод включён: рядом (только на широком экране; на телефоне — под строкой) или под строкой */
-@media (min-width: 720px) {
+/* перевод включён: рядом (только в широкой колонке; на телефоне — под строкой) или под строкой */
+@container (min-width: 620px) {
   .tr-on.tr-side .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 }
 .row .ru { margin-top: 1px; }
@@ -154,7 +188,7 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
 }
 .listen.on { border-color: var(--accent); }
 #slow[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
-@media (max-width: 719px) { .layout { display: none; } }   /* на телефоне перевод всегда под строкой — выбор лишний */
+@container (max-width: 619px) { .layout { display: none; } }   /* узкая колонка: перевод всегда под строкой — выбор лишний */
 .novoice { font: .85rem/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--muted); margin: 12px 0 0; }
 .foot { color: var(--muted); font: .8rem/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; padding: 28px 16px 36px; }
 .foot a { color: var(--accent); }

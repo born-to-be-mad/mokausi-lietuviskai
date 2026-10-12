@@ -1,6 +1,7 @@
-// Чтение «Arbatos vakarai su Konstitucija»: перевод вкл./выкл. (клавиша T; выключен — перевод предложения
-// по нажатию на него), при включённом — рядом или под строкой; размер шрифта,
-// отметки «прочитано» и место, где остановился. Всё — в localStorage этого браузера; без JS страница читается как есть.
+// Чтение «Arbatos vakarai su Konstitucija»: слева оглавление, справа одна страница (#apie — «как читать», #sN — рассказ;
+// стрелки ← → листают, на узком экране оглавление — по кнопке «☰ Turinys»). Перевод вкл./выкл. (клавиша T; выключен —
+// перевод предложения по нажатию на него), при включённом — рядом или под строкой; размер шрифта, отметки «прочитано»
+// и место, где остановился. Всё — в localStorage этого браузера; без JS страница читается как есть (все рассказы подряд).
 (() => {
   'use strict';
   const KEY = 'konst.reader.v1';
@@ -9,7 +10,9 @@
   if (st.tr) { st.on = st.tr !== 'tap'; if (st.tr !== 'tap') st.layout = st.tr; delete st.tr; }   // прежний формат
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch { /* приватный режим */ } };
   const $$ = sel => [...document.querySelectorAll(sel)];
-  const stories = $$('section.story');
+  const pages = $$('section.page'), stories = $$('section.story');
+  const pane = document.querySelector('.pane'), toc = document.getElementById('turinys'), navbtn = document.getElementById('navbtn');
+  const TITLE = document.title;
 
   function applyTr() {
     const b = document.body.classList;
@@ -33,7 +36,7 @@
       b.firstChild.textContent = d ? '✓ Perskaityta ' : 'Perskaičiau ';
     });
     const n = stories.filter(s => st.done[s.id]).length;
-    document.getElementById('count').textContent = `· perskaityta (прочитано): ${n} / ${stories.length}`;
+    document.getElementById('count').textContent = `perskaityta (прочитано): ${n} / ${stories.length}`;
   }
 
   document.getElementById('tr').addEventListener('click', toggleTr);
@@ -52,27 +55,53 @@
   });
   document.addEventListener('keydown', e => {
     if (e.ctrlKey || e.metaKey || e.altKey) return;
-    if ((e.key === 't' || e.key === 'T') && !/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) { toggleTr(); return; }
+    if (e.key === 'Escape') return setNav(false);
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    if (e.key === 't' || e.key === 'T') { toggleTr(); return; }
+    if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && cur && !e.shiftKey) {   // листать рассказы
+      const to = pages[pages.indexOf(cur) + (e.key === 'ArrowRight' ? 1 : -1)];
+      if (to) { e.preventDefault(); location.hash = to.id; }
+      return;
+    }
     if (!st.on && (e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('row')) {
       e.preventDefault(); e.target.classList.toggle('show');
     }
   });
 
-  // место чтения: рассказ, чей заголовок последним прошёл верхнюю треть экрана
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(entries => {
-      for (const en of entries) if (en.isIntersecting) { st.last = en.target.closest('section').id; save(); }
-    }, { rootMargin: '0px 0px -70% 0px' });
-    stories.forEach(s => io.observe(s.querySelector('h2')));
+  // ---------- одна страница справа: #apie / #sN; без адреса — где остановились (st.last), иначе вступление ----------
+  let cur = null;
+  function setNav(open) {                              // узкий экран: оглавление поверх текста
+    document.body.classList.toggle('nav-open', open);
+    navbtn.setAttribute('aria-expanded', String(open));
+    if (open) { const a = toc.querySelector('[aria-current]'); if (a) a.scrollIntoView({ block: 'center' }); }
   }
-  const last = stories.find(s => s.id === st.last);
-  if (last && last !== stories[0] && !location.hash) {
-    const box = document.getElementById('resume');
-    const a = document.createElement('a');
-    a.href = '#' + last.id; a.textContent = last.dataset.title;
-    box.append('Tęsti skaitymą (продолжить чтение): ', a);
-    box.hidden = false;
+  function show(id) {
+    const page = pages.find(x => x.id === id) || pages[0];
+    if (page !== cur) {
+      stopPlay();
+      pages.forEach(x => x.classList.toggle('current', x === page));
+      $$('a[data-story]').forEach(a => a.dataset.story === page.id ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
+      cur = page; st.last = page.id; save();
+      pane.scrollTo({ top: 0, behavior: 'instant' });
+      document.title = page.dataset.title + ' – ' + TITLE;
+    }
+    setNav(false);
+    const a = toc.querySelector('[aria-current]');
+    if (a) a.scrollIntoView({ block: 'nearest' });
   }
+  function route() {
+    const id = location.hash.slice(1);
+    if (id === 'turinys') {                            // «Turinys» внизу рассказа: открыть оглавление, адрес — прежний
+      if (!cur) show(st.last);
+      history.replaceState(null, '', '#' + cur.id);
+      return setNav(true);
+    }
+    show(pages.some(x => x.id === id) ? id : (pages.some(x => x.id === st.last) ? st.last : 'apie'));
+  }
+  addEventListener('hashchange', route);
+  navbtn.addEventListener('click', () => setNav(!document.body.classList.contains('nav-open')));
+  document.getElementById('navclose').addEventListener('click', () => setNav(false));
+  toc.addEventListener('click', e => { if (e.target.closest('a')) setNav(false); });   // и тот же рассказ — закрыть
   // ---------- произношение (speak.js): кнопка у каждого предложения, «слушать весь рассказ» ----------
   const S = window.Speak;
   let playing = null;                                  // {story, rows, i, btn}
@@ -90,7 +119,7 @@
     const row = p.rows[p.i++];
     row.classList.add('speaking');
     const r = row.getBoundingClientRect();
-    const bar = document.querySelector('.toolbar').getBoundingClientRect(), view = row.closest('.shell-main').getBoundingClientRect();
+    const bar = document.querySelector('.toolbar').getBoundingClientRect(), view = pane.getBoundingClientRect();
     if (r.top < bar.bottom || r.bottom > view.bottom) row.scrollIntoView({ block: 'center', behavior: 'smooth' });
     S.say(row.querySelector('.lt').textContent, { onend: () => { if (playing === p) playNext(); } });
   }
@@ -120,5 +149,5 @@
     });
   });
 
-  applyTr(); applySize(); applyDone();
+  applyTr(); applySize(); applyDone(); route();
 })();
