@@ -105,6 +105,8 @@ select {
 .front.fact { font-size: 1.2rem; font-weight: 600; line-height: 1.4; }
 .ask { font-size: .85rem; color: var(--muted); margin-bottom: 6px; }
 .blank { display: inline-block; min-width: 3.2em; border-bottom: 2px solid var(--accent); color: transparent; }
+.blank.short { min-width: 1.8em; margin-left: 1px; }
+.front.fact .exru { font-size: .9rem; font-weight: 400; color: var(--accent); margin-top: 6px; }   /* «Galūnės»: пропуск окончания сразу после основы */
 .feedback { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); }
 .feedback .exru { color: var(--accent); font-size: .92rem; }
 .feedback .art { color: var(--muted); font-style: italic; font-size: .85rem; }

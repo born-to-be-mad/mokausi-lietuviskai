@@ -106,7 +106,24 @@ window.KONST = {
      "exru": "Литовское государство — независимая республика.",
      "art": "1",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Lietuvos ",
+      "stem": "valstyb",
+      "end": "ė",
+      "post": " yra nepriklausoma respublika.",
+      "alt": [
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ių",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "tauta",
@@ -119,7 +136,24 @@ window.KONST = {
      "exru": "Литовское государство создаёт Народ.",
      "art": "2",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Lietuvos valstybę kuria ",
+      "stem": "Taut",
+      "end": "a",
+      "post": ".",
+      "alt": [
+       "os",
+       "ai",
+       "ą",
+       "oje",
+       "ų",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "suverenitetas",
@@ -132,7 +166,24 @@ window.KONST = {
      "exru": "Суверенитет принадлежит Народу.",
      "art": "2",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "",
+      "stem": "Suverenitet",
+      "end": "as",
+      "post": " priklauso Tautai.",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "nepriklausomybė",
@@ -145,7 +196,25 @@ window.KONST = {
      "exru": "Посягает на независимость государства.",
      "art": "3",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Kėsinasi į valstybės ",
+      "stem": "nepriklausomyb",
+      "end": "ę",
+      "post": ".",
+      "alt": [
+       "ė",
+       "ės",
+       "ei",
+       "e",
+       "ėje",
+       "ių",
+       "ėms",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "valdžia",
@@ -158,7 +227,24 @@ window.KONST = {
      "exru": "Государственную власть осуществляет Сейм.",
      "art": "5",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Valstybės ",
+      "stem": "valdži",
+      "end": "ą",
+      "post": " vykdo Seimas.",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "pilietis",
@@ -184,7 +270,24 @@ window.KONST = {
      "exru": "Гражданство приобретается по рождению.",
      "art": "12",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "",
+      "stem": "Pilietyb",
+      "end": "ė",
+      "post": " įgyjama gimstant.",
+      "alt": [
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ių",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "teisė",
@@ -197,7 +300,25 @@ window.KONST = {
      "exru": "Каждый может защищать свои права.",
      "art": "6",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Kiekvienas gali ginti savo ",
+      "stem": "teis",
+      "end": "es",
+      "post": ".",
+      "alt": [
+       "ė",
+       "ės",
+       "ei",
+       "e",
+       "ėje",
+       "ių",
+       "ėms",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "įstatymas",
@@ -210,7 +331,24 @@ window.KONST = {
      "exru": "Действуют только обнародованные законы.",
      "art": "7",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Galioja tik paskelbti ",
+      "stem": "įstatym",
+      "end": "ai",
+      "post": ".",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, dgs. (им. п., мн. ч.)"
+     }
     },
     {
      "key": "Konstitucija",
@@ -223,7 +361,24 @@ window.KONST = {
      "exru": "Конституция — непосредственно применяемый акт.",
      "art": "6",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "",
+      "stem": "Konstitucij",
+      "end": "a",
+      "post": " yra tiesiogiai taikomas aktas.",
+      "alt": [
+       "os",
+       "ai",
+       "ą",
+       "oje",
+       "ų",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "referendumas",
@@ -236,7 +391,24 @@ window.KONST = {
      "exru": "Вопросы решаются референдумом.",
      "art": "9",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Klausimai sprendžiami ",
+      "stem": "referendum",
+      "end": "u",
+      "post": ".",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "įnagininkas, vns. (твор. п., ед. ч.)"
+     }
     },
     {
      "key": "teritorija",
@@ -249,7 +421,24 @@ window.KONST = {
      "exru": "Территория государства целостна.",
      "art": "10",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Valstybės ",
+      "stem": "teritorij",
+      "end": "a",
+      "post": " yra vientisa.",
+      "alt": [
+       "os",
+       "ai",
+       "ą",
+       "oje",
+       "ų",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "siena",
@@ -262,7 +451,22 @@ window.KONST = {
      "exru": "Границы государства могут быть изменены.",
      "art": "10",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Valstybės ",
+      "stem": "sien",
+      "end": "os",
+      "post": " gali būti keičiamos.",
+      "alt": [
+       "ai",
+       "ą",
+       "oje",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "sostinė",
@@ -275,7 +479,24 @@ window.KONST = {
      "exru": "Столица Литвы — Вильнюс.",
      "art": "17",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Lietuvos ",
+      "stem": "sostin",
+      "end": "ė",
+      "post": " yra Vilnius.",
+      "alt": [
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ių",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "kalba",
@@ -288,7 +509,24 @@ window.KONST = {
      "exru": "Государственный язык — литовский.",
      "art": "14",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Valstybinė ",
+      "stem": "kalb",
+      "end": "a",
+      "post": " — lietuvių kalba.",
+      "alt": [
+       "os",
+       "ai",
+       "ą",
+       "oje",
+       "ų",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "vėliava",
@@ -301,7 +539,22 @@ window.KONST = {
      "exru": "Цвета государственного флага — жёлтый, зелёный, красный.",
      "art": "15",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Valstybės ",
+      "stem": "vėliav",
+      "end": "os",
+      "post": " spalvos — geltona, žalia, raudona.",
+      "alt": [
+       "ai",
+       "ą",
+       "oje",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "herbas",
@@ -314,7 +567,24 @@ window.KONST = {
      "exru": "Государственный герб — белый Витис.",
      "art": "15",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Valstybės ",
+      "stem": "herb",
+      "end": "as",
+      "post": " — baltas Vytis.",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "himnas",
@@ -327,7 +597,24 @@ window.KONST = {
      "exru": "Государственный гимн — «Национальная песнь» (Tautiška giesmė).",
      "art": "16",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Valstybės ",
+      "stem": "himn",
+      "end": "as",
+      "post": " — „Tautiška giesmė“.",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "Seimas",
@@ -340,7 +627,24 @@ window.KONST = {
      "exru": "Власть осуществляет Сейм.",
      "art": "5",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Valdžią vykdo ",
+      "stem": "Seim",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "Vyriausybė",
@@ -353,7 +657,24 @@ window.KONST = {
      "exru": "Президент и Правительство.",
      "art": "5",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Prezidentas ir ",
+      "stem": "Vyriausyb",
+      "end": "ė",
+      "post": ".",
+      "alt": [
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ių",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "teismas",
@@ -366,7 +687,24 @@ window.KONST = {
      "exru": "Власть осуществляет … Суд.",
      "art": "5",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Valdžią vykdo ... ",
+      "stem": "Teism",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "atstovas",
@@ -379,7 +717,26 @@ window.KONST = {
      "exru": "Народ осуществляет власть через представителей.",
      "art": "4",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Tauta valdžią vykdo per ",
+      "stem": "atstov",
+      "end": "us",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "straipsnis",
@@ -392,7 +749,24 @@ window.KONST = {
      "exru": "Статья 1: Литва — независимая республика.",
      "art": "1",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "1 ",
+      "stem": "straipsn",
+      "end": "is",
+      "post": ": Lietuva — nepriklausoma respublika.",
+      "alt": [
+       "io",
+       "iui",
+       "į",
+       "yje",
+       "ių",
+       "iams",
+       "ius",
+       "iuose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "skirsnis",
@@ -405,7 +779,24 @@ window.KONST = {
      "exru": "Глава I — «Литовское государство».",
      "art": "",
      "artsk": "",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "I ",
+      "stem": "skirsn",
+      "end": "is",
+      "post": " — „Lietuvos valstybė“.",
+      "alt": [
+       "io",
+       "iui",
+       "į",
+       "yje",
+       "ių",
+       "iams",
+       "ius",
+       "iuose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "laisvė",
@@ -418,7 +809,24 @@ window.KONST = {
      "exru": "Свобода человека неприкосновенна.",
      "art": "20",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Žmogaus ",
+      "stem": "laisv",
+      "end": "ė",
+      "post": " neliečiama.",
+      "alt": [
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ių",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "gyvybė",
@@ -431,7 +839,25 @@ window.KONST = {
      "exru": "Право на жизнь охраняется законом.",
      "art": "19",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Teisę į ",
+      "stem": "gyvyb",
+      "end": "ę",
+      "post": " saugo įstatymas.",
+      "alt": [
+       "ė",
+       "ės",
+       "ei",
+       "e",
+       "ėje",
+       "ių",
+       "ėms",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "orumas",
@@ -444,7 +870,26 @@ window.KONST = {
      "exru": "Достоинство человека защищается законом.",
      "art": "21",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Žmogaus ",
+      "stem": "orum",
+      "end": "ą",
+      "post": " gina įstatymas.",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "nuosavybė",
@@ -457,7 +902,24 @@ window.KONST = {
      "exru": "Собственность неприкосновенна.",
      "art": "23",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "",
+      "stem": "Nuosavyb",
+      "end": "ė",
+      "post": " neliečiama.",
+      "alt": [
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ių",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "būstas",
@@ -470,7 +932,24 @@ window.KONST = {
      "exru": "Жилище человека неприкосновенно.",
      "art": "24",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Žmogaus ",
+      "stem": "būst",
+      "end": "as",
+      "post": " neliečiamas.",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "asmuo",
@@ -483,7 +962,24 @@ window.KONST = {
      "exru": "Лицо считается невиновным.",
      "art": "31",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "",
+      "stem": "Asm",
+      "end": "uo",
+      "post": " laikomas nekaltu.",
+      "alt": [
+       "ens",
+       "eniui",
+       "enį",
+       "enyje",
+       "enų",
+       "enims",
+       "enis",
+       "enyse"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "įsitikinimas",
@@ -496,7 +992,26 @@ window.KONST = {
      "exru": "Право свободно выражать свои убеждения.",
      "art": "25",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Teisė laisvai reikšti savo ",
+      "stem": "įsitikinim",
+      "end": "us",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "tikėjimas",
@@ -509,7 +1024,26 @@ window.KONST = {
      "exru": "Свобода мысли и веры.",
      "art": "26",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Minties ir ",
+      "stem": "tikėjim",
+      "end": "o",
+      "post": " laisvė.",
+      "alt": [
+       "as",
+       "ui",
+       "ą",
+       "u",
+       "e",
+       "ai",
+       "ams",
+       "us",
+       "ais",
+       "uose"
+      ],
+      "lab": "kilmininkas, vns. (род. п., ед. ч.)"
+     }
     },
     {
      "key": "sąžinė",
@@ -522,7 +1056,22 @@ window.KONST = {
      "exru": "Свобода совести не ограничивается.",
      "art": "26",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "",
+      "stem": "Sąžin",
+      "end": "ės",
+      "post": " laisvė yra nevaržoma.",
+      "alt": [
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "religija",
@@ -535,7 +1084,24 @@ window.KONST = {
      "exru": "Право выбрать религию.",
      "art": "26",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Teisė pasirinkti ",
+      "stem": "religij",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "nusikaltimas",
@@ -548,7 +1114,26 @@ window.KONST = {
      "exru": "Обвиняемый в совершении преступления.",
      "art": "31",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Kaltinamas padaręs ",
+      "stem": "nusikaltim",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "bausmė",
@@ -561,7 +1146,24 @@ window.KONST = {
      "exru": "Наказание назначается только по закону.",
      "art": "31",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "",
+      "stem": "Bausm",
+      "end": "ė",
+      "post": " skiriama tik pagal įstatymą.",
+      "alt": [
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ių",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "pareigūnas",
@@ -574,20 +1176,53 @@ window.KONST = {
      "exru": "Перед законом и должностными лицами все равны.",
      "art": "29",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Įstatymui ir ",
+      "stem": "pareigūn",
+      "end": "ams",
+      "post": " visi lygūs.",
+      "alt": [
+       "as",
+       "o",
+       "ą",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "us",
+       "ais",
+       "uose"
+      ],
+      "lab": "naudininkas, dgs. (дат. п., мн. ч.)"
+     }
     },
     {
      "key": "rinkimai",
      "lemma": "rinkimai",
      "lt": "rinkim|ai",
      "ru": "выборы",
-     "gram": "vyr. g.",
+     "gram": "vyr. g., dgs.",
      "syn": [],
      "ex": "Piliečiai turi rinkim|ų teisę.",
      "exru": "Граждане обладают избирательным правом.",
      "art": "34",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Piliečiai turi ",
+      "stem": "rinkim",
+      "end": "ų",
+      "post": " teisę.",
+      "alt": [
+       "ai",
+       "ams",
+       "us",
+       "ais",
+       "uose"
+      ],
+      "lab": "kilmininkas, dgs. (род. п., мн. ч.)"
+     }
     },
     {
      "key": "partija",
@@ -600,7 +1235,24 @@ window.KONST = {
      "exru": "Право объединяться в политические партии.",
      "art": "35",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Teisė vienytis į politines ",
+      "stem": "partij",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "susirinkimas",
@@ -613,7 +1265,26 @@ window.KONST = {
      "exru": "Собираться на мирные собрания.",
      "art": "36",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Rinktis į taikius ",
+      "stem": "susirinkim",
+      "end": "us",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "žala",
@@ -626,7 +1297,22 @@ window.KONST = {
      "exru": "Возмещение ущерба устанавливается законом.",
      "art": "30",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "",
+      "stem": "Žal",
+      "end": "os",
+      "post": " atlyginimą nustato įstatymas.",
+      "alt": [
+       "ai",
+       "ą",
+       "oje",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "gynyba",
@@ -639,7 +1325,24 @@ window.KONST = {
      "exru": "Гарантируется право на защиту.",
      "art": "31",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Garantuojama teisė į ",
+      "stem": "gynyb",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "advokatas",
@@ -652,7 +1355,26 @@ window.KONST = {
      "exru": "Право иметь адвоката.",
      "art": "31",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Teisė turėti ",
+      "stem": "advokat",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "tautybė",
@@ -665,7 +1387,22 @@ window.KONST = {
      "exru": "Нельзя ограничивать права из-за национальности.",
      "art": "29",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Negalima varžyti teisių dėl ",
+      "stem": "tautyb",
+      "end": "ės",
+      "post": ".",
+      "alt": [
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "šeima",
@@ -678,7 +1415,24 @@ window.KONST = {
      "exru": "Семья — основа общества.",
      "art": "38",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "",
+      "stem": "Šeim",
+      "end": "a",
+      "post": " yra visuomenės pagrindas.",
+      "alt": [
+       "os",
+       "ai",
+       "ą",
+       "oje",
+       "ų",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "visuomenė",
@@ -691,7 +1445,22 @@ window.KONST = {
      "exru": "Семья — основа общества.",
      "art": "38",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Šeima yra ",
+      "stem": "visuomen",
+      "end": "ės",
+      "post": " pagrindas.",
+      "alt": [
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "santuoka",
@@ -704,7 +1473,24 @@ window.KONST = {
      "exru": "Брак заключается по свободному согласию.",
      "art": "38",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "",
+      "stem": "Santuok",
+      "end": "a",
+      "post": " sudaroma laisvu sutarimu.",
+      "alt": [
+       "os",
+       "ai",
+       "ą",
+       "oje",
+       "ų",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "vaikas",
@@ -717,20 +1503,53 @@ window.KONST = {
      "exru": "Несовершеннолетних детей защищает закон.",
      "art": "39",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Nepilnamečius ",
+      "stem": "vaik",
+      "end": "us",
+      "post": " gina įstatymas.",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "tėvai",
      "lemma": "tėvai",
      "lt": "tėv|ai",
      "ru": "родители",
-     "gram": "vyr. g.",
+     "gram": "vyr. g., dgs.",
      "syn": [],
      "ex": "Tėv|ų pareiga — auklėti vaikus.",
      "exru": "Обязанность родителей — воспитывать детей.",
      "art": "38",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "",
+      "stem": "Tėv",
+      "end": "ų",
+      "post": " pareiga — auklėti vaikus.",
+      "alt": [
+       "ai",
+       "ams",
+       "us",
+       "ais",
+       "uose"
+      ],
+      "lab": "kilmininkas, dgs. (род. п., мн. ч.)"
+     }
     },
     {
      "key": "pareiga",
@@ -743,7 +1562,24 @@ window.KONST = {
      "exru": "Обязанность детей — уважать родителей.",
      "art": "38",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Vaikų ",
+      "stem": "pareig",
+      "end": "a",
+      "post": " — gerbti tėvus.",
+      "alt": [
+       "os",
+       "ai",
+       "ą",
+       "oje",
+       "ų",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "mokslas",
@@ -756,7 +1592,24 @@ window.KONST = {
      "exru": "Высшее образование доступно всем.",
      "art": "41",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Aukštasis ",
+      "stem": "moksl",
+      "end": "as",
+      "post": " prieinamas visiems.",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "mokykla",
@@ -769,7 +1622,24 @@ window.KONST = {
      "exru": "Обучение в школах бесплатное.",
      "art": "41",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Mokymas ",
+      "stem": "mokykl",
+      "end": "ose",
+      "post": " yra nemokamas.",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "ą",
+       "ų",
+       "oms",
+       "as",
+       "omis"
+      ],
+      "lab": "vietininkas, dgs. (мест. п., мн. ч.)"
+     }
     },
     {
      "key": "kultūra",
@@ -782,7 +1652,24 @@ window.KONST = {
      "exru": "Государство поддерживает культуру и науку.",
      "art": "42",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Valstybė remia ",
+      "stem": "kultūr",
+      "end": "ą",
+      "post": " ir mokslą.",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "bažnyčia",
@@ -795,7 +1682,24 @@ window.KONST = {
      "exru": "Государство признаёт традиционные церкви.",
      "art": "43",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Valstybė pripažįsta tradicines ",
+      "stem": "bažnyči",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "cenzūra",
@@ -808,7 +1712,24 @@ window.KONST = {
      "exru": "Цензура массовой информации запрещается.",
      "art": "44",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Masinės informacijos ",
+      "stem": "cenzūr",
+      "end": "a",
+      "post": " draudžiama.",
+      "alt": [
+       "os",
+       "ai",
+       "ą",
+       "oje",
+       "ų",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "parama",
@@ -821,7 +1742,24 @@ window.KONST = {
      "exru": "Государство оказывает общинам поддержку.",
      "art": "45",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Valstybė teikia bendrijoms ",
+      "stem": "param",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "autonomija",
@@ -834,7 +1772,24 @@ window.KONST = {
      "exru": "Высшим школам предоставляется автономия.",
      "art": "40",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Aukštosioms mokykloms suteikiama ",
+      "stem": "autonomij",
+      "end": "a",
+      "post": ".",
+      "alt": [
+       "os",
+       "ai",
+       "ą",
+       "oje",
+       "ų",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "pagrindas",
@@ -847,7 +1802,24 @@ window.KONST = {
      "exru": "Семья — основа государства.",
      "art": "38",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Šeima yra valstybės ",
+      "stem": "pagrind",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "motinystė",
@@ -860,7 +1832,24 @@ window.KONST = {
      "exru": "Государство охраняет материнство.",
      "art": "38",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Valstybė saugo ",
+      "stem": "motinyst",
+      "end": "ę",
+      "post": ".",
+      "alt": [
+       "ė",
+       "ės",
+       "ei",
+       "e",
+       "ėje",
+       "ėms",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "bendrija",
@@ -873,7 +1862,22 @@ window.KONST = {
      "exru": "Национальные общины распоряжаются самостоятельно.",
      "art": "45",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Tautinės ",
+      "stem": "bendrij",
+      "end": "os",
+      "post": " tvarkosi savarankiškai.",
+      "alt": [
+       "ai",
+       "ą",
+       "oje",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "ūkis",
@@ -886,7 +1890,24 @@ window.KONST = {
      "exru": "Хозяйство Литвы основано на частной собственности.",
      "art": "46",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Lietuvos ",
+      "stem": "ūk",
+      "end": "is",
+      "post": " grindžiamas privačia nuosavybe.",
+      "alt": [
+       "io",
+       "iui",
+       "į",
+       "yje",
+       "ių",
+       "iams",
+       "ius",
+       "iuose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "veikla",
@@ -899,7 +1920,24 @@ window.KONST = {
      "exru": "Государство регулирует хозяйственную деятельность.",
      "art": "46",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Valstybė reguliuoja ūkinę ",
+      "stem": "veikl",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "iniciatyva",
@@ -912,7 +1950,24 @@ window.KONST = {
      "exru": "Государство поддерживает инициативу.",
      "art": "46",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Valstybė remia ",
+      "stem": "iniciatyv",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "gamyba",
@@ -925,7 +1980,24 @@ window.KONST = {
      "exru": "Запрещается монополизировать производство.",
      "art": "46",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Draudžiama monopolizuoti ",
+      "stem": "gamyb",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "rinka",
@@ -938,7 +2010,24 @@ window.KONST = {
      "exru": "Запрещается монополизировать рынок.",
      "art": "46",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Draudžiama monopolizuoti ",
+      "stem": "rink",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "konkurencija",
@@ -951,7 +2040,24 @@ window.KONST = {
      "exru": "Закон охраняет честную конкуренцию.",
      "art": "46",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Įstatymas saugo sąžiningą ",
+      "stem": "konkurencij",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "vartotojas",
@@ -964,7 +2070,25 @@ window.KONST = {
      "exru": "Государство защищает интересы потребителя.",
      "art": "46",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Valstybė gina ",
+      "stem": "vartotoj",
+      "end": "o",
+      "post": " interesus.",
+      "alt": [
+       "as",
+       "ui",
+       "ą",
+       "u",
+       "ai",
+       "ams",
+       "us",
+       "ais",
+       "uose"
+      ],
+      "lab": "kilmininkas, vns. (род. п., ед. ч.)"
+     }
     },
     {
      "key": "gerovė",
@@ -977,7 +2101,25 @@ window.KONST = {
      "exru": "Хозяйство служит благу народа.",
      "art": "46",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Ūkis tarnauja tautos ",
+      "stem": "gerov",
+      "end": "ei",
+      "post": ".",
+      "alt": [
+       "ė",
+       "ės",
+       "ę",
+       "e",
+       "ėje",
+       "ių",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "naudininkas, vns. (дат. п., ед. ч.)"
+     }
     },
     {
      "key": "darbas",
@@ -990,7 +2132,26 @@ window.KONST = {
      "exru": "Каждый может выбрать работу.",
      "art": "48",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Kiekvienas gali pasirinkti ",
+      "stem": "darb",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "verslas",
@@ -1003,7 +2164,26 @@ window.KONST = {
      "exru": "Каждый может выбрать своё дело.",
      "art": "48",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Kiekvienas gali pasirinkti ",
+      "stem": "versl",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "darbuotojas",
@@ -1016,20 +2196,50 @@ window.KONST = {
      "exru": "Работники имеют право на забастовку.",
      "art": "51",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "",
+      "stem": "Darbuotoj",
+      "end": "ai",
+      "post": " turi teisę streikuoti.",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, dgs. (им. п., мн. ч.)"
+     }
     },
     {
      "key": "atostogos",
      "lemma": "atostogos",
      "lt": "atostog|os",
      "ru": "отпуск",
-     "gram": "mot. g.",
+     "gram": "mot. g., dgs.",
      "syn": [],
      "ex": "Teisė į kasmetines mokamas atostog|as.",
      "exru": "Право на ежегодный оплачиваемый отпуск.",
      "art": "49",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Teisė į kasmetines mokamas ",
+      "stem": "atostog",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "os",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "profesinė sąjunga",
@@ -1042,7 +2252,22 @@ window.KONST = {
      "exru": "Профсоюзы действуют самостоятельно.",
      "art": "50",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Profesinės ",
+      "stem": "sąjung",
+      "end": "os",
+      "post": " veikia savarankiškai.",
+      "alt": [
+       "ai",
+       "ą",
+       "oje",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "streikas",
@@ -1055,7 +2280,26 @@ window.KONST = {
      "exru": "Работники имеют право на забастовку.",
      "art": "51",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Darbuotojai turi teisę į ",
+      "stem": "streik",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "pensija",
@@ -1068,7 +2312,24 @@ window.KONST = {
      "exru": "Право на пенсию по старости.",
      "art": "52",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Teisė gauti senatvės ",
+      "stem": "pensij",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "sveikata",
@@ -1081,7 +2342,24 @@ window.KONST = {
      "exru": "Государство заботится о здоровье людей.",
      "art": "53",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Valstybė rūpinasi žmonių ",
+      "stem": "sveikat",
+      "end": "a",
+      "post": ".",
+      "alt": [
+       "os",
+       "ai",
+       "ą",
+       "oje",
+       "ų",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "aplinka",
@@ -1094,7 +2372,24 @@ window.KONST = {
      "exru": "Мы обязаны охранять окружающую среду.",
      "art": "53",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Privalome saugoti ",
+      "stem": "aplink",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "gamta",
@@ -1107,7 +2402,22 @@ window.KONST = {
      "exru": "Государство заботится об охране природы.",
      "art": "54",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Valstybė rūpinasi ",
+      "stem": "gamt",
+      "end": "os",
+      "post": " apsauga.",
+      "alt": [
+       "ai",
+       "ą",
+       "oje",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "narys",
@@ -1120,20 +2430,50 @@ window.KONST = {
      "exru": "Сейм состоит из 141 члена Сейма.",
      "art": "55",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Seimą sudaro 141 Seimo ",
+      "stem": "nar",
+      "end": "ys",
+      "post": ".",
+      "alt": [
+       "io",
+       "iui",
+       "į",
+       "yje",
+       "ių",
+       "iams",
+       "ius",
+       "iuose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "įgaliojimai",
      "lemma": "įgaliojimai",
      "lt": "įgaliojim|ai",
      "ru": "полномочия",
-     "gram": "vyr. g.",
+     "gram": "vyr. g., dgs.",
      "syn": [],
      "ex": "Seimo nario įgaliojim|ai nutrūksta.",
      "exru": "Полномочия члена Сейма прекращаются.",
      "art": "63",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Seimo nario ",
+      "stem": "įgaliojim",
+      "end": "ai",
+      "post": " nutrūksta.",
+      "alt": [
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, dgs. (им. п., мн. ч.)"
+     }
     },
     {
      "key": "sesija",
@@ -1146,7 +2486,24 @@ window.KONST = {
      "exru": "Сейм собирается на две сессии.",
      "art": "64",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Seimas renkasi į dvi ",
+      "stem": "sesij",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "posėdis",
@@ -1159,7 +2516,26 @@ window.KONST = {
      "exru": "Сейм собирается на первое заседание.",
      "art": "65",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Seimas susirenka į pirmąjį ",
+      "stem": "posėd",
+      "end": "į",
+      "post": ".",
+      "alt": [
+       "is",
+       "žio",
+       "žiui",
+       "žiu",
+       "yje",
+       "žiai",
+       "žių",
+       "žiams",
+       "žiais",
+       "žiuose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "mandatas",
@@ -1172,7 +2548,26 @@ window.KONST = {
      "exru": "Член Сейма утрачивает мандат.",
      "art": "59",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Seimo narys netenka ",
+      "stem": "mandat",
+      "end": "o",
+      "post": ".",
+      "alt": [
+       "as",
+       "ui",
+       "ą",
+       "u",
+       "e",
+       "ai",
+       "ams",
+       "us",
+       "ais",
+       "uose"
+      ],
+      "lab": "kilmininkas, vns. (род. п., ед. ч.)"
+     }
     },
     {
      "key": "nutarimas",
@@ -1185,7 +2580,26 @@ window.KONST = {
      "exru": "Сейм принимает постановление.",
      "art": "59",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Seimas priima ",
+      "stem": "nutarim",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "pataisa",
@@ -1198,7 +2612,24 @@ window.KONST = {
      "exru": "Сейм принимает поправки к Конституции.",
      "art": "67",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Seimas priima Konstitucijos ",
+      "stem": "patais",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "priesaika",
@@ -1211,7 +2642,24 @@ window.KONST = {
      "exru": "Член Сейма нарушает присягу.",
      "art": "74",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Seimo narys sulaužo ",
+      "stem": "priesaik",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "nepasitikėjimas",
@@ -1224,7 +2672,26 @@ window.KONST = {
      "exru": "Сейм выражает недоверие министру.",
      "art": "61",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Seimas reiškia ",
+      "stem": "nepasitikėjim",
+      "end": "ą",
+      "post": " ministru.",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "apkalta",
@@ -1237,7 +2704,22 @@ window.KONST = {
      "exru": "Мандата лишают в порядке процедуры импичмента.",
      "art": "74",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Mandatas panaikinamas ",
+      "stem": "apkalt",
+      "end": "os",
+      "post": " tvarka.",
+      "alt": [
+       "ai",
+       "ą",
+       "oje",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "statutas",
@@ -1250,7 +2732,24 @@ window.KONST = {
      "exru": "Работу Сейма определяет Статут Сейма.",
      "art": "76",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Seimo darbą nustato Seimo ",
+      "stem": "statut",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "ministras",
@@ -1263,7 +2762,24 @@ window.KONST = {
      "exru": "Сейм выражает недоверие министру.",
      "art": "61",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Seimas reiškia nepasitikėjimą ",
+      "stem": "ministr",
+      "end": "u",
+      "post": ".",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "įnagininkas, vns. (твор. п., ед. ч.)"
+     }
     },
     {
      "key": "ministerija",
@@ -1276,7 +2792,24 @@ window.KONST = {
      "exru": "Сейм образует министерства.",
      "art": "67",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Seimas steigia ",
+      "stem": "ministerij",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "biudžetas",
@@ -1289,7 +2822,26 @@ window.KONST = {
      "exru": "Сейм утверждает государственный бюджет.",
      "art": "67",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Seimas tvirtina valstybės ",
+      "stem": "biudžet",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "mokestis",
@@ -1302,7 +2854,24 @@ window.KONST = {
      "exru": "Сейм устанавливает государственные налоги.",
      "art": "67",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Seimas nustato valstybinius ",
+      "stem": "mokesč",
+      "end": "ius",
+      "post": ".",
+      "alt": [
+       "io",
+       "iui",
+       "iu",
+       "iai",
+       "ių",
+       "iams",
+       "iais",
+       "iuose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "sutartis",
@@ -1315,7 +2884,20 @@ window.KONST = {
      "exru": "Сейм ратифицирует международные договоры.",
      "art": "67",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Seimas ratifikuoja tarptautines ",
+      "stem": "sutart",
+      "end": "is",
+      "post": ".",
+      "alt": [
+       "ies",
+       "yje",
+       "ims",
+       "yse"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "dauguma",
@@ -1328,7 +2910,24 @@ window.KONST = {
      "exru": "Закон принимается большинством голосов.",
      "art": "69",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Įstatymas priimamas balsų ",
+      "stem": "daugum",
+      "end": "a",
+      "post": ".",
+      "alt": [
+       "os",
+       "ai",
+       "ą",
+       "oje",
+       "ų",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "projektas",
@@ -1341,7 +2940,26 @@ window.KONST = {
      "exru": "Граждане вносят законопроект.",
      "art": "68",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "Piliečiai teikia įstatymo ",
+      "stem": "projekt",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "Prezidentas",
@@ -1354,7 +2972,24 @@ window.KONST = {
      "exru": "Президент Республики — глава государства.",
      "art": "77",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Respublikos ",
+      "stem": "Prezident",
+      "end": "as",
+      "post": " yra valstybės vadovas.",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "vadovas",
@@ -1367,7 +3002,24 @@ window.KONST = {
      "exru": "Президент — глава государства.",
      "art": "77",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Prezidentas yra valstybės ",
+      "stem": "vadov",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "kadencija",
@@ -1380,7 +3032,24 @@ window.KONST = {
      "exru": "Срок полномочий Президента — пять лет.",
      "art": "80",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Prezidento ",
+      "stem": "kadencij",
+      "end": "a",
+      "post": " — penkeri metai.",
+      "alt": [
+       "os",
+       "ai",
+       "ą",
+       "oje",
+       "ų",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "kandidatas",
@@ -1393,7 +3062,24 @@ window.KONST = {
      "exru": "Кандидат собирает 20 тысяч подписей.",
      "art": "79",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "",
+      "stem": "Kandidat",
+      "end": "as",
+      "post": " surenka 20 tūkstančių parašų.",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "rinkėjas",
@@ -1406,7 +3092,25 @@ window.KONST = {
      "exru": "Кандидату нужны подписи избирателей.",
      "art": "79",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Kandidatui reikia ",
+      "stem": "rinkėj",
+      "end": "ų",
+      "post": " parašų.",
+      "alt": [
+       "as",
+       "ui",
+       "ą",
+       "u",
+       "ai",
+       "ams",
+       "us",
+       "ais",
+       "uose"
+      ],
+      "lab": "kilmininkas, dgs. (род. п., мн. ч.)"
+     }
     },
     {
      "key": "parašas",
@@ -1419,7 +3123,26 @@ window.KONST = {
      "exru": "Нужно собрать 20 тысяч подписей.",
      "art": "79",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Reikia surinkti 20 tūkstančių ",
+      "stem": "paraš",
+      "end": "ų",
+      "post": ".",
+      "alt": [
+       "as",
+       "ui",
+       "ą",
+       "u",
+       "e",
+       "ai",
+       "ams",
+       "us",
+       "ais",
+       "uose"
+      ],
+      "lab": "kilmininkas, dgs. (род. п., мн. ч.)"
+     }
     },
     {
      "key": "balsavimas",
@@ -1432,7 +3155,24 @@ window.KONST = {
      "exru": "Президент избирается тайным голосованием.",
      "art": "78",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Prezidentas renkamas slaptu ",
+      "stem": "balsavim",
+      "end": "u",
+      "post": ".",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "įnagininkas, vns. (твор. п., ед. ч.)"
+     }
     },
     {
      "key": "dekretas",
@@ -1445,7 +3185,26 @@ window.KONST = {
      "exru": "Президент издаёт декреты.",
      "art": "85",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Prezidentas leidžia ",
+      "stem": "dekret",
+      "end": "us",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "atsistatydinimas",
@@ -1458,7 +3217,26 @@ window.KONST = {
      "exru": "Президент принимает отставку Правительства.",
      "art": "84",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Prezidentas priima Vyriausybės ",
+      "stem": "atsistatydinim",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "malonė",
@@ -1471,7 +3249,25 @@ window.KONST = {
      "exru": "Президент милует осуждённых.",
      "art": "84",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Prezidentas teikia ",
+      "stem": "malon",
+      "end": "ę",
+      "post": " nuteistiesiems.",
+      "alt": [
+       "ė",
+       "ės",
+       "ei",
+       "e",
+       "ėje",
+       "ių",
+       "ėms",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "rezidencija",
@@ -1484,7 +3280,24 @@ window.KONST = {
      "exru": "У Президента есть резиденция.",
      "art": "90",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Prezidentas turi ",
+      "stem": "rezidencij",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "politika",
@@ -1497,7 +3310,24 @@ window.KONST = {
      "exru": "Президент ведёт внешнюю политику.",
      "art": "84",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Prezidentas vykdo užsienio ",
+      "stem": "politik",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "prokuroras",
@@ -1510,7 +3340,26 @@ window.KONST = {
      "exru": "Президент назначает генерального прокурора.",
      "art": "84",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Prezidentas skiria generalinį ",
+      "stem": "prokuror",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "laipsnis",
@@ -1523,7 +3372,26 @@ window.KONST = {
      "exru": "Президент присваивает воинские звания.",
      "art": "84",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Prezidentas suteikia karinius ",
+      "stem": "laipsn",
+      "end": "ius",
+      "post": ".",
+      "alt": [
+       "is",
+       "io",
+       "iui",
+       "iu",
+       "yje",
+       "iai",
+       "ių",
+       "iams",
+       "iais",
+       "iuose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "pranešimas",
@@ -1536,7 +3404,26 @@ window.KONST = {
      "exru": "Президент выступает с ежегодными посланиями.",
      "art": "84",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Prezidentas daro metinius ",
+      "stem": "pranešim",
+      "end": "us",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "ratas",
@@ -1549,7 +3436,26 @@ window.KONST = {
      "exru": "Во втором туре участвуют два кандидата.",
      "art": "81",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Antrame balsavimo ",
+      "stem": "rat",
+      "end": "e",
+      "post": " dalyvauja du kandidatai.",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "ą",
+       "u",
+       "ai",
+       "ų",
+       "ams",
+       "us",
+       "ais"
+      ],
+      "lab": "vietininkas, vns. (мест. п., ед. ч.)"
+     }
     },
     {
      "key": "Ministras Pirmininkas",
@@ -1562,7 +3468,24 @@ window.KONST = {
      "exru": "Правительством руководит Премьер-министр.",
      "art": "97",
      "artsk": "VII",
-     "sk": 7
+     "sk": 7,
+     "gal": {
+      "pre": "Vyriausybei vadovauja Ministras ",
+      "stem": "Pirminink",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "programa",
@@ -1575,7 +3498,24 @@ window.KONST = {
      "exru": "Сейм одобряет программу Правительства.",
      "art": "92",
      "artsk": "VII",
-     "sk": 7
+     "sk": 7,
+     "gal": {
+      "pre": "Seimas pritaria Vyriausybės ",
+      "stem": "program",
+      "end": "ai",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ą",
+       "oje",
+       "ų",
+       "as",
+       "omis",
+       "ose"
+      ],
+      "lab": "naudininkas, vns. (дат. п., ед. ч.)"
+     }
     },
     {
      "key": "kompetencija",
@@ -1588,7 +3528,22 @@ window.KONST = {
      "exru": "Министр решает вопросы компетенции.",
      "art": "98",
      "artsk": "VII",
-     "sk": 7
+     "sk": 7,
+     "gal": {
+      "pre": "Ministras sprendžia ",
+      "stem": "kompetencij",
+      "end": "os",
+      "post": " klausimus.",
+      "alt": [
+       "ai",
+       "ą",
+       "oje",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "sritis",
@@ -1614,7 +3569,24 @@ window.KONST = {
      "exru": "Министр исполняет предусмотренные функции.",
      "art": "98",
      "artsk": "VII",
-     "sk": 7
+     "sk": 7,
+     "gal": {
+      "pre": "Ministras vykdo numatytas ",
+      "stem": "funkcij",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "apyskaita",
@@ -1627,33 +3599,78 @@ window.KONST = {
      "exru": "Правительство представляет отчёт о бюджете.",
      "art": "94",
      "artsk": "VII",
-     "sk": 7
+     "sk": 7,
+     "gal": {
+      "pre": "Vyriausybė teikia biudžeto ",
+      "stem": "apyskait",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "santykiai",
      "lemma": "santykiai",
      "lt": "santyk|iai",
      "ru": "отношения",
-     "gram": "vyr. g.",
+     "gram": "vyr. g., dgs.",
      "syn": [],
      "ex": "Vyriausybė užmezga diplomatinius santyk|ius.",
      "exru": "Правительство устанавливает дипломатические отношения.",
      "art": "94",
      "artsk": "VII",
-     "sk": 7
+     "sk": 7,
+     "gal": {
+      "pre": "Vyriausybė užmezga diplomatinius ",
+      "stem": "santyk",
+      "end": "ius",
+      "post": ".",
+      "alt": [
+       "iai",
+       "ių",
+       "iams",
+       "iais",
+       "iuose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "ryšiai",
      "lemma": "ryšiai",
      "lt": "ryš|iai",
      "ru": "связи",
-     "gram": "vyr. g.",
+     "gram": "vyr. g., dgs.",
      "syn": [],
      "ex": "Vyriausybė palaiko ryš|ius su valstybėmis.",
      "exru": "Правительство поддерживает связи с государствами.",
      "art": "94",
      "artsk": "VII",
-     "sk": 7
+     "sk": 7,
+     "gal": {
+      "pre": "Vyriausybė palaiko ",
+      "stem": "ryš",
+      "end": "ius",
+      "post": " su valstybėmis.",
+      "alt": [
+       "iai",
+       "ių",
+       "iams",
+       "iais",
+       "iuose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "saugumas",
@@ -1666,7 +3683,26 @@ window.KONST = {
      "exru": "Правительство гарантирует безопасность государства.",
      "art": "94",
      "artsk": "VII",
-     "sk": 7
+     "sk": 7,
+     "gal": {
+      "pre": "Vyriausybė garantuoja valstybės ",
+      "stem": "saugum",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "tvarka",
@@ -1679,7 +3715,24 @@ window.KONST = {
      "exru": "Правительство охраняет общественный порядок.",
      "art": "94",
      "artsk": "VII",
-     "sk": 7
+     "sk": 7,
+     "gal": {
+      "pre": "Vyriausybė saugo viešąją ",
+      "stem": "tvark",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "atsakomybė",
@@ -1705,7 +3758,23 @@ window.KONST = {
      "exru": "Конституционный суд состоит из 9 судей.",
      "art": "103",
      "artsk": "VIII",
-     "sk": 8
+     "sk": 8,
+     "gal": {
+      "pre": "Konstitucinį Teismą sudaro 9 ",
+      "stem": "teisėj",
+      "end": "ai",
+      "post": ".",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, dgs. (им. п., мн. ч.)"
+     }
     },
     {
      "key": "išvada",
@@ -1718,7 +3787,24 @@ window.KONST = {
      "exru": "Суд даёт заключения о выборах.",
      "art": "105",
      "artsk": "VIII",
-     "sk": 8
+     "sk": 8,
+     "gal": {
+      "pre": "Teismas teikia ",
+      "stem": "išvad",
+      "end": "as",
+      "post": " dėl rinkimų.",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "sprendimas",
@@ -1731,7 +3817,26 @@ window.KONST = {
      "exru": "Суд принимает решение.",
      "art": "105",
      "artsk": "VIII",
-     "sk": 8
+     "sk": 8,
+     "gal": {
+      "pre": "Teismas priima ",
+      "stem": "sprendim",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "byla",
@@ -1744,7 +3849,24 @@ window.KONST = {
      "exru": "Суд рассматривает дело.",
      "art": "105",
      "artsk": "VIII",
-     "sk": 8
+     "sk": 8,
+     "gal": {
+      "pre": "Teismas nagrinėja ",
+      "stem": "byl",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "reputacija",
@@ -1757,7 +3879,24 @@ window.KONST = {
      "exru": "Судья имеет безупречную репутацию.",
      "art": "103",
      "artsk": "VIII",
-     "sk": 8
+     "sk": 8,
+     "gal": {
+      "pre": "Teisėjas turi nepriekaištingą ",
+      "stem": "reputacij",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "išsilavinimas",
@@ -1770,7 +3909,26 @@ window.KONST = {
      "exru": "Судья имеет высшее юридическое образование.",
      "art": "103",
      "artsk": "VIII",
-     "sk": 8
+     "sk": 8,
+     "gal": {
+      "pre": "Teisėjas turi aukštąjį teisinį ",
+      "stem": "išsilavinim",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "stažas",
@@ -1783,7 +3941,24 @@ window.KONST = {
      "exru": "Требуется стаж работы 10 лет.",
      "art": "103",
      "artsk": "VIII",
-     "sk": 8
+     "sk": 8,
+     "gal": {
+      "pre": "Reikalingas 10 metų darbo ",
+      "stem": "staž",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "aktas",
@@ -1796,7 +3971,26 @@ window.KONST = {
      "exru": "Суд оценивает акты Сейма.",
      "art": "105",
      "artsk": "VIII",
-     "sk": 8
+     "sk": 8,
+     "gal": {
+      "pre": "Teismas vertina Seimo ",
+      "stem": "akt",
+      "end": "us",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "statusas",
@@ -1809,7 +4003,26 @@ window.KONST = {
      "exru": "Статус суда определяет закон.",
      "art": "102",
      "artsk": "VIII",
-     "sk": 8
+     "sk": 8,
+     "gal": {
+      "pre": "Teismo ",
+      "stem": "status",
+      "end": "ą",
+      "post": " nustato įstatymas.",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "neliečiamybė",
@@ -1822,7 +4035,25 @@ window.KONST = {
      "exru": "Судьи обладают неприкосновенностью личности.",
      "art": "104",
      "artsk": "VIII",
-     "sk": 8
+     "sk": 8,
+     "gal": {
+      "pre": "Teisėjai turi asmens ",
+      "stem": "neliečiamyb",
+      "end": "ę",
+      "post": ".",
+      "alt": [
+       "ė",
+       "ės",
+       "ei",
+       "e",
+       "ėje",
+       "ių",
+       "ėms",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "apribojimas",
@@ -1835,7 +4066,24 @@ window.KONST = {
      "exru": "К судьям применяются ограничения деятельности.",
      "art": "104",
      "artsk": "VIII",
-     "sk": 8
+     "sk": 8,
+     "gal": {
+      "pre": "Teisėjams taikomi veiklos ",
+      "stem": "apribojim",
+      "end": "ai",
+      "post": ".",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, dgs. (им. п., мн. ч.)"
+     }
     },
     {
      "key": "teisingumas",
@@ -1848,7 +4096,26 @@ window.KONST = {
      "exru": "Правосудие осуществляют только суды.",
      "art": "109",
      "artsk": "IX",
-     "sk": 9
+     "sk": 9,
+     "gal": {
+      "pre": "",
+      "stem": "Teisingum",
+      "end": "ą",
+      "post": " vykdo tik teismai.",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "nuosprendis",
@@ -1861,7 +4128,24 @@ window.KONST = {
      "exru": "Приговор суда вступает в силу.",
      "art": "115",
      "artsk": "IX",
-     "sk": 9
+     "sk": 9,
+     "gal": {
+      "pre": "Įsiteisėja teismo ",
+      "stem": "nuosprend",
+      "end": "is",
+      "post": ".",
+      "alt": [
+       "žio",
+       "žiui",
+       "į",
+       "yje",
+       "žių",
+       "žiams",
+       "žius",
+       "žiuose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "vertėjas",
@@ -1874,7 +4158,25 @@ window.KONST = {
      "exru": "Гарантируется право на переводчика.",
      "art": "117",
      "artsk": "IX",
-     "sk": 9
+     "sk": 9,
+     "gal": {
+      "pre": "Garantuojama teisė į ",
+      "stem": "vertėj",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "paslaptis",
@@ -1887,7 +4189,24 @@ window.KONST = {
      "exru": "Дело может раскрыть государственную тайну.",
      "art": "117",
      "artsk": "IX",
-     "sk": 9
+     "sk": 9,
+     "gal": {
+      "pre": "Byla gali atskleisti valstybinę ",
+      "stem": "paslapt",
+      "end": "į",
+      "post": ".",
+      "alt": [
+       "is",
+       "ies",
+       "imi",
+       "yje",
+       "ys",
+       "ims",
+       "imis",
+       "yse"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "tyrimas",
@@ -1900,7 +4219,26 @@ window.KONST = {
      "exru": "Прокурор организует досудебное расследование.",
      "art": "118",
      "artsk": "IX",
-     "sk": 9
+     "sk": 9,
+     "gal": {
+      "pre": "Prokuroras organizuoja ikiteisminį ",
+      "stem": "tyrim",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "kaltinimas",
@@ -1913,7 +4251,26 @@ window.KONST = {
      "exru": "Прокурор поддерживает государственное обвинение.",
      "art": "118",
      "artsk": "IX",
-     "sk": 9
+     "sk": 9,
+     "gal": {
+      "pre": "Prokuroras palaiko valstybinį ",
+      "stem": "kaltinim",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "prokuratūra",
@@ -1926,7 +4283,24 @@ window.KONST = {
      "exru": "Генеральная прокуратура руководит прокурорами.",
      "art": "118",
      "artsk": "IX",
-     "sk": 9
+     "sk": 9,
+     "gal": {
+      "pre": "Generalinė ",
+      "stem": "prokuratūr",
+      "end": "a",
+      "post": " vadovauja prokurorams.",
+      "alt": [
+       "os",
+       "ai",
+       "ą",
+       "oje",
+       "ų",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "procesas",
@@ -1939,7 +4313,24 @@ window.KONST = {
      "exru": "Судопроизводство ведётся на государственном языке.",
      "art": "117",
      "artsk": "IX",
-     "sk": 9
+     "sk": 9,
+     "gal": {
+      "pre": "Teismo ",
+      "stem": "proces",
+      "end": "as",
+      "post": " vyksta valstybine kalba.",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "amžius",
@@ -1952,7 +4343,25 @@ window.KONST = {
      "exru": "Судья освобождается по достижении пенсионного возраста.",
      "art": "115",
      "artsk": "IX",
-     "sk": 9
+     "sk": 9,
+     "gal": {
+      "pre": "Teisėjas atleidžiamas sulaukęs pensinio ",
+      "stem": "amži",
+      "end": "aus",
+      "post": ".",
+      "alt": [
+       "us",
+       "ui",
+       "ų",
+       "umi",
+       "uje",
+       "ai",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "kilmininkas, vns. (род. п., ед. ч.)"
+     }
     },
     {
      "key": "kišimasis",
@@ -1965,7 +4374,20 @@ window.KONST = {
      "exru": "Вмешательство в деятельность судьи запрещено.",
      "art": "114",
      "artsk": "IX",
-     "sk": 9
+     "sk": 9,
+     "gal": {
+      "pre": "",
+      "stem": "Kišim",
+      "end": "asis",
+      "post": " į teisėjo veiklą draudžiamas.",
+      "alt": [
+       "osi",
+       "uisi",
+       "ąsi",
+       "esi"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "savivaldybė",
@@ -1978,7 +4400,25 @@ window.KONST = {
      "exru": "Государство поддерживает самоуправления.",
      "art": "120",
      "artsk": "X",
-     "sk": 10
+     "sk": 10,
+     "gal": {
+      "pre": "Valstybė remia ",
+      "stem": "savivaldyb",
+      "end": "es",
+      "post": ".",
+      "alt": [
+       "ė",
+       "ės",
+       "ei",
+       "e",
+       "ėje",
+       "ių",
+       "ėms",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "savivalda",
@@ -1991,7 +4431,22 @@ window.KONST = {
      "exru": "Право самоуправления гарантируется единицам.",
      "art": "119",
      "artsk": "X",
-     "sk": 10
+     "sk": 10,
+     "gal": {
+      "pre": "",
+      "stem": "Savivald",
+      "end": "os",
+      "post": " teisė laiduojama vienetams.",
+      "alt": [
+       "ai",
+       "ą",
+       "oje",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "taryba",
@@ -2004,7 +4459,24 @@ window.KONST = {
      "exru": "Советы самоуправлений избирают жители.",
      "art": "119",
      "artsk": "X",
-     "sk": 10
+     "sk": 10,
+     "gal": {
+      "pre": "Savivaldybių ",
+      "stem": "taryb",
+      "end": "as",
+      "post": " renka gyventojai.",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "vienetas",
@@ -2017,7 +4489,24 @@ window.KONST = {
      "exru": "административная единица территории",
      "art": "119",
      "artsk": "X",
-     "sk": 10
+     "sk": 10,
+     "gal": {
+      "pre": "administracinis teritorijos ",
+      "stem": "vienet",
+      "end": "as",
+      "post": "",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "valdymas",
@@ -2030,7 +4519,26 @@ window.KONST = {
      "exru": "Сейм может ввести прямое правление.",
      "art": "123",
      "artsk": "X",
-     "sk": 10
+     "sk": 10,
+     "gal": {
+      "pre": "Seimas gali įvesti tiesioginį ",
+      "stem": "valdym",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "rinkliava",
@@ -2043,7 +4551,24 @@ window.KONST = {
      "exru": "Самоуправления устанавливают местные сборы.",
      "art": "121",
      "artsk": "X",
-     "sk": 10
+     "sk": 10,
+     "gal": {
+      "pre": "Savivaldybės nustato vietines ",
+      "stem": "rinkliav",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "lengvata",
@@ -2056,7 +4581,24 @@ window.KONST = {
      "exru": "Самоуправления могут предусматривать налоговые льготы.",
      "art": "121",
      "artsk": "X",
-     "sk": 10
+     "sk": 10,
+     "gal": {
+      "pre": "Savivaldybės gali numatyti mokesčių ",
+      "stem": "lengvat",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "gyventojas",
@@ -2069,7 +4611,23 @@ window.KONST = {
      "exru": "Совет избирают постоянные жители.",
      "art": "119",
      "artsk": "X",
-     "sk": 10
+     "sk": 10,
+     "gal": {
+      "pre": "Tarybą renka nuolatiniai ",
+      "stem": "gyventoj",
+      "end": "ai",
+      "post": ".",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, dgs. (им. п., мн. ч.)"
+     }
     },
     {
      "key": "bankas",
@@ -2082,7 +4640,24 @@ window.KONST = {
      "exru": "Центральный банк — Банк Литвы.",
      "art": "125",
      "artsk": "XI",
-     "sk": 11
+     "sk": 11,
+     "gal": {
+      "pre": "Centrinis ",
+      "stem": "bank",
+      "end": "as",
+      "post": " yra Lietuvos bankas.",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "valdyba",
@@ -2095,33 +4670,77 @@ window.KONST = {
      "exru": "Банком Литвы руководит правление.",
      "art": "126",
      "artsk": "XI",
-     "sk": 11
+     "sk": 11,
+     "gal": {
+      "pre": "Lietuvos bankui vadovauja ",
+      "stem": "valdyb",
+      "end": "a",
+      "post": ".",
+      "alt": [
+       "os",
+       "ai",
+       "ą",
+       "oje",
+       "ų",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "pajamos",
      "lemma": "pajamos",
      "lt": "pajam|os",
      "ru": "доходы",
-     "gram": "mot. g.",
+     "gram": "mot. g., dgs.",
      "syn": [],
      "ex": "Biudžeto pajam|os formuojamos iš mokesčių.",
      "exru": "Доходы бюджета формируются из налогов.",
      "art": "127",
      "artsk": "XI",
-     "sk": 11
+     "sk": 11,
+     "gal": {
+      "pre": "Biudžeto ",
+      "stem": "pajam",
+      "end": "os",
+      "post": " formuojamos iš mokesčių.",
+      "alt": [
+       "ų",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": "vardininkas, dgs. (им. п., мн. ч.)"
+     }
     },
     {
      "key": "išlaidos",
      "lemma": "išlaidos",
      "lt": "išlaid|os",
      "ru": "расходы",
-     "gram": "mot. g.",
+     "gram": "mot. g., dgs.",
      "syn": [],
      "ex": "Seimas gali didinti išlaid|as.",
      "exru": "Сейм может увеличивать расходы.",
      "art": "131",
      "artsk": "XI",
-     "sk": 11
+     "sk": 11,
+     "gal": {
+      "pre": "Seimas gali didinti ",
+      "stem": "išlaid",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "os",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "turtas",
@@ -2134,7 +4753,24 @@ window.KONST = {
      "exru": "Государственное имущество управляется законно.",
      "art": "134",
      "artsk": "XII",
-     "sk": 12
+     "sk": 12,
+     "gal": {
+      "pre": "Valstybinis ",
+      "stem": "turt",
+      "end": "as",
+      "post": " valdomas teisėtai.",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "paskola",
@@ -2147,7 +4783,22 @@ window.KONST = {
      "exru": "Сейм решает вопрос о государственном займе.",
      "art": "128",
      "artsk": "XI",
-     "sk": 11
+     "sk": 11,
+     "gal": {
+      "pre": "Seimas sprendžia dėl valstybinės ",
+      "stem": "paskol",
+      "end": "os",
+      "post": ".",
+      "alt": [
+       "ai",
+       "ą",
+       "oje",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "įsipareigojimas",
@@ -2160,7 +4811,24 @@ window.KONST = {
      "exru": "имущественные обязательства государства",
      "art": "128",
      "artsk": "XI",
-     "sk": 11
+     "sk": 11,
+     "gal": {
+      "pre": "valstybės turtiniai ",
+      "stem": "įsipareigojim",
+      "end": "ai",
+      "post": "",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, dgs. (им. п., мн. ч.)"
+     }
     },
     {
      "key": "šaltinis",
@@ -2173,7 +4841,26 @@ window.KONST = {
      "exru": "нужно указать источники финансирования",
      "art": "131",
      "artsk": "XI",
-     "sk": 11
+     "sk": 11,
+     "gal": {
+      "pre": "reikia nurodyti finansavimo ",
+      "stem": "šaltin",
+      "end": "ius",
+      "post": "",
+      "alt": [
+       "is",
+       "io",
+       "iui",
+       "iu",
+       "yje",
+       "iai",
+       "ių",
+       "iams",
+       "iais",
+       "iuose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "kontrolė",
@@ -2186,7 +4873,24 @@ window.KONST = {
      "exru": "Государственный контроль следит за исполнением бюджета.",
      "art": "134",
      "artsk": "XII",
-     "sk": 12
+     "sk": 12,
+     "gal": {
+      "pre": "Valstybės ",
+      "stem": "kontrol",
+      "end": "ė",
+      "post": " prižiūri biudžeto vykdymą.",
+      "alt": [
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ių",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "kontrolierius",
@@ -2199,7 +4903,22 @@ window.KONST = {
      "exru": "Государственный контролёр представляет Сейму заключение.",
      "art": "134",
      "artsk": "XII",
-     "sk": 12
+     "sk": 12,
+     "gal": {
+      "pre": "Valstybės ",
+      "stem": "kontrolieri",
+      "end": "us",
+      "post": " teikia Seimui išvadą.",
+      "alt": [
+       "aus",
+       "ui",
+       "uje",
+       "ų",
+       "ams",
+       "uose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "gynimas",
@@ -2212,7 +4931,24 @@ window.KONST = {
      "exru": "Защита государства — обязанность гражданина.",
      "art": "139",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "Valstybės ",
+      "stem": "gynim",
+      "end": "as",
+      "post": " — piliečio pareiga.",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "kariuomenė",
@@ -2225,7 +4961,25 @@ window.KONST = {
      "exru": "Армией руководит командующий армией.",
      "art": "140",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "",
+      "stem": "Kariuomen",
+      "end": "ei",
+      "post": " vadovauja kariuomenės vadas.",
+      "alt": [
+       "ė",
+       "ės",
+       "ę",
+       "e",
+       "ėje",
+       "ių",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "naudininkas, vns. (дат. п., ед. ч.)"
+     }
     },
     {
      "key": "karys",
@@ -2238,7 +4992,26 @@ window.KONST = {
      "exru": "Государство опекает военнослужащих.",
      "art": "146",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "Valstybė globoja ",
+      "stem": "kar",
+      "end": "ius",
+      "post": ".",
+      "alt": [
+       "ys",
+       "io",
+       "iui",
+       "iu",
+       "yje",
+       "iai",
+       "ių",
+       "iams",
+       "iais",
+       "iuose"
+      ],
+      "lab": "galininkas, dgs. (вин. п., мн. ч.)"
+     }
     },
     {
      "key": "karas",
@@ -2251,7 +5024,26 @@ window.KONST = {
      "exru": "Сейм вводит военное положение.",
      "art": "142",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "Seimas įveda ",
+      "stem": "kar",
+      "end": "o",
+      "post": " padėtį.",
+      "alt": [
+       "as",
+       "ui",
+       "ą",
+       "u",
+       "e",
+       "ai",
+       "ams",
+       "us",
+       "ais",
+       "uose"
+      ],
+      "lab": "kilmininkas, vns. (род. п., ед. ч.)"
+     }
     },
     {
      "key": "tarnyba",
@@ -2264,20 +5056,51 @@ window.KONST = {
      "exru": "Граждане проходят военную службу.",
      "art": "139",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "Piliečiai atlieka karo ",
+      "stem": "tarnyb",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "pajėgos",
      "lemma": "pajėgos",
      "lt": "pajėg|os",
      "ru": "силы",
-     "gram": "mot. g.",
+     "gram": "mot. g., dgs.",
      "syn": [],
      "ex": "Prezidentas vadovauja ginkluotosioms pajėg|oms.",
      "exru": "Президент руководит вооружёнными силами.",
      "art": "140",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "Prezidentas vadovauja ginkluotosioms ",
+      "stem": "pajėg",
+      "end": "oms",
+      "post": ".",
+      "alt": [
+       "os",
+       "ų",
+       "as",
+       "omis",
+       "ose"
+      ],
+      "lab": "naudininkas, dgs. (дат. п., мн. ч.)"
+     }
     },
     {
      "key": "agresija",
@@ -2290,7 +5113,22 @@ window.KONST = {
      "exru": "решение о защите от агрессии",
      "art": "142",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "sprendimas dėl gynybos nuo ",
+      "stem": "agresij",
+      "end": "os",
+      "post": "",
+      "alt": [
+       "ai",
+       "ą",
+       "oje",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "grėsmė",
@@ -2303,7 +5141,24 @@ window.KONST = {
      "exru": "возникает угроза суверенитету государства",
      "art": "142",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "kyla ",
+      "stem": "grėsm",
+      "end": "ė",
+      "post": " valstybės suverenumui",
+      "alt": [
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ių",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     },
     {
      "key": "principas",
@@ -2316,7 +5171,24 @@ window.KONST = {
      "exru": "Литва руководствуется принципами международного права.",
      "art": "135",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "Lietuva vadovaujasi tarptautinės teisės ",
+      "stem": "princip",
+      "end": "ais",
+      "post": ".",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "įnagininkas, dgs. (твор. п., мн. ч.)"
+     }
     },
     {
      "key": "mobilizacija",
@@ -2329,7 +5201,24 @@ window.KONST = {
      "exru": "Сейм объявляет мобилизацию.",
      "art": "142",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "Seimas skelbia ",
+      "stem": "mobilizacij",
+      "end": "ą",
+      "post": ".",
+      "alt": [
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "ų",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "bazė",
@@ -2342,7 +5231,26 @@ window.KONST = {
      "exru": "В Литве не может быть иностранных военных баз.",
      "art": "137",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "Lietuvoje negali būti užsienio karinių ",
+      "stem": "baz",
+      "end": "ių",
+      "post": ".",
+      "alt": [
+       "ė",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ės",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "kilmininkas, dgs. (род. п., мн. ч.)"
+     }
     },
     {
      "key": "ginklas",
@@ -2355,7 +5263,24 @@ window.KONST = {
      "exru": "запрещено оружие массового уничтожения",
      "art": "137",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "draudžiami masinio naikinimo ",
+      "stem": "ginkl",
+      "end": "ai",
+      "post": "",
+      "alt": [
+       "o",
+       "ui",
+       "ą",
+       "e",
+       "ų",
+       "ams",
+       "us",
+       "uose"
+      ],
+      "lab": "vardininkas, dgs. (им. п., мн. ч.)"
+     }
     },
     {
      "key": "padėtis",
@@ -2368,7 +5293,24 @@ window.KONST = {
      "exru": "Сейм вводит чрезвычайное положение.",
      "art": "144",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "Seimas įveda nepaprastąją ",
+      "stem": "padėt",
+      "end": "į",
+      "post": ".",
+      "alt": [
+       "is",
+       "ies",
+       "imi",
+       "yje",
+       "ys",
+       "ims",
+       "imis",
+       "yse"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "propaganda",
@@ -2381,7 +5323,24 @@ window.KONST = {
      "exru": "Пропаганда войны запрещена.",
      "art": "135",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "Karo ",
+      "stem": "propagand",
+      "end": "a",
+      "post": " draudžiama.",
+      "alt": [
+       "os",
+       "ai",
+       "ą",
+       "oje",
+       "ų",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "sumanymas",
@@ -2394,7 +5353,26 @@ window.KONST = {
      "exru": "Предложение об изменении Конституции вносят члены Сейма.",
      "art": "147",
      "artsk": "XIV",
-     "sk": 14
+     "sk": 14,
+     "gal": {
+      "pre": "",
+      "stem": "Sumanym",
+      "end": "ą",
+      "post": " keisti Konstituciją teikia Seimo nariai.",
+      "alt": [
+       "as",
+       "o",
+       "ui",
+       "u",
+       "e",
+       "ai",
+       "ų",
+       "ams",
+       "ais",
+       "uose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "nuostata",
@@ -2407,7 +5385,22 @@ window.KONST = {
      "exru": "Положения Конституции меняются референдумом.",
      "art": "148",
      "artsk": "XIV",
-     "sk": 14
+     "sk": 14,
+     "gal": {
+      "pre": "Konstitucijos ",
+      "stem": "nuostat",
+      "end": "os",
+      "post": " keičiamos referendumu.",
+      "alt": [
+       "ai",
+       "ą",
+       "oje",
+       "oms",
+       "as",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "grupė",
@@ -2420,7 +5413,24 @@ window.KONST = {
      "exru": "Предложение вносит группа членов Сейма.",
      "art": "147",
      "artsk": "XIV",
-     "sk": 14
+     "sk": 14,
+     "gal": {
+      "pre": "Sumanymą teikia Seimo narių ",
+      "stem": "grup",
+      "end": "ė",
+      "post": ".",
+      "alt": [
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ių",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vns. (им. п., ед. ч.)"
+     }
     }
    ]
   },
@@ -4247,7 +7257,33 @@ window.KONST = {
      "exru": "независимая демократическая республика",
      "art": "1",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "",
+      "stem": "nepriklausom",
+      "end": "a",
+      "post": " demokratinė respublika",
+      "alt": [
+       "o",
+       "am",
+       "ą",
+       "ame",
+       "i",
+       "ų",
+       "iems",
+       "us",
+       "ais",
+       "uose",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "as",
+       "omis",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:demokratinis",
@@ -4260,7 +7296,35 @@ window.KONST = {
      "exru": "демократическая республика",
      "art": "1",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "",
+      "stem": "demokratin",
+      "end": "ė",
+      "post": " respublika",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "vardininkas, mot. g., vns. (им. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:aukščiausias",
@@ -4273,7 +7337,33 @@ window.KONST = {
      "exru": "Высшую власть осуществляет Народ.",
      "art": "4",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "",
+      "stem": "Aukščiausi",
+      "end": "ą",
+      "post": " galią vykdo Tauta.",
+      "alt": [
+       "as",
+       "o",
+       "am",
+       "u",
+       "ame",
+       "ų",
+       "ems",
+       "us",
+       "ais",
+       "uose",
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "a:vientisas",
@@ -4286,7 +7376,33 @@ window.KONST = {
      "exru": "Конституция — целостный акт.",
      "art": "6",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Konstitucija yra ",
+      "stem": "vientis",
+      "end": "as",
+      "post": " aktas.",
+      "alt": [
+       "o",
+       "am",
+       "ą",
+       "ame",
+       "i",
+       "ų",
+       "iems",
+       "us",
+       "ais",
+       "uose",
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:valstybinis",
@@ -4299,7 +7415,35 @@ window.KONST = {
      "exru": "Государственный язык — литовский.",
      "art": "14",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "",
+      "stem": "Valstybin",
+      "end": "ė",
+      "post": " kalba — lietuvių kalba.",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "vardininkas, mot. g., vns. (им. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:svarbiausias",
@@ -4312,7 +7456,32 @@ window.KONST = {
      "exru": "Важнейшие вопросы решаются референдумом.",
      "art": "9",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "",
+      "stem": "Svarbiaus",
+      "end": "i",
+      "post": " klausimai sprendžiami referendumu.",
+      "alt": [
+       "ias",
+       "io",
+       "iam",
+       "ią",
+       "iu",
+       "iame",
+       "ių",
+       "iems",
+       "ius",
+       "iuose",
+       "ia",
+       "ios",
+       "iai",
+       "ioje",
+       "ioms",
+       "iose"
+      ],
+      "lab": "vardininkas, vyr. g., dgs. (им. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:istorinis",
@@ -4325,7 +7494,35 @@ window.KONST = {
      "exru": "многовековая историческая столица",
      "art": "17",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "ilgaamžė ",
+      "stem": "istorin",
+      "end": "ė",
+      "post": " sostinė",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "vardininkas, mot. g., vns. (им. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:neteisėtas",
@@ -4338,7 +7535,32 @@ window.KONST = {
      "exru": "Действия незаконны и недействительны.",
      "art": "8",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "Veiksmai yra ",
+      "stem": "neteisėt",
+      "end": "i",
+      "post": " ir negalioja.",
+      "alt": [
+       "as",
+       "o",
+       "am",
+       "ą",
+       "u",
+       "ame",
+       "ų",
+       "iems",
+       "us",
+       "uose",
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "ose"
+      ],
+      "lab": "vardininkas, vyr. g., dgs. (им. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:tarptautinis",
@@ -4351,7 +7573,35 @@ window.KONST = {
      "exru": "изменяются международным договором",
      "art": "10",
      "artsk": "I",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "keičiamos ",
+      "stem": "tarptautin",
+      "end": "e",
+      "post": " sutartimi",
+      "alt": [
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "įnagininkas, mot. g., vns. (твор. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:teisinis",
@@ -4364,7 +7614,35 @@ window.KONST = {
      "exru": "правовое государство",
      "art": "",
      "artsk": "",
-     "sk": 1
+     "sk": 1,
+     "gal": {
+      "pre": "",
+      "stem": "teisin",
+      "end": "ė",
+      "post": " valstybė",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "vardininkas, mot. g., vns. (им. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:prigimtinis",
@@ -4377,7 +7655,35 @@ window.KONST = {
      "exru": "Права являются прирождёнными.",
      "art": "18",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Teisės yra ",
+      "stem": "prigimtin",
+      "end": "ės",
+      "post": ".",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iuose",
+       "ė",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:neliečiamas",
@@ -4390,7 +7696,33 @@ window.KONST = {
      "exru": "Свобода человека неприкосновенна.",
      "art": "20",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Žmogaus laisvė ",
+      "stem": "neliečiam",
+      "end": "a",
+      "post": ".",
+      "alt": [
+       "o",
+       "am",
+       "ą",
+       "ame",
+       "i",
+       "ų",
+       "iems",
+       "us",
+       "ais",
+       "uose",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "as",
+       "omis",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:nekaltas",
@@ -4403,7 +7735,34 @@ window.KONST = {
      "exru": "Лицо считается невиновным.",
      "art": "31",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Asmuo laikomas ",
+      "stem": "nekalt",
+      "end": "u",
+      "post": ".",
+      "alt": [
+       "o",
+       "am",
+       "ą",
+       "ame",
+       "i",
+       "ų",
+       "iems",
+       "us",
+       "ais",
+       "uose",
+       "os",
+       "ai",
+       "a",
+       "oje",
+       "oms",
+       "as",
+       "omis",
+       "ose"
+      ],
+      "lab": "įnagininkas, vyr. g., vns. (твор. п., муж. р., ед. ч.)"
+     }
     },
     {
      "key": "a:privatus",
@@ -4416,7 +7775,21 @@ window.KONST = {
      "exru": "Частная жизнь неприкосновенна.",
      "art": "22",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "",
+      "stem": "Privat",
+      "end": "us",
+      "post": " gyvenimas neliečiamas.",
+      "alt": [
+       "aus",
+       "ų",
+       "ūs",
+       "iems",
+       "i"
+      ],
+      "lab": "vardininkas, vyr. g., vns. (им. п., муж. р., ед. ч.)"
+     }
     },
     {
      "key": "a:lygus",
@@ -4429,7 +7802,35 @@ window.KONST = {
      "exru": "Все лица равны.",
      "art": "29",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "Visi asmenys ",
+      "stem": "lyg",
+      "end": "ūs",
+      "post": ".",
+      "alt": [
+       "us",
+       "aus",
+       "iam",
+       "ų",
+       "iu",
+       "iame",
+       "ių",
+       "iems",
+       "ius",
+       "iuose",
+       "i",
+       "ios",
+       "iai",
+       "ią",
+       "ia",
+       "ioje",
+       "ioms",
+       "ias",
+       "iose"
+      ],
+      "lab": "vardininkas, vyr. g., dgs. (им. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:laisvas",
@@ -4442,7 +7843,34 @@ window.KONST = {
      "exru": "без свободного согласия",
      "art": "21",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "be ",
+      "stem": "laisv",
+      "end": "o",
+      "post": " sutikimo",
+      "alt": [
+       "as",
+       "am",
+       "ą",
+       "u",
+       "ame",
+       "i",
+       "ų",
+       "iems",
+       "us",
+       "ais",
+       "uose",
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "kilmininkas, vyr. g., vns. (род. п., муж. р., ед. ч.)"
+     }
     },
     {
      "key": "a:taikus",
@@ -4455,7 +7883,35 @@ window.KONST = {
      "exru": "мирные собрания",
      "art": "36",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "",
+      "stem": "taik",
+      "end": "ūs",
+      "post": " susirinkimai",
+      "alt": [
+       "us",
+       "aus",
+       "iam",
+       "ų",
+       "iu",
+       "iame",
+       "ių",
+       "iems",
+       "ius",
+       "iuose",
+       "i",
+       "ios",
+       "iai",
+       "ią",
+       "ia",
+       "ioje",
+       "ioms",
+       "ias",
+       "iose"
+      ],
+      "lab": "vardininkas, vyr. g., dgs. (им. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:bešališkas",
@@ -4468,7 +7924,33 @@ window.KONST = {
      "exru": "независимый и беспристрастный суд",
      "art": "31",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "nepriklausomas ir ",
+      "stem": "bešališk",
+      "end": "as",
+      "post": " teismas",
+      "alt": [
+       "o",
+       "am",
+       "ą",
+       "ame",
+       "i",
+       "ų",
+       "iems",
+       "us",
+       "ais",
+       "uose",
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:viešas",
@@ -4481,7 +7963,35 @@ window.KONST = {
      "exru": "общественный порядок",
      "art": "26",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "",
+      "stem": "vieš",
+      "end": "oji",
+      "post": " tvarka",
+      "alt": [
+       "asis",
+       "ojo",
+       "ajam",
+       "ąjį",
+       "ajame",
+       "ieji",
+       "ųjų",
+       "iesiems",
+       "uosius",
+       "aisiais",
+       "uosiuose",
+       "osios",
+       "ajai",
+       "ąją",
+       "ojoje",
+       "osioms",
+       "ąsias",
+       "osiomis",
+       "osiose"
+      ],
+      "lab": "vardininkas, mot. g., vns. (им. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:konstitucinis",
@@ -4494,7 +8004,35 @@ window.KONST = {
      "exru": "конституционные права и свободы",
      "art": "30",
      "artsk": "II",
-     "sk": 2
+     "sk": 2,
+     "gal": {
+      "pre": "",
+      "stem": "konstitucin",
+      "end": "ės",
+      "post": " teisės ir laisvės",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iuose",
+       "ė",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:pasaulietinis",
@@ -4507,7 +8045,35 @@ window.KONST = {
      "exru": "Учебные заведения светские.",
      "art": "40",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Mokymo įstaigos yra ",
+      "stem": "pasaulietin",
+      "end": "ės",
+      "post": ".",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iuose",
+       "ė",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:nemokamas",
@@ -4520,7 +8086,33 @@ window.KONST = {
      "exru": "Обучение в школах бесплатное.",
      "art": "41",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Mokymas mokyklose yra ",
+      "stem": "nemokam",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "o",
+       "am",
+       "ą",
+       "ame",
+       "i",
+       "ų",
+       "iems",
+       "us",
+       "ais",
+       "uose",
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:privalomas",
@@ -4533,7 +8125,33 @@ window.KONST = {
      "exru": "До 16 лет обучение обязательно.",
      "art": "41",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Iki 16 metų mokslas ",
+      "stem": "privalom",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "o",
+       "am",
+       "ą",
+       "ame",
+       "i",
+       "ų",
+       "iems",
+       "us",
+       "ais",
+       "uose",
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:nepilnametis",
@@ -4546,7 +8164,25 @@ window.KONST = {
      "exru": "Несовершеннолетних детей защищает закон.",
      "art": "39",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "",
+      "stem": "Nepilnameč",
+      "end": "ius",
+      "post": " vaikus gina įstatymas.",
+      "alt": [
+       "io",
+       "iam",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "iais",
+       "iuose"
+      ],
+      "lab": "galininkas, vyr. g., dgs. (вин. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:aukštasis",
@@ -4572,7 +8208,37 @@ window.KONST = {
      "exru": "Государство признаёт традиционные церкви.",
      "art": "43",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "Valstybė pripažįsta ",
+      "stem": "tradicin",
+      "end": "es",
+      "post": " bažnyčias.",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "galininkas, mot. g., dgs. (вин. п., жен. р., мн. ч.)"
+     }
     },
     {
      "key": "a:religinis",
@@ -4585,7 +8251,35 @@ window.KONST = {
      "exru": "традиционные религиозные организации",
      "art": "43",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "tradicinės ",
+      "stem": "religin",
+      "end": "ės",
+      "post": " organizacijos",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iuose",
+       "ė",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:dvasinis",
@@ -4598,7 +8292,35 @@ window.KONST = {
      "exru": "духовные интересы автора",
      "art": "42",
      "artsk": "III",
-     "sk": 3
+     "sk": 3,
+     "gal": {
+      "pre": "",
+      "stem": "dvasin",
+      "end": "iai",
+      "post": " autoriaus interesai",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "ių",
+       "iams",
+       "ius",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vyr. g., dgs. (им. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:ūkinis",
@@ -4611,7 +8333,35 @@ window.KONST = {
      "exru": "хозяйственная деятельность лица и инициатива",
      "art": "46",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "asmens ",
+      "stem": "ūkin",
+      "end": "ė",
+      "post": " veikla ir iniciatyva",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "vardininkas, mot. g., vns. (им. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:sąžiningas",
@@ -4624,7 +8374,32 @@ window.KONST = {
      "exru": "Закон охраняет свободу честной конкуренции.",
      "art": "46",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Įstatymas saugo ",
+      "stem": "sąžining",
+      "end": "os",
+      "post": " konkurencijos laisvę.",
+      "alt": [
+       "as",
+       "o",
+       "am",
+       "ą",
+       "u",
+       "ame",
+       "i",
+       "ų",
+       "iems",
+       "us",
+       "uose",
+       "a",
+       "ai",
+       "oje",
+       "oms",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:saugus",
@@ -4637,7 +8412,37 @@ window.KONST = {
      "exru": "Право на безопасные условия труда.",
      "art": "48",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Teisė turėti ",
+      "stem": "saug",
+      "end": "ias",
+      "post": " darbo sąlygas.",
+      "alt": [
+       "us",
+       "aus",
+       "iam",
+       "ų",
+       "iu",
+       "iame",
+       "ūs",
+       "ių",
+       "iems",
+       "ius",
+       "iais",
+       "iuose",
+       "i",
+       "ios",
+       "iai",
+       "ią",
+       "ia",
+       "ioje",
+       "ioms",
+       "iomis",
+       "iose"
+      ],
+      "lab": "galininkas, mot. g., dgs. (вин. п., жен. р., мн. ч.)"
+     }
     },
     {
      "key": "a:teisingas",
@@ -4650,7 +8455,34 @@ window.KONST = {
      "exru": "Право на справедливую оплату.",
      "art": "48",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "Teisė gauti ",
+      "stem": "teising",
+      "end": "ą",
+      "post": " apmokėjimą.",
+      "alt": [
+       "as",
+       "o",
+       "am",
+       "u",
+       "ame",
+       "i",
+       "ų",
+       "iems",
+       "us",
+       "ais",
+       "uose",
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": "galininkas, vns. (вин. п., ед. ч.)"
+     }
     },
     {
      "key": "a:priverčiamasis",
@@ -4663,7 +8495,35 @@ window.KONST = {
      "exru": "Принудительный труд запрещён.",
      "art": "48",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "",
+      "stem": "Priverčiam",
+      "end": "asis",
+      "post": " darbas draudžiamas.",
+      "alt": [
+       "ojo",
+       "ajam",
+       "ąjį",
+       "ajame",
+       "ieji",
+       "ųjų",
+       "iesiems",
+       "uosius",
+       "aisiais",
+       "uosiuose",
+       "oji",
+       "osios",
+       "ajai",
+       "ąją",
+       "ojoje",
+       "osioms",
+       "ąsias",
+       "osiomis",
+       "osiose"
+      ],
+      "lab": "vardininkas, vyr. g., vns. (им. п., муж. р., ед. ч.)"
+     }
     },
     {
      "key": "a:socialinis",
@@ -4676,7 +8536,37 @@ window.KONST = {
      "exru": "право на социальную защиту",
      "art": "48",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "teisė į ",
+      "stem": "socialin",
+      "end": "ę",
+      "post": " apsaugą",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "galininkas, mot. g., vns. (вин. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:ekonominis",
@@ -4689,7 +8579,35 @@ window.KONST = {
      "exru": "экономические интересы работников",
      "art": "51",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "",
+      "stem": "ekonomin",
+      "end": "iai",
+      "post": " darbuotojų interesai",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "ių",
+       "iams",
+       "ius",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vyr. g., dgs. (им. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:kasmetinis",
@@ -4702,7 +8620,35 @@ window.KONST = {
      "exru": "ежегодный оплачиваемый отпуск",
      "art": "49",
      "artsk": "IV",
-     "sk": 4
+     "sk": 4,
+     "gal": {
+      "pre": "",
+      "stem": "kasmetin",
+      "end": "ės",
+      "post": " mokamos atostogos",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iuose",
+       "ė",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:eilinis",
@@ -4715,7 +8661,35 @@ window.KONST = {
      "exru": "очередная сессия Сейма",
      "art": "64",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "",
+      "stem": "eilin",
+      "end": "ė",
+      "post": " Seimo sesija",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "vardininkas, mot. g., vns. (им. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:pirmalaikis",
@@ -4728,7 +8702,35 @@ window.KONST = {
      "exru": "досрочные выборы Сейма",
      "art": "58",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "",
+      "stem": "pirmalaik",
+      "end": "iai",
+      "post": " Seimo rinkimai",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "ių",
+       "iams",
+       "ius",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vyr. g., dgs. (им. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:visuotinis",
@@ -4741,7 +8743,35 @@ window.KONST = {
      "exru": "всеобщее избирательное право",
      "art": "55",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "",
+      "stem": "visuotin",
+      "end": "ė",
+      "post": " rinkimų teisė",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "vardininkas, mot. g., vns. (им. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:slaptas",
@@ -4754,7 +8784,33 @@ window.KONST = {
      "exru": "тайное голосование",
      "art": "55",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "",
+      "stem": "slapt",
+      "end": "as",
+      "post": " balsavimas",
+      "alt": [
+       "o",
+       "am",
+       "ą",
+       "ame",
+       "i",
+       "ų",
+       "iems",
+       "us",
+       "ais",
+       "uose",
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:tiesioginis",
@@ -4767,7 +8823,35 @@ window.KONST = {
      "exru": "прямое избирательное право",
      "art": "55",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "",
+      "stem": "tiesiogin",
+      "end": "ė",
+      "post": " rinkimų teisė",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "vardininkas, mot. g., vns. (им. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:neveiksnus",
@@ -4780,7 +8864,35 @@ window.KONST = {
      "exru": "признанный судом недееспособным",
      "art": "56",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "teismo pripažintas ",
+      "stem": "neveiksn",
+      "end": "iu",
+      "post": "",
+      "alt": [
+       "aus",
+       "iam",
+       "ų",
+       "iame",
+       "ūs",
+       "ių",
+       "iems",
+       "ius",
+       "iais",
+       "iuose",
+       "ios",
+       "iai",
+       "ią",
+       "ia",
+       "ioje",
+       "ioms",
+       "ias",
+       "iomis",
+       "iose"
+      ],
+      "lab": "įnagininkas, vyr. g., vns. (твор. п., муж. р., ед. ч.)"
+     }
     },
     {
      "key": "a:parlamentinis",
@@ -4793,7 +8905,35 @@ window.KONST = {
      "exru": "парламентская деятельность члена",
      "art": "60",
      "artsk": "V",
-     "sk": 5
+     "sk": 5,
+     "gal": {
+      "pre": "",
+      "stem": "parlamentin",
+      "end": "ė",
+      "post": " nario veikla",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "vardininkas, mot. g., vns. (им. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:karinis",
@@ -4806,7 +8946,37 @@ window.KONST = {
      "exru": "Президент присваивает воинские звания.",
      "art": "84",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Prezidentas suteikia ",
+      "stem": "karin",
+      "end": "ius",
+      "post": " laipsnius.",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "iais",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "galininkas, vyr. g., dgs. (вин. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:diplomatinis",
@@ -4819,7 +8989,37 @@ window.KONST = {
      "exru": "Президент назначает дипломатических представителей.",
      "art": "84",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Prezidentas skiria ",
+      "stem": "diplomatin",
+      "end": "ius",
+      "post": " atstovus.",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "iais",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "galininkas, vyr. g., dgs. (вин. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:metinis",
@@ -4832,7 +9032,37 @@ window.KONST = {
      "exru": "Президент делает ежегодные послания.",
      "art": "84",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Prezidentas daro ",
+      "stem": "metin",
+      "end": "ius",
+      "post": " pranešimus.",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "iais",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "galininkas, vyr. g., dgs. (вин. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:ginkluotas",
@@ -4845,7 +9075,33 @@ window.KONST = {
      "exru": "вооружённое нападение на государство",
      "art": "84",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "",
+      "stem": "ginkluot",
+      "end": "as",
+      "post": " užpuolimas valstybei",
+      "alt": [
+       "o",
+       "am",
+       "ą",
+       "ame",
+       "i",
+       "ų",
+       "iems",
+       "us",
+       "ais",
+       "uose",
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:generalinis",
@@ -4858,7 +9114,37 @@ window.KONST = {
      "exru": "Президент назначает генерального прокурора.",
      "art": "84",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "Prezidentas skiria ",
+      "stem": "generalin",
+      "end": "į",
+      "post": " prokurorą.",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "galininkas, vyr. g., vns. (вин. п., муж. р., ед. ч.)"
+     }
     },
     {
      "key": "a:laikinas",
@@ -4871,7 +9157,33 @@ window.KONST = {
      "exru": "временное замещение Президента",
      "art": "89",
      "artsk": "VI",
-     "sk": 6
+     "sk": 6,
+     "gal": {
+      "pre": "",
+      "stem": "laikin",
+      "end": "as",
+      "post": " Prezidento pavadavimas",
+      "alt": [
+       "o",
+       "am",
+       "ą",
+       "ame",
+       "i",
+       "ų",
+       "iems",
+       "us",
+       "ais",
+       "uose",
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:solidarus",
@@ -4884,7 +9196,35 @@ window.KONST = {
      "exru": "солидарная ответственность Правительства",
      "art": "96",
      "artsk": "VII",
-     "sk": 7
+     "sk": 7,
+     "gal": {
+      "pre": "",
+      "stem": "solidar",
+      "end": "i",
+      "post": " Vyriausybės atsakomybė",
+      "alt": [
+       "us",
+       "aus",
+       "iam",
+       "ų",
+       "iame",
+       "ūs",
+       "ių",
+       "iems",
+       "ius",
+       "iais",
+       "iuose",
+       "ios",
+       "iai",
+       "ią",
+       "ioje",
+       "ioms",
+       "ias",
+       "iomis",
+       "iose"
+      ],
+      "lab": "vardininkas, mot. g., vns. (им. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:pavaldus",
@@ -4897,7 +9237,35 @@ window.KONST = {
      "exru": "Министры подчинены Премьер-министру.",
      "art": "96",
      "artsk": "VII",
-     "sk": 7
+     "sk": 7,
+     "gal": {
+      "pre": "Ministrai ",
+      "stem": "pavald",
+      "end": "ūs",
+      "post": " Ministrui Pirmininkui.",
+      "alt": [
+       "us",
+       "aus",
+       "žiam",
+       "ų",
+       "žiu",
+       "žiame",
+       "žių",
+       "iems",
+       "žius",
+       "žiuose",
+       "i",
+       "žios",
+       "žiai",
+       "žią",
+       "žia",
+       "žioje",
+       "žioms",
+       "žias",
+       "žiose"
+      ],
+      "lab": "vardininkas, vyr. g., dgs. (им. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:atsakingas",
@@ -4910,7 +9278,32 @@ window.KONST = {
      "exru": "Министры ответственны перед Сеймом.",
      "art": "96",
      "artsk": "VII",
-     "sk": 7
+     "sk": 7,
+     "gal": {
+      "pre": "Ministrai ",
+      "stem": "atsaking",
+      "end": "i",
+      "post": " Seimui.",
+      "alt": [
+       "as",
+       "o",
+       "am",
+       "ą",
+       "u",
+       "ame",
+       "ų",
+       "iems",
+       "us",
+       "uose",
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "ose"
+      ],
+      "lab": "vardininkas, vyr. g., dgs. (им. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:išankstinis",
@@ -4923,7 +9316,37 @@ window.KONST = {
      "exru": "без предварительного согласия Сейма",
      "art": "100",
      "artsk": "VII",
-     "sk": 7
+     "sk": 7,
+     "gal": {
+      "pre": "be ",
+      "stem": "išankstin",
+      "end": "io",
+      "post": " Seimo sutikimo",
+      "alt": [
+       "is",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "kilmininkas, vyr. g., vns. (род. п., муж. р., ед. ч.)"
+     }
     },
     {
      "key": "a:baudžiamasis",
@@ -4936,7 +9359,35 @@ window.KONST = {
      "exru": "уголовная ответственность",
      "art": "100",
      "artsk": "VII",
-     "sk": 7
+     "sk": 7,
+     "gal": {
+      "pre": "",
+      "stem": "baudžiam",
+      "end": "oji",
+      "post": " atsakomybė",
+      "alt": [
+       "asis",
+       "ojo",
+       "ajam",
+       "ąjį",
+       "ajame",
+       "ieji",
+       "ųjų",
+       "iesiems",
+       "uosius",
+       "aisiais",
+       "uosiuose",
+       "osios",
+       "ajai",
+       "ąją",
+       "ojoje",
+       "osioms",
+       "ąsias",
+       "osiomis",
+       "osiose"
+      ],
+      "lab": "vardininkas, mot. g., vns. (им. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:galutinis",
@@ -4949,7 +9400,35 @@ window.KONST = {
      "exru": "Решения суда окончательны.",
      "art": "107",
      "artsk": "VIII",
-     "sk": 8
+     "sk": 8,
+     "gal": {
+      "pre": "Teismo sprendimai yra ",
+      "stem": "galutin",
+      "end": "iai",
+      "post": ".",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "ių",
+       "iams",
+       "ius",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vyr. g., dgs. (им. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:neskundžiamas",
@@ -4962,7 +9441,32 @@ window.KONST = {
      "exru": "Решения окончательны и обжалованию не подлежат.",
      "art": "107",
      "artsk": "VIII",
-     "sk": 8
+     "sk": 8,
+     "gal": {
+      "pre": "Sprendimai galutiniai ir ",
+      "stem": "neskundžiam",
+      "end": "i",
+      "post": ".",
+      "alt": [
+       "as",
+       "o",
+       "am",
+       "ą",
+       "u",
+       "ame",
+       "ų",
+       "iems",
+       "us",
+       "uose",
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "ose"
+      ],
+      "lab": "vardininkas, vyr. g., dgs. (им. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:nepriekaištingas",
@@ -4975,7 +9479,33 @@ window.KONST = {
      "exru": "безупречная репутация судьи",
      "art": "103",
      "artsk": "VIII",
-     "sk": 8
+     "sk": 8,
+     "gal": {
+      "pre": "",
+      "stem": "nepriekaišting",
+      "end": "a",
+      "post": " teisėjo reputacija",
+      "alt": [
+       "o",
+       "am",
+       "ą",
+       "ame",
+       "i",
+       "ų",
+       "iems",
+       "us",
+       "ais",
+       "uose",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "as",
+       "omis",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:mokslinis",
@@ -4988,7 +9518,35 @@ window.KONST = {
      "exru": "научно-педагогическая работа",
      "art": "103",
      "artsk": "VIII",
-     "sk": 8
+     "sk": 8,
+     "gal": {
+      "pre": "",
+      "stem": "mokslin",
+      "end": "is",
+      "post": " pedagoginis darbas",
+      "alt": [
+       "io",
+       "iam",
+       "į",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "vardininkas, vyr. g., vns. (им. п., муж. р., ед. ч.)"
+     }
     },
     {
      "key": "a:specializuotas",
@@ -5001,7 +9559,32 @@ window.KONST = {
      "exru": "Могут учреждаться специализированные суды.",
      "art": "111",
      "artsk": "IX",
-     "sk": 9
+     "sk": 9,
+     "gal": {
+      "pre": "Gali būti steigiami ",
+      "stem": "specializuot",
+      "end": "i",
+      "post": " teismai.",
+      "alt": [
+       "as",
+       "o",
+       "am",
+       "ą",
+       "u",
+       "ame",
+       "ų",
+       "iems",
+       "us",
+       "uose",
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "ose"
+      ],
+      "lab": "vardininkas, vyr. g., dgs. (им. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:uždaras",
@@ -5014,7 +9597,33 @@ window.KONST = {
      "exru": "Судебное заседание может быть закрытым.",
      "art": "117",
      "artsk": "IX",
-     "sk": 9
+     "sk": 9,
+     "gal": {
+      "pre": "Teismo posėdis gali būti ",
+      "stem": "uždar",
+      "end": "as",
+      "post": ".",
+      "alt": [
+       "o",
+       "am",
+       "ą",
+       "ame",
+       "i",
+       "ų",
+       "iems",
+       "us",
+       "ais",
+       "uose",
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:komercinis",
@@ -5027,7 +9636,35 @@ window.KONST = {
      "exru": "коммерческая тайна",
      "art": "117",
      "artsk": "IX",
-     "sk": 9
+     "sk": 9,
+     "gal": {
+      "pre": "",
+      "stem": "komercin",
+      "end": "ė",
+      "post": " paslaptis",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "vardininkas, mot. g., vns. (им. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:pensinis",
@@ -5040,7 +9677,35 @@ window.KONST = {
      "exru": "пенсионный возраст",
      "art": "115",
      "artsk": "IX",
-     "sk": 9
+     "sk": 9,
+     "gal": {
+      "pre": "",
+      "stem": "pensin",
+      "end": "is",
+      "post": " amžius",
+      "alt": [
+       "io",
+       "iam",
+       "į",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "vardininkas, vyr. g., vns. (им. п., муж. р., ед. ч.)"
+     }
     },
     {
      "key": "a:ikiteisminis",
@@ -5053,7 +9718,35 @@ window.KONST = {
      "exru": "досудебное расследование",
      "art": "118",
      "artsk": "IX",
-     "sk": 9
+     "sk": 9,
+     "gal": {
+      "pre": "",
+      "stem": "ikiteismin",
+      "end": "is",
+      "post": " tyrimas",
+      "alt": [
+       "io",
+       "iam",
+       "į",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "vardininkas, vyr. g., vns. (им. п., муж. р., ед. ч.)"
+     }
     },
     {
      "key": "a:administracinis",
@@ -5066,7 +9759,35 @@ window.KONST = {
      "exru": "административная единица территории",
      "art": "119",
      "artsk": "X",
-     "sk": 10
+     "sk": 10,
+     "gal": {
+      "pre": "",
+      "stem": "administracin",
+      "end": "is",
+      "post": " teritorijos vienetas",
+      "alt": [
+       "io",
+       "iam",
+       "į",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "vardininkas, vyr. g., vns. (им. п., муж. р., ед. ч.)"
+     }
     },
     {
      "key": "a:vietinis",
@@ -5079,7 +9800,35 @@ window.KONST = {
      "exru": "местные сборы",
      "art": "121",
      "artsk": "X",
-     "sk": 10
+     "sk": 10,
+     "gal": {
+      "pre": "",
+      "stem": "vietin",
+      "end": "ės",
+      "post": " rinkliavos",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iuose",
+       "ė",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:nuolatinis",
@@ -5092,7 +9841,35 @@ window.KONST = {
      "exru": "постоянные жители",
      "art": "119",
      "artsk": "X",
-     "sk": 10
+     "sk": 10,
+     "gal": {
+      "pre": "",
+      "stem": "nuolatin",
+      "end": "iai",
+      "post": " gyventojai",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "ių",
+       "iams",
+       "ius",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vyr. g., dgs. (им. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:centrinis",
@@ -5105,7 +9882,35 @@ window.KONST = {
      "exru": "центральный банк",
      "art": "125",
      "artsk": "XI",
-     "sk": 11
+     "sk": 11,
+     "gal": {
+      "pre": "",
+      "stem": "centrin",
+      "end": "is",
+      "post": " bankas",
+      "alt": [
+       "io",
+       "iam",
+       "į",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "vardininkas, vyr. g., vns. (им. п., муж. р., ед. ч.)"
+     }
     },
     {
      "key": "a:biudžetinis",
@@ -5118,7 +9923,35 @@ window.KONST = {
      "exru": "бюджетный год",
      "art": "129",
      "artsk": "XI",
-     "sk": 11
+     "sk": 11,
+     "gal": {
+      "pre": "",
+      "stem": "biudžetin",
+      "end": "iai",
+      "post": " metai",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "ių",
+       "iams",
+       "ius",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vyr. g., dgs. (им. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:turtinis",
@@ -5131,7 +9964,35 @@ window.KONST = {
      "exru": "имущественные обязательства",
      "art": "128",
      "artsk": "XI",
-     "sk": 11
+     "sk": 11,
+     "gal": {
+      "pre": "",
+      "stem": "turtin",
+      "end": "iai",
+      "post": " įsipareigojimai",
+      "alt": [
+       "is",
+       "io",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "ių",
+       "iams",
+       "ius",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėse"
+      ],
+      "lab": "vardininkas, vyr. g., dgs. (им. п., муж. р., мн. ч.)"
+     }
     },
     {
      "key": "a:papildomas",
@@ -5144,7 +10005,33 @@ window.KONST = {
      "exru": "дополнительный бюджет",
      "art": "132",
      "artsk": "XI",
-     "sk": 11
+     "sk": 11,
+     "gal": {
+      "pre": "",
+      "stem": "papildom",
+      "end": "as",
+      "post": " biudžetas",
+      "alt": [
+       "o",
+       "am",
+       "ą",
+       "ame",
+       "i",
+       "ų",
+       "iems",
+       "us",
+       "ais",
+       "uose",
+       "a",
+       "os",
+       "ai",
+       "oje",
+       "oms",
+       "omis",
+       "ose"
+      ],
+      "lab": ""
+     }
     },
     {
      "key": "a:nepaprastas",
@@ -5157,7 +10044,35 @@ window.KONST = {
      "exru": "чрезвычайное положение",
      "art": "144",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "",
+      "stem": "nepaprast",
+      "end": "oji",
+      "post": " padėtis",
+      "alt": [
+       "asis",
+       "ojo",
+       "ajam",
+       "ąjį",
+       "ajame",
+       "ieji",
+       "ųjų",
+       "iesiems",
+       "uosius",
+       "aisiais",
+       "uosiuose",
+       "osios",
+       "ajai",
+       "ąją",
+       "ojoje",
+       "osioms",
+       "ąsias",
+       "osiomis",
+       "osiose"
+      ],
+      "lab": "vardininkas, mot. g., vns. (им. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:gynybinis",
@@ -5170,7 +10085,37 @@ window.KONST = {
      "exru": "договоры оборонного характера",
      "art": "138",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "",
+      "stem": "gynybin",
+      "end": "io",
+      "post": " pobūdžio sutartys",
+      "alt": [
+       "is",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "kilmininkas, vyr. g., vns. (род. п., муж. р., ед. ч.)"
+     }
     },
     {
      "key": "a:alternatyvus",
@@ -5183,7 +10128,35 @@ window.KONST = {
      "exru": "альтернативная служба",
      "art": "139",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "",
+      "stem": "alternatyv",
+      "end": "ioji",
+      "post": " tarnyba",
+      "alt": [
+       "usis",
+       "iojo",
+       "iajam",
+       "ųjį",
+       "iajame",
+       "ieji",
+       "iųjų",
+       "iesiems",
+       "iuosius",
+       "iaisiais",
+       "iuosiuose",
+       "iosios",
+       "iajai",
+       "iąją",
+       "iojoje",
+       "iosioms",
+       "iąsias",
+       "iosiomis",
+       "iosiose"
+      ],
+      "lab": "vardininkas, mot. g., vns. (им. п., жен. р., ед. ч.)"
+     }
     },
     {
      "key": "a:masinis",
@@ -5196,7 +10169,37 @@ window.KONST = {
      "exru": "оружие массового уничтожения",
      "art": "137",
      "artsk": "XIII",
-     "sk": 13
+     "sk": 13,
+     "gal": {
+      "pre": "",
+      "stem": "masin",
+      "end": "io",
+      "post": " naikinimo ginklai",
+      "alt": [
+       "is",
+       "iam",
+       "į",
+       "iu",
+       "iame",
+       "iai",
+       "ių",
+       "iams",
+       "ius",
+       "iais",
+       "iuose",
+       "ė",
+       "ės",
+       "ei",
+       "ę",
+       "e",
+       "ėje",
+       "ėms",
+       "es",
+       "ėmis",
+       "ėse"
+      ],
+      "lab": "kilmininkas, vyr. g., vns. (род. п., муж. р., ед. ч.)"
+     }
     },
     {
      "key": "a:vyriausiasis",
@@ -5222,7 +10225,35 @@ window.KONST = {
      "exru": "составная часть Конституции",
      "art": "150",
      "artsk": "XIV",
-     "sk": 14
+     "sk": 14,
+     "gal": {
+      "pre": "",
+      "stem": "sudedam",
+      "end": "oji",
+      "post": " Konstitucijos dalis",
+      "alt": [
+       "asis",
+       "ojo",
+       "ajam",
+       "ąjį",
+       "ajame",
+       "ieji",
+       "ųjų",
+       "iesiems",
+       "uosius",
+       "aisiais",
+       "uosiuose",
+       "osios",
+       "ajai",
+       "ąją",
+       "ojoje",
+       "osioms",
+       "ąsias",
+       "osiomis",
+       "osiose"
+      ],
+      "lab": "vardininkas, mot. g., vns. (им. п., жен. р., ед. ч.)"
+     }
     }
    ]
   },

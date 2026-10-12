@@ -316,6 +316,19 @@
             el('div', { class: 'exru' }, f.ru), c.answer.toLowerCase() !== c.lemma.toLowerCase() ? el('div', { class: 'ru' }, `forma (форма): ${c.lemma} → ${c.answer}`) : null] };
       });
     } },
+    gal: { lt: 'Galūnės', ru: 'окончания', about: 'Пример из Конституции без окончания — выберите нужную форму существительного или прилагательного (падеж, число, род).', make() {
+      // варианты — другие формы того же слова (scripts/web.py: ending_drill), подходящая по смыслу — только одна
+      const list = inChapter([...D.decks.terms.items, ...D.decks.adjs.items].filter(t => t.gal));
+      return shuffle(list).slice(0, QUIZ_LEN).map(t => {
+        const g = t.gal, word = g.stem + g.end;
+        const opts = shuffle([word, ...shuffle(g.alt).slice(0, 3).map(e => g.stem + e)]);
+        return { ask: 'Kuri forma tinka? (какая форма подходит?)',
+          prompt: [g.pre, g.stem, el('span', { class: 'blank short' }, '___'), g.post, el('div', { class: 'exru' }, t.exru)],
+          opts, correct: opts.indexOf(word), grade: t, sayAfter: t.ex,
+          explain: [el('div', {}, g.pre, g.stem, el('span', { class: 'end' }, g.end), g.post, ' ', el('span', { class: 'art' }, cite(t))),
+            el('div', { class: 'ru' }, word.toLowerCase() === t.lemma.toLowerCase() ? t.lemma : `${t.lemma} → ${word.toLowerCase()}`, g.lab ? ` · ${g.lab}` : '')] };
+      });
+    } },
   };
 
   let task = null;
