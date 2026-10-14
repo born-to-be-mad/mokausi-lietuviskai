@@ -84,6 +84,11 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
 .navclose { display: none; }
 .toc h2 .ru { display: block; font-size: .8rem; font-weight: 400; margin-top: 2px; }
 .toc ul { list-style: none; margin: 0; padding: 0; }
+.toc li.col {                         /* сборник: «Arbatos vakarai…», «Metų šventės», «Didieji kunigaikščiai» */
+  margin: 18px 4px 2px; padding: 10px 4px 0; border-top: 2px solid var(--accent);
+  font: 700 1rem/1.25 Georgia, "Noto Serif", serif; color: var(--text);
+}
+.toc li.col .ru { display: block; font: 400 .8rem/1.3 system-ui, -apple-system, "Segoe UI", sans-serif; margin-top: 2px; }
 .toc li.grp {
   margin: 14px 8px 4px; font-weight: 700; font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; color: var(--accent);
 }
@@ -117,7 +122,7 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
   html:not(.js) .toc { width: auto; overflow: visible; border-right: 0; }
   html:not(.js) .pane { overflow: visible; }
 }
-.page { padding-bottom: 8px; }
+.page { padding-bottom: 8px; scroll-margin-top: 400px; }   /* переход по #sN: браузер докручивает к рассказу — пусть до самого верха, под панелью не прячется */
 #apie .intro { font-size: .98rem; }
 .start { display: inline-block; margin-top: 6px; padding: 10px 16px; border-radius: 10px; background: var(--accent); color: var(--bg);
   text-decoration: none; font: 600 1rem/1.3 system-ui, -apple-system, "Segoe UI", sans-serif; }

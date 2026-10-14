@@ -4,19 +4,11 @@
 // и место, где остановился. Всё — в localStorage этого браузера; без JS страница читается как есть (все рассказы подряд).
 (() => {
   'use strict';
-  // настройки (перевод, размер шрифта) — общие для всех страниц чтения; отметки «прочитано» и место чтения — свои
-  // у каждой (<body data-store="…">; у «Arbatos vakarai» — в прежнем ключе, чтобы не потерять прогресс)
-  const KEY = 'konst.reader.v1', STORE = document.body.dataset.store, PKEY = STORE ? KEY + '.' + STORE : KEY;
-  const load = k => { try { return JSON.parse(localStorage.getItem(k)) || {}; } catch { return {}; } };
-  const put = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* приватный режим */ } };
-  const st = Object.assign({ on: true, layout: 'side', size: 0, done: {}, last: '' }, load(KEY));
+  const KEY = 'konst.reader.v1';
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } };
+  const st = Object.assign({ on: true, layout: 'side', size: 0, done: {}, last: '' }, load());
   if (st.tr) { st.on = st.tr !== 'tap'; if (st.tr !== 'tap') st.layout = st.tr; delete st.tr; }   // прежний формат
-  if (STORE) { const p = load(PKEY); st.done = p.done || {}; st.last = p.last || ''; }
-  function save() {
-    if (!STORE) return put(KEY, st);
-    put(PKEY, { done: st.done, last: st.last });
-    put(KEY, Object.assign(load(KEY), { on: st.on, layout: st.layout, size: st.size }));
-  }
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch { /* приватный режим */ } };
   const $$ = sel => [...document.querySelectorAll(sel)];
   const pages = $$('section.page'), stories = $$('section.story');
   const pane = document.querySelector('.pane'), toc = document.getElementById('turinys'), navbtn = document.getElementById('navbtn');
