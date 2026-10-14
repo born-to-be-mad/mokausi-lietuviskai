@@ -113,6 +113,21 @@ select {
 .opts button.ok { background: var(--good-bg); border-color: var(--good); }
 .opts button.wrong { background: var(--bad-bg); border-color: var(--bad); }
 .opts button:disabled { cursor: default; }
+/* перевод «подсмотреть»: кнопка RU у вопроса и у каждого варианта (тренировка; подсказки считаются);
+   после ответа перевод показан у всех строк */
+.optrow { display: flex; gap: 6px; align-items: stretch; }
+.optrow > button:first-child { flex: 1; min-width: 0; }
+.opts .peek, .peek {
+  flex: none; min-width: 44px; padding: 0 8px; border-radius: 10px; border: 1px dashed var(--line);
+  background: transparent; color: var(--muted); font: 600 .78rem/1 system-ui, -apple-system, "Segoe UI", sans-serif;
+  cursor: pointer; text-align: center;
+}
+.peek.on { border-style: solid; border-color: var(--accent); color: var(--accent); }
+.front .peek { min-height: 30px; margin-left: 6px; vertical-align: 3px; }
+details.all summary { cursor: pointer; font-weight: 600; }
+details.all[open] summary { margin-bottom: 10px; }
+.optru[hidden], .qru[hidden] { display: none; }
+.optru, .qru { display: block; color: var(--accent); font-size: .88rem; font-weight: 400; line-height: 1.35; margin-top: 3px; }
 
 table.stats { width: 100%; border-collapse: collapse; font-size: .92rem; }
 table.stats td { padding: 8px 4px; border-bottom: 1px solid var(--line); vertical-align: middle; }

@@ -276,7 +276,7 @@
           && !overlaps(x.ru, a.ru) && !overlaps(x.ru, b.ru))).slice(0, 3);
         const opts = shuffle([b, ...wrong]);
         return { ask: 'Kuris žodis reiškia tą patį? (какое слово значит то же?)', prompt: a.lemma, say: a.lemma,
-          opts: opts.map(x => x.lemma), correct: opts.indexOf(b), grade: a,
+          qru: a.ru, opts: opts.map(x => x.lemma), optsru: opts.map(x => x.ru), correct: opts.indexOf(b), grade: a,
           explain: [el('b', {}, `${a.lemma} ≈ ${b.lemma}`), ` — ${a.ru}`] };
       });
     } },
@@ -289,7 +289,7 @@
         if (three.length < 3 || !odd) continue;
         const opts = shuffle([...three, odd]);
         out.push({ ask: 'Kuris žodis netinka? (какое слово лишнее?)', prompt: '', opts: opts.map(x => x.lemma),
-          correct: opts.indexOf(odd),
+          optsru: opts.map(x => x.ru), correct: opts.indexOf(odd),
           explain: [el('b', {}, odd.lemma), ` — ${CAT_NAME[o][0]} (${CAT_NAME[o][2]}); kiti — ${CAT_NAME[m][1]} (${CAT_NAME[m][2]})`] });
       }
       return out;
@@ -310,8 +310,9 @@
         const cand = shuffle(deckItems.filter(ok)).sort((a, b) => rank(a) - rank(b));
         const opts = shuffle([c.lemma, ...cand.slice(0, 3).map(x => x.lemma)]);
         const [pre, post] = c.text.split('___');
+        const ruOf = l => (deckItems.find(x => x.lemma === l) || {}).ru || '';
         return { ask: 'Kuris žodis tinka? (какое слово подходит?)', prompt: [pre, el('span', { class: 'blank' }, '___'), post],
-          opts, correct: opts.indexOf(c.lemma), grade: f, sayAfter: f.lt,
+          qru: f.ru, opts, optsru: opts.map(ruOf), correct: opts.indexOf(c.lemma), grade: f, sayAfter: f.lt,
           explain: [el('div', {}, pre, el('b', {}, c.answer), post, ' ', el('span', { class: 'art' }, cite(f))),
             el('div', { class: 'exru' }, f.ru), c.answer.toLowerCase() !== c.lemma.toLowerCase() ? el('div', { class: 'ru' }, `forma (форма): ${c.lemma} → ${c.answer}`) : null] };
       });
@@ -347,7 +348,7 @@
   function startTask(kind) {
     const items = TASKS[kind].make();
     if (!items.length) { app.replaceChildren(el('div', { class: 'card empty' }, 'Šiai temai užduočių nėra (для этой главы заданий нет).')); return; }
-    task = { kind, items, i: 0, score: 0, mistakes: [] };
+    task = { kind, items, i: 0, score: 0, mistakes: [], peek: {} };
     taskQuestion();
   }
   function taskQuestion() {
@@ -355,13 +356,25 @@
     const q = task.items[task.i];
     let done = false;
     const next = el('button', { class: 'btn primary', hidden: true, on: { click: () => { task.i++; taskQuestion(); } } }, 'Kitas (дальше)');
-    const buttons = q.opts.map((o, k) => el('button', { on: { click: () => pick(k) } }, `${k + 1}. ${o}`));
+    // перевод «подсмотреть»: кнопка RU у вопроса и вариантов (если перевод есть); подсказки считаются; после ответа — у всех
+    const ruOpt = k => q.optsru && q.optsru[k] ? el('span', { class: 'optru', hidden: !task.peek[`${task.i}:${k}`] }, q.optsru[k]) : null;
+    const optRu = q.opts.map((_, k) => ruOpt(k));
+    const peekBtn = (key, target) => target ? el('button', { class: 'peek', type: 'button', title: 'Rodyti vertimą (показать перевод — считается подсказкой)',
+      'aria-label': 'Rodyti vertimą (показать перевод)', on: { click: e => {
+        e.stopPropagation(); if (done) return;
+        task.peek[`${task.i}:${key}`] = true; target.hidden = false; e.currentTarget.classList.add('on');
+      } } }, 'RU') : null;
+    const qRu = q.qru ? el('div', { class: 'qru', hidden: !task.peek[`${task.i}:q`] }, q.qru) : null;
+    const buttons = q.opts.map((o, k) => el('button', { on: { click: () => pick(k) } }, `${k + 1}. ${o}`, optRu[k]));
+    const peeks = [peekBtn('q', qRu), ...q.opts.map((_, k) => peekBtn(k, optRu[k]))];
     const feedback = el('div', { class: 'feedback', hidden: true }, q.explain, q.sayAfter ? sayBtn(q.sayAfter) : null);
     function pick(k) {
       if (done) return;
       done = true;
       const ok = k === q.correct;
       buttons.forEach((b, j) => { b.disabled = true; if (j === q.correct) b.classList.add('ok'); });
+      [qRu, ...optRu].forEach(r => { if (r) r.hidden = false; });      // после ответа перевод — у всех строк
+      peeks.forEach(b => b && b.remove());
       if (!ok) { buttons[k].classList.add('wrong'); task.mistakes.push(q); } else task.score++;
       if (q.grade) grade(q.grade, ok);
       feedback.hidden = false; next.hidden = false; next.focus();
@@ -371,21 +384,24 @@
     keyHandler = e => {
       const n = +e.key;
       if (n >= 1 && n <= q.opts.length) pick(n - 1);
+      else if ((e.key === 't' || e.key === 'T') && !done && peeks[0]) peeks[0].click();   // T — перевод вопроса
       else if ((e.key === 'Enter' || e.key === ' ') && done) { e.preventDefault(); next.click(); }
     };
     app.replaceChildren(
       el('div', { class: 'card' },
         el('div', { class: 'tag' }, `${task.i + 1} / ${task.items.length} · ${TASKS[task.kind].lt}`),
         el('div', { class: 'ask' }, q.ask),
-        q.prompt ? el('div', { class: 'front fact' }, q.prompt, q.say ? sayBtn(q.say) : null) : null,
-        el('div', { class: 'opts' }, buttons), feedback),
+        q.prompt ? el('div', { class: 'front fact' }, q.prompt, q.say ? sayBtn(q.say) : null, peeks[0]) : null,
+        qRu,
+        el('div', { class: 'opts' }, buttons.map((b, k) => peeks[k + 1] ? el('div', { class: 'optrow' }, b, peeks[k + 1]) : b)), feedback),
       next);
   }
   function taskDone() {
     keyHandler = null; speakNow = null;
     app.replaceChildren(el('div', { class: 'card' },
       el('p', { class: 'summary' }, `${TASKS[task.kind].lt}: ${task.score} / ${task.items.length}`),
-      bar(task.score, task.items.length)),
+      bar(task.score, task.items.length),
+      Object.keys(task.peek).length ? el('p', { class: 'ru' }, `Vertimo užuominos (подсказки перевода): ${Object.keys(task.peek).length}`) : null),
       el('div', { class: 'actions' },
         el('button', { class: 'primary', on: { click: () => startTask(task.kind) } }, 'Dar kartą (ещё раз)'),
         el('button', { on: { click: showTasks } }, 'Kitos užduotys (другие задания)')));

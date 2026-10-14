@@ -1,13 +1,14 @@
 // Пробный экзамен по Конституции: 20 вопросов (по одному из каждой главы + 6 случайных), 3 варианта,
 // сдано — от 14 верных. Режимы: «Egzaminas» (ответы — в конце) и «Treniruotė» (проверка сразу).
+// Перевод: в тренировке вопрос и каждый вариант можно подсмотреть кнопкой RU (подсказки считаются), после ответа
+// переведено всё; в экзамене перевода нет — он в разборе в конце, как на настоящем экзамене.
 // Банк — window.KONST.exam (data/egzaminas.tsv → scripts/web.py); история попыток — localStorage.
 (() => {
   'use strict';
   const D = window.KONST, S = window.Speak, app = document.getElementById('app');
-  const N = 20, PASS = 14, HIST = 'konst.exam.v1', PREFS = 'konst.examprefs.v1';
+  const N = 20, PASS = 14, HIST = 'konst.exam.v1';
   const read = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) || d; } catch { return d; } };
   const write = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* приватный режим */ } };
-  const prefs = Object.assign({ ru: false }, read(PREFS, {}));
   const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const chapter = no => D.chapters.find(c => c.no === no);
   const cite = q => q.art === '0' ? '(Preambulė)' : `(${q.artsk} SK. ${q.art} str.)`;
@@ -41,20 +42,29 @@
   let ex = null, timer = null, keyHandler = null;
 
   function start(mode, questions) {
-    ex = { mode, qs: questions || pick(), ans: {}, i: 0, t0: Date.now(), done: false };
+    ex = { mode, qs: questions || pick(), ans: {}, i: 0, t0: Date.now(), done: false, peek: {} };   // peek: «вопрос:строка» → true
     clearInterval(timer);
     timer = setInterval(() => { const t = document.getElementById('clock'); if (t) t.textContent = fmt(Math.round((Date.now() - ex.t0) / 1000)); }, 1000);
     show();
   }
 
+  const hints = () => Object.keys(ex.peek).length;
+
   function show() {
     const q = ex.qs[ex.i], a = ex.ans[ex.i], practice = ex.mode === 'practice';
     const checked = practice && a !== undefined;
+    const canPeek = practice && !checked;                    // подсмотреть — только в тренировке и до ответа
+    const shown = key => checked || !!ex.peek[`${ex.i}:${key}`];
+    const peek = key => { ex.peek[`${ex.i}:${key}`] = true; show(); };
+    const peekBtn = key => canPeek ? el('button', { class: 'peek' + (shown(key) ? ' on' : ''), type: 'button',
+      title: 'Rodyti vertimą (показать перевод — считается подсказкой)', 'aria-label': 'Rodyti vertimą (показать перевод)',
+      on: { click: () => peek(key) } }, 'RU') : null;
     const opts = q.order.map((o, k) => {
-      const b = el('button', { on: { click: () => choose(k) } }, `${LETTERS[k]}) ${q.opts[o]}`);
+      const b = el('button', { on: { click: () => choose(k) } }, `${LETTERS[k]}) ${q.opts[o]}`,
+        shown(k) ? el('span', { class: 'optru' }, q.optsru[o]) : null);
       if (a === k) b.classList.add('picked');
       if (checked) { b.disabled = true; if (o === 0) b.classList.add('ok'); else if (a === k) b.classList.add('wrong'); }
-      return b;
+      return canPeek ? el('div', { class: 'optrow' }, b, peekBtn(k)) : b;
     });
     function choose(k) {
       if (checked) return;
@@ -86,6 +96,7 @@
       else if (e.key === 'ArrowRight' && !practice && ex.i < ex.qs.length - 1) { ex.i++; show(); }
       else if (e.key === 'ArrowLeft' && !practice && ex.i > 0) { ex.i--; show(); }
       else if ((e.key === 'Enter' || e.key === ' ') && checked) { e.preventDefault(); nav.querySelector('.primary').click(); }
+      else if ((e.key === 't' || e.key === 'T') && canPeek) peek('q');      // T — перевод вопроса
     };
     app.replaceChildren(...[
       el('div', { class: 'examhead' },
@@ -94,8 +105,8 @@
       dots,
       el('div', { class: 'card' },
         el('div', { class: 'tag' }, c ? `${c.roman}. ${c.lt}` : ''),
-        el('div', { class: 'front fact' }, q.q, sayBtn(q.q)),
-        prefs.ru ? el('div', { class: 'hint' }, q.qru) : null,
+        el('div', { class: 'front fact' }, q.q, sayBtn(q.q), peekBtn('q')),
+        shown('q') ? el('div', { class: 'qru' }, q.qru) : null,
         el('div', { class: 'opts long' }, opts),
         feedback),
       nav].filter(Boolean));          // в тренировке нет сетки номеров (dots = null)
@@ -107,38 +118,49 @@
     const right = ex.qs.filter((q, i) => ex.ans[i] !== undefined && q.order[ex.ans[i]] === 0).length;
     const passed = right >= PASS;
     const hist = read(HIST, []);
-    hist.unshift({ d: new Date().toISOString().slice(0, 16).replace('T', ' '), right, n: ex.qs.length, passed, secs, mode: ex.mode });
+    hist.unshift({ d: new Date().toISOString().slice(0, 16).replace('T', ' '), right, n: ex.qs.length, passed, secs, mode: ex.mode,
+                   hints: hints() });
     write(HIST, hist.slice(0, 20));
     const wrong = ex.qs.map((q, i) => ({ q, a: ex.ans[i] })).filter(x => x.a === undefined || x.q.order[x.a] !== 0);
     app.replaceChildren(...[
       el('div', { class: 'card result ' + (passed ? 'pass' : 'fail') },
         el('p', { class: 'big' }, `${right} / ${ex.qs.length}`),
         el('p', { class: 'summary' }, passed ? 'Išlaikyta! (сдано)' : `Neišlaikyta (не сдано) — reikia ne mažiau kaip ${PASS}`),
-        el('p', { class: 'ru' }, `Laikas (время): ${fmt(secs)}`)),
+        el('p', { class: 'ru' }, `Laikas (время): ${fmt(secs)}`
+          + (ex.mode === 'practice' ? ` · vertimo užuominos (подсказки перевода): ${hints()}` : ''))),
       wrong.length ? el('div', { class: 'card' },
         el('p', { class: 'summary' }, `Klaidos (ошибки): ${wrong.length}`),
-        el('ol', { class: 'review' }, wrong.map(({ q, a }) => el('li', {},
-          el('div', { class: 'rq' }, q.q), el('div', { class: 'ru' }, q.qru),
-          a !== undefined ? el('div', { class: 'bad' }, '✗ ', q.opts[q.order[a]]) : el('div', { class: 'bad' }, '✗ —'),
-          el('div', { class: 'good' }, '✓ ', q.opts[0], ' ', el('span', { class: 'art' }, cite(q))))))) : null,
+        el('ol', { class: 'review' }, wrong.map(({ q, a }) => reviewItem(q, a)))) : null,
+      el('details', { class: 'card all' },                  // разбор всех вопросов — с переводом
+        el('summary', {}, 'Visi klausimai su vertimu (все вопросы с переводом)'),
+        el('ol', { class: 'review' }, ex.qs.map((q, i) => reviewItem(q, ex.ans[i])))),
       el('div', { class: 'actions' },
         wrong.length ? el('button', { on: { click: () => start('practice', wrong.map(x => Object.assign({}, x.q, { order: shuffle([0, 1, 2]) }))) } },
           'Kartoti klaidas (повторить ошибки)') : null,
         el('button', { class: 'primary', on: { click: home } }, 'Į pradžią (в начало)'))].filter(Boolean));
   }
 
+  // строка разбора: вопрос и ответы — с переводом
+  function reviewItem(q, a) {
+    const ok = a !== undefined && q.order[a] === 0, tr = i => el('span', { class: 'ru' }, ` — ${q.optsru[i]}`);
+    return el('li', {},
+      el('div', { class: 'rq' }, q.q), el('div', { class: 'ru' }, q.qru),
+      ok ? null : (a !== undefined ? el('div', { class: 'bad' }, '✗ ', q.opts[q.order[a]], tr(q.order[a])) : el('div', { class: 'bad' }, '✗ —')),
+      el('div', { class: 'good' }, '✓ ', q.opts[0], tr(0), ' ', el('span', { class: 'art' }, cite(q))));
+  }
+
   function home() {
     clearInterval(timer); keyHandler = null;
     const hist = read(HIST, []);
-    const ru = el('input', { type: 'checkbox', id: 'ru' }); ru.checked = prefs.ru;
-    ru.addEventListener('change', () => { prefs.ru = ru.checked; write(PREFS, prefs); });
     app.replaceChildren(...[
       el('div', { class: 'card' },
         el('p', {}, `${N} klausimų lietuvių kalba, po 3 atsakymų variantus; išlaikyta, jei teisingai atsakyta į ne mažiau kaip ${PASS}.`),
         el('p', { class: 'ru' }, `${N} вопросов на литовском, по 3 варианта ответа; экзамен сдан, если верно не меньше ${PASS}. `
           + 'Такой формат описывают курсы подготовки; официальная программа экзамена не опубликована — экзамен проводит NŠA, на компьютере. '
           + `Вопросы — по всем 14 главам Конституции (банк: ${D.exam.length}).`),
-        el('label', { class: 'check' }, ru, ' Rodyti klausimų vertimą (показывать перевод вопросов)')),
+        el('p', { class: 'ru' }, 'Перевод. В тренировке перевод вопроса и любого варианта можно подсмотреть кнопкой RU '
+          + '(вопрос — и клавишей T); подсказки считаются в результате. После ответа переведено всё. В экзамене перевода '
+          + 'нет, как на настоящем экзамене: он в разборе в конце.')),
       el('div', { class: 'actions' },
         el('button', { class: 'primary', on: { click: () => start('exam') } }, 'Egzaminas (экзамен)'),
         el('button', { on: { click: () => start('practice') } }, 'Treniruotė (с проверкой сразу)')),
@@ -147,6 +169,7 @@
         el('table', { class: 'stats' }, el('tbody', {}, hist.map(h => el('tr', {},
           el('td', {}, h.d), el('td', {}, h.mode === 'practice' ? 'treniruotė' : 'egzaminas'),
           el('td', { class: 'num' }, `${h.right}/${h.n}`), el('td', { class: 'num' }, fmt(h.secs)),
+          el('td', { class: 'num', title: 'подсказки перевода' }, h.mode === 'practice' && h.hints != null ? `RU ${h.hints}` : ''),
           el('td', { class: h.passed ? 'okc' : 'badc' }, h.passed ? '✓' : '✗')))))) : null].filter(Boolean));
   }
 

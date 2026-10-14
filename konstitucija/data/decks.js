@@ -13301,6 +13301,11 @@ window.KONST = {
     "Lietuvos Statutus ir Lietuvos Respublikos Konstitucijas",
     "Magdeburgo teisę",
     "Žalgirio mūšio sutartį"
+   ],
+   "optsru": [
+    "Литовские Статуты и Конституции Литовской Республики",
+    "Магдебургское право",
+    "договор о Грюнвальдской битве"
    ]
   },
   {
@@ -13313,6 +13318,11 @@ window.KONST = {
     "nepriklausoma demokratinė respublika",
     "konstitucinė monarchija",
     "federacinė respublika"
+   ],
+   "optsru": [
+    "независимой демократической республикой",
+    "конституционной монархией",
+    "федеративной республикой"
    ]
   },
   {
@@ -13325,6 +13335,11 @@ window.KONST = {
     "Tautai",
     "Seimui",
     "Respublikos Prezidentui"
+   ],
+   "optsru": [
+    "Народу",
+    "Сейму",
+    "Президенту Республики"
    ]
   },
   {
@@ -13337,6 +13352,11 @@ window.KONST = {
     "tiesiogiai ar per demokratiškai išrinktus atstovus",
     "tik per Vyriausybę",
     "tik per teismus"
+   ],
+   "optsru": [
+    "непосредственно или через демократически избранных представителей",
+    "только через Правительство",
+    "только через суды"
    ]
   },
   {
@@ -13349,6 +13369,11 @@ window.KONST = {
     "Seimas, Respublikos Prezidentas ir Vyriausybė, Teismas",
     "tik Seimas",
     "Respublikos Prezidentas ir savivaldybės"
+   ],
+   "optsru": [
+    "Сейм, Президент Республики и Правительство, Суд",
+    "только Сейм",
+    "Президент Республики и самоуправления"
    ]
   },
   {
@@ -13361,6 +13386,11 @@ window.KONST = {
     "Konstitucija",
     "Vyriausybė",
     "tarptautinės organizacijos"
+   ],
+   "optsru": [
+    "Конституция",
+    "Правительство",
+    "международные организации"
    ]
   },
   {
@@ -13373,6 +13403,11 @@ window.KONST = {
     "tik paskelbti įstatymai",
     "visi Seime svarstyti projektai",
     "tik referendumu priimti įstatymai"
+   ],
+   "optsru": [
+    "только опубликованные законы",
+    "все проекты, обсуждённые в Сейме",
+    "только законы, принятые на референдуме"
    ]
   },
   {
@@ -13385,6 +13420,11 @@ window.KONST = {
     "ne mažiau kaip 300 tūkstančių",
     "ne mažiau kaip 50 tūkstančių",
     "ne mažiau kaip 100 tūkstančių"
+   ],
+   "optsru": [
+    "не менее 300 тысяч",
+    "не менее 50 тысяч",
+    "не менее 100 тысяч"
    ]
   },
   {
@@ -13397,6 +13437,11 @@ window.KONST = {
     "tik tarptautine sutartimi, kurią ratifikuoja 4/5 visų Seimo narių",
     "Respublikos Prezidento dekretu",
     "Vyriausybės nutarimu"
+   ],
+   "optsru": [
+    "только международным договором, который ратифицируют 4/5 всех членов Сейма",
+    "указом Президента Республики",
+    "постановлением Правительства"
    ]
   },
   {
@@ -13409,6 +13454,11 @@ window.KONST = {
     "gimstant ir kitais įstatymo nustatytais pagrindais",
     "tik gimus Lietuvoje",
     "tik Seimo nutarimu"
+   ],
+   "optsru": [
+    "по рождению и по другим основаниям, установленным законом",
+    "только при рождении в Литве",
+    "только постановлением Сейма"
    ]
   },
   {
@@ -13421,6 +13471,11 @@ window.KONST = {
     "lietuvių kalba",
     "lietuvių ir lenkų kalbos",
     "lietuvių ir anglų kalbos"
+   ],
+   "optsru": [
+    "литовский язык",
+    "литовский и польский языки",
+    "литовский и английский языки"
    ]
   },
   {
@@ -13433,6 +13488,11 @@ window.KONST = {
     "geltona, žalia, raudona",
     "balta, raudona, žalia",
     "geltona, mėlyna, raudona"
+   ],
+   "optsru": [
+    "жёлтый, зелёный, красный",
+    "белый, красный, зелёный",
+    "жёлтый, синий, красный"
    ]
   },
   {
@@ -13445,6 +13505,11 @@ window.KONST = {
     "baltas Vytis raudoname lauke",
     "auksinis liūtas mėlyname lauke",
     "baltas erelis žaliame lauke"
+   ],
+   "optsru": [
+    "белый Витис на красном поле",
+    "золотой лев на синем поле",
+    "белый орёл на зелёном поле"
    ]
   },
   {
@@ -13457,6 +13522,11 @@ window.KONST = {
     "Vinco Kudirkos „Tautiška giesmė“",
     "Maironio „Lietuva brangi“",
     "Antano Baranausko „Anykščių šilelis“"
+   ],
+   "optsru": [
+    "«Национальная песнь» Винцаса Кудирки",
+    "«Литва дорогая» Майрониса",
+    "«Аникщяйский бор» Антанаса Баранаускаса"
    ]
   },
   {
@@ -13469,6 +13539,11 @@ window.KONST = {
     "Vilnius",
     "Kaunas",
     "Trakai"
+   ],
+   "optsru": [
+    "Вильнюс",
+    "Каунас",
+    "Тракай"
    ]
   },
   {
@@ -13481,6 +13556,11 @@ window.KONST = {
     "prigimtinės",
     "suteikiamos Vyriausybės",
     "galioja tik piliečiams"
+   ],
+   "optsru": [
+    "прирождённые",
+    "предоставляемые Правительством",
+    "действуют только для граждан"
    ]
   },
   {
@@ -13493,6 +13573,11 @@ window.KONST = {
     "įstatymas",
     "tik policija",
     "savivaldybė"
+   ],
+   "optsru": [
+    "закон",
+    "только полиция",
+    "самоуправление"
    ]
   },
   {
@@ -13505,6 +13590,11 @@ window.KONST = {
     "per 48 valandas",
     "per 24 valandas",
     "per 72 valandas"
+   ],
+   "optsru": [
+    "в течение 48 часов",
+    "в течение 24 часов",
+    "в течение 72 часов"
    ]
   },
   {
@@ -13517,6 +13607,11 @@ window.KONST = {
     "ne",
     "taip, jei leidžia gydytojas",
     "taip, valstybės ligoninėse"
+   ],
+   "optsru": [
+    "нет",
+    "да, если разрешает врач",
+    "да, в государственных больницах"
    ]
   },
   {
@@ -13529,6 +13624,11 @@ window.KONST = {
     "tik teismo sprendimu arba įstatymo nustatyta tvarka",
     "bet kada, jei to nori policija",
     "kai to prašo kaimynai"
+   ],
+   "optsru": [
+    "только по решению суда или в порядке, установленном законом",
+    "в любое время, если этого хочет полиция",
+    "когда об этом просят соседи"
    ]
   },
   {
@@ -13541,6 +13641,11 @@ window.KONST = {
     "ne, niekas",
     "taip, valstybė",
     "taip, bažnyčia"
+   ],
+   "optsru": [
+    "нет, никто",
+    "да, государство",
+    "да, церковь"
    ]
   },
   {
@@ -13553,6 +13658,11 @@ window.KONST = {
     "įstatymui, teismui ir kitoms valstybės institucijoms ar pareigūnams",
     "tik Respublikos Prezidentui",
     "tik savivaldybei"
+   ],
+   "optsru": [
+    "перед законом, судом и другими государственными учреждениями или должностными лицами",
+    "только перед Президентом Республики",
+    "только перед самоуправлением"
    ]
   },
   {
@@ -13565,6 +13675,11 @@ window.KONST = {
     "kreiptis į teismą",
     "nieko",
     "kreiptis tik į savo darbdavį"
+   ],
+   "optsru": [
+    "обратиться в суд",
+    "ничего",
+    "обратиться только к своему работодателю"
    ]
   },
   {
@@ -13577,6 +13692,11 @@ window.KONST = {
     "kol jo kaltumas neįrodytas įstatymo nustatyta tvarka ir nepripažintas įsiteisėjusiu teismo nuosprendžiu",
     "kol jo nesulaikė policija",
     "kol jis neprisipažino"
+   ],
+   "optsru": [
+    "пока его виновность не доказана в порядке, установленном законом, и не признана вступившим в силу приговором суда",
+    "пока его не задержала полиция",
+    "пока он не признался"
    ]
   },
   {
@@ -13589,6 +13709,11 @@ window.KONST = {
     "ne",
     "taip",
     "taip, jei to prašo prokuroras"
+   ],
+   "optsru": [
+    "нет",
+    "да",
+    "да, если об этом просит прокурор"
    ]
   },
   {
@@ -13601,6 +13726,11 @@ window.KONST = {
     "ne, tai draudžiama",
     "taip, teismo posėdyje",
     "taip, jei tai sunkus nusikaltimas"
+   ],
+   "optsru": [
+    "нет, это запрещено",
+    "да, на заседании суда",
+    "да, если это тяжкое преступление"
    ]
   },
   {
@@ -13613,6 +13743,11 @@ window.KONST = {
     "ne",
     "taip, Vyriausybės nutarimu",
     "taip, jei jis ilgai gyveno užsienyje"
+   ],
+   "optsru": [
+    "нет",
+    "да, постановлением Правительства",
+    "да, если он долго жил за границей"
    ]
   },
   {
@@ -13625,6 +13760,11 @@ window.KONST = {
     "ne, draudžiama",
     "taip",
     "taip, jei kritikuojama Vyriausybė"
+   ],
+   "optsru": [
+    "нет, это запрещено",
+    "да",
+    "да, если критикуют Правительство"
    ]
   },
   {
@@ -13637,6 +13777,11 @@ window.KONST = {
     "nuo 18 metų",
     "nuo 16 metų",
     "nuo 21 metų"
+   ],
+   "optsru": [
+    "с 18 лет",
+    "с 16 лет",
+    "с 21 года"
    ]
   },
   {
@@ -13649,6 +13794,11 @@ window.KONST = {
     "ne",
     "taip",
     "taip, valstybės tarnautojus"
+   ],
+   "optsru": [
+    "нет",
+    "да",
+    "да, государственных служащих"
    ]
   },
   {
@@ -13661,6 +13811,11 @@ window.KONST = {
     "į taikius susirinkimus be ginklo",
     "į bet kokius susirinkimus",
     "tik į Vyriausybės leistus susirinkimus"
+   ],
+   "optsru": [
+    "на мирные собрания без оружия",
+    "на любые собрания",
+    "только на собрания, разрешённые Правительством"
    ]
   },
   {
@@ -13673,6 +13828,11 @@ window.KONST = {
     "šeima",
     "mokykla",
     "bažnyčia"
+   ],
+   "optsru": [
+    "семья",
+    "школа",
+    "церковь"
    ]
   },
   {
@@ -13685,6 +13845,11 @@ window.KONST = {
     "laisvu vyro ir moters sutarimu",
     "tėvų sprendimu",
     "savivaldybės sprendimu"
+   ],
+   "optsru": [
+    "по свободному согласию мужчины и женщины",
+    "по решению родителей",
+    "по решению самоуправления"
    ]
   },
   {
@@ -13697,6 +13862,11 @@ window.KONST = {
     "gerbti tėvus, globoti juos senatvėje ir tausoti jų palikimą",
     "dirbti nuo 14 metų",
     "gyventi su tėvais iki 25 metų"
+   ],
+   "optsru": [
+    "уважать родителей, опекать их в старости и беречь их наследие",
+    "работать с 14 лет",
+    "жить с родителями до 25 лет"
    ]
   },
   {
@@ -13709,6 +13879,11 @@ window.KONST = {
     "pasaulietinės",
     "religinės",
     "privačios"
+   ],
+   "optsru": [
+    "светскими",
+    "религиозными",
+    "частными"
    ]
   },
   {
@@ -13721,6 +13896,11 @@ window.KONST = {
     "iki 16 metų",
     "iki 14 metų",
     "iki 18 metų"
+   ],
+   "optsru": [
+    "до 16 лет",
+    "до 14 лет",
+    "до 18 лет"
    ]
   },
   {
@@ -13733,6 +13913,11 @@ window.KONST = {
     "gerai besimokantiems piliečiams",
     "visiems užsieniečiams",
     "tik vyresniems nei 25 metų"
+   ],
+   "optsru": [
+    "хорошо успевающим гражданам",
+    "всем иностранцам",
+    "только тем, кто старше 25 лет"
    ]
   },
   {
@@ -13745,6 +13930,11 @@ window.KONST = {
     "ne",
     "taip, katalikybė",
     "taip, stačiatikybė"
+   ],
+   "optsru": [
+    "нет",
+    "да, католичество",
+    "да, православие"
    ]
   },
   {
@@ -13757,6 +13947,11 @@ window.KONST = {
     "ne, ji draudžiama",
     "taip",
     "taip, Vyriausybės nutarimu"
+   ],
+   "optsru": [
+    "нет, она запрещена",
+    "да",
+    "да, постановлением Правительства"
    ]
   },
   {
@@ -13769,6 +13964,11 @@ window.KONST = {
     "piliečių tautinės bendrijos",
     "Vyriausybė",
     "Seimas"
+   ],
+   "optsru": [
+    "национальные общины граждан",
+    "Правительство",
+    "Сейм"
    ]
   },
   {
@@ -13781,6 +13981,11 @@ window.KONST = {
     "privačios nuosavybės teise, asmens ūkinės veiklos laisve ir iniciatyva",
     "tik valstybine nuosavybe",
     "valstybiniu planu"
+   ],
+   "optsru": [
+    "на праве частной собственности, свободе хозяйственной деятельности и инициативе личности",
+    "только на государственной собственности",
+    "на государственном плане"
    ]
   },
   {
@@ -13793,6 +13998,11 @@ window.KONST = {
     "monopolizuoti gamybą ir rinką",
     "kurti privačias įmones",
     "prekiauti su užsieniu"
+   ],
+   "optsru": [
+    "монополизировать производство и рынок",
+    "создавать частные предприятия",
+    "торговать с заграницей"
    ]
   },
   {
@@ -13805,6 +14015,11 @@ window.KONST = {
     "Lietuvos Respublikai",
     "savivaldybėms",
     "žemės savininkams"
+   ],
+   "optsru": [
+    "Литовской Республике",
+    "самоуправлениям",
+    "владельцам земли"
    ]
   },
   {
@@ -13817,6 +14032,11 @@ window.KONST = {
     "ne, jis draudžiamas",
     "taip",
     "taip, užsieniečiams"
+   ],
+   "optsru": [
+    "нет, он запрещён",
+    "да",
+    "да, для иностранцев"
    ]
   },
   {
@@ -13829,6 +14049,11 @@ window.KONST = {
     "į poilsį ir laisvalaikį, taip pat kasmetines mokamas atostogas",
     "į nemokamą butą",
     "į nemokamą automobilį"
+   ],
+   "optsru": [
+    "на отдых и досуг, а также на ежегодный оплачиваемый отпуск",
+    "на бесплатную квартиру",
+    "на бесплатный автомобиль"
    ]
   },
   {
@@ -13841,6 +14066,11 @@ window.KONST = {
     "laisvai ir savarankiškai",
     "tik Vyriausybės leidimu",
     "tik prie ministerijų"
+   ],
+   "optsru": [
+    "свободно и самостоятельно",
+    "только с разрешения Правительства",
+    "только при министерствах"
    ]
   },
   {
@@ -13853,6 +14083,11 @@ window.KONST = {
     "streikuoti",
     "nemokėti mokesčių",
     "nedirbti be priežasties"
+   ],
+   "optsru": [
+    "бастовать",
+    "не платить налоги",
+    "не работать без причины"
    ]
   },
   {
@@ -13865,6 +14100,11 @@ window.KONST = {
     "senatvės ir invalidumo",
     "tik senatvės",
     "tik valstybės tarnautojų"
+   ],
+   "optsru": [
+    "по старости и по инвалидности",
+    "только по старости",
+    "только государственным служащим"
    ]
   },
   {
@@ -13877,6 +14117,11 @@ window.KONST = {
     "valstybė ir kiekvienas asmuo",
     "tik savivaldybės",
     "tik ūkininkai"
+   ],
+   "optsru": [
+    "государство и каждое лицо",
+    "только самоуправления",
+    "только фермеры"
    ]
   },
   {
@@ -13886,6 +14131,11 @@ window.KONST = {
    "q": "Kiek narių sudaro Seimą?",
    "qru": "Сколько членов в Сейме?",
    "opts": [
+    "141",
+    "151",
+    "121"
+   ],
+   "optsru": [
     "141",
     "151",
     "121"
@@ -13901,6 +14151,11 @@ window.KONST = {
     "ketveriems metams",
     "penkeriems metams",
     "trejiems metams"
+   ],
+   "optsru": [
+    "на четыре года",
+    "на пять лет",
+    "на три года"
    ]
   },
   {
@@ -13913,6 +14168,11 @@ window.KONST = {
     "kai išrinkta ne mažiau kaip 3/5 Seimo narių",
     "kai išrinkta pusė Seimo narių",
     "kai išrinkti visi 141 nariai"
+   ],
+   "optsru": [
+    "когда избрано не менее 3/5 членов Сейма",
+    "когда избрана половина членов Сейма",
+    "когда избраны все 141 член Сейма"
    ]
   },
   {
@@ -13925,6 +14185,11 @@ window.KONST = {
     "ne mažiau kaip 21",
     "ne mažiau kaip 25",
     "ne mažiau kaip 18"
+   ],
+   "optsru": [
+    "не менее 21",
+    "не менее 25",
+    "не менее 18"
    ]
   },
   {
@@ -13937,6 +14202,11 @@ window.KONST = {
     "spalio mėnesio antrą sekmadienį",
     "gegužės mėnesio paskutinį sekmadienį",
     "sausio mėnesio pirmą sekmadienį"
+   ],
+   "optsru": [
+    "во второе воскресенье октября",
+    "в последнее воскресенье мая",
+    "в первое воскресенье января"
    ]
   },
   {
@@ -13949,6 +14219,11 @@ window.KONST = {
     "kovo 10 dieną",
     "vasario 16 dieną",
     "rugsėjo 1 dieną"
+   ],
+   "optsru": [
+    "10 марта",
+    "16 февраля",
+    "1 сентября"
    ]
   },
   {
@@ -13961,6 +14236,11 @@ window.KONST = {
     "rugsėjo 10 dieną",
     "spalio 1 dieną",
     "lapkričio 10 dieną"
+   ],
+   "optsru": [
+    "10 сентября",
+    "1 октября",
+    "10 ноября"
    ]
   },
   {
@@ -13973,6 +14253,11 @@ window.KONST = {
     "Seimo Pirmininkas arba jo pavaduotojas",
     "Respublikos Prezidentas",
     "Ministras Pirmininkas"
+   ],
+   "optsru": [
+    "Председатель Сейма или его заместитель",
+    "Президент Республики",
+    "Премьер-министр"
    ]
   },
   {
@@ -13985,6 +14270,11 @@ window.KONST = {
     "Seimas",
     "Vyriausybė",
     "Respublikos Prezidentas"
+   ],
+   "optsru": [
+    "Сейм",
+    "Правительство",
+    "Президент Республики"
    ]
   },
   {
@@ -13997,6 +14287,11 @@ window.KONST = {
     "Seimas",
     "Vyriausybė",
     "Konstitucinis Teismas"
+   ],
+   "optsru": [
+    "Сейм",
+    "Правительство",
+    "Конституционный суд"
    ]
   },
   {
@@ -14009,6 +14304,11 @@ window.KONST = {
     "50 tūkstančių",
     "300 tūkstančių",
     "10 tūkstančių"
+   ],
+   "optsru": [
+    "50 тысяч",
+    "300 тысяч",
+    "10 тысяч"
    ]
   },
   {
@@ -14021,6 +14321,11 @@ window.KONST = {
     "kai už jį balsavo dauguma posėdyje dalyvaujančių Seimo narių",
     "kai už jį balsavo visi Seimo nariai",
     "kai jį patvirtina Vyriausybė"
+   ],
+   "optsru": [
+    "когда за него проголосовало большинство участвующих в заседании членов Сейма",
+    "когда за него проголосовали все члены Сейма",
+    "когда его утверждает Правительство"
    ]
   },
   {
@@ -14033,6 +14338,11 @@ window.KONST = {
     "ne",
     "taip",
     "taip, Respublikos Prezidento sprendimu"
+   ],
+   "optsru": [
+    "нет",
+    "да",
+    "да, по решению Президента Республики"
    ]
   },
   {
@@ -14045,6 +14355,11 @@ window.KONST = {
     "Seimo kontrolieriai",
     "Konstitucinis Teismas",
     "Respublikos Prezidentas"
+   ],
+   "optsru": [
+    "контролёры Сейма",
+    "Конституционный суд",
+    "Президент Республики"
    ]
   },
   {
@@ -14057,6 +14372,11 @@ window.KONST = {
     "Respublikos Prezidentas",
     "Ministras Pirmininkas",
     "Seimo Pirmininkas"
+   ],
+   "optsru": [
+    "Президент Республики",
+    "Премьер-министр",
+    "Председатель Сейма"
    ]
   },
   {
@@ -14069,6 +14389,11 @@ window.KONST = {
     "penkeriems metams",
     "ketveriems metams",
     "septyneriems metams"
+   ],
+   "optsru": [
+    "на пять лет",
+    "на четыре года",
+    "на семь лет"
    ]
   },
   {
@@ -14081,6 +14406,11 @@ window.KONST = {
     "ne mažiau kaip 40",
     "ne mažiau kaip 35",
     "ne mažiau kaip 30"
+   ],
+   "optsru": [
+    "не менее 40",
+    "не менее 35",
+    "не менее 30"
    ]
   },
   {
@@ -14093,6 +14423,11 @@ window.KONST = {
     "ne daugiau kaip du kartus",
     "ne daugiau kaip tris kartus",
     "neribotai"
+   ],
+   "optsru": [
+    "не более двух раз",
+    "не более трёх раз",
+    "без ограничений"
    ]
   },
   {
@@ -14105,6 +14440,11 @@ window.KONST = {
     "Lietuvos pilietis pagal kilmę, ne mažiau kaip trejus pastaruosius metus gyvenęs Lietuvoje",
     "bet kuris Lietuvos gyventojas",
     "tik Seimo narys"
+   ],
+   "optsru": [
+    "гражданин Литвы по происхождению, проживший в Литве не менее трёх последних лет",
+    "любой житель Литвы",
+    "только член Сейма"
    ]
   },
   {
@@ -14117,6 +14457,11 @@ window.KONST = {
     "ne mažiau kaip 20 tūkstančių",
     "ne mažiau kaip 50 tūkstančių",
     "ne mažiau kaip 10 tūkstančių"
+   ],
+   "optsru": [
+    "не менее 20 тысяч",
+    "не менее 50 тысяч",
+    "не менее 10 тысяч"
    ]
   },
   {
@@ -14129,6 +14474,11 @@ window.KONST = {
     "Vilniuje, dalyvaujant Seimo nariams",
     "Kaune, dalyvaujant Vyriausybei",
     "Konstituciniame Teisme, dalyvaujant teisėjams"
+   ],
+   "optsru": [
+    "в Вильнюсе, в присутствии членов Сейма",
+    "в Каунасе, в присутствии Правительства",
+    "в Конституционном суде, в присутствии судей"
    ]
   },
   {
@@ -14141,6 +14491,11 @@ window.KONST = {
     "Respublikos Prezidentas",
     "Seimo Pirmininkas",
     "Konstitucinis Teismas"
+   ],
+   "optsru": [
+    "Президент Республики",
+    "Председатель Сейма",
+    "Конституционный суд"
    ]
   },
   {
@@ -14153,6 +14508,11 @@ window.KONST = {
     "Respublikos Prezidentas",
     "Seimas",
     "Vyriausybė"
+   ],
+   "optsru": [
+    "Президент Республики",
+    "Сейм",
+    "Правительство"
    ]
   },
   {
@@ -14165,6 +14525,11 @@ window.KONST = {
     "Respublikos Prezidentas",
     "Seimas",
     "generalinis prokuroras"
+   ],
+   "optsru": [
+    "Президент Республики",
+    "Сейм",
+    "генеральный прокурор"
    ]
   },
   {
@@ -14177,6 +14542,11 @@ window.KONST = {
     "Seimo Pirmininkas",
     "Ministras Pirmininkas",
     "Konstitucinio Teismo pirmininkas"
+   ],
+   "optsru": [
+    "Председатель Сейма",
+    "Премьер-министр",
+    "председатель Конституционного суда"
    ]
   },
   {
@@ -14189,6 +14559,11 @@ window.KONST = {
     "Ministras Pirmininkas ir ministrai",
     "Seimo nariai",
     "Respublikos Prezidentas ir teisėjai"
+   ],
+   "optsru": [
+    "из Премьер-министра и министров",
+    "из членов Сейма",
+    "из Президента Республики и судей"
    ]
   },
   {
@@ -14201,6 +14576,11 @@ window.KONST = {
     "Respublikos Prezidentas Ministro Pirmininko teikimu",
     "Seimo Pirmininkas",
     "Konstitucinis Teismas"
+   ],
+   "optsru": [
+    "Президент Республики по представлению Премьер-министра",
+    "Председатель Сейма",
+    "Конституционный суд"
    ]
   },
   {
@@ -14213,6 +14593,11 @@ window.KONST = {
     "ne vėliau kaip per 15 dienų",
     "per 30 dienų",
     "per 3 mėnesius"
+   ],
+   "optsru": [
+    "не позднее чем через 15 дней",
+    "в течение 30 дней",
+    "в течение 3 месяцев"
    ]
   },
   {
@@ -14225,6 +14610,11 @@ window.KONST = {
     "kai Seimas pritaria jos programai",
     "kai ministrai prisiekia Respublikos Prezidentui",
     "iškart po paskyrimo"
+   ],
+   "optsru": [
+    "когда Сейм одобряет его программу",
+    "когда министры приносят присягу Президенту Республики",
+    "сразу после назначения"
    ]
   },
   {
@@ -14237,6 +14627,11 @@ window.KONST = {
     "Vyriausybė",
     "Seimas",
     "Lietuvos bankas"
+   ],
+   "optsru": [
+    "Правительство",
+    "Сейм",
+    "Банк Литвы"
    ]
   },
   {
@@ -14249,6 +14644,11 @@ window.KONST = {
     "Seimui",
     "Konstituciniam Teismui",
     "savivaldybėms"
+   ],
+   "optsru": [
+    "перед Сеймом",
+    "перед Конституционным судом",
+    "перед самоуправлениями"
    ]
   },
   {
@@ -14261,6 +14661,11 @@ window.KONST = {
     "ministras",
     "Seimo narys",
     "Respublikos Prezidentas"
+   ],
+   "optsru": [
+    "министр",
+    "член Сейма",
+    "Президент Республики"
    ]
   },
   {
@@ -14273,6 +14678,11 @@ window.KONST = {
     "kai Seimas du kartus iš eilės nepritaria naujai sudarytos Vyriausybės programai",
     "kai pasikeičia Seimo Pirmininkas",
     "kai prasideda Seimo sesija"
+   ],
+   "optsru": [
+    "когда Сейм два раза подряд не одобряет программу вновь сформированного Правительства",
+    "когда меняется Председатель Сейма",
+    "когда начинается сессия Сейма"
    ]
   },
   {
@@ -14285,6 +14695,11 @@ window.KONST = {
     "ar įstatymai ir kiti Seimo aktai neprieštarauja Konstitucijai",
     "baudžiamąsias bylas",
     "ginčus tarp kaimynų"
+   ],
+   "optsru": [
+    "не противоречат ли Конституции законы и другие акты Сейма",
+    "уголовные дела",
+    "споры между соседями"
    ]
   },
   {
@@ -14294,6 +14709,11 @@ window.KONST = {
    "q": "Kiek teisėjų sudaro Konstitucinį Teismą?",
    "qru": "Из скольких судей состоит Конституционный суд?",
    "opts": [
+    "9",
+    "7",
+    "12"
+   ],
+   "optsru": [
     "9",
     "7",
     "12"
@@ -14309,6 +14729,11 @@ window.KONST = {
     "devyneriems metams ir tik vienai kadencijai",
     "penkeriems metams",
     "iki gyvos galvos"
+   ],
+   "optsru": [
+    "на девять лет и только на один срок",
+    "на пять лет",
+    "пожизненно"
    ]
   },
   {
@@ -14321,6 +14746,11 @@ window.KONST = {
     "trečdalis",
     "pusė",
     "visi teisėjai"
+   ],
+   "optsru": [
+    "треть",
+    "половина",
+    "все судьи"
    ]
   },
   {
@@ -14333,6 +14763,11 @@ window.KONST = {
     "Seimas",
     "Respublikos Prezidentas",
     "Vyriausybė"
+   ],
+   "optsru": [
+    "Сейм",
+    "Президент Республики",
+    "Правительство"
    ]
   },
   {
@@ -14345,6 +14780,11 @@ window.KONST = {
     "taip, jei pažeistos jo konstitucinės teisės ar laisvės ir jis išnaudojo visas teisinės gynybos priemones",
     "ne, niekada",
     "taip, dėl bet kokio klausimo"
+   ],
+   "optsru": [
+    "да, если нарушены его конституционные права или свободы и оно исчерпало все средства правовой защиты",
+    "нет, никогда",
+    "да, по любому вопросу"
    ]
   },
   {
@@ -14357,6 +14797,11 @@ window.KONST = {
     "ne, jie galutiniai ir neskundžiami",
     "taip, Aukščiausiajam Teismui",
     "taip, Seimui"
+   ],
+   "optsru": [
+    "нет, они окончательные и обжалованию не подлежат",
+    "да, в Верховный суд",
+    "да, в Сейм"
    ]
   },
   {
@@ -14369,6 +14814,11 @@ window.KONST = {
     "tik teismai",
     "prokuratūra",
     "policija"
+   ],
+   "optsru": [
+    "только суды",
+    "прокуратура",
+    "полиция"
    ]
   },
   {
@@ -14381,6 +14831,11 @@ window.KONST = {
     "tik įstatymui",
     "Vyriausybei",
     "Seimo Pirmininkui"
+   ],
+   "optsru": [
+    "только закону",
+    "Правительству",
+    "Председателю Сейма"
    ]
   },
   {
@@ -14393,6 +14848,11 @@ window.KONST = {
     "Aukščiausiasis Teismas, Apeliacinis teismas, apygardų ir apylinkių teismai",
     "tik Konstitucinis Teismas",
     "Seimo teismas ir savivaldybių teismai"
+   ],
+   "optsru": [
+    "Верховный суд, Апелляционный суд, окружные и районные суды",
+    "только Конституционный суд",
+    "суд Сейма и суды самоуправлений"
    ]
   },
   {
@@ -14405,6 +14865,11 @@ window.KONST = {
     "tik Lietuvos Respublikos piliečiai",
     "bet kuris Europos Sąjungos pilietis",
     "bet kuris Lietuvos gyventojas"
+   ],
+   "optsru": [
+    "только граждане Литовской Республики",
+    "любой гражданин Европейского союза",
+    "любой житель Литвы"
    ]
   },
   {
@@ -14417,6 +14882,11 @@ window.KONST = {
     "ne",
     "taip",
     "taip, jei nėra posėdžių"
+   ],
+   "optsru": [
+    "нет",
+    "да",
+    "да, если нет заседаний"
    ]
   },
   {
@@ -14429,6 +14899,11 @@ window.KONST = {
     "valstybine kalba",
     "proceso dalyvių pasirinkta kalba",
     "anglų kalba"
+   ],
+   "optsru": [
+    "на государственном языке",
+    "на языке, который выбрали участники процесса",
+    "на английском языке"
    ]
   },
   {
@@ -14441,6 +14916,11 @@ window.KONST = {
     "prokuroras",
     "teisėjas",
     "Seimo kontrolierius"
+   ],
+   "optsru": [
+    "прокурор",
+    "судья",
+    "контролёр Сейма"
    ]
   },
   {
@@ -14453,6 +14933,11 @@ window.KONST = {
     "per savivaldybių tarybas ir savivaldybių merus",
     "per Seimą",
     "per Vyriausybės atstovus"
+   ],
+   "optsru": [
+    "через советы самоуправлений и мэров самоуправлений",
+    "через Сейм",
+    "через представителей Правительства"
    ]
   },
   {
@@ -14465,6 +14950,11 @@ window.KONST = {
     "ketveriems metams",
     "penkeriems metams",
     "dvejiems metams"
+   ],
+   "optsru": [
+    "на четыре года",
+    "на пять лет",
+    "на два года"
    ]
   },
   {
@@ -14477,6 +14967,11 @@ window.KONST = {
     "Lietuvos Respublikos pilietis",
     "bet kuris nuolatinis gyventojas",
     "tik Seimo narys"
+   ],
+   "optsru": [
+    "гражданин Литовской Республики",
+    "любой постоянный житель",
+    "только член Сейма"
    ]
   },
   {
@@ -14489,6 +14984,11 @@ window.KONST = {
     "piliečiai ir kiti nuolatiniai administracinio vieneto gyventojai",
     "Seimas",
     "Vyriausybė"
+   ],
+   "optsru": [
+    "граждане и другие постоянные жители административной единицы",
+    "Сейм",
+    "Правительство"
    ]
   },
   {
@@ -14501,6 +15001,11 @@ window.KONST = {
     "pati savivaldybė",
     "Seimas",
     "Lietuvos bankas"
+   ],
+   "optsru": [
+    "само самоуправление",
+    "Сейм",
+    "Банк Литвы"
    ]
   },
   {
@@ -14513,6 +15018,11 @@ window.KONST = {
     "Vyriausybės skiriami atstovai",
     "Seimo Pirmininkas",
     "savivaldybių merai"
+   ],
+   "optsru": [
+    "представители, назначаемые Правительством",
+    "Председатель Сейма",
+    "мэры самоуправлений"
    ]
   },
   {
@@ -14525,6 +15035,11 @@ window.KONST = {
     "Lietuvos bankas",
     "Valstybės iždas",
     "Vyriausybės bankas"
+   ],
+   "optsru": [
+    "Банк Литвы",
+    "Государственное казначейство",
+    "банк Правительства"
    ]
   },
   {
@@ -14537,6 +15052,11 @@ window.KONST = {
     "penkeriems metams",
     "ketveriems metams",
     "dešimčiai metų"
+   ],
+   "optsru": [
+    "на пять лет",
+    "на четыре года",
+    "на десять лет"
    ]
   },
   {
@@ -14549,6 +15069,11 @@ window.KONST = {
     "Lietuvos Respublikos įstatymai",
     "Vyriausybės nutarimai",
     "Lietuvos bankas"
+   ],
+   "optsru": [
+    "законы Литовской Республики",
+    "постановления Правительства",
+    "Банк Литвы"
    ]
   },
   {
@@ -14561,6 +15086,11 @@ window.KONST = {
     "sausio 1 dieną",
     "liepos 1 dieną",
     "kovo 10 dieną"
+   ],
+   "optsru": [
+    "1 января",
+    "1 июля",
+    "10 марта"
    ]
   },
   {
@@ -14573,6 +15103,11 @@ window.KONST = {
     "ne vėliau kaip prieš 75 dienas iki biudžetinių metų pabaigos",
     "iki gruodžio 31 dienos",
     "ne vėliau kaip prieš 10 dienų iki metų pabaigos"
+   ],
+   "optsru": [
+    "не позднее чем за 75 дней до окончания бюджетного года",
+    "до 31 декабря",
+    "не позднее чем за 10 дней до конца года"
    ]
   },
   {
@@ -14585,6 +15120,11 @@ window.KONST = {
     "ne daugiau kaip 1/12 praėjusių metų biudžeto išlaidų",
     "tiek, kiek nusprendžia Vyriausybė",
     "ne daugiau kaip pusę praėjusių metų išlaidų"
+   ],
+   "optsru": [
+    "не более 1/12 расходов бюджета прошлого года",
+    "столько, сколько решит Правительство",
+    "не более половины расходов прошлого года"
    ]
   },
   {
@@ -14597,6 +15137,11 @@ window.KONST = {
     "ar teisėtai valdomas ir naudojamas valstybės turtas ir kaip vykdomas valstybės biudžetas",
     "ar piliečiai laikosi kelių eismo taisyklių",
     "ar mokyklos gerai moko vaikus"
+   ],
+   "optsru": [
+    "законно ли управляется и используется государственное имущество и как исполняется государственный бюджет",
+    "соблюдают ли граждане правила дорожного движения",
+    "хорошо ли школы учат детей"
    ]
   },
   {
@@ -14609,6 +15154,11 @@ window.KONST = {
     "valstybės kontrolierius",
     "finansų ministras",
     "Seimo Pirmininkas"
+   ],
+   "optsru": [
+    "государственный контролёр",
+    "министр финансов",
+    "Председатель Сейма"
    ]
   },
   {
@@ -14621,6 +15171,11 @@ window.KONST = {
     "penkeriems metams",
     "ketveriems metams",
     "septyneriems metams"
+   ],
+   "optsru": [
+    "на пять лет",
+    "на четыре года",
+    "на семь лет"
    ]
   },
   {
@@ -14633,6 +15188,11 @@ window.KONST = {
     "karo propaganda",
     "dalyvauti tarptautinėse organizacijose",
     "turėti kariuomenę"
+   ],
+   "optsru": [
+    "военная пропаганда",
+    "участвовать в международных организациях",
+    "иметь армию"
    ]
   },
   {
@@ -14645,6 +15205,11 @@ window.KONST = {
     "masinio naikinimo ginklų ir užsienio valstybių karinių bazių",
     "užsienio valstybių ambasadų",
     "tarptautinių organizacijų biurų"
+   ],
+   "optsru": [
+    "оружия массового уничтожения и военных баз иностранных государств",
+    "посольств иностранных государств",
+    "бюро международных организаций"
    ]
   },
   {
@@ -14657,6 +15222,11 @@ window.KONST = {
     "Seimas",
     "Vyriausybė",
     "Konstitucinis Teismas"
+   ],
+   "optsru": [
+    "Сейм",
+    "Правительство",
+    "Конституционный суд"
    ]
   },
   {
@@ -14669,6 +15239,11 @@ window.KONST = {
     "kiekvieno Lietuvos Respublikos piliečio",
     "tik profesionalių karių",
     "tik policijos"
+   ],
+   "optsru": [
+    "каждого гражданина Литовской Республики",
+    "только профессиональных военных",
+    "только полиции"
    ]
   },
   {
@@ -14681,6 +15256,11 @@ window.KONST = {
     "Respublikos Prezidentas",
     "krašto apsaugos ministras",
     "Seimo Pirmininkas"
+   ],
+   "optsru": [
+    "Президент Республики",
+    "министр охраны края",
+    "Председатель Сейма"
    ]
   },
   {
@@ -14693,6 +15273,11 @@ window.KONST = {
     "Respublikos Prezidentas",
     "Ministras Pirmininkas",
     "kariuomenės vadas"
+   ],
+   "optsru": [
+    "Президент Республики",
+    "Премьер-министр",
+    "командующий армией"
    ]
   },
   {
@@ -14705,6 +15290,11 @@ window.KONST = {
     "Seimas",
     "Vyriausybė",
     "Konstitucinis Teismas"
+   ],
+   "optsru": [
+    "Сейм",
+    "Правительство",
+    "Конституционный суд"
    ]
   },
   {
@@ -14717,6 +15307,11 @@ window.KONST = {
     "iki šešių mėnesių",
     "iki dvejų metų",
     "iki vienos savaitės"
+   ],
+   "optsru": [
+    "до шести месяцев",
+    "до двух лет",
+    "до одной недели"
    ]
   },
   {
@@ -14729,6 +15324,11 @@ window.KONST = {
     "ne mažiau kaip 1/4 visų Seimo narių arba ne mažiau kaip 300 tūkstančių rinkėjų",
     "tik Respublikos Prezidentas",
     "ne mažiau kaip 50 tūkstančių rinkėjų"
+   ],
+   "optsru": [
+    "не менее 1/4 всех членов Сейма или не менее 300 тысяч избирателей",
+    "только Президент Республики",
+    "не менее 50 тысяч избирателей"
    ]
   },
   {
@@ -14741,6 +15341,11 @@ window.KONST = {
     "nepaprastosios padėties ar karo padėties metu",
     "Seimo sesijos metu",
     "rinkimų metais"
+   ],
+   "optsru": [
+    "во время чрезвычайного или военного положения",
+    "во время сессии Сейма",
+    "в год выборов"
    ]
   },
   {
@@ -14753,6 +15358,11 @@ window.KONST = {
     "tik referendumu, jei už tai pasisako ne mažiau kaip 3/4 piliečių, turinčių rinkimų teisę",
     "Seimo nutarimu",
     "Respublikos Prezidento dekretu"
+   ],
+   "optsru": [
+    "только референдумом, если за это выскажутся не менее 3/4 граждан, имеющих избирательное право",
+    "постановлением Сейма",
+    "указом Президента Республики"
    ]
   },
   {
@@ -14765,6 +15375,11 @@ window.KONST = {
     "du kartus",
     "vieną kartą",
     "tris kartus"
+   ],
+   "optsru": [
+    "два раза",
+    "один раз",
+    "три раза"
    ]
   },
   {
@@ -14777,6 +15392,11 @@ window.KONST = {
     "ne mažesnė kaip trijų mėnesių",
     "ne mažesnė kaip vieno mėnesio",
     "ne mažesnė kaip vienerių metų"
+   ],
+   "optsru": [
+    "не менее трёх месяцев",
+    "не менее одного месяца",
+    "не менее одного года"
    ]
   },
   {
@@ -14789,6 +15409,11 @@ window.KONST = {
     "ne mažiau kaip 2/3 visų Seimo narių",
     "daugiau kaip pusė posėdyje dalyvaujančių",
     "ne mažiau kaip 3/5 visų Seimo narių"
+   ],
+   "optsru": [
+    "не менее 2/3 всех членов Сейма",
+    "более половины участвующих в заседании",
+    "не менее 3/5 всех членов Сейма"
    ]
   },
   {
@@ -14801,6 +15426,11 @@ window.KONST = {
     "Konstitucinis aktas „Dėl Lietuvos Respublikos narystės Europos Sąjungoje“",
     "Vyriausybės programa",
     "Seimo statutas"
+   ],
+   "optsru": [
+    "Конституционный акт «О членстве Литовской Республики в Европейском союзе»",
+    "программа Правительства",
+    "Статут Сейма"
    ]
   }
  ]
