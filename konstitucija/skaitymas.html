@@ -9,7 +9,8 @@
 <link rel="stylesheet" href="shell.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
-<!-- Шаблон: страницу skaitymas.html собирает scripts/web.py из data/skaitymas.tsv ({{…}} — подстановки). -->
+<!-- Шаблон страницы чтения: scripts/web.py собирает по нему web/skaitymas.html (data/skaitymas.tsv)
+     и sections/kultura/index.html (data/kultura.tsv); {{…}} — подстановки (web.py: READER_PAGES). -->
 <body class="tr-on tr-side">
 <header class="shell-head">
 <div class="flag" aria-hidden="true"><span class="y"></span><span class="g"></span><span class="r"></span></div>

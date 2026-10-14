@@ -1,0 +1,194 @@
+:root {
+  --bg: #f7f6f2;
+  --card: #ffffff;
+  --text: #1d1d1f;
+  --muted: #6b6b70;
+  --line: #dedcd5;
+  --accent: #2e5a88;      /* как переводы в книге */
+  --zinai-bg: #e9f0f8;    /* «Ar žinai?» — голубая рамка, как в книге */
+  --zinai: #2e5a88;
+  --isimink-bg: #fbf1dc;  /* «Įsimink!» — жёлтая рамка */
+  --isimink: #b5651d;
+  --fs: 17px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40; --accent: #8cb4e0;
+    --zinai-bg: #1d2a38; --zinai: #8cb4e0; --isimink-bg: #3a2f1c; --isimink: #f0b46a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40; --accent: #8cb4e0;
+  --zinai-bg: #1d2a38; --zinai: #8cb4e0; --isimink-bg: #3a2f1c; --isimink: #f0b46a; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: var(--fs)/1.55 Georgia, "Noto Serif", "Times New Roman", serif;
+}
+.top, main, .foot { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+.crumbs { font: .85rem/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; margin-top: 14px; color: var(--muted); }
+.crumbs a { color: var(--accent); text-decoration: none; }
+h1 { font-size: 1.7rem; line-height: 1.2; margin: 10px 0 6px; }
+h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--muted); margin-top: 4px; }
+.intro { color: var(--muted); font-size: .95rem; margin: 0 0 12px; }
+.ru { color: var(--muted); font-weight: 400; }
+
+/* панель перевода — липкая сверху прокручиваемой части страницы */
+.toolbar {
+  position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 8px 16px;
+  font: .9rem/1.2 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+/* переключатель «Vertimas» (вкл./выкл.) */
+.toolbar .switch { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+.switch .knob {
+  width: 34px; height: 20px; border-radius: 10px; background: var(--line); position: relative; flex: none;
+  transition: background .15s;
+}
+.switch .knob::after {
+  content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--card); box-shadow: 0 1px 2px rgba(0,0,0,.3); transition: left .15s;
+}
+.switch[aria-pressed="true"] .knob { background: var(--accent); }
+.switch[aria-pressed="true"] .knob::after { left: 16px; }
+.tr-off .layout { display: none; }
+.offhint { display: none; color: var(--muted); font-size: .85rem; }
+.tr-off .offhint { display: inline; }
+.toolbar button {
+  font: inherit; color: inherit; background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+  padding: 7px 10px; cursor: pointer; min-height: 40px;
+}
+.toolbar button .ru { font-size: .78rem; }
+.toolbar button[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.toolbar .sizes { margin-left: auto; display: flex; gap: 4px; }
+.toolbar .sizes button { min-width: 44px; font-weight: 600; }
+@media (max-width: 560px) {          /* телефон: панель в одну строку — без подписей по-русски */
+  .toolbar { gap: 4px; padding: 6px 10px; }
+  .toolbar button .ru, .tr-off .offhint { display: none; }   /* место под «☰ Turinys»; подсказка есть во «Įžanga» */
+  .toolbar button { padding: 6px 9px; min-height: 38px; }
+  .toolbar .sizes button { min-width: 38px; }
+}
+
+/* раскладка: слева — оглавление (своя прокрутка), справа — одна страница-рассказ (своя прокрутка) */
+.reader { flex: 1; min-height: 0; display: flex; position: relative; }
+.toc {
+  flex: none; width: 300px; overflow-y: auto; overscroll-behavior-y: contain; background: var(--bg);
+  border-right: 1px solid var(--line); padding: 8px 10px 24px; font: .92rem/1.35 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.tochead { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.toc h2 { font-size: 1.05rem; margin: 6px 8px 4px; }
+.navclose { display: none; }
+.toc h2 .ru { display: block; font-size: .8rem; font-weight: 400; margin-top: 2px; }
+.toc ul { list-style: none; margin: 0; padding: 0; }
+.toc li.grp {
+  margin: 14px 8px 4px; font-weight: 700; font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; color: var(--accent);
+}
+.toc li.grp .ru { display: block; font-size: .75rem; font-weight: 400; letter-spacing: 0; text-transform: none; }
+.toc a {                              /* заголовок рассказа, под ним — перевод */
+  display: block; padding: 6px 8px 6px 10px; border-radius: 8px; border-left: 3px solid transparent;
+  color: var(--text); text-decoration: none;
+}
+.toc a .t { display: block; }
+.toc a .ru { display: block; font-size: .82rem; margin-top: 1px; }
+.toc a:hover { background: var(--card); }
+.toc a[aria-current="page"] { background: var(--card); border-left-color: var(--accent); }
+.toc a[aria-current="page"] .t { font-weight: 700; }
+.toc a.isdone .t::before { content: "✓ "; color: #2e7d4f; font-weight: 700; }
+.pane { flex: 1; min-width: 0; overflow-y: auto; overscroll-behavior-y: contain; scroll-behavior: smooth; container-type: inline-size; }
+.pane:focus { outline: none; }
+.js .page:not(.current) { display: none; }     /* с JS видна одна страница; без JS — все подряд */
+.navbtn { display: none; }
+.storyend .pn .tocl { display: none; }          /* оглавление и так рядом */
+@media (max-width: 899px) {                     /* узкий экран: оглавление — по кнопке «☰ Turinys», поверх текста */
+  .js .toc { position: absolute; inset: 0; z-index: 20; width: auto; border-right: 0; padding: 8px 16px 24px; display: none; }
+  .js .nav-open .toc { display: block; }
+  .js .navbtn { display: inline-flex; }
+  .js .tochead { position: sticky; top: -8px; z-index: 1; background: var(--bg); padding-top: 4px; border-bottom: 1px solid var(--line); }
+  .js .navclose {
+    display: block; flex: none; width: 40px; height: 40px; margin: 2px 0 6px; border: 1px solid var(--line); border-radius: 8px;
+    background: var(--card); color: inherit; font-size: 1.1rem; cursor: pointer;
+  }
+  .js .storyend .pn .tocl { display: inline; }
+  html:not(.js) .reader { display: block; overflow-y: auto; }
+  html:not(.js) .toc { width: auto; overflow: visible; border-right: 0; }
+  html:not(.js) .pane { overflow: visible; }
+}
+.page { padding-bottom: 8px; }
+#apie .intro { font-size: .98rem; }
+.start { display: inline-block; margin-top: 6px; padding: 10px 16px; border-radius: 10px; background: var(--accent); color: var(--bg);
+  text-decoration: none; font: 600 1rem/1.3 system-ui, -apple-system, "Segoe UI", sans-serif; }
+.start .ru { color: inherit; opacity: .85; }
+
+/* рассказ */
+.label {
+  display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin: 18px 0 6px;
+  padding-bottom: 4px; border-bottom: 2px solid var(--accent);
+  font: 700 .78rem/1.3 system-ui, -apple-system, "Segoe UI", sans-serif; letter-spacing: .04em; text-transform: uppercase; color: var(--accent);
+}
+.story { margin-bottom: 26px; }
+.page h2 { font-size: 1.35rem; margin: 14px 0 10px; line-height: 1.25; }
+.page h2 .ru { display: block; font-size: .95rem; font-style: italic; margin-top: 2px; }
+
+.row { padding: 5px 0; }
+.row p { margin: 0; }
+.row .ru { color: var(--accent); font-size: .9em; }
+.row.scena { font-style: italic; color: var(--muted); }
+.row.scena .lt { color: var(--muted); }
+.row.dial .lt { padding-left: .2em; }
+
+/* перевод включён: рядом (только в широкой колонке; на телефоне — под строкой) или под строкой */
+@container (min-width: 620px) {
+  .tr-on.tr-side .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+}
+.row .ru { margin-top: 1px; }
+/* перевод выключен: только литовский; нажатие на предложение показывает его перевод */
+.tr-off .row { cursor: pointer; border-radius: 6px; }
+.tr-off .row:hover, .tr-off .row:focus { background: var(--card); outline: none; }
+.tr-off .row .ru { display: none; }
+.tr-off .row.show .ru { display: block; }
+.tr-off .box .boxhead .ru, .tr-off .story h2 .ru { display: none; }
+
+.box { border-radius: 10px; padding: 8px 14px 10px; margin: 12px 0; border-left: 4px solid; }
+.box.zinai { background: var(--zinai-bg); border-color: var(--zinai); }
+.box.isimink { background: var(--isimink-bg); border-color: var(--isimink); }
+.boxhead { font: 700 .95rem/1.3 system-ui, -apple-system, "Segoe UI", sans-serif; margin: 2px 0 4px; }
+.box.zinai .boxhead { color: var(--zinai); }
+.box.isimink .boxhead { color: var(--isimink); }
+
+.storyend {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+  margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--line);
+  font: .92rem/1.3 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.storyend .done {
+  font: inherit; color: inherit; background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 12px; cursor: pointer; min-height: 40px;
+}
+.storyend .done.isdone { border-color: #2e7d4f; color: #2e7d4f; }
+.storyend .pn { display: flex; gap: 14px; }
+.storyend .pn a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+/* произношение */
+.say {
+  display: inline-flex; align-items: center; justify-content: center; vertical-align: -3px;
+  width: 26px; height: 26px; margin-right: 6px; border-radius: 50%; border: 1px solid var(--line);
+  background: var(--card); color: var(--accent); cursor: pointer; padding: 0;
+}
+.say svg { width: 15px; height: 15px; }
+.say:hover, .say:focus { border-color: var(--accent); outline: none; }
+.row.speaking { background: var(--zinai-bg); border-radius: 6px; }
+.listen {
+  font: .85rem/1.2 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--accent); background: var(--card);
+  border: 1px solid var(--line); border-radius: 18px; padding: 6px 12px; cursor: pointer; margin: 0 0 8px;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.listen.on { border-color: var(--accent); }
+#slow[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+@container (max-width: 619px) { .layout { display: none; } }   /* узкая колонка: перевод всегда под строкой — выбор лишний */
+.novoice { font: .85rem/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--muted); margin: 12px 0 0; }
+.foot { color: var(--muted); font: .8rem/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; padding: 28px 16px 36px; }
+.foot a { color: var(--accent); }
