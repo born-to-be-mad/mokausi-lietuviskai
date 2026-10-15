@@ -114,6 +114,18 @@ select {
 .opts button.ok { background: var(--good-bg); border-color: var(--good); }
 .opts button.wrong { background: var(--bad-bg); border-color: var(--bad); }
 .opts button:disabled { cursor: default; }
+/* экзамен: буква варианта «a)»; после проверки перед ней ✓ у верного и ✗ у выбранного неверного — не только цветом */
+.opts .ol { margin-right: .35em; }
+.opts .ol::after { content: ")"; }
+.opts .mark { font-weight: 700; margin-right: .35em; }
+.opts button.ok .mark { color: var(--good); }
+.opts button.wrong .mark { color: var(--bad); }
+/* тренировка экзамена: полоска — по делению на вопрос (верно / неверно / текущий) */
+.segs { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 3px; margin: 0 0 10px; }
+.segs span { height: 5px; border-radius: 3px; background: var(--line); }
+.segs .ok { background: var(--good); }
+.segs .bad { background: var(--bad); }
+.segs .cur { background: var(--accent); }
 /* перевод «подсмотреть»: кнопка RU у вопроса и у каждого варианта (тренировка; подсказки считаются);
    после ответа перевод показан у всех строк */
 .optrow { display: flex; gap: 6px; align-items: stretch; }
@@ -147,6 +159,8 @@ table.stats button { padding: 6px 10px; border-radius: 8px; border: 1px solid va
 .dot.done { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 .dot.cur { box-shadow: 0 0 0 2px var(--text); }
 .opts button.picked { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.opts button.picked.ok { border-color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }    /* после проверки — цвет ответа */
+.opts button.picked.wrong { border-color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
 .result { text-align: center; }
 .result .big { font-size: 2.6rem; font-weight: 700; margin: 4px 0; }
 .result.pass { border-color: var(--good); background: var(--good-bg); }
@@ -158,6 +172,8 @@ table.stats button { padding: 6px 10px; border-radius: 8px; border: 1px solid va
 .review .good { color: var(--good); }
 .review .art, .feedback .art { color: var(--muted); font-style: italic; font-size: .85rem; }
 .check { display: flex; gap: 8px; align-items: center; font-size: .92rem; cursor: pointer; }
+.voiceline { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin: 14px 0; font-size: .92rem; }   /* экзамен: голос */
+.voiceline select { width: auto; }
 .check input { width: 20px; height: 20px; }
 td.okc { color: var(--good); font-weight: 700; }
 td.badc { color: var(--bad); font-weight: 700; }

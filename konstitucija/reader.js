@@ -38,6 +38,20 @@
     });
     const n = stories.filter(s => st.done[s.id]).length;
     document.getElementById('count').textContent = `perskaityta (прочитано): ${n} / ${stories.length}`;
+    // у каждого сборника в оглавлении — сколько прочитано: полоска и «n / m»
+    $$('.toc li.col[data-col]').forEach(li => {
+      const own = stories.filter(s => s.dataset.col === li.dataset.col), k = own.filter(s => st.done[s.id]).length;
+      let p = li.querySelector('.cprog');
+      if (!p) {
+        p = document.createElement('span'); p.className = 'cprog';
+        const bar = document.createElement('span'); bar.className = 'cbar'; bar.append(document.createElement('span'));
+        const num = document.createElement('span'); num.className = 'cnum';
+        p.append(bar, num); li.append(p);
+      }
+      p.title = `Perskaityta (прочитано): ${k} / ${own.length}`;
+      p.querySelector('.cbar > span').style.width = (own.length ? 100 * k / own.length : 0) + '%';
+      p.querySelector('.cnum').textContent = `${k} / ${own.length}`;
+    });
   }
 
   document.getElementById('tr').addEventListener('click', toggleTr);
@@ -130,6 +144,8 @@
     const slow = document.getElementById('slow');
     slow.setAttribute('aria-pressed', String(S.rate === 0.7));
     slow.addEventListener('click', () => { S.rate = S.rate === 0.7 ? 0.9 : 0.7; slow.setAttribute('aria-pressed', String(S.rate === 0.7)); });
+    const pick = S.voiceSelect({ short: true });                    // голос: Ona / Leonas (если записаны оба)
+    if (pick) { const c = document.getElementById('voicePick'); c.append(pick); c.hidden = false; }
     $$('.row').forEach(row => {
       const lt = row.querySelector('.lt');
       lt.prepend(S.button(() => { stopPlay(); return lt.textContent; }));

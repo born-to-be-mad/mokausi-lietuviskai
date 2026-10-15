@@ -71,10 +71,21 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
 .toolbar .sizes { margin-left: auto; display: flex; gap: 4px; }
 .toolbar .sizes button { min-width: 44px; font-weight: 600; }
 @media (max-width: 560px) {          /* телефон: панель в одну строку — без подписей по-русски */
-  .toolbar { gap: 4px; padding: 6px 10px; }
-  .toolbar button .ru, .tr-off .offhint { display: none; }   /* место под «☰ Turinys»; подсказка есть во «Įžanga» */
-  .toolbar button { padding: 6px 9px; min-height: 38px; }
-  .toolbar .sizes button { min-width: 38px; }
+  .toolbar { gap: 3px; padding: 6px 8px; }
+  .toolbar button .ru, .tr-off .offhint { display: none; }   /* место под кнопки; подсказка есть в «Kaip skaityti» */
+  .toolbar button { padding: 6px 8px; min-height: 38px; }
+  .toolbar .switch { gap: 6px; }
+  .toolbar .sizes { gap: 3px; }
+  .toolbar .sizes button { min-width: 36px; }
+  .toolbar .voicepick .vl { display: none; }
+  .toolbar .navbtn .nt { display: none; }       /* только «☰»: в строку помещается и выбор голоса (от 375px) */
+  .toolbar select { min-height: 38px; }
+}
+@media (max-width: 380px) {          /* узкий телефон (360px): ещё плотнее, чтобы панель осталась в одну строку */
+  .toolbar { padding: 6px 6px; }
+  .toolbar button { padding: 6px 6px; }
+  .toolbar .sizes button { min-width: 32px; }
+  .toolbar select { padding: 0 18px 0 6px; }
 }
 
 /* раскладка: слева — оглавление (своя прокрутка), справа — одна страница-рассказ (своя прокрутка) */
@@ -93,6 +104,11 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
   font: 700 1rem/1.25 var(--font-read); color: var(--text);
 }
 .toc li.col .ru { display: block; font: 400 .8rem/1.3 var(--font-ui); margin-top: 2px; }
+.toc li.col .cprog {                  /* сколько прочитано в сборнике (reader.js) */
+  display: flex; align-items: center; gap: 8px; margin-top: 6px; font: 600 .72rem/1 var(--font-ui); color: var(--muted);
+}
+.cbar { flex: 1; height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
+.cbar > span { display: block; height: 100%; background: var(--good); }
 .toc li.grp {
   margin: 14px 8px 4px; font-weight: 700; font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; color: var(--accent);
 }
@@ -197,6 +213,14 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
 }
 .listen.on { border-color: var(--accent); }
 #slow[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.toolbar .voicepick { display: inline-flex; align-items: center; gap: 6px; }   /* голос: Ona / Leonas */
+.toolbar .voicepick[hidden] { display: none; }
+.toolbar select {                     /* своя стрелка (две полоски в цвете текста) — уже системной */
+  font: inherit; color: inherit; border: 1px solid var(--control); border-radius: 8px; padding: 0 20px 0 8px;
+  min-height: 40px; cursor: pointer; appearance: none; -webkit-appearance: none;
+  background: linear-gradient(45deg, transparent 50%, currentColor 50%) right 11px center / 5px 5px no-repeat,
+              linear-gradient(135deg, currentColor 50%, transparent 50%) right 6px center / 5px 5px no-repeat, var(--card);
+}
 @container (max-width: 619px) { .layout { display: none; } }   /* узкая колонка: перевод всегда под строкой — выбор лишний */
 .novoice { font: .85rem/1.4 var(--font-ui); color: var(--muted); margin: 12px 0 0; }
 .foot { color: var(--muted); font: .8rem/1.5 var(--font-ui); padding: 28px 16px 36px; }

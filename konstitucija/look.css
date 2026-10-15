@@ -1,6 +1,8 @@
 /* Шрифты и два вида сайта; переключатель «Įprasta / Vaikams» в шапке — look.js (html[data-look], выбор хранится в браузере).
    «Įprasta» (по умолчанию) — спокойное чтение: Literata для текста и заголовков, системный шрифт для кнопок и подписей.
    «Vaikams» — для детей: Nunito, мягкие цвета, крупнее и круглее, цвет у каждого сборника, значок у реплики (кто говорит).
+   «Kontrastas» — высокий контраст: системный шрифт крупнее, текст от 7:1, толстые рамки, подчёркнутые ссылки, жёлтый
+   фокус, метка «RU» у переводов, читаемое вслух предложение — на жёлтом.
    Светлая и тёмная тема — в обоих видах; тексты одинаковые. На печать — всегда обычный вид.
    Шрифты лежат рядом (fonts/, лицензия SIL OFL 1.1) и урезаны до нужных знаков: латиница с литовскими, кириллица. */
 @font-face { font-family: Literata; src: url(fonts/Literata.woff) format("woff"); font-weight: 400 700; font-style: normal; font-display: swap; }
@@ -11,9 +13,14 @@
   --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
 }
 
-/* переключатель вида — справа в шапке */
+/* переключатель вида — справа в шапке: кнопки, на телефоне — список */
+.look { float: right; margin: 4px 0 4px 12px; }
+.looksel {
+  display: none; font: 600 .8rem/1 var(--font-ui); color: inherit; background: var(--card); min-height: 32px; padding: 0 6px;
+  border: 1px solid var(--control, var(--line)); border-radius: 999px; cursor: pointer;
+}
 .looksw {
-  float: right; display: inline-flex; gap: 2px; margin: 4px 0 4px 12px; padding: 2px;
+  display: inline-flex; gap: 2px; padding: 2px;
   border: 1px solid var(--control, var(--line)); border-radius: 999px; background: var(--card); font: 600 .78rem/1 var(--font-ui);
 }
 .looksw button {
@@ -22,8 +29,8 @@
 }
 .looksw button[aria-pressed="true"] { background: var(--accent); color: var(--bg); }
 .looksw button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
-@media (max-width: 600px) { .looksw { font-size: .72rem; } .looksw button { padding: 5px 8px; min-height: 28px; } }
-@media print { .looksw { display: none; } }
+@media (max-width: 600px) { .looksw { display: none; } .looksel { display: inline-block; } }
+@media print { .look { display: none; } }
 
 /* ── вид «Vaikams» ─────────────────────────────────────────────────────────────────────────────────── */
 @media screen {
@@ -68,7 +75,7 @@
   }
   [data-look="kids"] .tabs button[aria-selected="true"] { background: var(--soft); box-shadow: none; border-color: var(--accent); }
   [data-look="kids"] .opts button { min-height: 52px; font-weight: 700; }
-  [data-look="kids"] .opts button.picked { background: var(--soft); box-shadow: none; }
+  [data-look="kids"] .opts button.picked:not(.ok, .wrong) { background: var(--soft); box-shadow: none; }
   [data-look="kids"] .opts .peek, [data-look="kids"] .peek { border-width: 2px; border-radius: 16px; }
   [data-look="kids"] .front { font-weight: 800; }
   [data-look="kids"] .front.fact { font-weight: 700; }
@@ -76,15 +83,29 @@
   [data-look="kids"] .bar { height: 10px; border-radius: 5px; }
   [data-look="kids"] .dot { border-width: 2px; border-radius: 50%; font-weight: 700; }
   [data-look="kids"] .say { border-width: 2px; }
+  /* экзамен: буква варианта — в кружке, после проверки кружок ✓ (зелёный) или ✗ (красный) */
+  [data-look="kids"] .opts button.abc { display: grid; grid-template-columns: 2.1em minmax(0, 1fr); column-gap: 12px; align-items: start; }
+  [data-look="kids"] .opts :is(.ol, .mark) {
+    display: grid; place-items: center; width: 2.1em; height: 2.1em; margin: 0; border-radius: 50%;
+    background: var(--soft); color: var(--accent); font: 800 1rem/1 var(--font-ui);
+  }
+  [data-look="kids"] .opts .ol::after { content: none; }
+  [data-look="kids"] .opts .mark + .ol { display: none; }
+  [data-look="kids"] .opts button.ok .mark { background: var(--good); color: var(--card); }
+  [data-look="kids"] .opts button.wrong .mark { background: var(--bad); color: var(--card); }
+  [data-look="kids"] .segs span { height: 8px; border-radius: 4px; }
 
   /* чтение */
   [data-look="kids"] .toc { font-weight: 600; }
-  [data-look="kids"] .toolbar button, [data-look="kids"] .storyend .done { border-width: 2px; border-radius: 14px; }
+  [data-look="kids"] :is(.toolbar button, .toolbar select, .storyend .done) { border-width: 2px; border-radius: 14px; }
   [data-look="kids"] .listen { border-width: 2px; font-weight: 700; }
+  @media (max-width: 380px) { [data-look="kids"] .toolbar { font-size: .84rem; gap: 2px; } }   /* узкий телефон: панель в одну строку */
   [data-look="kids"] .start { border-radius: 999px; font-weight: 800; }
   [data-look="kids"] .toc a { border-radius: 14px; border-left-width: 4px; }
   [data-look="kids"] .toc li.col { font-weight: 800; border-top-width: 4px; }
   [data-look="kids"] .toc li.grp { font-weight: 800; }
+  [data-look="kids"] .toc li.col .cprog { font-weight: 800; }
+  [data-look="kids"] .toc li.col .cbar { height: 8px; border-radius: 4px; }
   [data-look="kids"] .box { border: 2px solid; border-radius: 18px; }
   [data-look="kids"] .page { font-size: 1.05em; }   /* текст рассказа чуть крупнее */
   [data-look="kids"] .row.speaking { border-radius: 12px; }
@@ -93,6 +114,7 @@
   [data-look="kids"] [data-col="kunigaikschiai"] { --c: var(--c-kunigaikschiai); --c-ink: var(--c-kunigaikschiai); }
   [data-look="kids"] [data-col="konstitucija"] { --c: var(--c-konstitucija); --c-ink: var(--c-konstitucija); }
   [data-look="kids"] .toc li.col[data-col] { border-top-color: var(--c); }
+  [data-look="kids"] .toc li.col[data-col] .cbar > span { background: var(--c); }
   [data-look="kids"] .toc li[data-col] a[aria-current="page"] { border-left-color: var(--c); }
   [data-look="kids"] .toc li.grp[data-col] { color: var(--c-ink); }
   [data-look="kids"] .story[data-col] .label { color: var(--c-ink); border-bottom: 3px solid var(--c); }
@@ -123,4 +145,80 @@
   /* памятка */
   [data-look="kids"] section.memo { border-width: 2px; border-radius: 20px; }
   [data-look="kids"] .print { border-width: 2px; border-radius: 999px; font-weight: 700; }
+}
+
+/* ── вид «Kontrastas» (высокий контраст, WCAG AAA: текст от 7:1) ─────────────────────────────────────── */
+@media screen {
+  :root[data-look="contrast"] {
+    --bg: #ffffff; --card: #ffffff; --text: #0b0b0c; --muted: #3d3d42; --line: #6b6b70; --control: #6b6b70; --accent: #0b4a8f;
+    --ending: #a51d14; --good: #0a5c2f; --bad: #8e1b14; --good-bg: #e8f4ec; --bad-bg: #fcebe9; --soft: #f2f2f2;
+    --zinai: #0b4a8f; --zinai-bg: #f2f2f2; --isimink: #6b3a00; --isimink-bg: #f2f2f2; --focus: #ffdd00; --on-focus: #0b0b0c;
+    --font-read: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; --font-ui: var(--font-read);
+    --radius: 6px; font-size: 112.5%;
+  }
+}
+@media screen and (prefers-color-scheme: dark) {
+  :root[data-look="contrast"]:not([data-theme="light"]) {
+    --bg: #000000; --card: #000000; --text: #ffffff; --muted: #d4d4d8; --line: #a0a0a8; --control: #a0a0a8; --accent: #8cc4ff;
+    --ending: #ff9e94; --good: #7fe0a5; --bad: #ff9e94; --good-bg: #0b2a17; --bad-bg: #2f0f0c; --soft: #1a1a1a;
+    --zinai: #8cc4ff; --zinai-bg: #1a1a1a; --isimink: #ffd27a; --isimink-bg: #1a1a1a;
+  }
+}
+@media screen {
+  :root[data-look="contrast"][data-theme="dark"] {
+    --bg: #000000; --card: #000000; --text: #ffffff; --muted: #d4d4d8; --line: #a0a0a8; --control: #a0a0a8; --accent: #8cc4ff;
+    --ending: #ff9e94; --good: #7fe0a5; --bad: #ff9e94; --good-bg: #0b2a17; --bad-bg: #2f0f0c; --soft: #1a1a1a;
+    --zinai: #8cc4ff; --zinai-bg: #1a1a1a; --isimink: #ffd27a; --isimink-bg: #1a1a1a;
+  }
+  /* текст крупнее и прямой; ссылки подчёркнуты; фокус — жёлтый */
+  [data-look="contrast"] body { font-size: 19px; line-height: 1.5; }
+  [data-look="contrast"] :is(h1, h2, h3) { font-weight: 700; }
+  [data-look="contrast"] :is(.row .ru, .optru, .qru, .exru, .page h2 .ru, .art, .row.scena) { font-style: normal; }
+  [data-look="contrast"] a { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  [data-look="contrast"] :focus-visible { outline: 3px solid var(--text); outline-offset: 2px; box-shadow: 0 0 0 6px var(--focus); }
+  [data-look="contrast"] a:focus-visible { outline: none; background: var(--focus); color: var(--on-focus); box-shadow: 0 -2px var(--focus), 0 4px var(--on-focus); text-decoration: none; }
+  /* рамки толще и темнее, углы меньше */
+  [data-look="contrast"] .flag { height: 6px; }
+  [data-look="contrast"] :is(.shell-head, .toolbar) { border-bottom: 2px solid var(--text); }
+  [data-look="contrast"] .shell-foot { border-top: 2px solid var(--text); }
+  [data-look="contrast"] :is(.card, .group, .steps li, .free, section.memo) { border: 2px solid var(--text); border-radius: 6px; }
+  [data-look="contrast"] :is(select, .tabs button, .actions button, .btn, .opts button, .peek, .dot, table.stats button,
+    .toolbar button, .toolbar select, .storyend .done, .listen, .say, .navclose, .print, .group .links a) { border-width: 2px; border-radius: 6px; }
+  [data-look="contrast"] :is(.actions .primary, .btn.primary, .start, .group .links a.primary) { background: var(--text); border-color: var(--text); color: var(--bg); }
+  [data-look="contrast"] :is(.tabs button[aria-selected="true"], .toolbar button[aria-pressed="true"], #slow[aria-pressed="true"]) {
+    background: var(--text); color: var(--bg); border-color: var(--text); box-shadow: none;
+  }
+  [data-look="contrast"] :is(.tabs button[aria-selected="true"], .toolbar button[aria-pressed="true"]) .ru { color: inherit; }
+  [data-look="contrast"] .opts button { min-height: 56px; }
+  [data-look="contrast"] .opts button.picked:not(.ok, .wrong) { border: 3px solid var(--accent); box-shadow: none; }
+  [data-look="contrast"] .opts button.ok { border: 3px solid var(--good); }
+  [data-look="contrast"] .opts button.wrong { border: 3px solid var(--bad); }
+  [data-look="contrast"] .opts .mark { font-size: 1.15em; }
+  [data-look="contrast"] .bar { height: 10px; border: 2px solid var(--text); border-radius: 4px; background: var(--card); }
+  [data-look="contrast"] .segs span { height: 8px; border-radius: 2px; }
+  [data-look="contrast"] .segs .cur { background: var(--text); }
+  [data-look="contrast"] .dot { color: var(--text); }
+  [data-look="contrast"] .dot.done { background: var(--text); border-color: var(--text); color: var(--bg); }
+  [data-look="contrast"] .dot.cur { box-shadow: 0 0 0 3px var(--focus), 0 0 0 5px var(--text); }
+  [data-look="contrast"] .steps li::before { background: var(--text); color: var(--bg); }
+  [data-look="contrast"] .looksw { border: 2px solid var(--text); }
+  [data-look="contrast"] .looksw button[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+  [data-look="contrast"] .looksel { border: 2px solid var(--text); }
+  /* переводы с меткой «RU» (не только цветом) */
+  [data-look="contrast"] :is(.row .ru, .optru, .qru, .exru)::before {
+    content: "RU"; content: "RU" / ""; display: inline-block; margin-right: .5em; padding: 0 .3em; border: 2px solid var(--text);
+    border-radius: 4px; color: var(--text); font: 700 .68em/1.45 var(--font-ui); vertical-align: .12em;
+  }
+  /* чтение: рамки историй, текущий рассказ — инверсией, читаемое вслух — на жёлтом */
+  [data-look="contrast"] .box { border: 3px solid; border-radius: 6px; }
+  [data-look="contrast"] .toc a[aria-current="page"] { background: var(--text); border-left-color: var(--text); }
+  [data-look="contrast"] .toc a[aria-current="page"] :is(.t, .ru) { color: var(--bg); }
+  [data-look="contrast"] .toc a.isdone[aria-current="page"] .t::before { color: var(--bg); }
+  [data-look="contrast"] .toc li.col { border-top: 3px solid var(--text); }
+  [data-look="contrast"] .cbar { height: 8px; border: 2px solid var(--text); border-radius: 4px; background: var(--card); }
+  [data-look="contrast"] .row.speaking { background: var(--focus); border-radius: 4px; }
+  [data-look="contrast"] .row.speaking :is(.lt, .ru), [data-look="contrast"] .row.speaking .ru::before { color: var(--on-focus); border-color: var(--on-focus); }
+  [data-look="contrast"] .label { border-bottom: 2px solid var(--text); }
+  @media (max-width: 560px) { [data-look="contrast"] .toolbar { font-size: .8rem; } }   /* телефон: панель чтения в одну строку */
+  @media (max-width: 420px) { [data-look="contrast"] .toolbar { font-size: .74rem; gap: 2px; } [data-look="contrast"] .toolbar .sizes button { min-width: 30px; } }
 }

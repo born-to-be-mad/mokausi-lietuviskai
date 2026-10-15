@@ -476,6 +476,8 @@
     const rate = document.getElementById('rate');
     rate.value = String(S.rate === 0.7 ? 0.7 : 0.9);
     rate.addEventListener('change', () => { S.rate = Number(rate.value); });
+    const pick = S.voiceSelect();                                   // голос: Ona / Leonas (если записаны оба)
+    if (pick) { const c = document.getElementById('voicePickCtl'); c.append(pick); c.hidden = false; }
     // перерисовать текущий экран с кнопками, не сбрасывая сессию (вопрос — только если ещё без ответа)
     if (prefs.mode === 'cards' && queue.length) nextCard();
     else if (prefs.mode === 'quiz' && quiz && !answered && quiz.i < quiz.items.length) nextQuestion();

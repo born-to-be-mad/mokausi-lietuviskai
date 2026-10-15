@@ -60,8 +60,12 @@
       title: 'Rodyti vertimą (показать перевод — считается подсказкой)', 'aria-label': 'Rodyti vertimą (показать перевод)',
       on: { click: () => peek(key) } }, 'RU') : null;
     const opts = q.order.map((o, k) => {
-      const b = el('button', { on: { click: () => choose(k) } }, `${LETTERS[k]}) ${q.opts[o]}`,
-        shown(k) ? el('span', { class: 'optru' }, q.optsru[o]) : null);
+      // буква варианта (.ol: «a)» / в виде «Vaikams» — кружок); после проверки перед ней ✓ у верного и ✗ у выбранного неверного
+      const mark = checked ? (o === 0 ? '✓' : a === k ? '✗' : null) : null;
+      const b = el('button', { class: 'abc', on: { click: () => choose(k) } },
+        mark ? el('span', { class: 'mark', 'aria-hidden': 'true' }, mark) : null,
+        el('span', { class: 'ol' }, LETTERS[k]),
+        el('span', { class: 'ot' }, q.opts[o], shown(k) ? el('span', { class: 'optru' }, q.optsru[o]) : null));
       if (a === k) b.classList.add('picked');
       if (checked) { b.disabled = true; if (o === 0) b.classList.add('ok'); else if (a === k) b.classList.add('wrong'); }
       return canPeek ? el('div', { class: 'optrow' }, b, peekBtn(k)) : b;
@@ -76,6 +80,12 @@
       el('button', { class: 'dot' + (j === ex.i ? ' cur' : '') + (ex.ans[j] !== undefined ? ' done' : ''), title: `${j + 1}`,
         on: { click: () => { ex.i = j; show(); } } }, String(j + 1)))) : null;
     const answered = Object.keys(ex.ans).length;
+    // тренировка: полоска из делений — по одному на вопрос: зелёное — верно, красное — нет, синее — текущий
+    const right = j => ex.qs[j].order[ex.ans[j]] === 0;
+    const nOk = Object.keys(ex.ans).filter(right).length;
+    const segs = practice ? el('div', { class: 'segs', role: 'img',
+      'aria-label': `Teisingai ${nOk}, neteisingai ${answered - nOk} iš ${ex.qs.length} (верно, неверно)` },
+      ex.qs.map((_, j) => el('span', { class: ex.ans[j] !== undefined ? (right(j) ? 'ok' : 'bad') : j === ex.i ? 'cur' : null }))) : null;
     const nav = el('div', { class: 'actions' },
       ex.i > 0 && !practice ? el('button', { on: { click: () => { ex.i--; show(); } } }, '← Atgal') : null,
       practice
@@ -88,7 +98,8 @@
       } } }, `Baigti (${answered}/${ex.qs.length})`) : null);
     const c = chapter(q.sk);
     const feedback = checked ? el('div', { class: 'feedback' },
-      el('div', {}, q.order[a] === 0 ? '✓ Teisingai! (верно)' : `✗ Teisingas atsakymas (верный ответ): ${q.opts[0]}`),
+      el('div', {}, q.order[a] === 0 ? '✓ Teisingai! (верно)'
+        : `✗ Ne visai (не совсем). Teisingas atsakymas — ${LETTERS[q.order.indexOf(0)]}: ${q.opts[0]}`),
       el('div', { class: 'art' }, cite(q))) : null;
     keyHandler = e => {
       const n = 'abc123'.indexOf(e.key.toLowerCase());
@@ -102,14 +113,14 @@
       el('div', { class: 'examhead' },
         el('span', {}, `${practice ? 'Treniruotė' : 'Egzaminas'} · ${ex.i + 1} / ${ex.qs.length}`),
         el('span', { class: 'ru' }, '⏱ ', el('span', { id: 'clock' }, fmt(Math.round((Date.now() - ex.t0) / 1000))))),
-      dots,
+      dots, segs,
       el('div', { class: 'card' },
         el('div', { class: 'tag' }, c ? `${c.roman}. ${c.lt}` : ''),
         el('div', { class: 'front fact' }, q.q, sayBtn(q.q), peekBtn('q')),
         shown('q') ? el('div', { class: 'qru' }, q.qru) : null,
         el('div', { class: 'opts long' }, opts),
         feedback),
-      nav].filter(Boolean));          // в тренировке нет сетки номеров (dots = null)
+      nav].filter(Boolean));          // в тренировке вместо сетки номеров (dots = null) — полоска делений (segs)
   }
 
   function finish() {
@@ -164,6 +175,10 @@
       el('div', { class: 'actions' },
         el('button', { class: 'primary', on: { click: () => start('exam') } }, 'Egzaminas (экзамен)'),
         el('button', { on: { click: () => start('practice') } }, 'Treniruotė (с проверкой сразу)')),
+      (() => {                                                       // голос озвучки вопросов: Ona / Leonas
+        const pick = S && S.available() ? S.voiceSelect() : null;
+        return pick ? el('label', { class: 'voiceline' }, el('span', {}, 'Balsas ', el('span', { class: 'ru' }, '(голос)')), pick) : null;
+      })(),
       hist.length ? el('div', { class: 'card' },
         el('p', { class: 'summary' }, 'Bandymai (попытки)'),
         el('table', { class: 'stats' }, el('tbody', {}, hist.map(h => el('tr', {},

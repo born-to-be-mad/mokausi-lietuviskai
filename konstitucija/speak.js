@@ -1,13 +1,18 @@
-// Произношение: сначала записанный звук (Azure lt-LT-OnaNeural: web/audio/*.mp3 по словарю window.KONST_AUDIO
-// из data/audio.js — генерирует scripts/tts.py); если записи нет — литовский голос браузера (Web Speech API,
-// напр. Microsoft Ona/Leonas в Edge). На Mac браузеры литовского голоса не дают — там работают только записи.
-// window.Speak: available() · say(text, {onend}) · stop() · rate (0.9 / 0.7) · onReady(cb) · icon() · button() · clean(text).
+// Произношение: сначала записанный звук выбранного голоса — Ona (женский, по умолчанию: web/audio/*.mp3 по словарю
+// window.KONST_AUDIO из data/audio.js — генерирует scripts/tts.py) или Leonas (мужской: тот же файл в audio/leonas/;
+// нет записи — играет Ona); если записи нет совсем — литовский голос браузера (Web Speech API, напр. Microsoft
+// Ona/Leonas в Edge, тоже по выбору). На Mac браузеры литовского голоса не дают — там работают только записи.
+// Скорость и голос — общие для всего сайта (localStorage konst.speak.v1).
+// window.Speak: available() · say(text, {onend}) · stop() · rate (0.9 / 0.7) · voice ('ona' | 'leonas') · voices() ·
+// voiceSelect() · onReady(cb) · icon() · button() · clean(text).
 (() => {
   'use strict';
   const synth = window.speechSynthesis;
   const KEY = 'konst.speak.v1';
-  const REC = window.KONST_AUDIO || {};                 // текст (после clean) → путь к mp3
+  const REC = window.KONST_AUDIO || {};                 // текст (после clean) → путь к mp3 голоса Ona
   const hasRec = Object.keys(REC).length > 0;
+  const RECORDED = window.KONST_VOICES || { ona: Object.keys(REC).length };   // голос → сколько фраз записано
+  const VOICES = { ona: ['Ona', 'женский голос'], leonas: ['Leonas', 'мужской голос'] };
   let voice = null, ready = false, player = null;
   const waiters = [];
   const prefs = (() => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } })();
@@ -15,7 +20,9 @@
   // лучший литовский голос браузера: «естественные»/онлайн-голоса выше системных компактных
   function pickVoice() {
     const lt = (synth ? synth.getVoices() : []).filter(v => /^lt([-_]|$)/i.test(v.lang));
-    const score = v => (/natural|neural|online/i.test(v.name) ? 4 : 0) + (/ona|leonas/i.test(v.name) ? 2 : 0) + (/google/i.test(v.name) ? 1 : 0);
+    const want = new RegExp(prefs.voice === 'leonas' ? 'leonas' : 'ona', 'i');   // выбранный голос — выше
+    const score = v => (want.test(v.name) ? 8 : 0) + (/natural|neural|online/i.test(v.name) ? 4 : 0)
+      + (/ona|leonas/i.test(v.name) ? 2 : 0) + (/google/i.test(v.name) ? 1 : 0);
     voice = lt.sort((a, b) => score(b) - score(a))[0] || null;
     if (!ready && (voice || hasRec || (synth && synth.getVoices().length))) finishReady();
   }
@@ -44,9 +51,36 @@
     return true;
   }
 
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(prefs)); } catch { /* приватный режим */ } };
+  // запись: проиграть src; не вышло — fallback (запись Ona или голос браузера)
+  function play(src, opts, fallback) {
+    const a = player = new Audio(src);
+    a.playbackRate = api.rate <= 0.75 ? 0.75 : 1;           // «lėtai» — через playbackRate (тон сохраняется)
+    a.onended = () => { if (player === a) player = null; if (opts.onend) opts.onend(); };
+    a.onerror = () => { if (player === a) player = null; if (!fallback() && opts.onend) opts.onend(); };
+    a.play().catch(() => {});
+    return true;
+  }
+
   const api = {
     get rate() { return prefs.rate || 0.9; },
-    set rate(r) { prefs.rate = r; try { localStorage.setItem(KEY, JSON.stringify(prefs)); } catch { /* приватный режим */ } },
+    set rate(r) { prefs.rate = r; save(); },
+    // голоса на выбор: с записями — те, что записаны; без записей (только голос браузера) — оба имени
+    voices: () => Object.keys(VOICES).filter(v => !hasRec || RECORDED[v] > 0),
+    get voice() { return api.voices().includes(prefs.voice) ? prefs.voice : 'ona'; },
+    set voice(v) { prefs.voice = v; save(); if (synth) pickVoice(); },
+    // выпадающий список «Ona (женский голос) / Leonas (мужской голос)», связанный с настройкой; short — только имена
+    // (узкая панель чтения); один голос — null
+    voiceSelect({ short = false } = {}) {
+      const vs = api.voices();
+      if (vs.length < 2) return null;
+      const s = document.createElement('select');
+      s.title = 'Balsas (голос)';
+      vs.forEach(v => s.add(new Option(short ? VOICES[v][0] : `${VOICES[v][0]} (${VOICES[v][1]})`, v)));
+      s.value = api.voice;
+      s.addEventListener('change', () => { api.voice = s.value; api.stop(); });
+      return s;
+    },
     available: () => hasRec || !!voice,
     onReady(cb) { ready ? cb(api.available()) : waiters.push(cb); },
     clean,
@@ -57,15 +91,11 @@
     say(text, opts = {}) {
       api.stop();
       const src = REC[clean(text)];
-      if (src) {                                          // запись; «lėtai» — через playbackRate (тон сохраняется)
-        const a = player = new Audio(src);
-        a.playbackRate = api.rate <= 0.75 ? 0.75 : 1;
-        a.onended = () => { if (player === a) player = null; if (opts.onend) opts.onend(); };
-        a.onerror = () => { if (player === a) player = null; if (!speakVoice(text, opts) && opts.onend) opts.onend(); };
-        a.play().catch(() => {});
-        return true;
-      }
-      return speakVoice(text, opts);
+      if (!src) return speakVoice(text, opts);
+      const voiceless = () => speakVoice(text, opts);
+      if (api.voice === 'leonas')                         // Leonas: тот же файл в audio/leonas/; нет его — Ona
+        return play(src.replace(/^audio\//, 'audio/leonas/'), opts, () => play(src, opts, voiceless));
+      return play(src, opts, voiceless);
     },
     // кнопка-динамик (SVG, без эмодзи)
     icon() {
