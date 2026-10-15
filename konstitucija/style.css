@@ -3,10 +3,11 @@
   --card: #ffffff;
   --text: #1d1d1f;
   --muted: #6b6b70;
-  --line: #dedcd5;
+  --line: #dedcd5;        /* разделители и рамки карточек */
+  --control: #8e8c85;     /* рамки полей и кнопок: ≥ 3:1 к фону и карточке */
   --accent: #2e5a88;      /* как переводы в книге */
   --ending: #c0392b;      /* как окончания в книге */
-  --good: #2e7d4f;
+  --good: #28724a;        /* ≥ 4.5:1 и на --good-bg */
   --bad: #b3261e;
   --good-bg: #e6f4ea;
   --bad-bg: #fbe9e7;
@@ -15,13 +16,13 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40;
+    --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40; --control: #717279;
     --accent: #8cb4e0; --ending: #ff8a7a; --good: #7fd29b; --bad: #ff8a80;
     --good-bg: #1f3427; --bad-bg: #3a2220; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40;
+  --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40; --control: #717279;
   --accent: #8cb4e0; --ending: #ff8a7a; --good: #7fd29b; --bad: #ff8a80;
   --good-bg: #1f3427; --bad-bg: #3a2220; color-scheme: dark;
 }
@@ -41,13 +42,13 @@ h1 .sub { display: block; font-size: .85rem; font-weight: 400; color: var(--mute
 .controls label { display: flex; flex-direction: column; font-size: .85rem; gap: 4px; flex: 1 1 180px; }
 select, button { font: inherit; color: inherit; }
 select {
-  padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--card);
+  padding: 8px 10px; border: 1px solid var(--control); border-radius: 8px; background: var(--card);
   width: 100%;
 }
 
 .tabs { display: flex; gap: 6px; margin: 6px 0 8px; }
 .tabs button {
-  flex: 1; padding: 9px 6px; border: 1px solid var(--line); border-radius: 8px;
+  flex: 1; padding: 9px 6px; border: 1px solid var(--control); border-radius: 8px;
   background: var(--card); cursor: pointer; font-weight: 600; font-size: .95rem;
 }
 .tabs button .ru { display: block; font-size: .75rem; }
@@ -78,7 +79,7 @@ select {
 /* произношение */
 .say {
   display: inline-flex; align-items: center; justify-content: center; vertical-align: middle;
-  width: 36px; height: 36px; margin-left: 8px; border-radius: 50%; border: 1px solid var(--line);
+  width: 36px; height: 36px; margin-left: 8px; border-radius: 50%; border: 1px solid var(--control);
   background: var(--card); color: var(--accent); cursor: pointer; padding: 0; flex: none;
 }
 .say:hover, .say:focus { border-color: var(--accent); outline: none; }
@@ -87,7 +88,7 @@ select {
 
 .actions { display: flex; gap: 10px; }
 .actions button, .btn {
-  flex: 1; padding: 13px 10px; border-radius: 10px; border: 1px solid var(--line);
+  flex: 1; padding: 13px 10px; border-radius: 10px; border: 1px solid var(--control);
   background: var(--card); cursor: pointer; font-weight: 600; min-height: 48px;
 }
 .btn { width: 100%; }
@@ -98,7 +99,7 @@ select {
 
 .opts { display: grid; gap: 8px; margin-top: 14px; }
 .opts button {
-  text-align: left; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line);
+  text-align: left; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--control);
   background: var(--card); cursor: pointer; font-size: 1.05rem;
 }
 .opts.long button { font-size: .95rem; line-height: 1.35; }
@@ -118,7 +119,7 @@ select {
 .optrow { display: flex; gap: 6px; align-items: stretch; }
 .optrow > button:first-child { flex: 1; min-width: 0; }
 .opts .peek, .peek {
-  flex: none; min-width: 44px; padding: 0 8px; border-radius: 10px; border: 1px dashed var(--line);
+  flex: none; min-width: 44px; padding: 0 8px; border-radius: 10px; border: 1px dashed var(--control);
   background: transparent; color: var(--muted); font: 600 .78rem/1 var(--font-ui);
   cursor: pointer; text-align: center;
 }
@@ -132,7 +133,7 @@ details.all[open] summary { margin-bottom: 10px; }
 table.stats { width: 100%; border-collapse: collapse; font-size: .92rem; }
 table.stats td { padding: 8px 4px; border-bottom: 1px solid var(--line); vertical-align: middle; }
 table.stats td.num { text-align: right; white-space: nowrap; color: var(--muted); }
-table.stats button { padding: 6px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); cursor: pointer; }
+table.stats button { padding: 6px 10px; border-radius: 8px; border: 1px solid var(--control); background: var(--card); cursor: pointer; }
 .summary { font-size: 1.1rem; }
 .mistakes { margin: 10px 0 0; padding-left: 20px; }
 .foot { color: var(--muted); font-size: .8rem; padding: 24px 16px 32px; }
@@ -142,7 +143,7 @@ table.stats button { padding: 6px 10px; border-radius: 8px; border: 1px solid va
 /* пробный экзамен */
 .examhead { display: flex; justify-content: space-between; font-size: .9rem; color: var(--muted); margin: 4px 0 8px; }
 .dots { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
-.dot { width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--line); background: var(--card); font-size: .8rem; cursor: pointer; color: var(--muted); padding: 0; }
+.dot { width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--control); background: var(--card); font-size: .8rem; cursor: pointer; color: var(--muted); padding: 0; }
 .dot.done { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 .dot.cur { box-shadow: 0 0 0 2px var(--text); }
 .opts button.picked { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }

@@ -8,18 +8,18 @@
 <!-- Шаблон: index.html собирает scripts/web.py ({{…}} — числа из данных и PDF). -->
 <style>
 :root {
-  --bg: #f7f6f2; --card: #ffffff; --text: #1d1d1f; --muted: #6b6b70; --line: #dedcd5;
+  --bg: #f7f6f2; --card: #ffffff; --text: #1d1d1f; --muted: #6b6b70; --line: #dedcd5; --control: #8e8c85;
   --accent: #2e5a88; --flag-y: #fdb913; --flag-g: #006a44; --flag-r: #c1272d;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40;
+    --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40; --control: #717279;
     --accent: #8cb4e0; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40;
+  --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40; --control: #717279;
   --accent: #8cb4e0; color-scheme: dark;
 }
 * { box-sizing: border-box; }

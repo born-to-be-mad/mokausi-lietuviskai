@@ -14,7 +14,7 @@
 /* переключатель вида — справа в шапке */
 .looksw {
   float: right; display: inline-flex; gap: 2px; margin: 4px 0 4px 12px; padding: 2px;
-  border: 1px solid var(--line); border-radius: 999px; background: var(--card); font: 600 .78rem/1 var(--font-ui);
+  border: 1px solid var(--control, var(--line)); border-radius: 999px; background: var(--card); font: 600 .78rem/1 var(--font-ui);
 }
 .looksw button {
   font: inherit; color: var(--muted); background: transparent; border: 0; border-radius: 999px;
@@ -28,7 +28,7 @@
 /* ── вид «Vaikams» ─────────────────────────────────────────────────────────────────────────────────── */
 @media screen {
   :root[data-look="kids"] {
-    --bg: #f2f6fb; --card: #ffffff; --text: #1f2430; --muted: #556070; --line: #d9e1ec; --accent: #2e5a88;
+    --bg: #f2f6fb; --card: #ffffff; --text: #1f2430; --muted: #556070; --line: #d9e1ec; --control: #7f8ca0; --accent: #2e5a88;
     --good: #0a7a52; --bad: #b3261e; --good-bg: #ddf3e8; --bad-bg: #fde4e1; --soft: #e3edf8;
     --zinai-bg: #e3edf8; --zinai: #2e5a88; --isimink-bg: #fff3d6; --isimink: #9a5a00;
     --c-konstitucija: #2e5a88; --c-sventes: #e0a000; --c-sventes-ink: #8a5a00; --c-kunigaikschiai: #0a7a52;
@@ -39,7 +39,7 @@
 }
 @media screen and (prefers-color-scheme: dark) {
   :root[data-look="kids"]:not([data-theme="light"]) {
-    --bg: #121821; --card: #1c2431; --text: #eef2f8; --muted: #a9b3c4; --line: #2c3747; --accent: #8cb4e0;
+    --bg: #121821; --card: #1c2431; --text: #eef2f8; --muted: #a9b3c4; --line: #2c3747; --control: #66748a; --accent: #8cb4e0;
     --good: #5fd3a1; --bad: #ff8a80; --good-bg: #173428; --bad-bg: #3a2220; --soft: #1d2c40;
     --zinai-bg: #1d2c40; --zinai: #8cb4e0; --isimink-bg: #3a2f1c; --isimink: #ffc94d;
     --c-konstitucija: #8cb4e0; --c-sventes: #ffc94d; --c-sventes-ink: #ffc94d; --c-kunigaikschiai: #5fd3a1;
@@ -47,7 +47,7 @@
 }
 @media screen {
   :root[data-look="kids"][data-theme="dark"] {
-    --bg: #121821; --card: #1c2431; --text: #eef2f8; --muted: #a9b3c4; --line: #2c3747; --accent: #8cb4e0;
+    --bg: #121821; --card: #1c2431; --text: #eef2f8; --muted: #a9b3c4; --line: #2c3747; --control: #66748a; --accent: #8cb4e0;
     --good: #5fd3a1; --bad: #ff8a80; --good-bg: #173428; --bad-bg: #3a2220; --soft: #1d2c40;
     --zinai-bg: #1d2c40; --zinai: #8cb4e0; --isimink-bg: #3a2f1c; --isimink: #ffc94d;
     --c-konstitucija: #8cb4e0; --c-sventes: #ffc94d; --c-sventes-ink: #ffc94d; --c-kunigaikschiai: #5fd3a1;
@@ -96,19 +96,20 @@
   [data-look="kids"] .toc li[data-col] a[aria-current="page"] { border-left-color: var(--c); }
   [data-look="kids"] .toc li.grp[data-col] { color: var(--c-ink); }
   [data-look="kids"] .story[data-col] .label { color: var(--c-ink); border-bottom: 3px solid var(--c); }
-  /* кто говорит: кружок с буквой перед репликой (U — Ugnė, O — Olga, S — senelis, M — mama, T — tėtis, G — gidė) */
+  /* кто говорит: кружок с буквой перед репликой (U — Ugnė, O — Olga, S — senelis, M — mama, T — tėtis, G — gidė);
+     белая буква на цвете — ≥ 4.5:1 */
   [data-look="kids"] .row .lt[data-who]::before {
     content: attr(data-who); content: attr(data-who) / "";
     display: inline-block; width: 1.55em; height: 1.55em; margin-right: .4em; border-radius: 50%;
     background: var(--who, var(--accent)); color: var(--on-who); font: 800 .72em/1.55em var(--font-ui);
     text-align: center; vertical-align: .12em;
   }
-  [data-look="kids"] .lt[data-who="U"] { --who: #d9480f; }
+  [data-look="kids"] .lt[data-who="U"] { --who: #c2410c; }
   [data-look="kids"] .lt[data-who="O"] { --who: #7048e8; }
   [data-look="kids"] .lt[data-who="S"] { --who: #0a7a52; }
   [data-look="kids"] .lt[data-who="M"] { --who: #c2255c; }
-  [data-look="kids"] .lt[data-who="T"] { --who: #1c7ed6; }
-  [data-look="kids"] .lt[data-who="G"] { --who: #0c8599; }
+  [data-look="kids"] .lt[data-who="T"] { --who: #1971c2; }
+  [data-look="kids"] .lt[data-who="G"] { --who: #0b7285; }
 
   /* витрина */
   [data-look="kids"] :is(.steps li, .group, .free) { border-width: 2px; border-radius: 22px; }

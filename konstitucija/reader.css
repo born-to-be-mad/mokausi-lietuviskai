@@ -3,23 +3,27 @@
   --card: #ffffff;
   --text: #1d1d1f;
   --muted: #6b6b70;
-  --line: #dedcd5;
+  --line: #dedcd5;        /* разделители */
+  --control: #8e8c85;     /* рамки кнопок и дорожка переключателя: ≥ 3:1 к фону и карточке */
+  --good: #28724a;        /* «прочитано» */
   --accent: #2e5a88;      /* как переводы в книге */
   --zinai-bg: #e9f0f8;    /* «Ar žinai?» — голубая рамка, как в книге */
   --zinai: #2e5a88;
   --isimink-bg: #fbf1dc;  /* «Įsimink!» — жёлтая рамка */
-  --isimink: #b5651d;
+  --isimink: #9a5512;     /* ≥ 4.5:1 на --isimink-bg */
   --fs: 19px;             /* размер текста рассказов; кнопки A− / A+ (reader.js) */
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40; --accent: #8cb4e0;
+    --control: #717279; --good: #7fd29b;
     --zinai-bg: #1d2a38; --zinai: #8cb4e0; --isimink-bg: #3a2f1c; --isimink: #f0b46a; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40; --accent: #8cb4e0;
+  --control: #717279; --good: #7fd29b;
   --zinai-bg: #1d2a38; --zinai: #8cb4e0; --isimink-bg: #3a2f1c; --isimink: #f0b46a; color-scheme: dark;
 }
 
@@ -46,7 +50,7 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
 /* переключатель «Vertimas» (вкл./выкл.) */
 .toolbar .switch { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
 .switch .knob {
-  width: 34px; height: 20px; border-radius: 10px; background: var(--line); position: relative; flex: none;
+  width: 34px; height: 20px; border-radius: 10px; background: var(--control); position: relative; flex: none;
   transition: background .15s;
 }
 .switch .knob::after {
@@ -59,7 +63,7 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
 .offhint { display: none; color: var(--muted); font-size: .85rem; }
 .tr-off .offhint { display: inline; }
 .toolbar button {
-  font: inherit; color: inherit; background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+  font: inherit; color: inherit; background: var(--card); border: 1px solid var(--control); border-radius: 8px;
   padding: 7px 10px; cursor: pointer; min-height: 40px;
 }
 .toolbar button .ru { font-size: .78rem; }
@@ -102,7 +106,7 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
 .toc a:hover { background: var(--card); }
 .toc a[aria-current="page"] { background: var(--card); border-left-color: var(--accent); }
 .toc a[aria-current="page"] .t { font-weight: 700; }
-.toc a.isdone .t::before { content: "✓ "; color: #2e7d4f; font-weight: 700; }
+.toc a.isdone .t::before { content: "✓ "; color: var(--good); font-weight: 700; }
 .pane { flex: 1; min-width: 0; overflow-y: auto; overscroll-behavior-y: contain; scroll-behavior: smooth; container-type: inline-size; }
 .pane:focus { outline: none; }
 .js .page:not(.current) { display: none; }     /* с JS видна одна страница; без JS — все подряд */
@@ -114,7 +118,7 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
   .js .navbtn { display: inline-flex; }
   .js .tochead { position: sticky; top: -8px; z-index: 1; background: var(--bg); padding-top: 4px; border-bottom: 1px solid var(--line); }
   .js .navclose {
-    display: block; flex: none; width: 40px; height: 40px; margin: 2px 0 6px; border: 1px solid var(--line); border-radius: 8px;
+    display: block; flex: none; width: 40px; height: 40px; margin: 2px 0 6px; border: 1px solid var(--control); border-radius: 8px;
     background: var(--card); color: inherit; font-size: 1.1rem; cursor: pointer;
   }
   .js .storyend .pn .tocl { display: inline; }
@@ -170,17 +174,17 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
   font: .92rem/1.3 var(--font-ui);
 }
 .storyend .done {
-  font: inherit; color: inherit; background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+  font: inherit; color: inherit; background: var(--card); border: 1px solid var(--control); border-radius: 8px;
   padding: 8px 12px; cursor: pointer; min-height: 40px;
 }
-.storyend .done.isdone { border-color: #2e7d4f; color: #2e7d4f; }
+.storyend .done.isdone { border-color: var(--good); color: var(--good); }
 .storyend .pn { display: flex; gap: 14px; }
 .storyend .pn a { color: var(--accent); text-decoration: none; font-weight: 600; }
 
 /* произношение */
 .say {
   display: inline-flex; align-items: center; justify-content: center; vertical-align: -3px;
-  width: 26px; height: 26px; margin-right: 6px; border-radius: 50%; border: 1px solid var(--line);
+  width: 26px; height: 26px; margin-right: 6px; border-radius: 50%; border: 1px solid var(--control);
   background: var(--card); color: var(--accent); cursor: pointer; padding: 0;
 }
 .say svg { width: 15px; height: 15px; }
@@ -188,7 +192,7 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
 .row.speaking { background: var(--zinai-bg); border-radius: 6px; }
 .listen {
   font: .85rem/1.2 var(--font-ui); color: var(--accent); background: var(--card);
-  border: 1px solid var(--line); border-radius: 18px; padding: 6px 12px; cursor: pointer; margin: 0 0 8px;
+  border: 1px solid var(--control); border-radius: 18px; padding: 6px 12px; cursor: pointer; margin: 0 0 8px;
   display: inline-flex; align-items: center; gap: 6px;
 }
 .listen.on { border-color: var(--accent); }
