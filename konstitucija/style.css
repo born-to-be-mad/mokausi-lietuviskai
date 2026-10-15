@@ -29,11 +29,11 @@
 * { box-sizing: border-box; }
 body {
   margin: 0; background: var(--bg); color: var(--text);
-  font: 17px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  font: 17px/1.45 var(--font-ui);
 }
 .top, #app, .foot { max-width: 720px; margin: 0 auto; padding: 0 16px; }
 .home { display: inline-block; margin-top: 14px; font-size: .85rem; color: var(--accent); text-decoration: none; }
-h1 { font-size: 1.35rem; margin: 6px 0 10px; }
+h1 { font-family: var(--font-read); font-size: 1.4rem; font-weight: 600; margin: 6px 0 10px; }
 h1 .sub { display: block; font-size: .85rem; font-weight: 400; color: var(--muted); }
 .ru { color: var(--muted); font-weight: 400; }
 
@@ -62,17 +62,17 @@ select {
   padding: 22px 18px; margin-bottom: 14px; min-height: 180px;
 }
 .tag { font-size: .8rem; color: var(--muted); margin-bottom: 10px; }
-.front { font-size: 1.6rem; font-weight: 650; overflow-wrap: anywhere; }
+.front { font-family: var(--font-read); font-size: 1.75rem; font-weight: 600; overflow-wrap: anywhere; }
 .front.ru-side { color: var(--accent); }
 .hint { font-size: .9rem; color: var(--muted); margin-top: 6px; }
 .back { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); }
-.back .main { font-size: 1.3rem; font-weight: 600; }
+.back .main { font-family: var(--font-read); font-size: 1.35rem; font-weight: 600; }
 .back .main.ru-side { color: var(--accent); }
 .gram { font-size: .85rem; color: var(--muted); }
 .syn { font-size: .95rem; margin-top: 6px; }
 .deckstat { margin: 10px 0; }
-.ex { margin-top: 10px; }
-.ex .exru { color: var(--accent); font-size: .92rem; }
+.ex { margin-top: 10px; font-family: var(--font-read); }
+.ex .exru { color: var(--accent); font-size: .92rem; font-style: italic; }
 .ex .art { color: var(--muted); font-style: italic; font-size: .85rem; }
 .end { color: var(--ending); font-weight: 700; }
 /* произношение */
@@ -102,13 +102,13 @@ select {
   background: var(--card); cursor: pointer; font-size: 1.05rem;
 }
 .opts.long button { font-size: .95rem; line-height: 1.35; }
-.front.fact { font-size: 1.2rem; font-weight: 600; line-height: 1.4; }
+.front.fact { font-size: 1.25rem; font-weight: 500; line-height: 1.45; }
 .ask { font-size: .85rem; color: var(--muted); margin-bottom: 6px; }
 .blank { display: inline-block; min-width: 3.2em; border-bottom: 2px solid var(--accent); color: transparent; }
 .blank.short { min-width: 1.8em; margin-left: 1px; }
-.front.fact .exru { font-size: .9rem; font-weight: 400; color: var(--accent); margin-top: 6px; }   /* «Galūnės»: пропуск окончания сразу после основы */
+.front.fact .exru { font-size: .9rem; font-weight: 400; font-style: italic; color: var(--accent); margin-top: 6px; }   /* «Galūnės»: пропуск окончания сразу после основы */
 .feedback { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); }
-.feedback .exru { color: var(--accent); font-size: .92rem; }
+.feedback .exru { color: var(--accent); font-size: .92rem; font-style: italic; }
 .feedback .art { color: var(--muted); font-style: italic; font-size: .85rem; }
 .opts button.ok { background: var(--good-bg); border-color: var(--good); }
 .opts button.wrong { background: var(--bad-bg); border-color: var(--bad); }
@@ -119,7 +119,7 @@ select {
 .optrow > button:first-child { flex: 1; min-width: 0; }
 .opts .peek, .peek {
   flex: none; min-width: 44px; padding: 0 8px; border-radius: 10px; border: 1px dashed var(--line);
-  background: transparent; color: var(--muted); font: 600 .78rem/1 system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: transparent; color: var(--muted); font: 600 .78rem/1 var(--font-ui);
   cursor: pointer; text-align: center;
 }
 .peek.on { border-style: solid; border-color: var(--accent); color: var(--accent); }
@@ -127,7 +127,7 @@ select {
 details.all summary { cursor: pointer; font-weight: 600; }
 details.all[open] summary { margin-bottom: 10px; }
 .optru[hidden], .qru[hidden] { display: none; }
-.optru, .qru { display: block; color: var(--accent); font-size: .88rem; font-weight: 400; line-height: 1.35; margin-top: 3px; }
+.optru, .qru { display: block; color: var(--accent); font-size: .88rem; font-weight: 400; font-style: italic; line-height: 1.35; margin-top: 3px; }
 
 table.stats { width: 100%; border-collapse: collapse; font-size: .92rem; }
 table.stats td { padding: 8px 4px; border-bottom: 1px solid var(--line); vertical-align: middle; }
@@ -152,7 +152,7 @@ table.stats button { padding: 6px 10px; border-radius: 8px; border: 1px solid va
 .result.fail { border-color: var(--bad); background: var(--bad-bg); }
 .review { padding-left: 22px; margin: 0; }
 .review li { margin-bottom: 12px; }
-.review .rq { font-weight: 600; }
+.review .rq { font-family: var(--font-read); font-weight: 600; }
 .review .bad { color: var(--bad); }
 .review .good { color: var(--good); }
 .review .art, .feedback .art { color: var(--muted); font-style: italic; font-size: .85rem; }

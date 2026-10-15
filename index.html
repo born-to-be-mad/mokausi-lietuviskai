@@ -24,7 +24,8 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text);
-  font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; }
+  font: 17px/1.55 var(--font-ui); }
+h1, h2, h3 { font-family: var(--font-read); font-weight: 600; }   /* шрифты и вид «Vaikams» — konstitucija/look.css */
 main, .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
 /* каркас, как на страницах разделов (konstitucija/shell.css): шапка с флагом и подвал видны всегда,
    прокручивается только середина */
@@ -74,6 +75,8 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
 .shell-foot a, .free a { color: var(--accent); }
 .free .star { display: block; margin-top: 8px; }
 </style>
+<link rel="stylesheet" href="konstitucija/look.css">
+<script src="konstitucija/look.js"></script>
 </head>
 <body>
 <header class="shell-head">

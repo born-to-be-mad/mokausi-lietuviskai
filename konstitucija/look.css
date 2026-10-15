@@ -1,0 +1,125 @@
+/* Шрифты и два вида сайта; переключатель «Įprasta / Vaikams» в шапке — look.js (html[data-look], выбор хранится в браузере).
+   «Įprasta» (по умолчанию) — спокойное чтение: Literata для текста и заголовков, системный шрифт для кнопок и подписей.
+   «Vaikams» — для детей: Nunito, мягкие цвета, крупнее и круглее, цвет у каждого сборника, значок у реплики (кто говорит).
+   Светлая и тёмная тема — в обоих видах; тексты одинаковые. На печать — всегда обычный вид.
+   Шрифты лежат рядом (fonts/, лицензия SIL OFL 1.1) и урезаны до нужных знаков: латиница с литовскими, кириллица. */
+@font-face { font-family: Literata; src: url(fonts/Literata.woff) format("woff"); font-weight: 400 700; font-style: normal; font-display: swap; }
+@font-face { font-family: Literata; src: url(fonts/Literata-Italic.woff) format("woff"); font-weight: 400 700; font-style: italic; font-display: swap; }
+@font-face { font-family: Nunito; src: url(fonts/Nunito.woff) format("woff"); font-weight: 500 800; font-style: normal; font-display: swap; }
+:root {
+  --font-read: Literata, Georgia, "Noto Serif", "Times New Roman", serif;
+  --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+}
+
+/* переключатель вида — справа в шапке */
+.looksw {
+  float: right; display: inline-flex; gap: 2px; margin: 4px 0 4px 12px; padding: 2px;
+  border: 1px solid var(--line); border-radius: 999px; background: var(--card); font: 600 .78rem/1 var(--font-ui);
+}
+.looksw button {
+  font: inherit; color: var(--muted); background: transparent; border: 0; border-radius: 999px;
+  padding: 6px 11px; min-height: 30px; cursor: pointer;
+}
+.looksw button[aria-pressed="true"] { background: var(--accent); color: var(--bg); }
+.looksw button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+@media (max-width: 600px) { .looksw { font-size: .72rem; } .looksw button { padding: 5px 8px; min-height: 28px; } }
+@media print { .looksw { display: none; } }
+
+/* ── вид «Vaikams» ─────────────────────────────────────────────────────────────────────────────────── */
+@media screen {
+  :root[data-look="kids"] {
+    --bg: #f2f6fb; --card: #ffffff; --text: #1f2430; --muted: #556070; --line: #d9e1ec; --accent: #2e5a88;
+    --good: #0a7a52; --bad: #b3261e; --good-bg: #ddf3e8; --bad-bg: #fde4e1; --soft: #e3edf8;
+    --zinai-bg: #e3edf8; --zinai: #2e5a88; --isimink-bg: #fff3d6; --isimink: #9a5a00;
+    --c-konstitucija: #2e5a88; --c-sventes: #e0a000; --c-sventes-ink: #8a5a00; --c-kunigaikschiai: #0a7a52;
+    --on-who: #ffffff;
+    --font-read: Nunito, system-ui, sans-serif; --font-ui: Nunito, system-ui, sans-serif;
+    --radius: 20px;
+  }
+}
+@media screen and (prefers-color-scheme: dark) {
+  :root[data-look="kids"]:not([data-theme="light"]) {
+    --bg: #121821; --card: #1c2431; --text: #eef2f8; --muted: #a9b3c4; --line: #2c3747; --accent: #8cb4e0;
+    --good: #5fd3a1; --bad: #ff8a80; --good-bg: #173428; --bad-bg: #3a2220; --soft: #1d2c40;
+    --zinai-bg: #1d2c40; --zinai: #8cb4e0; --isimink-bg: #3a2f1c; --isimink: #ffc94d;
+    --c-konstitucija: #8cb4e0; --c-sventes: #ffc94d; --c-sventes-ink: #ffc94d; --c-kunigaikschiai: #5fd3a1;
+  }
+}
+@media screen {
+  :root[data-look="kids"][data-theme="dark"] {
+    --bg: #121821; --card: #1c2431; --text: #eef2f8; --muted: #a9b3c4; --line: #2c3747; --accent: #8cb4e0;
+    --good: #5fd3a1; --bad: #ff8a80; --good-bg: #173428; --bad-bg: #3a2220; --soft: #1d2c40;
+    --zinai-bg: #1d2c40; --zinai: #8cb4e0; --isimink-bg: #3a2f1c; --isimink: #ffc94d;
+    --c-konstitucija: #8cb4e0; --c-sventes: #ffc94d; --c-sventes-ink: #ffc94d; --c-kunigaikschiai: #5fd3a1;
+  }
+
+  /* общее: шрифт полнее, флаг толще, переводы — прямым шрифтом (у Nunito нет курсива) */
+  [data-look="kids"] body { font-weight: 500; }
+  [data-look="kids"] h1 { font-weight: 800; }
+  [data-look="kids"] :is(h2, h3) { font-weight: 800; }
+  [data-look="kids"] .flag { height: 8px; }
+  [data-look="kids"] :is(.row .ru, .optru, .qru, .exru, .page h2 .ru) { font-style: normal; font-weight: 600; }
+  [data-look="kids"] .looksw { border-width: 2px; }
+
+  /* тренажёр и экзамен */
+  [data-look="kids"] .card { border-width: 2px; border-radius: 22px; }
+  [data-look="kids"] :is(select, .tabs button, .actions button, .btn, .opts button, table.stats button) {
+    border-width: 2px; border-radius: 16px;
+  }
+  [data-look="kids"] .tabs button[aria-selected="true"] { background: var(--soft); box-shadow: none; border-color: var(--accent); }
+  [data-look="kids"] .opts button { min-height: 52px; font-weight: 700; }
+  [data-look="kids"] .opts button.picked { background: var(--soft); box-shadow: none; }
+  [data-look="kids"] .opts .peek, [data-look="kids"] .peek { border-width: 2px; border-radius: 16px; }
+  [data-look="kids"] .front { font-weight: 800; }
+  [data-look="kids"] .front.fact { font-weight: 700; }
+  [data-look="kids"] .back .main { font-weight: 800; }
+  [data-look="kids"] .bar { height: 10px; border-radius: 5px; }
+  [data-look="kids"] .dot { border-width: 2px; border-radius: 50%; font-weight: 700; }
+  [data-look="kids"] .say { border-width: 2px; }
+
+  /* чтение */
+  [data-look="kids"] .toc { font-weight: 600; }
+  [data-look="kids"] .toolbar button, [data-look="kids"] .storyend .done { border-width: 2px; border-radius: 14px; }
+  [data-look="kids"] .listen { border-width: 2px; font-weight: 700; }
+  [data-look="kids"] .start { border-radius: 999px; font-weight: 800; }
+  [data-look="kids"] .toc a { border-radius: 14px; border-left-width: 4px; }
+  [data-look="kids"] .toc li.col { font-weight: 800; border-top-width: 4px; }
+  [data-look="kids"] .toc li.grp { font-weight: 800; }
+  [data-look="kids"] .box { border: 2px solid; border-radius: 18px; }
+  [data-look="kids"] .page { font-size: 1.05em; }   /* текст рассказа чуть крупнее */
+  [data-look="kids"] .row.speaking { border-radius: 12px; }
+  /* цвет сборника: черта в оглавлении, выбранный рассказ, подпись над заголовком */
+  [data-look="kids"] [data-col="sventes"] { --c: var(--c-sventes); --c-ink: var(--c-sventes-ink); }
+  [data-look="kids"] [data-col="kunigaikschiai"] { --c: var(--c-kunigaikschiai); --c-ink: var(--c-kunigaikschiai); }
+  [data-look="kids"] [data-col="konstitucija"] { --c: var(--c-konstitucija); --c-ink: var(--c-konstitucija); }
+  [data-look="kids"] .toc li.col[data-col] { border-top-color: var(--c); }
+  [data-look="kids"] .toc li[data-col] a[aria-current="page"] { border-left-color: var(--c); }
+  [data-look="kids"] .toc li.grp[data-col] { color: var(--c-ink); }
+  [data-look="kids"] .story[data-col] .label { color: var(--c-ink); border-bottom: 3px solid var(--c); }
+  /* кто говорит: кружок с буквой перед репликой (U — Ugnė, O — Olga, S — senelis, M — mama, T — tėtis, G — gidė) */
+  [data-look="kids"] .row .lt[data-who]::before {
+    content: attr(data-who); content: attr(data-who) / "";
+    display: inline-block; width: 1.55em; height: 1.55em; margin-right: .4em; border-radius: 50%;
+    background: var(--who, var(--accent)); color: var(--on-who); font: 800 .72em/1.55em var(--font-ui);
+    text-align: center; vertical-align: .12em;
+  }
+  [data-look="kids"] .lt[data-who="U"] { --who: #d9480f; }
+  [data-look="kids"] .lt[data-who="O"] { --who: #7048e8; }
+  [data-look="kids"] .lt[data-who="S"] { --who: #0a7a52; }
+  [data-look="kids"] .lt[data-who="M"] { --who: #c2255c; }
+  [data-look="kids"] .lt[data-who="T"] { --who: #1c7ed6; }
+  [data-look="kids"] .lt[data-who="G"] { --who: #0c8599; }
+
+  /* витрина */
+  [data-look="kids"] :is(.steps li, .group, .free) { border-width: 2px; border-radius: 22px; }
+  [data-look="kids"] .steps li::before { width: 30px; height: 30px; font-weight: 800; font-size: 1rem; }
+  [data-look="kids"] .steps li:nth-child(1)::before { background: var(--flag-y, #fdb913); color: #1f2430; }
+  [data-look="kids"] .steps li:nth-child(2)::before { background: var(--flag-g, #006a44); color: #ffffff; }
+  [data-look="kids"] .steps li:nth-child(3)::before { background: var(--flag-r, #c1272d); color: #ffffff; }
+  [data-look="kids"] .steps b a::after { border-radius: 22px; }
+  [data-look="kids"] .group .links a { border-width: 2px; border-radius: 14px; font-weight: 700; }
+
+  /* памятка */
+  [data-look="kids"] section.memo { border-width: 2px; border-radius: 20px; }
+  [data-look="kids"] .print { border-width: 2px; border-radius: 999px; font-weight: 700; }
+}

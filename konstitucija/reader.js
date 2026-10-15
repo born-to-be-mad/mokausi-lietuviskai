@@ -27,7 +27,8 @@
     });
   }
   const toggleTr = () => { st.on = !st.on; save(); applyTr(); };
-  const applySize = () => document.documentElement.style.setProperty('--fs', (17 + 2 * st.size) + 'px');
+  st.size = Math.max(-2, Math.min(3, st.size));     // прежде шкала была -1..4 от 17px, теперь -2..3 от 19px
+  const applySize = () => document.documentElement.style.setProperty('--fs', (19 + 2 * st.size) + 'px');
   function applyDone() {
     $$('a[data-story]').forEach(a => a.classList.toggle('isdone', !!st.done[a.dataset.story]));
     $$('button.done').forEach(b => {
@@ -42,7 +43,7 @@
   document.getElementById('tr').addEventListener('click', toggleTr);
   $$('[data-layout]').forEach(b => b.addEventListener('click', () => { st.layout = b.dataset.layout; save(); applyTr(); }));
   $$('[data-size]').forEach(b => b.addEventListener('click', () => {
-    st.size = Math.max(-1, Math.min(4, st.size + Number(b.dataset.size))); save(); applySize();
+    st.size = Math.max(-2, Math.min(3, st.size + Number(b.dataset.size))); save(); applySize();
   }));
   $$('button.done').forEach(b => b.addEventListener('click', () => {
     st.done[b.dataset.story] = !st.done[b.dataset.story]; save(); applyDone();
