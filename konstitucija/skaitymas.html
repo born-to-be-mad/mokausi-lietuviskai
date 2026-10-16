@@ -11,13 +11,14 @@
 <script src="look.js"></script>
 <script>document.documentElement.classList.add('js')</script>
 </head>
-<!-- Шаблон страницы чтения: scripts/web.py собирает web/skaitymas.html из data/skaitymas.tsv и data/kultura.tsv
-     ({{…}} — подстановки, web.py: READER_PAGE). -->
-<body class="tr-on tr-side">
+<!-- Шаблон страниц чтения: scripts/web.py собирает web/skaitymas.html (рассказы: data/skaitymas.tsv, kultura.tsv;
+     READER_PAGE) и web/tekstas.html (текст Конституции по главам: data/konstitucija.tsv; TEKSTAS_PAGE).
+     {{…}} — подстановки; data-store — ключ localStorage, data-listen — подпись «слушать всё». -->
+<body class="tr-on tr-side" data-store="konst.reader.v1" data-listen="слушать весь рассказ">
 <header class="shell-head">
 <div class="flag" aria-hidden="true"><span class="y"></span><span class="g"></span><span class="r"></span></div>
 <div class="top">
-  <nav class="crumbs"><a href="../">← Mokausi lietuviškai</a> · <a href="./">Treniruoklė</a> · <a href="egzaminas.html">Egzaminas</a> · <a href="atmintine.html">Atmintinė</a> · <a href="Lietuvos_Konstitucijos_vadovas.pdf">Knyga (PDF)</a> · <a href="Lietuvos_Konstitucijos_vadovas_spausdinimui.pdf">spausdinimui</a></nav>
+  <nav class="crumbs"><a href="../">← Mokausi lietuviškai</a> · <a href="./">Treniruoklė</a> · <a href="egzaminas.html">Egzaminas</a> · <a href="atmintine.html">Atmintinė</a> · <a href="tekstas.html">Konstitucija</a> · <a href="Lietuvos_Konstitucijos_vadovas.pdf">Knyga (PDF)</a> · <a href="Lietuvos_Konstitucijos_vadovas_spausdinimui.pdf">spausdinimui</a></nav>
   <h1>Skaitymas <span class="sub">лёгкое чтение, A2 · Конституция, праздники, великие князья</span></h1>
 </div>
 </header>
@@ -111,8 +112,7 @@
 <section class="page" id="apie" data-title="Kaip skaityti">
   <h2>Kaip skaityti<span class="ru">как читать</span></h2>
   <p class="intro">Три сборника лёгких рассказов (уровень A2, их поймут и дети) с одними героями – семьёй Казлаускасов и соседкой Ольгой, которая готовится к экзамену: «Arbatos vakarai su Konstitucija» – 24 рассказа обо всех 14 главах Конституции, «Metų šventės» – 9 о праздниках года и «Didieji kunigaikščiai» – 5 о великих князьях. Литовский текст с переводом, предложение к предложению: перевод можно показать рядом, под строкой или по нажатию. В рамке «Ar žinai?» – интересный факт, в рамке «Įsimink!» – главное.</p>
-  <p class="intro">Слева — содержание: выберите рассказ (на телефоне — кнопка «☰ Turinys»). Листать можно и стрелками
-    ← → на клавиатуре. Перевод включается и выключается кнопкой «Vertimas» или клавишей T.</p>
+  <p class="intro">Слева — содержание: выберите рассказ (на телефоне — кнопка «☰ Turinys»). Листать можно и стрелками ← → на клавиатуре. Перевод включается и выключается кнопкой «Vertimas» или клавишей T.</p>
   <p class="novoice" id="novoice" hidden>В этом браузере нет литовского голоса, поэтому кнопок озвучки нет. Браузеры на Mac литовский
     не озвучивают (системный голос Ona им недоступен); голоса Ona и Leonas есть, например, в браузере Microsoft Edge.</p>
   <p><a class="start" href="#s0">Pradėti skaityti <span class="ru">— начать читать</span> →</a></p>

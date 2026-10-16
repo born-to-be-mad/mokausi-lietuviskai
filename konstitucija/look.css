@@ -37,6 +37,9 @@
   background: #ffdd00; color: #0b0b0c; font: 700 .95rem/1.2 var(--font-ui); text-decoration: none;
 }
 .skip:focus { top: 8px; outline: 3px solid #0b0b0c; outline-offset: 2px; }
+/* ссылка на статью «(I SK. 12 str.)» → текст Конституции (tekstas.html) */
+a.artlink { color: inherit; text-decoration: underline dotted; text-underline-offset: 2px; }
+a.artlink:hover { color: var(--accent); text-decoration-style: solid; }
 /* размер текста A− / A+ (тренажёр, экзамен) */
 .zoom { display: inline-flex; gap: 4px; }
 .zoom button {
@@ -127,7 +130,7 @@
   /* цвет сборника: черта в оглавлении, выбранный рассказ, подпись над заголовком */
   [data-look="kids"] [data-col="sventes"] { --c: var(--c-sventes); --c-ink: var(--c-sventes-ink); }
   [data-look="kids"] [data-col="kunigaikschiai"] { --c: var(--c-kunigaikschiai); --c-ink: var(--c-kunigaikschiai); }
-  [data-look="kids"] [data-col="konstitucija"] { --c: var(--c-konstitucija); --c-ink: var(--c-konstitucija); }
+  [data-look="kids"] :is([data-col="konstitucija"], [data-col="tekstas"]) { --c: var(--c-konstitucija); --c-ink: var(--c-konstitucija); }
   [data-look="kids"] .toc li.col[data-col] { border-top-color: var(--c); }
   [data-look="kids"] .toc li.col[data-col] .cbar > span { background: var(--c); }
   [data-look="kids"] .toc li[data-col] a[aria-current="page"] { border-left-color: var(--c); }

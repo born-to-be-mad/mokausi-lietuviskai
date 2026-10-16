@@ -13,7 +13,9 @@
   const write = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* приватный режим */ } };
   const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const chapter = no => D.chapters.find(c => c.no === no);
-  const cite = q => q.art === '0' ? '(Preambulė)' : `(${q.artsk} SK. ${q.art} str.)`;
+  // ссылка на статью — в тексте Конституции (tekstas.html), в новой вкладке, чтобы не сбить экзамен
+  const cite = q => el('a', { class: 'artlink', href: q.art === '0' ? 'tekstas.html#sk0' : `tekstas.html#str${q.art}`, target: '_blank', rel: 'noopener', title: 'Atidaryti straipsnį (открыть статью в новой вкладке)' },
+    q.art === '0' ? '(Preambulė)' : `(${q.artsk} SK. ${q.art} str.)`);
   const fmt = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
   const LETTERS = 'abc';
 

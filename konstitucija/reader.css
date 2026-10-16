@@ -164,6 +164,13 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
 .page h2 { font-size: 1.45rem; font-weight: 600; margin: 14px 0 10px; line-height: 1.25; }
 .page h2 .ru { display: block; font-size: .95rem; font-style: italic; margin-top: 2px; }
 
+/* текст Конституции (tekstas.html): заголовок статьи; по ссылке #strN — выделен */
+.page h3.art {
+  margin: 20px 0 6px; padding-top: 10px; border-top: 1px solid var(--line); scroll-margin-top: 4.5rem;
+  font: 700 .95rem/1.3 var(--font-ui); color: var(--text);
+}
+.page h3.art .ru { margin-left: .4em; font-weight: 400; color: var(--muted); }
+.page h3.art:target { color: var(--accent); border-top: 3px solid var(--accent); }
 .row { padding: 5px 0; }
 .row p { margin: 0; }
 .row .ru { color: var(--accent); font-size: .9em; font-style: italic; }   /* перевод — курсивом, как в книге */

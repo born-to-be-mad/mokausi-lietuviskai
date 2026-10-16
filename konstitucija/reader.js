@@ -4,7 +4,8 @@
 // и место, где остановился. Всё — в localStorage этого браузера; без JS страница читается как есть (все рассказы подряд).
 (() => {
   'use strict';
-  const KEY = 'konst.reader.v1';
+  const KEY = document.body.dataset.store || 'konst.reader.v1';    // своё хранилище у каждой страницы чтения
+  const LISTEN = ' Klausyti viską (' + (document.body.dataset.listen || 'слушать весь рассказ') + ')';
   const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } };
   const st = Object.assign({ on: true, layout: 'side', size: 0, done: {}, last: '' }, load());
   if (st.tr) { st.on = st.tr !== 'tap'; if (st.tr !== 'tap') st.layout = st.tr; delete st.tr; }   // прежний формат
@@ -110,6 +111,16 @@
       history.replaceState(null, '', '#' + cur.id);
       return setNav(true);
     }
+    const inner = id && !pages.some(x => x.id === id) && document.getElementById(id);   // #str12: статья внутри главы
+    const host = inner && inner.closest('section.page');
+    if (host) {
+      show(host.id);
+      const to = () => inner.scrollIntoView({ block: 'start', behavior: 'instant' });   // плавную прокрутку прерывают — прыжок
+      to();                                                      // шрифты догружаются (Nunito — позже) — текст сдвигается:
+      if (document.fonts) { document.fonts.ready.then(to); document.fonts.addEventListener('loadingdone', to, { once: true }); }
+      if (document.readyState !== 'complete') addEventListener('load', to, { once: true });
+      return;
+    }
     show(pages.some(x => x.id === id) ? id : (pages.some(x => x.id === st.last) ? st.last : 'apie'));
   }
   addEventListener('hashchange', route);
@@ -122,7 +133,7 @@
   function stopPlay() {
     if (!playing) return;
     playing.rows.forEach(r => r.classList.remove('speaking'));
-    playing.btn.classList.remove('on'); playing.btn.lastChild.textContent = ' Klausyti viską (слушать весь рассказ)';
+    playing.btn.classList.remove('on'); playing.btn.lastChild.textContent = LISTEN;
     playing = null; S.stop();
   }
   function playNext() {
@@ -152,7 +163,7 @@
     stories.forEach(st => {
       const btn = document.createElement('button');
       btn.type = 'button'; btn.className = 'listen';
-      btn.append(S.icon(), document.createTextNode(' Klausyti viską (слушать весь рассказ)'));
+      btn.append(S.icon(), document.createTextNode(LISTEN));
       btn.addEventListener('click', e => {
         e.stopPropagation();
         if (playing && playing.story === st) return stopPlay();

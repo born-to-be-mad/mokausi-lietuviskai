@@ -74,7 +74,9 @@
   const sayBtn = text => (S && S.available() ? S.button(text) : null);
   // формы слова в карточке: у глаголов три формы через « · »
   const ltForms = t => forms(prefs.deck === 'verbs' ? t.lt.split(' ').join(' · ') : t.lt);
-  const cite = t => t.art ? `(${t.artsk} SK. ${t.art} str.)` : '';
+  // ссылка на статью — в тексте Конституции (tekstas.html), в новой вкладке, чтобы не сбить тренировку
+  const cite = t => t.art ? el('a', { class: 'artlink', href: t.art === '0' ? 'tekstas.html#sk0' : `tekstas.html#str${t.art}`, target: '_blank', rel: 'noopener', title: 'Atidaryti straipsnį (открыть статью в новой вкладке)' },
+    `(${t.artsk} SK. ${t.art} str.)`) : '';
   const chTag = t => { const c = chapter(t.sk); return c ? `${c.roman}. ${c.lt}` : ''; };
 
   function stats(list) {
