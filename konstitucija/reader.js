@@ -115,7 +115,10 @@
     const host = inner && inner.closest('section.page');
     if (host) {
       show(host.id);
-      const to = () => inner.scrollIntoView({ block: 'start', behavior: 'instant' });   // плавную прокрутку прерывают — прыжок
+      const to = () => {                                          // прыжок (плавную прокрутку прерывают) — под панель,
+        const bar = document.querySelector('.toolbar').getBoundingClientRect().bottom;   // какой бы высоты она ни была
+        pane.scrollTo({ top: pane.scrollTop + inner.getBoundingClientRect().top - bar - 8, behavior: 'instant' });
+      };
       to();                                                      // шрифты догружаются (Nunito — позже) — текст сдвигается:
       if (document.fonts) { document.fonts.ready.then(to); document.fonts.addEventListener('loadingdone', to, { once: true }); }
       if (document.readyState !== 'complete') addEventListener('load', to, { once: true });
