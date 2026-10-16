@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="shell.css">
 <link rel="stylesheet" href="look.css">
-<script src="look.js"></script>
+<script src="look.js" data-zoom></script>
 </head>
 <body>
 <header class="shell-head">
@@ -34,6 +34,9 @@
       </select>
     </label>
     <label id="voicePickCtl" hidden><span>Balsas <span class="ru">(голос)</span></span></label>
+    <div class="zoomctl"><span>Teksto dydis <span class="ru">(размер текста)</span></span>
+      <span class="zoom"><button type="button" data-zoom-step="-1" aria-label="Mažesnis tekstas (меньше)" title="Mažesnis tekstas (меньше)">A−</button><button type="button" data-zoom-step="1" aria-label="Didesnis tekstas (больше)" title="Didesnis tekstas (больше)">A+</button></span>
+    </div>
     <label><span>Kryptis <span class="ru">(направление)</span></span>
       <select id="dir">
         <option value="lt-ru">LT → RU</option>

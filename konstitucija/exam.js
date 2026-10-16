@@ -1,5 +1,6 @@
 // Пробный экзамен по Конституции: 20 вопросов (по одному из каждой главы + 6 случайных), 3 варианта,
-// сдано — от 14 верных. Режимы: «Egzaminas» (ответы — в конце) и «Treniruotė» (проверка сразу).
+// сдано — от 14 верных. Режимы: «Egzaminas» (ответы — в конце; 45 минут обратным отсчётом, за 15 минут — предупреждение,
+// по нулю — итог, как на настоящем экзамене: инструкция NŠA VK-395) и «Treniruotė» (проверка сразу, время идёт вперёд).
 // Перевод: в тренировке вопрос и каждый вариант можно подсмотреть кнопкой RU (подсказки считаются), после ответа
 // переведено всё; в экзамене перевода нет — он в разборе в конце, как на настоящем экзамене.
 // Банк — window.KONST.exam (data/egzaminas.tsv → scripts/web.py); история попыток — localStorage.
@@ -7,6 +8,7 @@
   'use strict';
   const D = window.KONST, S = window.Speak, app = document.getElementById('app');
   const N = 20, PASS = 14, HIST = 'konst.exam.v1';
+  const LIMIT = 45 * 60, WARN = 15 * 60;                  // экзамен: 45 минут, предупреждение — когда осталось 15
   const read = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) || d; } catch { return d; } };
   const write = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* приватный режим */ } };
   const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -40,11 +42,26 @@
   }
 
   let ex = null, timer = null, keyHandler = null;
+  const spent = () => Math.round((Date.now() - ex.t0) / 1000);
+  const left = () => Math.max(0, LIMIT - spent());
+  const timed = () => ex.mode === 'exam';
+  const clockText = () => fmt(timed() ? left() : spent());
+  const clockWarn = () => timed() && left() <= WARN;
 
   function start(mode, questions) {
     ex = { mode, qs: questions || pick(), ans: {}, i: 0, t0: Date.now(), done: false, peek: {} };   // peek: «вопрос:строка» → true
     clearInterval(timer);
-    timer = setInterval(() => { const t = document.getElementById('clock'); if (t) t.textContent = fmt(Math.round((Date.now() - ex.t0) / 1000)); }, 1000);
+    timer = setInterval(() => {
+      if (timed() && left() === 0) { ex.timeout = true; finish(); return; }   // время вышло — итог
+      const t = document.getElementById('clock');
+      if (!t) return;
+      t.textContent = clockText();
+      if (clockWarn() && !t.parentElement.classList.contains('warn')) {
+        t.parentElement.classList.add('warn');
+        const n = document.getElementById('timenote');                        // «осталось 15 минут» — один раз, вслух тоже
+        if (n) n.textContent = 'Liko 15 minučių (осталось 15 минут).';
+      }
+    }, 1000);
     show();
   }
 
@@ -112,7 +129,11 @@
     app.replaceChildren(...[
       el('div', { class: 'examhead' },
         el('span', {}, `${practice ? 'Treniruotė' : 'Egzaminas'} · ${ex.i + 1} / ${ex.qs.length}`),
-        el('span', { class: 'ru' }, '⏱ ', el('span', { id: 'clock' }, fmt(Math.round((Date.now() - ex.t0) / 1000))))),
+        el('span', { class: 'tools' }, window.Look ? window.Look.zoomButtons() : null,      // размер текста
+          el('span', { class: 'ru clockbox' + (clockWarn() ? ' warn' : ''),
+            title: timed() ? 'Liko laiko (осталось времени), iš viso 45 min.' : 'Laikas (время)' },
+            '⏱ ', el('span', { id: 'clock' }, clockText())))),
+      timed() ? el('p', { id: 'timenote', class: 'timenote', role: 'status' }, clockWarn() ? 'Liko 15 minučių (осталось 15 минут).' : '') : null,
       dots, segs,
       el('div', { class: 'card' },
         el('div', { class: 'tag' }, c ? `${c.roman}. ${c.lt}` : ''),
@@ -125,7 +146,7 @@
 
   function finish() {
     clearInterval(timer); keyHandler = null; ex.done = true;
-    const secs = Math.round((Date.now() - ex.t0) / 1000);
+    const secs = timed() ? Math.min(spent(), LIMIT) : spent();
     const right = ex.qs.filter((q, i) => ex.ans[i] !== undefined && q.order[ex.ans[i]] === 0).length;
     const passed = right >= PASS;
     const hist = read(HIST, []);
@@ -136,6 +157,7 @@
     app.replaceChildren(...[
       el('div', { class: 'card result ' + (passed ? 'pass' : 'fail') },
         el('p', { class: 'big' }, `${right} / ${ex.qs.length}`),
+        ex.timeout ? el('p', { class: 'summary' }, 'Laikas baigėsi (время вышло) — neatsakyti klausimai neįskaityti.') : null,
         el('p', { class: 'summary' }, passed ? 'Išlaikyta! (сдано)' : `Neišlaikyta (не сдано) — reikia ne mažiau kaip ${PASS}`),
         el('p', { class: 'ru' }, `Laikas (время): ${fmt(secs)}`
           + (ex.mode === 'practice' ? ` · vertimo užuominos (подсказки перевода): ${hints()}` : ''))),
@@ -167,8 +189,10 @@
       el('div', { class: 'card' },
         el('p', {}, `${N} klausimų lietuvių kalba, po 3 atsakymų variantus; išlaikyta, jei teisingai atsakyta į ne mažiau kaip ${PASS}.`),
         el('p', { class: 'ru' }, `${N} вопросов на литовском, по 3 варианта ответа; экзамен сдан, если верно не меньше ${PASS}. `
-          + 'Такой формат описывают курсы подготовки; официальная программа экзамена не опубликована — экзамен проводит NŠA, на компьютере. '
-          + `Вопросы — по всем 14 главам Конституции (банк: ${D.exam.length}).`),
+          + 'Так по официальной программе экзамена (2004 г., ред. 2009 г.): вопросы — по всем главам Конституции. '
+          + 'Экзамен проводит Национальное агентство образования (NŠA) на компьютере, на него даётся 45 минут; '
+          + 'здесь в режиме «Egzaminas» — тоже 45 минут обратным отсчётом, в тренировке время не ограничено. '
+          + `Здесь вопросы — по всем 14 главам (банк: ${D.exam.length}).`),
         el('p', { class: 'ru' }, 'Перевод. В тренировке перевод вопроса и любого варианта можно подсмотреть кнопкой RU '
           + '(вопрос — и клавишей T); подсказки считаются в результате. После ответа переведено всё. В экзамене перевода '
           + 'нет, как на настоящем экзамене: он в разборе в конце.')),
@@ -179,6 +203,8 @@
         const pick = S && S.available() ? S.voiceSelect() : null;
         return pick ? el('label', { class: 'voiceline' }, el('span', {}, 'Balsas ', el('span', { class: 'ru' }, '(голос)')), pick) : null;
       })(),
+      window.Look ? el('div', { class: 'voiceline' }, el('span', {}, 'Teksto dydis ', el('span', { class: 'ru' }, '(размер текста)')),
+        window.Look.zoomButtons()) : null,
       hist.length ? el('div', { class: 'card' },
         el('p', { class: 'summary' }, 'Bandymai (попытки)'),
         el('table', { class: 'stats' }, el('tbody', {}, hist.map(h => el('tr', {},

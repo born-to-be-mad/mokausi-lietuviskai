@@ -18,7 +18,7 @@
     const b = document.body.classList;
     b.toggle('tr-on', st.on); b.toggle('tr-off', !st.on);
     b.toggle('tr-side', st.layout === 'side'); b.toggle('tr-under', st.layout === 'under');
-    document.getElementById('tr').setAttribute('aria-pressed', String(st.on));
+    document.getElementById('tr').checked = st.on;                // флажок-переключатель (role="switch")
     $$('[data-layout]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.layout === st.layout)));
     $$('.row').forEach(r => {
       r.classList.remove('show');
@@ -31,10 +31,9 @@
   const applySize = () => document.documentElement.style.setProperty('--fs', (19 + 2 * st.size) + 'px');
   function applyDone() {
     $$('a[data-story]').forEach(a => a.classList.toggle('isdone', !!st.done[a.dataset.story]));
-    $$('button.done').forEach(b => {
-      const d = !!st.done[b.dataset.story];
-      b.classList.toggle('isdone', d);
-      b.firstChild.textContent = d ? '✓ Perskaityta ' : 'Perskaičiau ';
+    $$('.done input[data-story]').forEach(c => {                 // флажок «Perskaičiau»
+      c.checked = !!st.done[c.dataset.story];
+      c.closest('.done').classList.toggle('isdone', c.checked);
     });
     const n = stories.filter(s => st.done[s.id]).length;
     document.getElementById('count').textContent = `perskaityta (прочитано): ${n} / ${stories.length}`;
@@ -54,13 +53,13 @@
     });
   }
 
-  document.getElementById('tr').addEventListener('click', toggleTr);
+  document.getElementById('tr').addEventListener('change', e => { st.on = e.target.checked; save(); applyTr(); });
   $$('[data-layout]').forEach(b => b.addEventListener('click', () => { st.layout = b.dataset.layout; save(); applyTr(); }));
   $$('[data-size]').forEach(b => b.addEventListener('click', () => {
     st.size = Math.max(-2, Math.min(3, st.size + Number(b.dataset.size))); save(); applySize();
   }));
-  $$('button.done').forEach(b => b.addEventListener('click', () => {
-    st.done[b.dataset.story] = !st.done[b.dataset.story]; save(); applyDone();
+  $$('.done input[data-story]').forEach(c => c.addEventListener('change', () => {
+    st.done[c.dataset.story] = c.checked; save(); applyDone();
   }));
   // перевод выключен: щелчок / Enter по предложению показывает (и снова прячет) его перевод
   document.addEventListener('click', e => {

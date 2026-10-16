@@ -28,9 +28,24 @@
   padding: 6px 11px; min-height: 30px; cursor: pointer;
 }
 .looksw button[aria-pressed="true"] { background: var(--accent); color: var(--bg); }
-.looksw button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* фокус с клавиатуры — заметная рамка во всех видах («Kontrastas» — с жёлтым ореолом, ниже) */
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+/* «Pereiti prie turinio» — видна только в фокусе */
+.skip {
+  position: absolute; left: 8px; top: -80px; z-index: 100; padding: 10px 16px; border-radius: 6px;
+  background: #ffdd00; color: #0b0b0c; font: 700 .95rem/1.2 var(--font-ui); text-decoration: none;
+}
+.skip:focus { top: 8px; outline: 3px solid #0b0b0c; outline-offset: 2px; }
+/* размер текста A− / A+ (тренажёр, экзамен) */
+.zoom { display: inline-flex; gap: 4px; }
+.zoom button {
+  min-width: 44px; min-height: 38px; padding: 0 10px; border: 1px solid var(--control, var(--line)); border-radius: 8px;
+  background: var(--card); color: inherit; font: 700 .95rem/1 var(--font-ui); cursor: pointer;
+}
+.zoom button:disabled { opacity: .45; cursor: default; }
 @media (max-width: 600px) { .looksw { display: none; } .looksel { display: inline-block; } }
-@media print { .look { display: none; } }
+@media print { .look, .skip, .zoom { display: none; } }
 
 /* ── вид «Vaikams» ─────────────────────────────────────────────────────────────────────────────────── */
 @media screen {
@@ -70,7 +85,7 @@
 
   /* тренажёр и экзамен */
   [data-look="kids"] .card { border-width: 2px; border-radius: 22px; }
-  [data-look="kids"] :is(select, .tabs button, .actions button, .btn, .opts button, table.stats button) {
+  [data-look="kids"] :is(select, .tabs button, .actions button, .btn, .opts button, table.stats button, .zoom button) {
     border-width: 2px; border-radius: 16px;
   }
   [data-look="kids"] .tabs button[aria-selected="true"] { background: var(--soft); box-shadow: none; border-color: var(--accent); }
@@ -97,9 +112,9 @@
 
   /* чтение */
   [data-look="kids"] .toc { font-weight: 600; }
-  [data-look="kids"] :is(.toolbar button, .toolbar select, .storyend .done) { border-width: 2px; border-radius: 14px; }
+  [data-look="kids"] :is(.toolbar button, .toolbar .switch, .toolbar select, .storyend .done) { border-width: 2px; border-radius: 14px; }
   [data-look="kids"] .listen { border-width: 2px; font-weight: 700; }
-  @media (max-width: 380px) { [data-look="kids"] .toolbar { font-size: .84rem; gap: 2px; } }   /* узкий телефон: панель в одну строку */
+  @media (max-width: 420px) { [data-look="kids"] .toolbar { font-size: .84rem; gap: 2px; } }   /* узкий телефон: панель в одну строку */
   [data-look="kids"] .start { border-radius: 999px; font-weight: 800; }
   [data-look="kids"] .toc a { border-radius: 14px; border-left-width: 4px; }
   [data-look="kids"] .toc li.col { font-weight: 800; border-top-width: 4px; }
@@ -154,7 +169,7 @@
     --ending: #a51d14; --good: #0a5c2f; --bad: #8e1b14; --good-bg: #e8f4ec; --bad-bg: #fcebe9; --soft: #f2f2f2;
     --zinai: #0b4a8f; --zinai-bg: #f2f2f2; --isimink: #6b3a00; --isimink-bg: #f2f2f2; --focus: #ffdd00; --on-focus: #0b0b0c;
     --font-read: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; --font-ui: var(--font-read);
-    --radius: 6px; font-size: 112.5%;
+    --radius: 6px; font-size: calc(112.5% * var(--zoom, 1));
   }
 }
 @media screen and (prefers-color-scheme: dark) {
@@ -171,7 +186,7 @@
     --zinai: #8cc4ff; --zinai-bg: #1a1a1a; --isimink: #ffd27a; --isimink-bg: #1a1a1a;
   }
   /* текст крупнее и прямой; ссылки подчёркнуты; фокус — жёлтый */
-  [data-look="contrast"] body { font-size: 19px; line-height: 1.5; }
+  [data-look="contrast"] body { font-size: calc(19px * var(--zoom, 1)); line-height: 1.5; }
   [data-look="contrast"] :is(h1, h2, h3) { font-weight: 700; }
   [data-look="contrast"] :is(.row .ru, .optru, .qru, .exru, .page h2 .ru, .art, .row.scena) { font-style: normal; }
   [data-look="contrast"] a { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
@@ -183,9 +198,11 @@
   [data-look="contrast"] .shell-foot { border-top: 2px solid var(--text); }
   [data-look="contrast"] :is(.card, .group, .steps li, .free, section.memo) { border: 2px solid var(--text); border-radius: 6px; }
   [data-look="contrast"] :is(select, .tabs button, .actions button, .btn, .opts button, .peek, .dot, table.stats button,
-    .toolbar button, .toolbar select, .storyend .done, .listen, .say, .navclose, .print, .group .links a) { border-width: 2px; border-radius: 6px; }
+    .toolbar button, .toolbar .switch, .toolbar select, .storyend .done, .listen, .say, .navclose, .print, .group .links a, .zoom button) {
+    border-width: 2px; border-radius: 6px;
+  }
   [data-look="contrast"] :is(.actions .primary, .btn.primary, .start, .group .links a.primary) { background: var(--text); border-color: var(--text); color: var(--bg); }
-  [data-look="contrast"] :is(.tabs button[aria-selected="true"], .toolbar button[aria-pressed="true"], #slow[aria-pressed="true"]) {
+  [data-look="contrast"] :is(.tabs button[aria-selected="true"], .toolbar button[aria-pressed="true"], #slow[aria-pressed="true"], .toolbar .switch:has(input:checked)) {
     background: var(--text); color: var(--bg); border-color: var(--text); box-shadow: none;
   }
   [data-look="contrast"] :is(.tabs button[aria-selected="true"], .toolbar button[aria-pressed="true"]) .ru { color: inherit; }

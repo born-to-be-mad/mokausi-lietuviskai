@@ -28,9 +28,10 @@
 }
 
 * { box-sizing: border-box; }
+html { font-size: calc(100% * var(--zoom, 1)); }       /* A− / A+ (look.js): всё в rem растёт вместе с текстом */
 body {
   margin: 0; background: var(--bg); color: var(--text);
-  font: 17px/1.45 var(--font-ui);
+  font: calc(17px * var(--zoom, 1))/1.45 var(--font-ui);
 }
 .top, #app, .foot { max-width: 720px; margin: 0 auto; padding: 0 16px; }
 .home { display: inline-block; margin-top: 14px; font-size: .85rem; color: var(--accent); text-decoration: none; }
@@ -40,6 +41,11 @@ h1 .sub { display: block; font-size: .85rem; font-weight: 400; color: var(--mute
 
 .controls { display: flex; flex-wrap: wrap; gap: 10px 16px; margin-bottom: 10px; }
 .controls label { display: flex; flex-direction: column; font-size: .85rem; gap: 4px; flex: 1 1 180px; }
+.controls .zoomctl { display: flex; flex-direction: column; font-size: .85rem; gap: 4px; flex: 0 0 auto; }   /* размер текста */
+.examhead .tools { display: inline-flex; align-items: center; gap: 10px; }
+.clockbox.warn { color: var(--bad); font-weight: 700; }   /* экзамен: осталось 15 минут и меньше */
+.timenote { margin: -4px 0 8px; color: var(--bad); font-weight: 700; font-size: .9rem; }
+.timenote:empty { display: none; }
 select, button { font: inherit; color: inherit; }
 select {
   padding: 8px 10px; border: 1px solid var(--control); border-radius: 8px; background: var(--card);
@@ -82,7 +88,7 @@ select {
   width: 36px; height: 36px; margin-left: 8px; border-radius: 50%; border: 1px solid var(--control);
   background: var(--card); color: var(--accent); cursor: pointer; padding: 0; flex: none;
 }
-.say:hover, .say:focus { border-color: var(--accent); outline: none; }
+.say:hover, .say:focus-visible { border-color: var(--accent); }
 .ex .say { width: 30px; height: 30px; margin-left: 4px; }
 .novoice { font-size: .82rem; color: var(--muted); margin: -6px 0 12px; }
 
