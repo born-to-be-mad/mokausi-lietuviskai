@@ -3,6 +3,8 @@
 // справа от заголовка (на телефоне — выпадающий список); выбор хранится в localStorage этого браузера (общий для
 // витрины и всех страниц раздела). Здесь же — ссылка «Pereiti prie turinio» для клавиатуры (первая в странице) и размер
 // текста A− / A+ для страниц, подключивших скрипт с data-zoom (тренажёр, экзамен): html --zoom, localStorage konst.zoom.
+// И резервная копия прогресса: кнопки [data-backup="save" | "load"] — файл со всеми записями konst.* этого браузера
+// (тренажёр, экзамен, чтение, настройки); загрузка из файла заменяет их на этом устройстве (без сервера и регистрации).
 (() => {
   'use strict';
   const KEY = 'konst.look', root = document.documentElement;
@@ -22,8 +24,63 @@
     try { if (zi === 1) localStorage.removeItem(ZKEY); else localStorage.setItem(ZKEY, String(zi)); } catch { /* приватный режим */ }
     syncZoom();
   });
+  // ---------- прогресс в файл и из файла ----------
+  const OWN = /^konst\./;                                         // только свои записи (на домене живут и другие сайты)
+  const APP = 'mokausi-lietuviskai';
+  function snapshot() {
+    const data = {};
+    for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (OWN.test(k)) data[k] = localStorage.getItem(k); }
+    return { app: APP, kind: 'progress', v: 1, saved: new Date().toISOString(), data };
+  }
+  function restore(obj) {
+    if (!obj || obj.app !== APP || obj.kind !== 'progress' || !obj.data || typeof obj.data !== 'object') throw new Error('ne pažangos failas');
+    Object.keys(localStorage).filter(k => OWN.test(k)).forEach(k => localStorage.removeItem(k));
+    for (const [k, v] of Object.entries(obj.data)) if (OWN.test(k) && typeof v === 'string') localStorage.setItem(k, v);
+  }
+  function saveFile() {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(snapshot(), null, 1)], { type: 'application/json' }));
+    a.download = `mokausi-lietuviskai-pazanga-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.append(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  }
+  function loadFile() {
+    const inp = document.createElement('input');
+    inp.type = 'file'; inp.accept = '.json,application/json';
+    inp.addEventListener('change', async () => {
+      const f = inp.files && inp.files[0];
+      if (!f) return;
+      let obj;
+      try { obj = JSON.parse(await f.text()); if (obj.app !== APP || obj.kind !== 'progress') throw 0; }
+      catch { alert('Tai ne pažangos failas.\n(Это не файл прогресса «Mokausi lietuviškai».)'); return; }
+      const when = obj.saved ? new Date(obj.saved).toLocaleDateString('lt-LT') : '?';
+      if (!confirm(`Pakeisti pažangą šiame įrenginyje failo pažanga (${when})?\n`
+        + '(Заменить прогресс на этом устройстве прогрессом из файла? Текущий прогресс здесь будет заменён.)')) return;
+      try { restore(obj); } catch { alert('Nepavyko įkelti (не удалось загрузить).'); return; }
+      location.reload();
+    });
+    inp.click();
+  }
+  document.addEventListener('click', e => {                         // кнопки «сохранить / загрузить» где угодно
+    const b = e.target.closest && e.target.closest('[data-backup]');
+    if (!b) return;
+    e.preventDefault();
+    if (b.dataset.backup === 'save') saveFile(); else loadFile();
+  });
+  const backupBox = () => {                                          // блок с двумя кнопками (тренажёр рисует его сам)
+    const box = document.createElement('div');
+    box.className = 'backup';
+    box.innerHTML = '<p>Pažanga saugoma tik šioje naršyklėje. <span class="ru">Прогресс хранится только в этом браузере: '
+      + 'сохраните его в файл, чтобы не потерять или перенести на другое устройство (файл можно переслать себе).</span></p>'
+      + '<div class="backup-btns"><button type="button" data-backup="save">Išsaugoti į failą <span class="ru">сохранить в файл</span></button>'
+      + '<button type="button" data-backup="load">Įkelti iš failo <span class="ru">загрузить из файла</span></button></div>';
+    return box;
+  };
+
   // пара кнопок A− / A+ (экзамен рисует их сам: window.Look.zoomButtons())
   window.Look = {
+    progress: { snapshot, restore },
+    backupBox,
     zoomButtons() {
       const box = document.createElement('span');
       box.className = 'zoom';

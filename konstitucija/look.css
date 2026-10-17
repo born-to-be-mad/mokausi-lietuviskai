@@ -40,6 +40,15 @@
 /* ссылка на статью «(I SK. 12 str.)» → текст Конституции (tekstas.html) */
 a.artlink { color: inherit; text-decoration: underline dotted; text-underline-offset: 2px; }
 a.artlink:hover { color: var(--accent); text-decoration-style: solid; }
+/* резервная копия прогресса (look.js): «Išsaugoti į failą» / «Įkelti iš failo» */
+.backup { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin: 14px 0 0; font-size: .92rem; }
+.backup p { margin: 0 0 10px; }
+.backup-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.backup button {
+  flex: 1 1 180px; min-height: 44px; padding: 8px 12px; border: 1px solid var(--control, var(--line)); border-radius: 10px;
+  background: var(--card); color: var(--accent); font: 600 .95rem/1.25 var(--font-ui); cursor: pointer; text-align: left;
+}
+.backup button .ru { display: block; font-weight: 400; font-size: .8rem; color: var(--muted); }
 /* размер текста A− / A+ (тренажёр, экзамен) */
 .zoom { display: inline-flex; gap: 4px; }
 .zoom button {
@@ -159,6 +168,11 @@ a.artlink:hover { color: var(--accent); text-decoration-style: solid; }
   [data-look="kids"] .steps li:nth-child(3)::before { background: var(--flag-r, #c1272d); color: #ffffff; }
   [data-look="kids"] .steps b a::after { border-radius: 22px; }
   [data-look="kids"] .group .links a { border-width: 2px; border-radius: 14px; font-weight: 700; }
+  [data-look="kids"] .bento .cell { border-width: 2px; border-radius: 18px; }
+  [data-look="kids"] .backup { border-width: 2px; border-radius: 20px; }
+  [data-look="kids"] .backup button { border-width: 2px; border-radius: 16px; }
+  [data-look="kids"] .bento .n { font-weight: 800; }
+  [data-look="kids"] .bento .cell[data-col]:not(.big) .n { color: var(--c-ink); }   /* число — в цвет сборника */
 
   /* памятка */
   [data-look="kids"] section.memo { border-width: 2px; border-radius: 20px; }
@@ -204,7 +218,11 @@ a.artlink:hover { color: var(--accent); text-decoration-style: solid; }
     .toolbar button, .toolbar .switch, .toolbar select, .storyend .done, .listen, .say, .navclose, .print, .group .links a, .zoom button) {
     border-width: 2px; border-radius: 6px;
   }
-  [data-look="contrast"] :is(.actions .primary, .btn.primary, .start, .group .links a.primary) { background: var(--text); border-color: var(--text); color: var(--bg); }
+  [data-look="contrast"] :is(.actions .primary, .btn.primary, .start, .group .links a.primary, .bento .big) { background: var(--text); border-color: var(--text); color: var(--bg); }
+  [data-look="contrast"] .bento .cell { border: 2px solid var(--text); border-radius: 6px; text-decoration: none; }
+  [data-look="contrast"] .bento .big :is(.n, small) { color: var(--bg); opacity: 1; }
+  [data-look="contrast"] .bento .wm { display: none; }
+  [data-look="contrast"] :is(.backup, .backup button) { border: 2px solid var(--text); border-radius: 6px; }
   [data-look="contrast"] :is(.tabs button[aria-selected="true"], .toolbar button[aria-pressed="true"], #slow[aria-pressed="true"], .toolbar .switch:has(input:checked)) {
     background: var(--text); color: var(--bg); border-color: var(--text); box-shadow: none;
   }

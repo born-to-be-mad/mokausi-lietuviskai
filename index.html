@@ -9,17 +9,17 @@
 <style>
 :root {
   --bg: #f7f6f2; --card: #ffffff; --text: #1d1d1f; --muted: #6b6b70; --line: #dedcd5; --control: #8e8c85;
-  --accent: #2e5a88; --flag-y: #fdb913; --flag-g: #006a44; --flag-r: #c1272d;
+  --accent: #2e5a88; --flag-y: #fdb913; --flag-g: #006a44; --flag-r: #c1272d; --soft: #eef3f9;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40; --control: #717279;
+    --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40; --control: #717279; --soft: #1d2a38;
     --accent: #8cb4e0; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40; --control: #717279;
+  --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40; --control: #717279; --soft: #1d2a38;
   --accent: #8cb4e0; color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -71,6 +71,22 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
   border: 1px solid var(--accent); color: var(--accent); font-weight: 600; font-size: .95rem; }
 .group .links a.primary { background: var(--accent); color: var(--bg); flex-basis: 100%; }
 .group .links a span { display: block; font-weight: 400; font-size: .8rem; opacity: .85; }
+/* «бенто» группы «Skaitymas»: плитки разного размера с крупными числами */
+.bento { margin-top: auto; display: grid; grid-template-columns: 1.25fr 1fr; gap: 8px; }
+.bento .cell { position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: 96px; padding: 12px;
+  border-radius: 12px; border: 1px solid var(--line); background: var(--card); color: var(--text); text-decoration: none; overflow: hidden; }
+.bento .cell:hover { border-color: var(--accent); }
+.bento .n { font: 600 2rem/1 var(--font-read); color: var(--accent); }
+.bento b { font-size: .92rem; line-height: 1.25; margin-top: 6px; }
+.bento small { color: var(--muted); font-size: .78rem; line-height: 1.3; }
+.bento .big { grid-row: span 2; min-height: 200px; background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.bento .big .n { color: var(--bg); font-size: 3rem; }
+.bento .big small { color: var(--bg); opacity: .85; }
+.bento .law { grid-column: 1 / -1; min-height: 0; flex-direction: row; align-items: center; gap: 14px; background: var(--soft); border-color: transparent; }
+.bento .law:hover { border-color: var(--accent); }
+.bento .law .n { font-size: 2.4rem; }
+.bento .lawtxt { position: relative; display: flex; flex-direction: column; }
+.bento .wm { position: absolute; right: -6px; bottom: -34px; font: 600 9rem/1 var(--font-read); color: var(--accent); opacity: .08; pointer-events: none; }
 .free { margin: 26px 0 0; padding: 14px 16px; border-radius: 12px; background: var(--card); border: 1px solid var(--line); font-size: .95rem; }
 .shell-foot a, .free a { color: var(--accent); }
 .free .star { display: block; margin-top: 8px; }
@@ -114,13 +130,18 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
     <div class="groups">
       <div class="group">
         <h3>Skaitymas <span class="ru">· чтение</span></h3>
-        <p>Лёгкие рассказы с одними героями — семьёй Казлаускасов и соседкой Ольгой, которая готовится к экзамену.
-          Перевод — рядом, под строкой или по нажатию; озвучка; отметки «прочитано».</p>
-        <div class="links">
-          <a class="primary" href="konstitucija/skaitymas.html">Arbatos vakarai su Konstitucija <span>24 коротких рассказа обо всех главах</span></a>
-          <a href="konstitucija/skaitymas.html#k1">Metų šventės <span>9 рассказов о праздниках</span></a>
-          <a href="konstitucija/skaitymas.html#k10">Didieji kunigaikščiai <span>5 рассказов о великих князьях</span></a>
-          <a href="konstitucija/tekstas.html">Konstitucijos tekstas <span>весь текст по главам, с переводом и озвучкой</span></a>
+        <p>Лёгкие рассказы с одними героями — семьёй Казлаускасов и соседкой Ольгой — и весь текст Конституции.
+          Перевод рядом или по нажатию, озвучка двумя голосами, отметки «прочитано».</p>
+        <!-- «бенто»: крупное число — для глаз (aria-hidden), ссылке целиком — понятное название (aria-label) -->
+        <div class="bento">
+          <a class="cell big" data-col="konstitucija" href="konstitucija/skaitymas.html"
+             aria-label="Arbatos vakarai su Konstitucija — 24 коротких рассказа обо всех главах"><span class="n" aria-hidden="true">24</span><b>Arbatos vakarai su Konstitucija</b><small>коротких рассказа обо всех главах</small></a>
+          <a class="cell" data-col="sventes" href="konstitucija/skaitymas.html#k1"
+             aria-label="Metų šventės — 9 рассказов о праздниках"><span class="n" aria-hidden="true">9</span><b>Metų šventės</b><small>рассказов о праздниках</small></a>
+          <a class="cell" data-col="kunigaikschiai" href="konstitucija/skaitymas.html#k10"
+             aria-label="Didieji kunigaikščiai — 5 рассказов о великих князьях"><span class="n" aria-hidden="true">5</span><b>Didieji kunigaikščiai</b><small>рассказов о великих князьях</small></a>
+          <a class="cell law" href="konstitucija/tekstas.html"
+             aria-label="Konstitucijos tekstas — 154 статьи в 14 главах, с переводом и озвучкой"><span class="wm" aria-hidden="true">§</span><span class="n" aria-hidden="true">154</span><span class="lawtxt"><b>Konstitucijos tekstas →</b><small>статьи в 14 главах · перевод и озвучка</small></span></a>
         </div>
       </div>
       <div class="group">
@@ -161,6 +182,11 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
     </div>
   </section>
 
+  <div class="backup" id="pazanga"><p>Pažanga saugoma tik šioje naršyklėje. <span class="ru">Прогресс (карточки, экзамены,
+    отметки «прочитано», настройки) хранится только в этом браузере — без регистрации. Сохраните его в файл, чтобы не
+    потерять или перенести на телефон или другой компьютер: файл можно переслать себе в мессенджере или по почте.</span></p>
+    <div class="backup-btns"><button type="button" data-backup="save">Išsaugoti į failą <span class="ru">сохранить в файл</span></button>
+      <button type="button" data-backup="load">Įkelti iš failo <span class="ru">загрузить из файла</span></button></div></div>
   <p class="free">Бесплатно и свободно: материалы под лицензией CC BY-SA 4.0 — можно копировать, печатать и делиться,
     указав автора. Перевод Конституции на русский — неофициальный. Нашли ошибку или есть идея —
     <a href="https://github.com/born-to-be-mad/mokausi-lietuviskai/issues">напишите здесь</a> (нужен аккаунт GitHub).

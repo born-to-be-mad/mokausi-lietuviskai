@@ -434,6 +434,7 @@
       el('div', { class: 'card' },
         el('p', { class: 'summary' }, `${deck().lt} (${deck().ru}) — pagal skirsnius (по главам)`),
         el('table', { class: 'stats' }, el('tbody', {}, rows))),
+      ...(window.Look ? [window.Look.backupBox()] : []),           // сохранить / загрузить прогресс файлом
       el('div', { class: 'actions' }, el('button', {
         on: { click: () => { if (confirm('Ištrinti visą pažangą? (Удалить весь прогресс во всех наборах?)')) { progress = {}; write(STORE, progress); showProgress(); } } }
       }, 'Pradėti iš naujo (сбросить прогресс)')));
