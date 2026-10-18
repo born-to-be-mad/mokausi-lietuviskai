@@ -70,8 +70,9 @@
   const backupBox = () => {                                          // блок с двумя кнопками (тренажёр рисует его сам)
     const box = document.createElement('div');
     box.className = 'backup';
-    box.innerHTML = '<p>Pažanga saugoma tik šioje naršyklėje. <span class="ru">Прогресс хранится только в этом браузере: '
-      + 'сохраните его в файл, чтобы не потерять или перенести на другое устройство (файл можно переслать себе).</span></p>'
+    box.innerHTML = '<p>Pažanga saugoma šioje naršyklėje. <span class="ru">Прогресс хранится в этом браузере. Чтобы не потерять '
+      + 'его или перенести на другое устройство, сохраните его в файл (файл можно переслать себе) или включите синхронизацию '
+      + 'по коду ниже.</span></p>'
       + '<div class="backup-btns"><button type="button" data-backup="save">Išsaugoti į failą <span class="ru">сохранить в файл</span></button>'
       + '<button type="button" data-backup="load">Įkelti iš failo <span class="ru">загрузить из файла</span></button></div>';
     if (window.Sync) window.Sync.mount(box);                         // и синхронизация по коду (sync.js)
