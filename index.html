@@ -57,10 +57,32 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
 .steps b a::after { content: ""; position: absolute; inset: 0; border-radius: 12px; }   /* вся карточка — ссылка */
 .steps li:hover { border-color: var(--accent); }
 .steps li:hover b a, .steps b a:focus-visible { text-decoration: underline; }
+/* «Tęsti» — куда вернуться */
+.resume { margin: 0 0 22px; }
+.resume h2 { margin-top: 2px; }
+.ritems { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+.ritem { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line);
+  background: var(--card); color: var(--text); text-decoration: none; }
+.ritem:hover { border-color: var(--accent); }
+.ritem .k { font-size: .8rem; font-weight: 600; color: var(--accent); }
+.ritem .k .ru { font-weight: 400; }
+.ritem b { font-size: 1rem; line-height: 1.3; }
+.ritem small { color: var(--muted); font-size: .8rem; line-height: 1.3; }
+/* цели: экзамен (путь в три шага) и чтение */
+.goals { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .goals { grid-template-columns: 1.55fr 1fr; align-items: start; } }
+.goal { border-radius: 14px; padding: 16px; }
+.goal.exam { background: var(--soft); }
+.goal h3 { margin: 0 0 2px; font-size: 1.2rem; }
+.goal h3 .ru { display: block; font-weight: 400; font-size: .95rem; }
+.goal > p { margin: 6px 0 12px; font-size: .95rem; }
+.goal .steps { margin: 0; }
 .topic { margin-top: 34px; }
 .topic > p { margin: 0 0 6px; }
 .edition { color: var(--muted); font-size: .8rem; line-height: 1.45; margin: 0 0 16px; }
 .edition ul { margin: 2px 0 0; padding-left: 18px; }
+.edition summary { cursor: pointer; }
+.edition[open] summary { margin-bottom: 4px; }
 .groups { display: grid; gap: 14px; grid-template-columns: 1fr; }
 @media (min-width: 720px) { .groups { grid-template-columns: 1fr 1fr; } }
 .group { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 16px 14px; display: flex; flex-direction: column; }
@@ -103,32 +125,83 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
 </header>
 <div class="shell-main" tabindex="-1" autofocus>
 <main>
+  <!-- «Tęsti»: тем, кто уже занимался, — куда вернуться (по записям konst.* этого браузера). Скрипт стоит сразу за
+       блоком: блок появляется до показа страницы, без сдвига. Пусто — блока нет. -->
+  <section class="resume" id="testi" hidden aria-labelledby="testi-h">
+    <h2 id="testi-h">Tęsti <span class="ru">продолжить</span></h2>
+    <div class="ritems"></div>
+  </section>
+  <script>
+  (() => {
+    const get = k => { try { return JSON.parse(localStorage.getItem(k)); } catch { return null; } };
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+    const item = (href, k, kru, b, small) => `<a class="ritem" href="${href}"><span class="k">${k} <span class="ru">${kru}</span></span>`
+      + `<b>${b}</b>${small ? `<small>${small}</small>` : ''}</a>`;
+    const out = [], now = Date.now(), TOTAL = 126;
+    for (const [key, page, k, kru] of [['konst.reader.v1', 'skaitymas.html', 'Skaitymas', 'чтение'],
+                                       ['konst.tekstas.v1', 'tekstas.html', 'Konstitucija', 'текст']]) {
+      const s = get(key);                                   // где остановились (reader.js: last, lastT — название)
+      if (s && s.last && s.last !== 'apie') out.push(item(`konstitucija/${page}#${encodeURIComponent(s.last)}`, k, kru,
+        s.lastT ? esc(s.lastT) : 'Tęsti nuo ten, kur baigėte', s.lastT ? '' : 'с того места, где остановились'));
+    }
+    const cards = Object.entries(get('konst.terms.v1') || {}).filter(([k, v]) => k !== '_reset' && v && typeof v === 'object');
+    if (cards.length) {                                     // тренажёр: сколько карточек пора повторить
+      const due = cards.filter(([, v]) => v.box > 0 && v.due <= now).length, known = cards.filter(([, v]) => v.box >= 3).length;
+      out.push(item('konstitucija/', 'Kortelės', 'карточки', due ? `Kartoti: ${due}` : 'Viskas pakartota',
+        (due ? 'ждут повторения' : 'всё повторено') + ` · выучено ${known}`));
+    }
+    const q = Object.entries(get('konst.examq.v1') || {}).filter(([k]) => k !== '_reset'), hist = get('konst.exam.v1') || [];
+    if (q.length || hist.length) {                          // экзамен: сколько из трёх условий готовности выполнено (exam.js)
+      const weak = q.filter(([, v]) => v && v.w).length, ex = hist.filter(h => h.mode === 'exam' && h.n === 20).slice(0, 3);
+      const met = (q.length >= TOTAL) + (q.length > 0 && !weak) + (ex.length === 3 && ex.every(h => h.passed));
+      out.push(item('konstitucija/egzaminas.html', 'Egzaminas', 'экзамен', `Pasirengimas: ${met} iš 3`,
+        weak ? `готовность · слабых вопросов: ${weak}` : 'готовность к экзамену'));
+    }
+    if (out.length) { const s = document.getElementById('testi'); s.querySelector('.ritems').innerHTML = out.join(''); s.hidden = false; }
+  })();
+  </script>
   <p class="lead">Учу литовский: бесплатные материалы для уровня A2 — и для подготовки к экзамену по Конституции Литвы,
     который сдают для гражданства и постоянного вида на жительство.</p>
   <p class="author">Автор — Marudau Dzmitry. Всё на литовском с переводом на русский, работает на телефоне и компьютере.</p>
 
-  <h2>Nuo ko pradėti? <span class="ru">С чего начать</span></h2>
-  <ol class="steps">
-    <li><b><a href="konstitucija/skaitymas.html">Skaitykite <span class="ru">— читайте</span> →</a></b> короткие рассказы о Конституции, праздниках и великих князьях: литовский текст с переводом
-      предложение к предложению, перевод можно выключить, текст можно послушать.</li>
-    <li><b><a href="konstitucija/">Mokykitės žodžių <span class="ru">— учите слова</span> →</a></b> в тренажёре: карточки сами напомнят повторить то,
-      что вы забываете; прогресс виден по главам.</li>
-    <li><b><a href="konstitucija/egzaminas.html">Pasitikrinkite <span class="ru">— проверьте себя</span> →</a></b> пробным экзаменом: 20 вопросов, как на настоящем;
-      ошибки разобраны со ссылками на статьи.</li>
-  </ol>
+  <h2>Ko siekiate? <span class="ru">Какая у вас цель</span></h2>
+  <div class="goals">
+    <section class="goal exam" aria-labelledby="g-exam">
+      <h3 id="g-exam">Ruošiuosi Konstitucijos egzaminui <span class="ru">готовлюсь к экзамену по Конституции</span></h3>
+      <p>Для гражданства и постоянного вида на жительство: 20 вопросов на литовском, 45 минут, сдано — от 14 верных.
+        Путь в три шага:</p>
+      <ol class="steps">
+        <li><b><a href="konstitucija/skaitymas.html">Skaitykite <span class="ru">— читайте</span> →</a></b> короткие рассказы обо всех
+          главах: литовский текст с переводом, его можно послушать.</li>
+        <li><b><a href="konstitucija/">Mokykitės žodžių <span class="ru">— учите слова</span> →</a></b> в тренажёре: карточки сами
+          напомнят повторить то, что вы забываете.</li>
+        <li><b><a href="konstitucija/egzaminas.html">Pasitikrinkite <span class="ru">— проверьте себя</span> →</a></b> пробным
+          экзаменом: готовность по главам и слабые места.</li>
+      </ol>
+    </section>
+    <section class="goal read group" aria-labelledby="g-read">
+      <h3 id="g-read">Noriu skaityti lietuviškai <span class="ru">хочу читать по-литовски</span></h3>
+      <p>38 лёгких рассказов уровня A2 — о Конституции, праздниках и великих князьях — и весь текст Конституции: перевод
+        предложение к предложению, озвучка двумя голосами.</p>
+      <div class="links">
+        <a class="primary" href="konstitucija/skaitymas.html">Skaityti <span>читать рассказы</span></a>
+        <a href="konstitucija/tekstas.html">Konstitucijos tekstas <span>154 статьи с переводом</span></a>
+      </div>
+    </section>
+  </div>
 
   <section class="topic">
     <h2>Lietuvos Konstitucija <span class="ru">· Конституция Литвы</span></h2>
     <p class="muted">Всё по официальному тексту Конституции, по всем 14 главам.</p>
-    <div class="edition">Текст — сводная редакция e-TAR от 22.05.2022; в неё вошли и в материалах учтены поправки
-      (дата принятия, закон, статьи):
+    <details class="edition"><summary>Текст — сводная редакция e-TAR от 22.05.2022 с поправками</summary>
+      В неё вошли и в материалах учтены поправки (дата принятия, закон, статьи):
     <ul>
       <li>21.03.2019, закон XIII-2004 — ст. 106, 107: индивидуальная конституционная жалоба</li>
       <li>21.04.2022, закон XIV-1028 — ст. 67, 119, 122, 124, 141, 143: прямые выборы мэров</li>
       <li>21.04.2022, закон XIV-1029 — ст. 74: после импичмента – должности не раньше чем через 10 лет</li>
       <li>21.04.2022, закон XIV-1030 — ст. 56: кандидат в Сейм – с 21 года</li>
     </ul>
-    </div>
+    </details>
     <div class="groups">
       <div class="group">
         <h3>Skaitymas <span class="ru">· чтение</span></h3>

@@ -210,6 +210,8 @@ a.artlink:hover { color: var(--accent); text-decoration-style: solid; }
 
   /* витрина */
   [data-look="kids"] :is(.steps li, .group, .free) { border-width: 2px; border-radius: 22px; }
+  [data-look="kids"] .goal { border-radius: 24px; }
+  [data-look="kids"] .ritem { border-width: 2px; border-radius: 18px; }
   [data-look="kids"] .steps li::before { width: 30px; height: 30px; font-weight: 800; font-size: 1rem; }
   [data-look="kids"] .steps li:nth-child(1)::before { background: var(--flag-y, #fdb913); color: #1f2430; }
   [data-look="kids"] .steps li:nth-child(2)::before { background: var(--flag-g, #006a44); color: #ffffff; }
@@ -261,7 +263,8 @@ a.artlink:hover { color: var(--accent); text-decoration-style: solid; }
   [data-look="contrast"] .flag { height: 6px; }
   [data-look="contrast"] :is(.shell-head, .toolbar) { border-bottom: 2px solid var(--text); }
   [data-look="contrast"] .shell-foot { border-top: 2px solid var(--text); }
-  [data-look="contrast"] :is(.card, .group, .steps li, .free, section.memo) { border: 2px solid var(--text); border-radius: 6px; }
+  [data-look="contrast"] :is(.card, .group, .steps li, .free, section.memo, .goal.exam, .ritem) { border: 2px solid var(--text); border-radius: 6px; }
+  [data-look="contrast"] .ritem { text-decoration: none; }
   [data-look="contrast"] :is(select, .tabs button, .actions button, .btn, .opts button, .peek, .dot, table.stats button,
     .toolbar button, .toolbar .switch, .toolbar select, .storyend .done, .listen, .say, .navclose, .print, .group .links a, .zoom button) {
     border-width: 2px; border-radius: 6px;

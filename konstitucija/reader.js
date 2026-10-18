@@ -98,7 +98,7 @@
       stopPlay();
       pages.forEach(x => x.classList.toggle('current', x === page));
       $$('a[data-story]').forEach(a => a.dataset.story === page.id ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
-      cur = page; st.last = page.id; save();
+      cur = page; st.last = page.id; st.lastT = page.dataset.title; save();   // lastT — для «Tęsti» на витрине
       pane.scrollTo({ top: 0, behavior: 'instant' });
       document.title = page.dataset.title + ' – ' + TITLE;
     }
