@@ -13292,6 +13292,7 @@ window.KONST = {
  },
  "exam": [
   {
+   "id": "32e46118",
    "sk": 1,
    "art": "0",
    "artsk": "",
@@ -13309,6 +13310,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "c5b45550",
    "sk": 1,
    "art": "1",
    "artsk": "I",
@@ -13326,6 +13328,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "e6836e57",
    "sk": 1,
    "art": "2",
    "artsk": "I",
@@ -13343,6 +13346,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "3760fb7b",
    "sk": 1,
    "art": "4",
    "artsk": "I",
@@ -13360,6 +13364,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "8b2bb974",
    "sk": 1,
    "art": "5",
    "artsk": "I",
@@ -13377,6 +13382,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "bc2ef9a6",
    "sk": 1,
    "art": "5",
    "artsk": "I",
@@ -13394,6 +13400,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "72048d2e",
    "sk": 1,
    "art": "7",
    "artsk": "I",
@@ -13411,6 +13418,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "60db7e84",
    "sk": 1,
    "art": "9",
    "artsk": "I",
@@ -13428,6 +13436,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "bcf34f93",
    "sk": 1,
    "art": "10",
    "artsk": "I",
@@ -13445,6 +13454,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "33dbd2d0",
    "sk": 1,
    "art": "12",
    "artsk": "I",
@@ -13462,6 +13472,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "a470a2be",
    "sk": 1,
    "art": "14",
    "artsk": "I",
@@ -13479,6 +13490,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "2d48d4d5",
    "sk": 1,
    "art": "15",
    "artsk": "I",
@@ -13496,6 +13508,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "64d8fc26",
    "sk": 1,
    "art": "15",
    "artsk": "I",
@@ -13513,6 +13526,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "f51d9da7",
    "sk": 1,
    "art": "16",
    "artsk": "I",
@@ -13530,6 +13544,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "9930f1e6",
    "sk": 1,
    "art": "17",
    "artsk": "I",
@@ -13547,6 +13562,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "4b6ee5ae",
    "sk": 2,
    "art": "18",
    "artsk": "II",
@@ -13564,6 +13580,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "fc5fcc9f",
    "sk": 2,
    "art": "19",
    "artsk": "II",
@@ -13581,6 +13598,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "932255e8",
    "sk": 2,
    "art": "20",
    "artsk": "II",
@@ -13598,6 +13616,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "76e73537",
    "sk": 2,
    "art": "21",
    "artsk": "II",
@@ -13615,6 +13634,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "c1e3e98e",
    "sk": 2,
    "art": "24",
    "artsk": "II",
@@ -13632,6 +13652,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "de36f560",
    "sk": 2,
    "art": "26",
    "artsk": "II",
@@ -13649,6 +13670,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "357e032e",
    "sk": 2,
    "art": "29",
    "artsk": "II",
@@ -13666,6 +13688,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "d9f3c7f9",
    "sk": 2,
    "art": "30",
    "artsk": "II",
@@ -13683,6 +13706,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "562f0e0f",
    "sk": 2,
    "art": "31",
    "artsk": "II",
@@ -13700,6 +13724,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "2b728999",
    "sk": 2,
    "art": "31",
    "artsk": "II",
@@ -13717,6 +13742,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "e079ee17",
    "sk": 2,
    "art": "31",
    "artsk": "II",
@@ -13734,6 +13760,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "fce1c0b6",
    "sk": 2,
    "art": "32",
    "artsk": "II",
@@ -13751,6 +13778,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "f5b51875",
    "sk": 2,
    "art": "33",
    "artsk": "II",
@@ -13768,6 +13796,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "d5c3c04f",
    "sk": 2,
    "art": "34",
    "artsk": "II",
@@ -13785,6 +13814,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "3228a6ac",
    "sk": 2,
    "art": "35",
    "artsk": "II",
@@ -13802,6 +13832,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "5621ab11",
    "sk": 2,
    "art": "36",
    "artsk": "II",
@@ -13819,6 +13850,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "c04f1683",
    "sk": 3,
    "art": "38",
    "artsk": "III",
@@ -13836,6 +13868,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "79aaf474",
    "sk": 3,
    "art": "38",
    "artsk": "III",
@@ -13853,6 +13886,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "7df49364",
    "sk": 3,
    "art": "38",
    "artsk": "III",
@@ -13870,6 +13904,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "1c64e904",
    "sk": 3,
    "art": "40",
    "artsk": "III",
@@ -13887,6 +13922,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "e2f2dabb",
    "sk": 3,
    "art": "41",
    "artsk": "III",
@@ -13904,6 +13940,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "bd843fae",
    "sk": 3,
    "art": "41",
    "artsk": "III",
@@ -13921,6 +13958,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "dc9f0cc7",
    "sk": 3,
    "art": "43",
    "artsk": "III",
@@ -13938,6 +13976,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "4a69a51c",
    "sk": 3,
    "art": "44",
    "artsk": "III",
@@ -13955,6 +13994,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "875fae31",
    "sk": 3,
    "art": "45",
    "artsk": "III",
@@ -13972,6 +14012,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "3e3c1e33",
    "sk": 4,
    "art": "46",
    "artsk": "IV",
@@ -13989,6 +14030,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "2fd090af",
    "sk": 4,
    "art": "46",
    "artsk": "IV",
@@ -14006,6 +14048,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "77de0c05",
    "sk": 4,
    "art": "47",
    "artsk": "IV",
@@ -14023,6 +14066,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "65c3b887",
    "sk": 4,
    "art": "48",
    "artsk": "IV",
@@ -14040,6 +14084,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "ef426f3b",
    "sk": 4,
    "art": "49",
    "artsk": "IV",
@@ -14057,6 +14102,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "794edfd2",
    "sk": 4,
    "art": "50",
    "artsk": "IV",
@@ -14074,6 +14120,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "94cbaf9f",
    "sk": 4,
    "art": "51",
    "artsk": "IV",
@@ -14091,6 +14138,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "aec8de63",
    "sk": 4,
    "art": "52",
    "artsk": "IV",
@@ -14108,6 +14156,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "866d4f34",
    "sk": 4,
    "art": "53",
    "artsk": "IV",
@@ -14125,6 +14174,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "465c9345",
    "sk": 5,
    "art": "55",
    "artsk": "V",
@@ -14142,6 +14192,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "8ce402db",
    "sk": 5,
    "art": "55",
    "artsk": "V",
@@ -14159,6 +14210,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "a2b79257",
    "sk": 5,
    "art": "55",
    "artsk": "V",
@@ -14176,6 +14228,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "1ff02926",
    "sk": 5,
    "art": "56",
    "artsk": "V",
@@ -14193,6 +14246,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "9bb2808e",
    "sk": 5,
    "art": "57",
    "artsk": "V",
@@ -14210,6 +14264,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "4dda648d",
    "sk": 5,
    "art": "64",
    "artsk": "V",
@@ -14227,6 +14282,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "fca9ef00",
    "sk": 5,
    "art": "64",
    "artsk": "V",
@@ -14244,6 +14300,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "4a96088b",
    "sk": 5,
    "art": "66",
    "artsk": "V",
@@ -14261,6 +14318,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "82b0ff85",
    "sk": 5,
    "art": "67",
    "artsk": "V",
@@ -14278,6 +14336,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "fb6ade67",
    "sk": 5,
    "art": "67",
    "artsk": "V",
@@ -14295,6 +14354,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "e100bfce",
    "sk": 5,
    "art": "68",
    "artsk": "V",
@@ -14312,6 +14372,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "152d606c",
    "sk": 5,
    "art": "69",
    "artsk": "V",
@@ -14329,6 +14390,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "d2b7f8da",
    "sk": 5,
    "art": "62",
    "artsk": "V",
@@ -14346,6 +14408,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "466c9100",
    "sk": 5,
    "art": "73",
    "artsk": "V",
@@ -14363,6 +14426,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "cb67cc9a",
    "sk": 6,
    "art": "77",
    "artsk": "VI",
@@ -14380,6 +14444,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "accd5d5e",
    "sk": 6,
    "art": "78",
    "artsk": "VI",
@@ -14397,6 +14462,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "8b993e22",
    "sk": 6,
    "art": "78",
    "artsk": "VI",
@@ -14414,6 +14480,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "3c9fdf98",
    "sk": 6,
    "art": "78",
    "artsk": "VI",
@@ -14431,6 +14498,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "ee6d3e0c",
    "sk": 6,
    "art": "78",
    "artsk": "VI",
@@ -14448,6 +14516,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "6462e10d",
    "sk": 6,
    "art": "79",
    "artsk": "VI",
@@ -14465,6 +14534,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "53108768",
    "sk": 6,
    "art": "82",
    "artsk": "VI",
@@ -14482,6 +14552,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "883a46b9",
    "sk": 6,
    "art": "84",
    "artsk": "VI",
@@ -14499,6 +14570,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "ff5fba0d",
    "sk": 6,
    "art": "84",
    "artsk": "VI",
@@ -14516,6 +14588,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "5a657d56",
    "sk": 6,
    "art": "84",
    "artsk": "VI",
@@ -14533,6 +14606,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "b5366d44",
    "sk": 6,
    "art": "89",
    "artsk": "VI",
@@ -14550,6 +14624,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "bc9d3e99",
    "sk": 7,
    "art": "91",
    "artsk": "VII",
@@ -14567,6 +14642,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "ad959c05",
    "sk": 7,
    "art": "92",
    "artsk": "VII",
@@ -14584,6 +14660,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "e73798d5",
    "sk": 7,
    "art": "92",
    "artsk": "VII",
@@ -14601,6 +14678,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "4864bbc3",
    "sk": 7,
    "art": "92",
    "artsk": "VII",
@@ -14618,6 +14696,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "1b56e97d",
    "sk": 7,
    "art": "94",
    "artsk": "VII",
@@ -14635,6 +14714,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "ec6c3426",
    "sk": 7,
    "art": "96",
    "artsk": "VII",
@@ -14652,6 +14732,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "0c547082",
    "sk": 7,
    "art": "98",
    "artsk": "VII",
@@ -14669,6 +14750,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "c8b54e5c",
    "sk": 7,
    "art": "101",
    "artsk": "VII",
@@ -14686,6 +14768,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "eb818c19",
    "sk": 8,
    "art": "102",
    "artsk": "VIII",
@@ -14703,6 +14786,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "96cc2604",
    "sk": 8,
    "art": "103",
    "artsk": "VIII",
@@ -14720,6 +14804,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "fdf0cb8d",
    "sk": 8,
    "art": "103",
    "artsk": "VIII",
@@ -14737,6 +14822,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "a481da7f",
    "sk": 8,
    "art": "103",
    "artsk": "VIII",
@@ -14754,6 +14840,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "0556c4c5",
    "sk": 8,
    "art": "103",
    "artsk": "VIII",
@@ -14771,6 +14858,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "a4a24c35",
    "sk": 8,
    "art": "106",
    "artsk": "VIII",
@@ -14788,6 +14876,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "ff80c659",
    "sk": 8,
    "art": "107",
    "artsk": "VIII",
@@ -14805,6 +14894,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "a61ea3c0",
    "sk": 9,
    "art": "109",
    "artsk": "IX",
@@ -14822,6 +14912,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "3251595d",
    "sk": 9,
    "art": "109",
    "artsk": "IX",
@@ -14839,6 +14930,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "51fe9d39",
    "sk": 9,
    "art": "111",
    "artsk": "IX",
@@ -14856,6 +14948,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "983488f1",
    "sk": 9,
    "art": "112",
    "artsk": "IX",
@@ -14873,6 +14966,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "887b04de",
    "sk": 9,
    "art": "113",
    "artsk": "IX",
@@ -14890,6 +14984,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "467b05ec",
    "sk": 9,
    "art": "117",
    "artsk": "IX",
@@ -14907,6 +15002,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "bcd6436b",
    "sk": 9,
    "art": "118",
    "artsk": "IX",
@@ -14924,6 +15020,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "74c4509a",
    "sk": 10,
    "art": "119",
    "artsk": "X",
@@ -14941,6 +15038,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "e2730bce",
    "sk": 10,
    "art": "119",
    "artsk": "X",
@@ -14958,6 +15056,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "104a993e",
    "sk": 10,
    "art": "119",
    "artsk": "X",
@@ -14975,6 +15074,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "a2014a23",
    "sk": 10,
    "art": "119",
    "artsk": "X",
@@ -14992,6 +15092,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "4d0aba81",
    "sk": 10,
    "art": "121",
    "artsk": "X",
@@ -15009,6 +15110,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "07a0fec0",
    "sk": 10,
    "art": "123",
    "artsk": "X",
@@ -15026,6 +15128,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "8c4540fa",
    "sk": 11,
    "art": "125",
    "artsk": "XI",
@@ -15043,6 +15146,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "7c954684",
    "sk": 11,
    "art": "126",
    "artsk": "XI",
@@ -15060,6 +15164,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "0049f0cc",
    "sk": 11,
    "art": "127",
    "artsk": "XI",
@@ -15077,6 +15182,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "77efaa73",
    "sk": 11,
    "art": "129",
    "artsk": "XI",
@@ -15094,6 +15200,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "57791669",
    "sk": 11,
    "art": "130",
    "artsk": "XI",
@@ -15111,6 +15218,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "f002aa98",
    "sk": 11,
    "art": "132",
    "artsk": "XI",
@@ -15128,6 +15236,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "e91df983",
    "sk": 12,
    "art": "134",
    "artsk": "XII",
@@ -15145,6 +15254,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "0db611de",
    "sk": 12,
    "art": "133",
    "artsk": "XII",
@@ -15162,6 +15272,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "5d76cd69",
    "sk": 12,
    "art": "133",
    "artsk": "XII",
@@ -15179,6 +15290,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "9f9bb3b5",
    "sk": 13,
    "art": "135",
    "artsk": "XIII",
@@ -15196,6 +15308,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "466d5f48",
    "sk": 13,
    "art": "137",
    "artsk": "XIII",
@@ -15213,6 +15326,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "a600bca4",
    "sk": 13,
    "art": "138",
    "artsk": "XIII",
@@ -15230,6 +15344,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "d02a2886",
    "sk": 13,
    "art": "139",
    "artsk": "XIII",
@@ -15247,6 +15362,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "7048012b",
    "sk": 13,
    "art": "140",
    "artsk": "XIII",
@@ -15264,6 +15380,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "8fff86e1",
    "sk": 13,
    "art": "140",
    "artsk": "XIII",
@@ -15281,6 +15398,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "fa39c641",
    "sk": 13,
    "art": "142",
    "artsk": "XIII",
@@ -15298,6 +15416,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "51d491d0",
    "sk": 13,
    "art": "144",
    "artsk": "XIII",
@@ -15315,6 +15434,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "e469dd8f",
    "sk": 14,
    "art": "147",
    "artsk": "XIV",
@@ -15332,6 +15452,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "7826558a",
    "sk": 14,
    "art": "147",
    "artsk": "XIV",
@@ -15349,6 +15470,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "9d2128da",
    "sk": 14,
    "art": "148",
    "artsk": "XIV",
@@ -15366,6 +15488,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "0268678d",
    "sk": 14,
    "art": "148",
    "artsk": "XIV",
@@ -15383,6 +15506,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "a9d64029",
    "sk": 14,
    "art": "148",
    "artsk": "XIV",
@@ -15400,6 +15524,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "eb82578a",
    "sk": 14,
    "art": "148",
    "artsk": "XIV",
@@ -15417,6 +15542,7 @@ window.KONST = {
    ]
   },
   {
+   "id": "c11f7f54",
    "sk": 14,
    "art": "150",
    "artsk": "XIV",

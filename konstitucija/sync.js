@@ -45,19 +45,21 @@
 
   // ---------- документ прогресса и слияние ----------
   function localDoc() {
-    const d = { v: 1, terms: read('konst.terms.v1') || {}, exam: read('konst.exam.v1') || [], marks: {} };
+    const d = { v: 1, terms: read('konst.terms.v1') || {}, exam: read('konst.exam.v1') || [], examq: read('konst.examq.v1') || {},
+                marks: {} };
     for (const k of READERS) { const s = read(k) || {}; d.marks[k] = { done: s.done || {}, dt: s.dt || {} }; }
     return d;
   }
   function applyDoc(d) {
     write('konst.terms.v1', d.terms);
     write('konst.exam.v1', d.exam);
+    write('konst.examq.v1', d.examq || {});
     for (const k of READERS) {                                     // в чтении — только отметки, остальное (перевод, место) своё
       const s = read(k) || {}, m = d.marks[k] || { done: {}, dt: {} };
       s.done = m.done; s.dt = m.dt; write(k, s);
     }
   }
-  function mergeTerms(a = {}, b = {}) {
+  function mergeTerms(a = {}, b = {}) {                            // и журнал экзамена по вопросам — те же записи с t
     const reset = Math.max(a._reset || 0, b._reset || 0), out = reset ? { _reset: reset } : {};
     const score = r => r ? [r.t || 0, (r.right || 0) + (r.wrong || 0)] : [-1, -1];
     for (const k of new Set([...Object.keys(a), ...Object.keys(b)])) {
@@ -86,7 +88,7 @@
   function merge(a, b) {
     const marks = {};
     for (const k of READERS) marks[k] = mergeMarks((a.marks || {})[k], (b.marks || {})[k]);
-    return { v: 1, terms: mergeTerms(a.terms, b.terms), exam: mergeExam(a.exam, b.exam), marks };
+    return { v: 1, terms: mergeTerms(a.terms, b.terms), exam: mergeExam(a.exam, b.exam), examq: mergeTerms(a.examq, b.examq), marks };
   }
   const canon = v => Array.isArray(v) ? '[' + v.map(canon).join(',') + ']'      // JSON с ключами по алфавиту — для сравнения
     : v && typeof v === 'object' ? '{' + Object.keys(v).sort().map(k => JSON.stringify(k) + ':' + canon(v[k])).join(',') + '}'

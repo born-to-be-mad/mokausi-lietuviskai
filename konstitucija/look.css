@@ -140,6 +140,8 @@ a.artlink:hover { color: var(--accent); text-decoration-style: solid; }
   [data-look="kids"] :is(.row .ru, .optru, .qru, .exru, .page h2 .ru) { font-style: normal; font-weight: 600; }
   [data-look="kids"] .looksw { border-width: 2px; }
   [data-look="kids"] .lookhint { border-width: 2px; border-radius: 18px; font-weight: 500; }
+  [data-look="kids"] .readysk .bar { height: 12px; border-radius: 6px; }
+  [data-look="kids"] .ready.yes { border-width: 2px; }
 
   /* тренажёр и экзамен */
   [data-look="kids"] .card { border-width: 2px; border-radius: 22px; }
@@ -290,6 +292,9 @@ a.artlink:hover { color: var(--accent); text-decoration-style: solid; }
   [data-look="contrast"] .looksel { border: 2px solid var(--text); }
   [data-look="contrast"] .lookhint { border: 2px solid var(--text); box-shadow: none; font-size: .95rem; }
   [data-look="contrast"] .lookhint .lh-ru { color: var(--text); }
+  [data-look="contrast"] .readysk .bar { border: 1px solid var(--text); height: 12px; }
+  [data-look="contrast"] :is(.readysk .learn, .sw.learn) { background: repeating-linear-gradient(45deg, var(--text) 0 2px, transparent 2px 5px); }
+  [data-look="contrast"] .sw { outline: 1px solid var(--text); }
   /* переводы с меткой «RU» (не только цветом) */
   [data-look="contrast"] :is(.row .ru, .optru, .qru, .exru)::before {
     content: "RU"; content: "RU" / ""; display: inline-block; margin-right: .5em; padding: 0 .3em; border: 2px solid var(--text);

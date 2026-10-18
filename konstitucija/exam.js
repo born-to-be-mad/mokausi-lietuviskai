@@ -3,11 +3,12 @@
 // по нулю — итог, как на настоящем экзамене: инструкция NŠA VK-395) и «Treniruotė» (проверка сразу, время идёт вперёд).
 // Перевод: в тренировке вопрос и каждый вариант можно подсмотреть кнопкой RU (подсказки считаются), после ответа
 // переведено всё; в экзамене перевода нет — он в разборе в конце, как на настоящем экзамене.
-// Банк — window.KONST.exam (data/egzaminas.tsv → scripts/web.py); история попыток — localStorage.
+// Банк — window.KONST.exam (data/egzaminas.tsv → scripts/web.py); история попыток и журнал по вопросам — localStorage.
+// «Pasirengimas» на старте: все вопросы банка встречались, слабых нет, 3 последних экзамена сданы; по главам — полоски.
 (() => {
   'use strict';
   const D = window.KONST, S = window.Speak, app = document.getElementById('app');
-  const N = 20, PASS = 14, HIST = 'konst.exam.v1';
+  const N = 20, PASS = 14, HIST = 'konst.exam.v1', JOURNAL = 'konst.examq.v1', KNOWN = 2;
   const LIMIT = 45 * 60, WARN = 15 * 60;                  // экзамен: 45 минут, предупреждение — когда осталось 15
   const read = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) || d; } catch { return d; } };
   const write = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* приватный режим */ } };
@@ -30,17 +31,39 @@
   }
   const sayBtn = text => (S && S.available() ? S.button(text) : null);
 
-  // 20 вопросов: по одному из каждой главы, остальные — случайно из всего банка; порядок — по главам
-  function pick() {
-    const bank = shuffle(D.exam.map((q, i) => Object.assign({ id: i }, q)));
+  // журнал по вопросам (id — из текста вопроса): right / wrong — сколько раз, s — верно подряд без подсказки перевода,
+  // w — последний ответ неверный, t — когда (для синхронизации, sync.js). Вопрос новый, слабый (w), выучен (s ≥ KNOWN) или изучается
+  const journal = () => read(JOURNAL, {});
+  const state = r => !r ? 'new' : r.w ? 'weak' : (r.s || 0) >= KNOWN ? 'known' : 'learn';
+  const RANK = { new: 0, weak: 1, learn: 2, known: 3 };
+  function record(items) {                                            // [{ q, ok, hint }]
+    const j = journal();
+    for (const { q, ok, hint } of items) {
+      const r = Object.assign({ right: 0, wrong: 0, s: 0 }, j[q.id]);
+      if (ok) { r.right++; r.w = false; if (!hint) r.s++; } else { r.wrong++; r.w = true; r.s = 0; }
+      r.t = Date.now(); j[q.id] = r;
+    }
+    write(JOURNAL, j);
+  }
+  const hinted = i => Object.keys(ex.peek).some(k => k.split(':')[0] === String(i));
+  const prep = qs => qs.sort((a, b) => a.sk - b.sk).map(q => Object.assign(q, { order: shuffle([0, 1, 2]) }));   // 0 — верный вариант
+  // «Silpnos vietos»: сначала слабые, потом изучаемые — до 20
+  const weakOnes = () => { const j = journal(); return shuffle(D.exam).map(q => [RANK[state(j[q.id])], q])
+    .filter(([r]) => r === 1 || r === 2).sort((a, b) => a[0] - b[0]).slice(0, N).map(([, q]) => Object.assign({}, q)); };
+
+  // 20 вопросов: по одному из каждой главы, остальные — из всего банка; порядок — по главам. В экзамене — случайно
+  // (честная мера готовности); в тренировке — сначала новые, потом слабые, изучаемые и выученные (внутри — случайно)
+  function pick(mode) {
+    const j = journal();
+    let bank = shuffle(D.exam.map(q => Object.assign({}, q)));
+    if (mode === 'practice') bank = bank.map(q => [RANK[state(j[q.id])], q]).sort((a, b) => a[0] - b[0]).map(([, q]) => q);
     const chosen = [], used = new Set();
     for (const c of D.chapters) {
       const q = bank.find(x => x.sk === c.no && !used.has(x.id));
       if (q) { chosen.push(q); used.add(q.id); }
     }
     for (const q of bank) { if (chosen.length >= N) break; if (!used.has(q.id)) { chosen.push(q); used.add(q.id); } }
-    return chosen.sort((a, b) => a.sk - b.sk)
-      .map(q => Object.assign(q, { order: shuffle([0, 1, 2]) }));   // 0 — верный вариант
+    return prep(chosen);
   }
 
   let ex = null, timer = null, keyHandler = null;
@@ -50,8 +73,10 @@
   const clockText = () => fmt(timed() ? left() : spent());
   const clockWarn = () => timed() && left() <= WARN;
 
-  function start(mode, questions) {
-    ex = { mode, qs: questions || pick(), ans: {}, i: 0, t0: Date.now(), done: false, peek: {} };   // peek: «вопрос:строка» → true
+  // questions — свой набор («Silpnos vietos», «Kartoti klaidas»): без вердикта «сдано» и не в истории попыток
+  function start(mode, questions, label) {
+    ex = { mode, qs: questions ? prep(questions) : pick(mode), custom: !!questions, label, ans: {}, i: 0, t0: Date.now(), done: false,
+           peek: {} };                                                // peek: «вопрос:строка» → true
     clearInterval(timer);
     timer = setInterval(() => {
       if (timed() && left() === 0) { ex.timeout = true; finish(); return; }   // время вышло — итог
@@ -92,6 +117,7 @@
     function choose(k) {
       if (checked) return;
       ex.ans[ex.i] = k;
+      if (practice) record([{ q, ok: q.order[k] === 0, hint: hinted(ex.i) }]);   // в тренировке — сразу, в экзамене — в итоге
       if (!practice && ex.i < ex.qs.length - 1) { ex.i++; }
       show();
     }
@@ -130,7 +156,7 @@
     };
     app.replaceChildren(...[
       el('div', { class: 'examhead' },
-        el('span', {}, `${practice ? 'Treniruotė' : 'Egzaminas'} · ${ex.i + 1} / ${ex.qs.length}`),
+        el('span', {}, `${ex.label || (practice ? 'Treniruotė' : 'Egzaminas')} · ${ex.i + 1} / ${ex.qs.length}`),
         el('span', { class: 'tools' }, window.Look ? window.Look.zoomButtons() : null,      // размер текста
           el('span', { class: 'ru clockbox' + (clockWarn() ? ' warn' : ''), role: 'timer',
             title: timed() ? 'Liko laiko (осталось времени), iš viso 45 min.' : 'Laikas (время)' },
@@ -151,16 +177,21 @@
     const secs = timed() ? Math.min(spent(), LIMIT) : spent();
     const right = ex.qs.filter((q, i) => ex.ans[i] !== undefined && q.order[ex.ans[i]] === 0).length;
     const passed = right >= PASS;
-    const hist = read(HIST, []);
-    hist.unshift({ d: new Date().toISOString().slice(0, 16).replace('T', ' '), right, n: ex.qs.length, passed, secs, mode: ex.mode,
-                   hints: hints() });
-    write(HIST, hist.slice(0, 20));
+    if (ex.mode === 'exam') record(ex.qs.map((q, i) => ({ q, a: ex.ans[i] })).filter(x => x.a !== undefined)   // без ответа — не в журнал
+      .map(({ q, a }) => ({ q, ok: q.order[a] === 0, hint: false })));
+    if (!ex.custom) {
+      const hist = read(HIST, []);
+      hist.unshift({ d: new Date().toISOString().slice(0, 16).replace('T', ' '), right, n: ex.qs.length, passed, secs, mode: ex.mode,
+                     hints: hints() });
+      write(HIST, hist.slice(0, 20));
+    }
     const wrong = ex.qs.map((q, i) => ({ q, a: ex.ans[i] })).filter(x => x.a === undefined || x.q.order[x.a] !== 0);
     app.replaceChildren(...[
-      el('div', { class: 'card result ' + (passed ? 'pass' : 'fail') },
+      el('div', { class: 'card result ' + (ex.custom ? '' : passed ? 'pass' : 'fail') },
         el('p', { class: 'big' }, `${right} / ${ex.qs.length}`),
         ex.timeout ? el('p', { class: 'summary' }, 'Laikas baigėsi (время вышло) — neatsakyti klausimai neįskaityti.') : null,
-        el('p', { class: 'summary' }, passed ? 'Išlaikyta! (сдано)' : `Neišlaikyta (не сдано) — reikia ne mažiau kaip ${PASS}`),
+        el('p', { class: 'summary' }, ex.custom ? `${ex.label}: teisingai ${right} iš ${ex.qs.length} (верно)`
+          : passed ? 'Išlaikyta! (сдано)' : `Neišlaikyta (не сдано) — reikia ne mažiau kaip ${PASS}`),
         el('p', { class: 'ru' }, `Laikas (время): ${fmt(secs)}`
           + (ex.mode === 'practice' ? ` · vertimo užuominos (подсказки перевода): ${hints()}` : ''))),
       byChapter(),
@@ -171,7 +202,7 @@
         el('summary', {}, 'Visi klausimai su vertimu (все вопросы с переводом)'),
         el('ol', { class: 'review' }, ex.qs.map((q, i) => reviewItem(q, ex.ans[i])))),
       el('div', { class: 'actions' },
-        wrong.length ? el('button', { on: { click: () => start('practice', wrong.map(x => Object.assign({}, x.q, { order: shuffle([0, 1, 2]) }))) } },
+        wrong.length ? el('button', { on: { click: () => start('practice', wrong.map(x => Object.assign({}, x.q)), 'Klaidų kartojimas') } },
           'Kartoti klaidas (повторить ошибки)') : null,
         el('button', { class: 'primary', on: { click: home } }, 'Į pradžią (в начало)'))].filter(Boolean));
   }
@@ -211,10 +242,68 @@
       el('div', { class: 'good' }, '✓ ', q.opts[0], tr(0), ' ', el('span', { class: 'art' }, cite(q))));
   }
 
+  // готовность: по журналу и истории попыток. Честно и проверяемо — три условия, без «вероятности сдать»
+  function readiness() {
+    const j = journal(), hist = read(HIST, []), total = D.exam.length;
+    const by = D.chapters.map(c => ({ c, all: 0, new: 0, weak: 0, learn: 0, known: 0 }));
+    for (const q of D.exam) { const b = by.find(x => x.c.no === q.sk); b.all++; b[state(j[q.id])]++; }
+    const sum = k => by.reduce((n, b) => n + b[k], 0);
+    const seen = total - sum('new'), weak = sum('weak'), learn = sum('learn');
+    const exams = hist.filter(h => h.mode === 'exam' && h.n === N).slice(0, 3), passed = exams.filter(h => h.passed).length;
+    return { by, total, seen, weak, learn, exams, passed, ready: seen === total && !weak && passed === 3 };
+  }
+  function readyCard(r) {
+    const check = (ok, lt, ru) => el('li', { class: ok ? 'ok' : '' },
+      el('span', { class: 'mk', role: 'img', 'aria-label': ok ? 'įvykdyta (выполнено)' : 'dar ne (ещё нет)' }, ok ? '✓' : '○'),
+      el('span', {}, lt, el('span', { class: 'ru' }, ru)));
+    const fresh = !r.seen && !r.exams.length;
+    const next = r.ready ? 'Чтобы не забыть, раз в несколько дней сдавайте пробный экзамен.'
+      : r.seen < r.total ? `Тренировка даёт сначала новые вопросы: ещё ${Math.ceil((r.total - r.seen) / N)} — и вы увидите весь банк.`
+      : r.weak ? 'Повторите слабые места — кнопка «Silpnos vietos» ниже.'
+      : 'Сдайте пробный экзамен на время, три раза подряд.';
+    return el('div', { class: 'card ready' + (r.ready ? ' yes' : '') },
+      el('p', { class: 'summary' }, 'Pasirengimas egzaminui ', el('span', { class: 'ru' }, '(готовность к экзамену)')),
+      el('p', { class: 'verdict' }, r.ready ? 'Atrodo, esate pasirengę! ' : fresh ? 'Dar nėra atsakymų. ' : 'Dar ne visai. ',
+        el('span', { class: 'ru' }, r.ready ? '(похоже, вы готовы)' : fresh ? '(ответов пока нет)' : '(пока не совсем)')),
+      el('ul', { class: 'checks' },
+        check(r.seen === r.total, `Išbandyti visi klausimai: ${r.seen} iš ${r.total}`, 'все вопросы банка встречались хотя бы раз'),
+        check(r.seen > 0 && !r.weak, !r.seen ? 'Silpni klausimai: —' : r.weak ? `Silpnų klausimų: ${r.weak}` : 'Silpnų klausimų nėra',
+          'слабый — последний ответ на него неверный'),
+        check(r.passed === 3, `Išlaikyti 3 paskutiniai egzaminai: ${r.passed} iš 3`
+          + (r.exams.length ? ` (${r.exams.map(h => h.right).join(', ')})` : ''), `режим «Egzaminas», 45 минут; сдано — от ${PASS} из ${N}`)),
+      el('p', { class: 'ru next' }, next));
+  }
+  function chaptersCard(r) {
+    const seg = (b, k) => b[k] ? el('span', { class: k, style: `width:${(100 * b[k] / b.all).toFixed(1)}%` }) : null;
+    return el('details', { class: 'card readysk-card', open: r.seen ? '' : null },
+      el('summary', {}, 'Pagal skyrius ', el('span', { class: 'ru' }, '(по главам)')),
+      el('ul', { class: 'readysk' }, r.by.map(b => el('li', {},
+        el('span', { class: 'nm' }, `${b.c.roman}. ${b.c.lt}`),
+        el('span', { class: 'bar', role: 'img', 'aria-label': `Išmokta ${b.known}, mokomasi ${b.learn}, silpni ${b.weak}, nauji ${b.new} iš ${b.all}` },
+          seg(b, 'known'), seg(b, 'learn'), seg(b, 'weak')),
+        el('span', { class: 'sc' }, `${b.known} / ${b.all}`, b.weak ? el('span', { class: 'wk' }, ` · ✗ ${b.weak}`) : null)))),
+      el('p', { class: 'legend' }, ...[['known', 'išmokta', 'выучено'], ['learn', 'mokomasi', 'учу'], ['weak', 'silpni', 'слабые'],
+        ['new', 'nauji', 'новые']].map(([k, lt, ru]) => el('span', {}, el('i', { class: 'sw ' + k, 'aria-hidden': 'true' }), lt, ' ',
+        el('span', { class: 'ru' }, ru)))),
+      el('p', { class: 'ru' }, `Выучено — два верных ответа подряд без подсказки перевода. Готовность — по нашему банку из ${r.total} `
+        + 'вопросов: на настоящем экзамене формулировки другие, а темы — те же.'),
+      r.seen ? el('button', { class: 'linkish', type: 'button', on: { click: () => {
+        if (confirm('Išvalyti klausimų statistiką? Bandymų istorija liks.\n(Сбросить статистику по вопросам? История попыток останется.)')) {
+          write(JOURNAL, { _reset: Date.now() }); home();                // _reset — чтобы сброс дошёл и до других устройств (sync.js)
+        } } } }, 'Išvalyti statistiką ', el('span', { class: 'ru' }, '(сбросить статистику вопросов)')) : null);
+  }
+
   function home() {
     clearInterval(timer); keyHandler = null;
-    const hist = read(HIST, []);
+    const hist = read(HIST, []), r = readiness(), weak = weakOnes();
     app.replaceChildren(...[
+      readyCard(r),
+      el('div', { class: 'actions exam-start' },
+        el('button', { class: 'primary', on: { click: () => start('exam') } }, 'Egzaminas (экзамен)'),
+        el('button', { on: { click: () => start('practice') } }, 'Treniruotė (с проверкой сразу)'),
+        weak.length ? el('button', { on: { click: () => start('practice', weakOnes(), 'Silpnos vietos') } },
+          `Silpnos vietos (слабые места) · ${weak.length}`) : null),
+      chaptersCard(r),
       el('div', { class: 'card' },
         el('p', {}, `${N} klausimų lietuvių kalba, po 3 atsakymų variantus; išlaikyta, jei teisingai atsakyta į ne mažiau kaip ${PASS}.`),
         el('p', { class: 'ru' }, `${N} вопросов на литовском, по 3 варианта ответа; экзамен сдан, если верно не меньше ${PASS}. `
@@ -224,10 +313,8 @@
           + `Здесь вопросы — по всем 14 главам (банк: ${D.exam.length}).`),
         el('p', { class: 'ru' }, 'Перевод. В тренировке перевод вопроса и любого варианта можно подсмотреть кнопкой RU '
           + '(вопрос — и клавишей T); подсказки считаются в результате. После ответа переведено всё. В экзамене перевода '
-          + 'нет, как на настоящем экзамене: он в разборе в конце.')),
-      el('div', { class: 'actions' },
-        el('button', { class: 'primary', on: { click: () => start('exam') } }, 'Egzaminas (экзамен)'),
-        el('button', { on: { click: () => start('practice') } }, 'Treniruotė (с проверкой сразу)')),
+          + 'нет, как на настоящем экзамене: он в разборе в конце.'),
+        el('p', { class: 'ru' }, 'Тренировка даёт сначала новые и слабые вопросы, экзамен — случайные, как на настоящем.')),
       (() => {                                                       // голос озвучки вопросов: Ona / Leonas
         const pick = S && S.available() ? S.voiceSelect() : null;
         return pick ? el('label', { class: 'voiceline' }, el('span', {}, 'Balsas ', el('span', { class: 'ru' }, '(голос)')), pick) : null;

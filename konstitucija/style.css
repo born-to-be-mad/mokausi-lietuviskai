@@ -98,6 +98,8 @@ select {
   background: var(--card); cursor: pointer; font-weight: 600; min-height: 48px;
 }
 .btn { width: 100%; }
+.actions.exam-start { flex-wrap: wrap; }                       /* старт экзамена: три кнопки — на телефоне третья ниже */
+.actions.exam-start button { flex: 1 1 220px; }
 .btn.primary, .actions .primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 .actions .no { border-color: var(--bad); color: var(--bad); }
 .actions .yes { border-color: var(--good); color: var(--good); }
@@ -171,6 +173,33 @@ table.stats button { padding: 6px 10px; border-radius: 8px; border: 1px solid va
 .result .big { font-size: 2.6rem; font-weight: 700; margin: 4px 0; }
 .result.pass { border-color: var(--good); background: var(--good-bg); }
 .result.fail { border-color: var(--bad); background: var(--bad-bg); }
+/* готовность к экзамену (старт экзамена) */
+.ready .verdict { font-size: 1.15rem; font-weight: 700; margin: 2px 0 8px; }
+.ready.yes { border-color: var(--good); background: var(--good-bg); }
+.checks { list-style: none; margin: 0; padding: 0; }
+.checks li { display: flex; gap: 10px; align-items: baseline; padding: 4px 0; }
+.checks .mk { flex: none; width: 1.1em; font-weight: 700; color: var(--muted); }
+.checks .ok .mk { color: var(--good); }
+.checks .ru { display: block; font-size: .85rem; }
+.ready .next { margin: 8px 0 0; }
+.readysk-card summary { cursor: pointer; font-size: 1.1rem; }
+.readysk { list-style: none; margin: 10px 0 6px; padding: 0; }
+.readysk li { display: grid; grid-template-columns: minmax(0, 1fr) 38% auto; gap: 10px; align-items: center; padding: 5px 0; font-size: .92rem; }
+.readysk .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.readysk .bar { display: flex; height: 10px; border-radius: 5px; background: var(--line); overflow: hidden; }
+.readysk .sc { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--muted); font-size: .85rem; min-width: 5.5em; text-align: right; }
+.readysk .wk { color: var(--bad); font-weight: 700; }
+.readysk .known, .sw.known { background: var(--good); }
+.readysk .learn, .sw.learn { background: color-mix(in srgb, var(--accent) 55%, var(--line)); }
+.readysk .weak, .sw.weak { background: var(--bad); }
+.sw.new { background: var(--line); }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 6px 0; font-size: .85rem; }
+.legend .sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+button.linkish { border: 0; background: none; padding: 4px 0; color: var(--accent); text-decoration: underline; cursor: pointer; font: inherit; font-size: .9rem; }
+@media (max-width: 600px) {                                 /* телефон: название и счёт — строкой, полоска — под ними */
+  .readysk li { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'nm sc' 'bar bar'; gap: 4px 10px; padding: 6px 0; font-size: .88rem; }
+  .readysk .nm { grid-area: nm; white-space: normal; } .readysk .sc { grid-area: sc; min-width: 0; } .readysk .bar { grid-area: bar; }
+}
 /* итог экзамена по главам */
 .bysk { list-style: none; margin: 8px 0 0; padding: 0; }
 .bysk li { display: grid; grid-template-columns: 1.3em 1fr auto; gap: 2px 8px; align-items: baseline; padding: 8px 0; border-top: 1px solid var(--line); }
