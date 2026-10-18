@@ -60,7 +60,9 @@
     st.size = Math.max(-2, Math.min(3, st.size + Number(b.dataset.size))); save(); applySize();
   }));
   $$('.done input[data-story]').forEach(c => c.addEventListener('change', () => {
-    st.done[c.dataset.story] = c.checked; save(); applyDone();
+    st.done[c.dataset.story] = c.checked;
+    (st.dt = st.dt || {})[c.dataset.story] = Date.now();      // когда отмечено — для синхронизации (sync.js)
+    save(); applyDone();
   }));
   // перевод выключен: щелчок / Enter по предложению показывает (и снова прячет) его перевод
   document.addEventListener('click', e => {

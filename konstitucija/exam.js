@@ -79,7 +79,7 @@
       title: 'Rodyti vertimą (показать перевод — считается подсказкой)', 'aria-label': 'Rodyti vertimą (показать перевод)',
       on: { click: () => peek(key) } }, 'RU') : null;
     const opts = q.order.map((o, k) => {
-      // буква варианта (.ol: «a)» / в виде «Vaikams» — кружок); после проверки перед ней ✓ у верного и ✗ у выбранного неверного
+      // буква варианта (.ol: «a)» / в виде «Spalvota» — кружок); после проверки перед ней ✓ у верного и ✗ у выбранного неверного
       const mark = checked ? (o === 0 ? '✓' : a === k ? '✗' : null) : null;
       const b = el('button', { class: 'abc', on: { click: () => choose(k) } },
         mark ? el('span', { class: 'mark', 'aria-hidden': 'true' }, mark) : null,

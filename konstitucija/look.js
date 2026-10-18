@@ -1,6 +1,6 @@
-// Вид сайта: «Įprasta» (по умолчанию), «Vaikams» (для детей) или «Kontrastas» (высокий контраст) — html[data-look],
+// Вид сайта: «Įprasta» (по умолчанию), «Spalvota» (цветной; id kids) или «Kontrastas» (высокий контраст) — html[data-look],
 // стили в look.css. Подключается в <head> без defer: вид применяется до отрисовки, без мигания. Переключатель — в шапке,
-// справа от заголовка (на телефоне — выпадающий список); выбор хранится в localStorage этого браузера (общий для
+// справа от заголовка (на телефоне — выпадающий список; у кнопок — подсказка при наведении); выбор хранится в localStorage этого браузера (общий для
 // витрины и всех страниц раздела). Здесь же — ссылка «Pereiti prie turinio» для клавиатуры (первая в странице) и размер
 // текста A− / A+ для страниц, подключивших скрипт с data-zoom (тренажёр, экзамен): html --zoom, localStorage konst.zoom.
 // И резервная копия прогресса: кнопки [data-backup="save" | "load"] — файл со всеми записями konst.* этого браузера
@@ -25,7 +25,7 @@
     syncZoom();
   });
   // ---------- прогресс в файл и из файла ----------
-  const OWN = /^konst\./;                                         // только свои записи (на домене живут и другие сайты)
+  const OWN = /^konst\.(?!sync$)/;                                // свои записи (на домене живут и другие сайты); код синхронизации — нет
   const APP = 'mokausi-lietuviskai';
   function snapshot() {
     const data = {};
@@ -74,6 +74,7 @@
       + 'сохраните его в файл, чтобы не потерять или перенести на другое устройство (файл можно переслать себе).</span></p>'
       + '<div class="backup-btns"><button type="button" data-backup="save">Išsaugoti į failą <span class="ru">сохранить в файл</span></button>'
       + '<button type="button" data-backup="load">Įkelti iš failo <span class="ru">загрузить из файла</span></button></div>';
+    if (window.Sync) window.Sync.mount(box);                         // и синхронизация по коду (sync.js)
     return box;
   };
 
@@ -93,8 +94,14 @@
       return box;
     },
   };
-  const LOOKS = [['calm', 'Įprasta', 'обычный вид'], ['kids', 'Vaikams', 'для детей: крупнее и ярче'],
-                 ['contrast', 'Kontrastas', 'высокий контраст: крупнее, чётче, толстые рамки']];
+  // id (html[data-look], localStorage — не менять), название, перевод, что меняется (подсказка при наведении)
+  const LOOKS = [
+    ['calm', 'Įprasta', 'обычный вид', ['Спокойное чтение: шрифт с засечками Literata', 'Перевод курсивом, сдержанные цвета',
+      'Вид по умолчанию']],
+    ['kids', 'Spalvota', 'цветной вид', ['Округлый шрифт Nunito, текст крупнее', 'Мягкие цвета, у каждого сборника — свой',
+      'Значок у реплики — видно, кто говорит']],
+    ['contrast', 'Kontrastas', 'высокий контраст', ['Чёрное на белом (в тёмной теме — белое на чёрном)',
+      'Крупный чёткий шрифт без засечек, толстые рамки', 'Подчёркнутые ссылки, жёлтая рамка фокуса']]];
   let saved = null;
   try { saved = localStorage.getItem(KEY); } catch { /* приватный режим */ }
   root.dataset.look = LOOKS.some(([id]) => id === saved) ? saved : 'calm';
@@ -117,12 +124,30 @@
     box.className = 'looksw';
     box.setAttribute('role', 'group');
     box.setAttribute('aria-label', 'Išvaizda (оформление)');
-    const btns = LOOKS.map(([id, lt, ru]) => {
+    // подсказка «что меняет вид»: при наведении мышью и при фокусе с клавиатуры; на неё можно навести, Esc закрывает
+    let timer = 0;
+    const show = (i, delay) => { clearTimeout(timer); timer = setTimeout(() => hints.forEach((h, j) => { h.hidden = j !== i; }), delay); };
+    const hide = () => show(-1, 150);
+    const hints = LOOKS.map(([id, lt, ru, more]) => {
+      const h = document.createElement('div');
+      h.className = 'lookhint'; h.id = 'lookhint-' + id; h.setAttribute('role', 'tooltip'); h.hidden = true;
+      h.innerHTML = `<span class="lh-aa" data-s="${id}" aria-hidden="true">Aa</span><div><b>${lt}</b> <span class="lh-ru">— ${ru}</span>`
+        + `<ul>${more.map(m => `<li>${m}</li>`).join('')}</ul></div>`;
+      h.addEventListener('pointerenter', () => clearTimeout(timer));
+      h.addEventListener('pointerleave', hide);
+      return h;
+    });
+    const btns = LOOKS.map(([id, lt], i) => {
       const b = document.createElement('button');
-      b.type = 'button'; b.textContent = lt; b.title = `${lt} (${ru})`; b.dataset.lookSet = id;
+      b.type = 'button'; b.textContent = lt; b.dataset.lookSet = id; b.setAttribute('aria-describedby', 'lookhint-' + id);
       b.addEventListener('click', () => set(id));
+      b.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') show(i, hints.some(h => !h.hidden) ? 0 : 300); });
+      b.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') hide(); });
+      b.addEventListener('focus', () => { if (b.matches(':focus-visible')) show(i, 0); });
+      b.addEventListener('blur', hide);
       return b;
     });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') show(-1, 0); });
     const sel = document.createElement('select');
     sel.className = 'looksel';
     sel.setAttribute('aria-label', 'Išvaizda (оформление)');
@@ -138,7 +163,7 @@
       sync();
     }
     box.append(...btns);
-    wrap.append(box, sel);
+    wrap.append(box, sel, ...hints);
     host.insertBefore(wrap, host.querySelector('h1'));  // справа, на строке заголовка
     sync();
   }

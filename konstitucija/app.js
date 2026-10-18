@@ -30,6 +30,7 @@
     const r = Object.assign({}, rec(t));
     if (ok) { r.box = Math.min(5, r.box + 1); r.right++; } else { r.box = 1; r.wrong++; }
     r.due = Date.now() + INTERVAL[r.box];
+    r.t = Date.now();                                  // когда менялась — для синхронизации между устройствами (sync.js)
     progress[t.key] = r;
     write(STORE, progress);
   }
@@ -436,7 +437,7 @@
         el('table', { class: 'stats' }, el('tbody', {}, rows))),
       ...(window.Look ? [window.Look.backupBox()] : []),           // сохранить / загрузить прогресс файлом
       el('div', { class: 'actions' }, el('button', {
-        on: { click: () => { if (confirm('Ištrinti visą pažangą? (Удалить весь прогресс во всех наборах?)')) { progress = {}; write(STORE, progress); showProgress(); } } }
+        on: { click: () => { if (confirm('Ištrinti visą pažangą? (Удалить весь прогресс во всех наборах?)')) { progress = { _reset: Date.now() }; write(STORE, progress); showProgress(); } } }
       }, 'Pradėti iš naujo (сбросить прогресс)')));
   }
 
