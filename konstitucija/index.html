@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Konstitucijos žodžiai</title>
 <meta name="description" content="Тренажёр по Конституции Литвы (A2): термины, глаголы, прилагательные и ключевые факты — карточки, тест, прогресс. Lietuvos Konstitucijos žodžiai ir faktai.">
 <link rel="stylesheet" href="style.css">
@@ -45,11 +46,11 @@
       </select>
     </label>
   </div>
-  <nav class="tabs" role="tablist">
-    <button role="tab" data-mode="cards">Kortelės <span class="ru">карточки</span></button>
-    <button role="tab" data-mode="quiz">Testas <span class="ru">тест</span></button>
-    <button role="tab" data-mode="tasks">Užduotys <span class="ru">задания</span></button>
-    <button role="tab" data-mode="progress">Pažanga <span class="ru">прогресс</span></button>
+  <nav class="tabs" aria-label="Režimas (режим)">
+    <button type="button" data-mode="cards">Kortelės <span class="ru">карточки</span></button>
+    <button type="button" data-mode="quiz">Testas <span class="ru">тест</span></button>
+    <button type="button" data-mode="tasks">Užduotys <span class="ru">задания</span></button>
+    <button type="button" data-mode="progress">Pažanga <span class="ru">прогресс</span></button>
   </nav>
   <div class="meter" id="meter"></div>
   <p class="novoice" id="novoice" hidden>В этом браузере нет литовского голоса, поэтому кнопок озвучки нет. Браузеры на Mac литовский

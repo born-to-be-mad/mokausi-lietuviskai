@@ -132,7 +132,7 @@
       el('div', { class: 'examhead' },
         el('span', {}, `${practice ? 'Treniruotė' : 'Egzaminas'} · ${ex.i + 1} / ${ex.qs.length}`),
         el('span', { class: 'tools' }, window.Look ? window.Look.zoomButtons() : null,      // размер текста
-          el('span', { class: 'ru clockbox' + (clockWarn() ? ' warn' : ''),
+          el('span', { class: 'ru clockbox' + (clockWarn() ? ' warn' : ''), role: 'timer',
             title: timed() ? 'Liko laiko (осталось времени), iš viso 45 min.' : 'Laikas (время)' },
             '⏱ ', el('span', { id: 'clock' }, clockText())))),
       timed() ? el('p', { id: 'timenote', class: 'timenote', role: 'status' }, clockWarn() ? 'Liko 15 minučių (осталось 15 минут).' : '') : null,
@@ -163,6 +163,7 @@
         el('p', { class: 'summary' }, passed ? 'Išlaikyta! (сдано)' : `Neišlaikyta (не сдано) — reikia ne mažiau kaip ${PASS}`),
         el('p', { class: 'ru' }, `Laikas (время): ${fmt(secs)}`
           + (ex.mode === 'practice' ? ` · vertimo užuominos (подсказки перевода): ${hints()}` : ''))),
+      byChapter(),
       wrong.length ? el('div', { class: 'card' },
         el('p', { class: 'summary' }, `Klaidos (ошибки): ${wrong.length}`),
         el('ol', { class: 'review' }, wrong.map(({ q, a }) => reviewItem(q, a)))) : null,
@@ -173,6 +174,32 @@
         wrong.length ? el('button', { on: { click: () => start('practice', wrong.map(x => Object.assign({}, x.q, { order: shuffle([0, 1, 2]) }))) } },
           'Kartoti klaidas (повторить ошибки)') : null,
         el('button', { class: 'primary', on: { click: home } }, 'Į pradžią (в начало)'))].filter(Boolean));
+  }
+
+  // итог по главам: сколько верно в каждой главе этой попытки; у глав с ошибками — ссылки, что повторить
+  // (факты и слова главы в тренажёре, текст главы) — в новой вкладке, чтобы итог остался на экране
+  function byChapter() {
+    const by = new Map();
+    ex.qs.forEach((q, i) => {
+      const r = by.get(q.sk) || { n: 0, ok: 0 };
+      r.n++; if (ex.ans[i] !== undefined && q.order[ex.ans[i]] === 0) r.ok++;
+      by.set(q.sk, r);
+    });
+    const rows = [...by].sort((a, b) => a[0] - b[0]), weak = rows.filter(([, r]) => r.ok < r.n);
+    const go = (href, lt, ru) => el('a', { href, target: '_blank', rel: 'noopener' }, lt, el('span', { class: 'ru' }, ' ' + ru));
+    return el('div', { class: 'card' },
+      el('p', { class: 'summary' }, 'Pagal skyrius ', el('span', { class: 'ru' }, '(по главам)')),
+      el('p', {}, weak.length ? `Pakartokite (повторите): ${weak.map(([no]) => chapter(no).roman).join(', ')} sk.`
+        : 'Visi skyriai be klaidų (все главы без ошибок).'),
+      el('ul', { class: 'bysk' }, rows.map(([no, r]) => {
+        const c = chapter(no), bad = r.ok < r.n;
+        return el('li', { class: bad ? 'weak' : 'ok' },
+          el('span', { class: 'mk', 'aria-hidden': 'true' }, bad ? '✗' : '✓'),
+          el('span', { class: 'nm' }, `${c.roman}. ${c.lt}`, el('span', { class: 'ru' }, c.ru)),
+          el('span', { class: 'sc' }, `${r.ok} / ${r.n}`),
+          bad ? el('span', { class: 'go' }, go(`index.html?d=facts&sk=${no}`, 'Faktai', 'факты'), ' · ',
+            go(`index.html?d=terms&sk=${no}`, 'Terminai', 'термины'), ' · ', go(`tekstas.html#sk${no}`, 'Tekstas', 'текст главы')) : null);
+      })));
   }
 
   // строка разбора: вопрос и ответы — с переводом

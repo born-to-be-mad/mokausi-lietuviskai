@@ -146,7 +146,7 @@ a.artlink:hover { color: var(--accent); text-decoration-style: solid; }
   [data-look="kids"] :is(select, .tabs button, .actions button, .btn, .opts button, table.stats button, .zoom button) {
     border-width: 2px; border-radius: 16px;
   }
-  [data-look="kids"] .tabs button[aria-selected="true"] { background: var(--soft); box-shadow: none; border-color: var(--accent); }
+  [data-look="kids"] .tabs button[aria-pressed="true"] { background: var(--soft); box-shadow: none; border-color: var(--accent); }
   [data-look="kids"] .opts button { min-height: 52px; font-weight: 700; }
   [data-look="kids"] .opts button.picked:not(.ok, .wrong) { background: var(--soft); box-shadow: none; }
   [data-look="kids"] .opts .peek, [data-look="kids"] .peek { border-width: 2px; border-radius: 16px; }
@@ -269,10 +269,10 @@ a.artlink:hover { color: var(--accent); text-decoration-style: solid; }
   [data-look="contrast"] .bento .big :is(.n, small) { color: var(--bg); opacity: 1; }
   [data-look="contrast"] .bento .wm { display: none; }
   [data-look="contrast"] :is(.backup, .backup button) { border: 2px solid var(--text); border-radius: 6px; }
-  [data-look="contrast"] :is(.tabs button[aria-selected="true"], .toolbar button[aria-pressed="true"], #slow[aria-pressed="true"], .toolbar .switch:has(input:checked)) {
+  [data-look="contrast"] :is(.tabs button[aria-pressed="true"], .toolbar button[aria-pressed="true"], #slow[aria-pressed="true"], .toolbar .switch:has(input:checked)) {
     background: var(--text); color: var(--bg); border-color: var(--text); box-shadow: none;
   }
-  [data-look="contrast"] :is(.tabs button[aria-selected="true"], .toolbar button[aria-pressed="true"]) .ru { color: inherit; }
+  [data-look="contrast"] :is(.tabs button[aria-pressed="true"], .toolbar button[aria-pressed="true"]) .ru { color: inherit; }
   [data-look="contrast"] .opts button { min-height: 56px; }
   [data-look="contrast"] .opts button.picked:not(.ok, .wrong) { border: 3px solid var(--accent); box-shadow: none; }
   [data-look="contrast"] .opts button.ok { border: 3px solid var(--good); }

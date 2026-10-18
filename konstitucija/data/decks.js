@@ -13299,13 +13299,13 @@ window.KONST = {
    "qru": "Какие правовые акты преамбула называет правовыми устоями Литовского государства?",
    "opts": [
     "Lietuvos Statutus ir Lietuvos Respublikos Konstitucijas",
-    "Magdeburgo teisę",
-    "Žalgirio mūšio sutartį"
+    "Magdeburgo teisę ir Abiejų Tautų Respublikos Gegužės 3-iosios Konstituciją",
+    "Liublino unijos aktą ir Krėvos sutartį"
    ],
    "optsru": [
     "Литовские Статуты и Конституции Литовской Республики",
-    "Магдебургское право",
-    "договор о Грюнвальдской битве"
+    "Магдебургское право и Конституцию 3 мая Речи Посполитой",
+    "акт Люблинской унии и Кревский договор"
    ]
   },
   {
@@ -13350,13 +13350,13 @@ window.KONST = {
    "qru": "Как Народ осуществляет верховную суверенную власть?",
    "opts": [
     "tiesiogiai ar per demokratiškai išrinktus atstovus",
-    "tik per Vyriausybę",
-    "tik per teismus"
+    "tik per Vyriausybę ir jos paskirtus ministrus",
+    "per Respublikos Prezidento paskirtus apskričių atstovus"
    ],
    "optsru": [
     "непосредственно или через демократически избранных представителей",
-    "только через Правительство",
-    "только через суды"
+    "только через Правительство и назначенных им министров",
+    "через назначенных Президентом Республики представителей уездов"
    ]
   },
   {
@@ -13435,13 +13435,13 @@ window.KONST = {
    "qru": "Как могут быть изменены государственные границы Литвы?",
    "opts": [
     "tik tarptautine sutartimi, kurią ratifikuoja 4/5 visų Seimo narių",
-    "Respublikos Prezidento dekretu",
-    "Vyriausybės nutarimu"
+    "Respublikos Prezidento dekretu, pritarus Vyriausybei",
+    "Seimo nutarimu, už kurį balsuoja dauguma posėdyje dalyvaujančių narių"
    ],
    "optsru": [
     "только международным договором, который ратифицируют 4/5 всех членов Сейма",
-    "указом Президента Республики",
-    "постановлением Правительства"
+    "указом Президента Республики с одобрения Правительства",
+    "постановлением Сейма, за которое голосует большинство присутствующих на заседании членов"
    ]
   },
   {
@@ -13452,13 +13452,13 @@ window.KONST = {
    "qru": "Как приобретается гражданство Литовской Республики?",
    "opts": [
     "gimstant ir kitais įstatymo nustatytais pagrindais",
-    "tik gimus Lietuvoje",
-    "tik Seimo nutarimu"
+    "tik gimus Lietuvoje ir išgyvenus čia ne mažiau kaip 18 metų",
+    "tik Seimo nutarimu, gavus Vyriausybės pritarimą"
    ],
    "optsru": [
     "по рождению и по другим основаниям, установленным законом",
-    "только при рождении в Литве",
-    "только постановлением Сейма"
+    "только родившись в Литве и прожив здесь не менее 18 лет",
+    "только постановлением Сейма с одобрения Правительства"
    ]
   },
   {
@@ -13622,13 +13622,13 @@ window.KONST = {
    "qru": "Когда можно войти в жилище без согласия проживающего?",
    "opts": [
     "tik teismo sprendimu arba įstatymo nustatyta tvarka",
-    "bet kada, jei to nori policija",
-    "kai to prašo kaimynai"
+    "bet kada, jei policija mano, kad tai reikalinga",
+    "kai to raštu paprašo kaimynai arba seniūnas"
    ],
    "optsru": [
     "только по решению суда или в порядке, установленном законом",
-    "в любое время, если этого хочет полиция",
-    "когда об этом просят соседи"
+    "в любое время, если полиция считает это необходимым",
+    "когда об этом письменно просят соседи или староста"
    ]
   },
   {
@@ -13656,13 +13656,13 @@ window.KONST = {
    "qru": "Перед кем все лица равны по Конституции?",
    "opts": [
     "įstatymui, teismui ir kitoms valstybės institucijoms ar pareigūnams",
-    "tik Respublikos Prezidentui",
-    "tik savivaldybei"
+    "tik Respublikos Prezidentui ir Seimo Pirmininkui",
+    "tik tos savivaldybės, kurioje gyvena, tarybai ir merui"
    ],
    "optsru": [
     "перед законом, судом и другими государственными учреждениями или должностными лицами",
-    "только перед Президентом Республики",
-    "только перед самоуправлением"
+    "только перед Президентом Республики и Председателем Сейма",
+    "только перед советом и мэром самоуправления, в котором живут"
    ]
   },
   {
@@ -13690,13 +13690,13 @@ window.KONST = {
    "qru": "Когда лицо считается невиновным?",
    "opts": [
     "kol jo kaltumas neįrodytas įstatymo nustatyta tvarka ir nepripažintas įsiteisėjusiu teismo nuosprendžiu",
-    "kol jo nesulaikė policija",
-    "kol jis neprisipažino"
+    "kol policija ir prokuratūra nesurinko pakankamai įrodymų apie jo kaltę",
+    "kol jis pats neprisipažino padaręs nusikaltimą ir to nepatvirtino raštu"
    ],
    "optsru": [
     "пока его виновность не доказана в порядке, установленном законом, и не признана вступившим в силу приговором суда",
-    "пока его не задержала полиция",
-    "пока он не признался"
+    "пока полиция и прокуратура не собрали достаточно доказательств его вины",
+    "пока он сам не признался в совершении преступления и не подтвердил это письменно"
    ]
   },
   {
@@ -13860,13 +13860,13 @@ window.KONST = {
    "qru": "Какова обязанность детей по Конституции?",
    "opts": [
     "gerbti tėvus, globoti juos senatvėje ir tausoti jų palikimą",
-    "dirbti nuo 14 metų",
-    "gyventi su tėvais iki 25 metų"
+    "dirbti nuo 14 metų ir atiduoti tėvams pusę savo uždarbio",
+    "gyventi kartu su tėvais, kol sukurs savo šeimą ir susilauks vaikų"
    ],
    "optsru": [
     "уважать родителей, опекать их в старости и беречь их наследие",
-    "работать с 14 лет",
-    "жить с родителями до 25 лет"
+    "работать с 14 лет и отдавать родителям половину заработка",
+    "жить вместе с родителями, пока не создадут свою семью и не родят детей"
    ]
   },
   {
@@ -13962,13 +13962,13 @@ window.KONST = {
    "qru": "Кто самостоятельно ведает делами своей национальной культуры, просвещением и благотворительностью?",
    "opts": [
     "piliečių tautinės bendrijos",
-    "Vyriausybė",
-    "Seimas"
+    "Kultūros ministerija ir jos padaliniai",
+    "savivaldybių tarybos"
    ],
    "optsru": [
     "национальные общины граждан",
-    "Правительство",
-    "Сейм"
+    "Министерство культуры и его подразделения",
+    "советы самоуправлений"
    ]
   },
   {
@@ -13979,13 +13979,13 @@ window.KONST = {
    "qru": "На чём основывается хозяйство Литвы?",
    "opts": [
     "privačios nuosavybės teise, asmens ūkinės veiklos laisve ir iniciatyva",
-    "tik valstybine nuosavybe",
-    "valstybiniu planu"
+    "valstybine žemės ir įmonių nuosavybe bei penkerių metų valstybiniu planu",
+    "tik kooperatyvų ir savivaldybių įmonių veikla"
    ],
    "optsru": [
     "на праве частной собственности, свободе хозяйственной деятельности и инициативе личности",
-    "только на государственной собственности",
-    "на государственном плане"
+    "на государственной собственности на землю и предприятия и пятилетнем государственном плане",
+    "только на деятельности кооперативов и муниципальных предприятий"
    ]
   },
   {
@@ -14047,13 +14047,13 @@ window.KONST = {
    "qru": "На что имеет право каждый работающий человек?",
    "opts": [
     "į poilsį ir laisvalaikį, taip pat kasmetines mokamas atostogas",
-    "į nemokamą butą",
-    "į nemokamą automobilį"
+    "į nemokamą būstą ir valstybės apmokamą kelionę kartą per metus",
+    "į darbą ne ilgiau kaip 4 valandas per dieną"
    ],
    "optsru": [
     "на отдых и досуг, а также на ежегодный оплачиваемый отпуск",
-    "на бесплатную квартиру",
-    "на бесплатный автомобиль"
+    "на бесплатное жильё и оплачиваемую государством поездку раз в год",
+    "на работу не дольше 4 часов в день"
    ]
   },
   {
@@ -14115,13 +14115,13 @@ window.KONST = {
    "qru": "Кто обязан охранять окружающую среду от вредных воздействий?",
    "opts": [
     "valstybė ir kiekvienas asmuo",
-    "tik savivaldybės",
-    "tik ūkininkai"
+    "tik savivaldybės ir Aplinkos ministerija",
+    "tik įmonės, kurios teršia aplinką"
    ],
    "optsru": [
     "государство и каждое лицо",
-    "только самоуправления",
-    "только фермеры"
+    "только самоуправления и Министерство окружающей среды",
+    "только предприятия, которые загрязняют окружающую среду"
    ]
   },
   {
@@ -14251,12 +14251,12 @@ window.KONST = {
    "qru": "Кто руководит заседаниями Сейма?",
    "opts": [
     "Seimo Pirmininkas arba jo pavaduotojas",
-    "Respublikos Prezidentas",
+    "Respublikos Prezidentas arba jo patarėjas",
     "Ministras Pirmininkas"
    ],
    "optsru": [
     "Председатель Сейма или его заместитель",
-    "Президент Республики",
+    "Президент Республики или его советник",
     "Премьер-министр"
    ]
   },
@@ -14319,13 +14319,13 @@ window.KONST = {
    "qru": "Когда закон в Сейме считается принятым?",
    "opts": [
     "kai už jį balsavo dauguma posėdyje dalyvaujančių Seimo narių",
-    "kai už jį balsavo visi Seimo nariai",
-    "kai jį patvirtina Vyriausybė"
+    "kai už jį balsavo ne mažiau kaip 2/3 visų Seimo narių",
+    "kai jį patvirtina Vyriausybė ir pasirašo Ministras Pirmininkas"
    ],
    "optsru": [
     "когда за него проголосовало большинство участвующих в заседании членов Сейма",
-    "когда за него проголосовали все члены Сейма",
-    "когда его утверждает Правительство"
+    "когда за него проголосовали не менее 2/3 всех членов Сейма",
+    "когда его утверждает Правительство и подписывает Премьер-министр"
    ]
   },
   {
@@ -14438,13 +14438,13 @@ window.KONST = {
    "qru": "Кто может быть избран Президентом Республики?",
    "opts": [
     "Lietuvos pilietis pagal kilmę, ne mažiau kaip trejus pastaruosius metus gyvenęs Lietuvoje",
-    "bet kuris Lietuvos gyventojas",
-    "tik Seimo narys"
+    "bet kuris Lietuvos pilietis, sulaukęs 30 metų ir gyvenęs Lietuvoje ne mažiau kaip 10 metų",
+    "tik Seimo narys, išrinktas ne mažiau kaip dviem kadencijoms"
    ],
    "optsru": [
     "гражданин Литвы по происхождению, проживший в Литве не менее трёх последних лет",
-    "любой житель Литвы",
-    "только член Сейма"
+    "любой гражданин Литвы, достигший 30 лет и проживший в Литве не менее 10 лет",
+    "только член Сейма, избиравшийся не менее чем на два срока"
    ]
   },
   {
@@ -14506,13 +14506,13 @@ window.KONST = {
    "qru": "Кто предоставляет гражданство Литовской Республики?",
    "opts": [
     "Respublikos Prezidentas",
-    "Seimas",
-    "Vyriausybė"
+    "Seimo Pirmininkas",
+    "Vidaus reikalų ministerija"
    ],
    "optsru": [
     "Президент Республики",
-    "Сейм",
-    "Правительство"
+    "Председатель Сейма",
+    "Министерство внутренних дел"
    ]
   },
   {
@@ -14574,13 +14574,13 @@ window.KONST = {
    "qru": "Кто назначает министров?",
    "opts": [
     "Respublikos Prezidentas Ministro Pirmininko teikimu",
-    "Seimo Pirmininkas",
-    "Konstitucinis Teismas"
+    "Seimo Pirmininkas, pritarus Seimo komitetams",
+    "Seimas slaptu balsavimu Respublikos Prezidento teikimu"
    ],
    "optsru": [
     "Президент Республики по представлению Премьер-министра",
-    "Председатель Сейма",
-    "Конституционный суд"
+    "Председатель Сейма с одобрения комитетов Сейма",
+    "Сейм тайным голосованием по представлению Президента Республики"
    ]
   },
   {
@@ -14591,13 +14591,13 @@ window.KONST = {
    "qru": "В течение скольких дней со дня назначения Премьер-министр представляет Сейму Правительство и его программу?",
    "opts": [
     "ne vėliau kaip per 15 dienų",
-    "per 30 dienų",
-    "per 3 mėnesius"
+    "ne vėliau kaip per 30 dienų",
+    "ne vėliau kaip per 3 mėnesius"
    ],
    "optsru": [
     "не позднее чем через 15 дней",
-    "в течение 30 дней",
-    "в течение 3 месяцев"
+    "не позднее чем через 30 дней",
+    "не позднее чем через 3 месяца"
    ]
   },
   {
@@ -14676,13 +14676,13 @@ window.KONST = {
    "qru": "Когда Правительство обязано уйти в отставку?",
    "opts": [
     "kai Seimas du kartus iš eilės nepritaria naujai sudarytos Vyriausybės programai",
-    "kai pasikeičia Seimo Pirmininkas",
-    "kai prasideda Seimo sesija"
+    "kai pasikeičia Seimo Pirmininkas arba jo pavaduotojai",
+    "kai Respublikos Prezidentas du kartus iš eilės nepasirašo Vyriausybės priimto nutarimo"
    ],
    "optsru": [
     "когда Сейм два раза подряд не одобряет программу вновь сформированного Правительства",
-    "когда меняется Председатель Сейма",
-    "когда начинается сессия Сейма"
+    "когда меняется Председатель Сейма или его заместители",
+    "когда Президент Республики два раза подряд не подписывает постановление, принятое Правительством"
    ]
   },
   {
@@ -14693,13 +14693,13 @@ window.KONST = {
    "qru": "Что решает Конституционный суд?",
    "opts": [
     "ar įstatymai ir kiti Seimo aktai neprieštarauja Konstitucijai",
-    "baudžiamąsias bylas",
-    "ginčus tarp kaimynų"
+    "baudžiamąsias bylas, kai kaltinamasis yra valstybės pareigūnas",
+    "ginčus tarp gyventojų ir savivaldybių dėl mokesčių ir žemės"
    ],
    "optsru": [
     "не противоречат ли Конституции законы и другие акты Сейма",
-    "уголовные дела",
-    "споры между соседями"
+    "уголовные дела, если обвиняемый — государственный служащий",
+    "споры между жителями и самоуправлениями о налогах и земле"
    ]
   },
   {
@@ -14727,13 +14727,13 @@ window.KONST = {
    "qru": "На какой срок назначаются судьи Конституционного суда?",
    "opts": [
     "devyneriems metams ir tik vienai kadencijai",
-    "penkeriems metams",
-    "iki gyvos galvos"
+    "penkeriems metams, su teise būti paskirtam dar kartą",
+    "iki 70 metų amžiaus"
    ],
    "optsru": [
     "на девять лет и только на один срок",
-    "на пять лет",
-    "пожизненно"
+    "на пять лет, с правом быть назначенным повторно",
+    "до достижения 70 лет"
    ]
   },
   {
@@ -14778,13 +14778,13 @@ window.KONST = {
    "qru": "Может ли каждое лицо обратиться в Конституционный суд?",
    "opts": [
     "taip, jei pažeistos jo konstitucinės teisės ar laisvės ir jis išnaudojo visas teisinės gynybos priemones",
-    "ne, niekada",
-    "taip, dėl bet kokio klausimo"
+    "ne, į Konstitucinį Teismą gali kreiptis tik Seimas, Vyriausybė ir teismai",
+    "taip, dėl bet kokio ginčo, net jei jo teisės nebuvo pažeistos"
    ],
    "optsru": [
     "да, если нарушены его конституционные права или свободы и оно исчерпало все средства правовой защиты",
-    "нет, никогда",
-    "да, по любому вопросу"
+    "нет, в Конституционный суд могут обращаться только Сейм, Правительство и суды",
+    "да, по любому спору, даже если его права не были нарушены"
    ]
   },
   {
@@ -14846,13 +14846,13 @@ window.KONST = {
    "qru": "Какие суды есть в Литовской Республике?",
    "opts": [
     "Aukščiausiasis Teismas, Apeliacinis teismas, apygardų ir apylinkių teismai",
-    "tik Konstitucinis Teismas",
-    "Seimo teismas ir savivaldybių teismai"
+    "tik Konstitucinis Teismas ir Aukščiausiasis Teismas",
+    "Seimo teismas, Prezidento teismas ir savivaldybių taikos teismai"
    ],
    "optsru": [
     "Верховный суд, Апелляционный суд, окружные и районные суды",
-    "только Конституционный суд",
-    "суд Сейма и суды самоуправлений"
+    "только Конституционный суд и Верховный суд",
+    "суд Сейма, суд Президента и мировые суды самоуправлений"
    ]
   },
   {
@@ -14931,13 +14931,13 @@ window.KONST = {
    "qru": "Через кого осуществляется право самоуправления?",
    "opts": [
     "per savivaldybių tarybas ir savivaldybių merus",
-    "per Seimą",
-    "per Vyriausybės atstovus"
+    "per Seimą ir jo sudarytas savivaldos komisijas",
+    "per Vyriausybės skiriamus apskričių viršininkus"
    ],
    "optsru": [
     "через советы самоуправлений и мэров самоуправлений",
-    "через Сейм",
-    "через представителей Правительства"
+    "через Сейм и созданные им комиссии по самоуправлению",
+    "через назначаемых Правительством начальников уездов"
    ]
   },
   {
@@ -14982,13 +14982,13 @@ window.KONST = {
    "qru": "Кто избирает советы самоуправлений?",
    "opts": [
     "piliečiai ir kiti nuolatiniai administracinio vieneto gyventojai",
-    "Seimas",
-    "Vyriausybė"
+    "Seimas ir Vyriausybė bendru nutarimu, išklausę gyventojų nuomonę",
+    "tik Lietuvos piliečiai, gyvenantys savivaldybėje ne mažiau kaip 5 metus"
    ],
    "optsru": [
     "граждане и другие постоянные жители административной единицы",
-    "Сейм",
-    "Правительство"
+    "Сейм и Правительство совместным постановлением, выслушав мнение жителей",
+    "только граждане Литвы, живущие в самоуправлении не менее 5 лет"
    ]
   },
   {
@@ -15016,12 +15016,12 @@ window.KONST = {
    "qru": "Кто надзирает, соблюдают ли самоуправления Конституцию и законы?",
    "opts": [
     "Vyriausybės skiriami atstovai",
-    "Seimo Pirmininkas",
+    "Seimo Pirmininkas ir jo pavaduotojai",
     "savivaldybių merai"
    ],
    "optsru": [
     "представители, назначаемые Правительством",
-    "Председатель Сейма",
+    "Председатель Сейма и его заместители",
     "мэры самоуправлений"
    ]
   },
@@ -15135,13 +15135,13 @@ window.KONST = {
    "qru": "За чем надзирает Государственный контроль?",
    "opts": [
     "ar teisėtai valdomas ir naudojamas valstybės turtas ir kaip vykdomas valstybės biudžetas",
-    "ar piliečiai laikosi kelių eismo taisyklių",
-    "ar mokyklos gerai moko vaikus"
+    "ar teismai laikosi įstatymų ir laiku išnagrinėja bylas",
+    "ar Seimo nariai dalyvauja posėdžiuose ir laikosi savo rinkimų programų pažadų"
    ],
    "optsru": [
     "законно ли управляется и используется государственное имущество и как исполняется государственный бюджет",
-    "соблюдают ли граждане правила дорожного движения",
-    "хорошо ли школы учат детей"
+    "соблюдают ли суды законы и вовремя ли рассматривают дела",
+    "участвуют ли члены Сейма в заседаниях и выполняют ли обещания своих предвыборных программ"
    ]
   },
   {
@@ -15203,13 +15203,13 @@ window.KONST = {
    "qru": "Чего не может быть на территории Литовской Республики?",
    "opts": [
     "masinio naikinimo ginklų ir užsienio valstybių karinių bazių",
-    "užsienio valstybių ambasadų",
-    "tarptautinių organizacijų biurų"
+    "užsienio valstybių ambasadų ir konsulatų be Seimo leidimo",
+    "tarptautinių organizacijų biurų ir užsienio bankų skyrių"
    ],
    "optsru": [
     "оружия массового уничтожения и военных баз иностранных государств",
-    "посольств иностранных государств",
-    "бюро международных организаций"
+    "посольств и консульств иностранных государств без разрешения Сейма",
+    "бюро международных организаций и отделений иностранных банков"
    ]
   },
   {
@@ -15237,13 +15237,13 @@ window.KONST = {
    "qru": "Чьё право и обязанность – защищать Литовское государство от иностранного вооружённого нападения?",
    "opts": [
     "kiekvieno Lietuvos Respublikos piliečio",
-    "tik profesionalių karių",
-    "tik policijos"
+    "tik profesionalių karių ir šaulių",
+    "tik policijos ir valstybės sienos apsaugos tarnybos"
    ],
    "optsru": [
     "каждого гражданина Литовской Республики",
-    "только профессиональных военных",
-    "только полиции"
+    "только профессиональных военных и стрелков",
+    "только полиции и службы охраны государственной границы"
    ]
   },
   {
@@ -15322,13 +15322,13 @@ window.KONST = {
    "qru": "Кто вправе внести в Сейм предложение изменить или дополнить Конституцию?",
    "opts": [
     "ne mažiau kaip 1/4 visų Seimo narių arba ne mažiau kaip 300 tūkstančių rinkėjų",
-    "tik Respublikos Prezidentas",
-    "ne mažiau kaip 50 tūkstančių rinkėjų"
+    "tik Respublikos Prezidentas, pritarus Vyriausybei",
+    "ne mažiau kaip 1/10 visų Seimo narių arba ne mažiau kaip 50 tūkstančių rinkėjų"
    ],
    "optsru": [
     "не менее 1/4 всех членов Сейма или не менее 300 тысяч избирателей",
-    "только Президент Республики",
-    "не менее 50 тысяч избирателей"
+    "только Президент Республики с одобрения Правительства",
+    "не менее 1/10 всех членов Сейма или не менее 50 тысяч избирателей"
    ]
   },
   {
@@ -15339,13 +15339,13 @@ window.KONST = {
    "qru": "Когда Конституция не может изменяться?",
    "opts": [
     "nepaprastosios padėties ar karo padėties metu",
-    "Seimo sesijos metu",
-    "rinkimų metais"
+    "Seimo eilinės sesijos metu, kol svarstomas valstybės biudžetas",
+    "Respublikos Prezidento rinkimų metais"
    ],
    "optsru": [
     "во время чрезвычайного или военного положения",
-    "во время сессии Сейма",
-    "в год выборов"
+    "во время очередной сессии Сейма, пока обсуждается государственный бюджет",
+    "в год выборов Президента Республики"
    ]
   },
   {
@@ -15356,13 +15356,13 @@ window.KONST = {
    "qru": "Как может быть изменено положение статьи 1 Конституции?",
    "opts": [
     "tik referendumu, jei už tai pasisako ne mažiau kaip 3/4 piliečių, turinčių rinkimų teisę",
-    "Seimo nutarimu",
-    "Respublikos Prezidento dekretu"
+    "Seimo nutarimu, jei už jį balsuoja ne mažiau kaip 2/3 visų Seimo narių",
+    "Respublikos Prezidento dekretu, kurį pasirašo ir Ministras Pirmininkas"
    ],
    "optsru": [
     "только референдумом, если за это выскажутся не менее 3/4 граждан, имеющих избирательное право",
-    "постановлением Сейма",
-    "указом Президента Республики"
+    "постановлением Сейма, если за него голосуют не менее 2/3 всех членов Сейма",
+    "указом Президента Республики, который подписывает и Премьер-министр"
    ]
   },
   {
@@ -15424,13 +15424,13 @@ window.KONST = {
    "qru": "Что является составной частью Конституции Литовской Республики?",
    "opts": [
     "Konstitucinis aktas „Dėl Lietuvos Respublikos narystės Europos Sąjungoje“",
-    "Vyriausybės programa",
-    "Seimo statutas"
+    "Lietuvos Respublikos Seimo statutas ir Vyriausybės įstatymas",
+    "Lietuvos ir Lenkijos draugiškų santykių ir gero kaimyninio bendradarbiavimo sutartis"
    ],
    "optsru": [
     "Конституционный акт «О членстве Литовской Республики в Европейском союзе»",
-    "программа Правительства",
-    "Статут Сейма"
+    "Статут Сейма и Закон о Правительстве Литовской Республики",
+    "Договор между Литвой и Польшей о дружественных отношениях и добрососедском сотрудничестве"
    ]
   }
  ]

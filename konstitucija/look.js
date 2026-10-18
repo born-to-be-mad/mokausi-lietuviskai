@@ -107,13 +107,32 @@
   try { saved = localStorage.getItem(KEY); } catch { /* приватный режим */ }
   root.dataset.look = LOOKS.some(([id]) => id === saved) ? saved : 'calm';
 
+  // Русский текст — с lang="ru" (страницы — lang="lt"), чтобы экранный диктор читал его русским голосом. Помечается элемент,
+  // чей собственный текст — только кириллица; смешанное «Kitas (дальше)» остаётся литовским. И то, что скрипты дорисуют позже.
+  const CYR = /[А-Яа-яЁё]/, LAT = /[A-Za-zĄČĘĖĮŠŲŪŽąčęėįšųūž]/, ABBR = /\b(A2|RU|PDF|CC BY-SA)\b/g, auto = new WeakSet();
+  function markRu(top) {
+    const w = document.createTreeWalker(top, NodeFilter.SHOW_TEXT), done = new Set();
+    for (let n = top.nodeType === 3 ? top : w.nextNode(); n; n = w.nextNode()) {
+      const el = n.parentElement;
+      if (!el || done.has(el) || el.closest('script, style')) continue;
+      done.add(el);
+      const own = [...el.childNodes].filter(c => c.nodeType === 3).map(c => c.nodeValue).join(' ');
+      const ru = CYR.test(own) && !LAT.test(own.replace(ABBR, ''));
+      if (ru && (el.closest('[lang]') || root).lang !== 'ru') { el.lang = 'ru'; auto.add(el); }
+      else if (!ru && auto.has(el)) { el.removeAttribute('lang'); auto.delete(el); }   // текст сменился на литовский
+    }
+  }
   function mount() {
     syncZoom();
+    markRu(document.body);
+    new MutationObserver(ms => ms.forEach(m => m.addedNodes.forEach(n => {
+      if (n.nodeType === 1) markRu(n); else if (n.nodeType === 3 && n.parentElement) markRu(n.parentElement);
+    }))).observe(document.body, { childList: true, subtree: true });
     // «Pereiti prie turinio»: первая ссылка страницы, видна только при фокусе с клавиатуры; ведёт к основной части
     const main = document.querySelector('.pane, .shell-main');
     if (main) {
       const skip = document.createElement('a');
-      skip.className = 'skip'; skip.href = '#'; skip.textContent = 'Pereiti prie turinio (к содержанию)';
+      skip.className = 'skip'; skip.href = '#'; skip.innerHTML = 'Pereiti prie turinio <span>(к содержанию)</span>';
       skip.addEventListener('click', e => { e.preventDefault(); main.focus(); });   // без #хеша: в чтении хеш — номер рассказа
       document.body.prepend(skip);
     }

@@ -457,7 +457,7 @@
   function setMode(mode) {
     prefs.mode = mode; savePrefs();
     skSel.value = prefs.sk;
-    document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.mode === mode)));
+    document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === mode)));
     ({ cards: startCards, quiz: startQuiz, tasks: showTasks, progress: showProgress })[mode]();
   }
 
