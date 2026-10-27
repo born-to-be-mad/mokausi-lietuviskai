@@ -139,7 +139,7 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
     const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
     const item = (href, k, kru, b, small) => `<a class="ritem" href="${href}"><span class="k">${k} <span class="ru">${kru}</span></span>`
       + `<b>${b}</b>${small ? `<small>${small}</small>` : ''}</a>`;
-    const out = [], now = Date.now(), TOTAL = 126;
+    const out = [], now = Date.now(), TOTAL = 196;
     for (const [key, page, k, kru] of [['konst.reader.v1', 'skaitymas.html', 'Skaitymas', 'чтение'],
                                        ['konst.tekstas.v1', 'tekstas.html', 'Konstitucija', 'текст']]) {
       const s = get(key);                                   // где остановились (reader.js: last, lastT — название)
@@ -247,7 +247,7 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
       <div class="group">
         <h3>Egzaminas <span class="ru">· экзамен</span></h3>
         <p>Пробный экзамен: 20 вопросов на литовском, по 3 варианта, нужно не меньше 14 верных. Режим тренировки с
-          проверкой сразу, перевод вопросов, история попыток. Банк — 126 вопросов. Памятка с главными числами и сроками
+          проверкой сразу, перевод вопросов, история попыток. Банк — 196 вопросов. Памятка с главными числами и сроками
           печатается на одном листе.</p>
         <div class="links">
           <a class="primary" href="konstitucija/egzaminas.html">Bandomasis egzaminas <span>пробный экзамен</span></a>

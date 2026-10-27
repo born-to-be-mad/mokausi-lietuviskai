@@ -13562,6 +13562,96 @@ window.KONST = {
    ]
   },
   {
+   "id": "77ef823a",
+   "sk": 1,
+   "art": "3",
+   "artsk": "I",
+   "q": "Ką turi teisę daryti Tauta ir kiekvienas pilietis, jei kas nors prievarta kėsinasi į Lietuvos nepriklausomybę?",
+   "qru": "Что вправе делать Народ и каждый гражданин, если кто-то насильственно посягает на независимость Литвы?",
+   "opts": [
+    "priešintis tam, kuris kėsinasi",
+    "laukti, kol nuspręs Seimas",
+    "kreiptis tik į užsienio valstybes"
+   ],
+   "optsru": [
+    "противостоять тому, кто посягает",
+    "ждать, пока решит Сейм",
+    "обращаться только к иностранным государствам"
+   ]
+  },
+  {
+   "id": "22919a6d",
+   "sk": 1,
+   "art": "6",
+   "artsk": "I",
+   "q": "Kuo remdamasis kiekvienas gali ginti savo teises?",
+   "qru": "На что опираясь каждый может защищать свои права?",
+   "opts": [
+    "Konstitucija",
+    "tik Seimo nutarimais",
+    "tik savivaldybės sprendimais"
+   ],
+   "optsru": [
+    "на Конституцию",
+    "только на постановления Сейма",
+    "только на решения самоуправления"
+   ]
+  },
+  {
+   "id": "d5cc2d50",
+   "sk": 1,
+   "art": "8",
+   "artsk": "I",
+   "q": "Kaip vertinamas valstybės valdžios užgrobimas smurtu?",
+   "qru": "Как оценивается захват государственной власти путём насилия?",
+   "opts": [
+    "kaip antikonstituciniai ir neteisėti veiksmai",
+    "kaip teisėtas Tautos sprendimas",
+    "kaip leistinas, jei jam pritaria Seimas"
+   ],
+   "optsru": [
+    "как антиконституционные и незаконные действия",
+    "как законное решение Народа",
+    "как допустимый, если его одобрит Сейм"
+   ]
+  },
+  {
+   "id": "a0e01229",
+   "sk": 1,
+   "art": "11",
+   "artsk": "I",
+   "q": "Kas nustato Lietuvos administracinius vienetus ir jų ribas?",
+   "qru": "Что устанавливает административные единицы Литвы и их границы?",
+   "opts": [
+    "įstatymas",
+    "Respublikos Prezidento dekretas",
+    "savivaldybių tarybos"
+   ],
+   "optsru": [
+    "закон",
+    "указ Президента Республики",
+    "советы самоуправлений"
+   ]
+  },
+  {
+   "id": "f6c2109e",
+   "sk": 1,
+   "art": "13",
+   "artsk": "I",
+   "q": "Ar galima išduoti Lietuvos Respublikos pilietį kitai valstybei?",
+   "qru": "Можно ли выдать гражданина Литовской Республики другому государству?",
+   "opts": [
+    "ne, jei tarptautinė sutartis nenustato kitaip",
+    "taip, jei to prašo kita valstybė",
+    "taip, bet tik Vyriausybės nutarimu"
+   ],
+   "optsru": [
+    "нет, если международный договор не устанавливает иное",
+    "да, если об этом просит другое государство",
+    "да, но только постановлением Правительства"
+   ]
+  },
+  {
    "id": "4b6ee5ae",
    "sk": 2,
    "art": "18",
@@ -13850,6 +13940,114 @@ window.KONST = {
    ]
   },
   {
+   "id": "86cc2732",
+   "sk": 2,
+   "art": "22",
+   "artsk": "II",
+   "q": "Kaip gali būti renkama informacija apie privatų asmens gyvenimą?",
+   "qru": "Как может собираться информация о частной жизни лица?",
+   "opts": [
+    "tik motyvuotu teismo sprendimu ir pagal įstatymą",
+    "policijos nutarimu, be teismo",
+    "bet kurios valstybės įstaigos prašymu"
+   ],
+   "optsru": [
+    "только по мотивированному решению суда и по закону",
+    "по постановлению полиции, без суда",
+    "по просьбе любого государственного учреждения"
+   ]
+  },
+  {
+   "id": "d7528172",
+   "sk": 2,
+   "art": "23",
+   "artsk": "II",
+   "q": "Kada nuosavybė gali būti paimama?",
+   "qru": "Когда собственность может быть изъята?",
+   "opts": [
+    "įstatymo nustatyta tvarka visuomenės poreikiams, teisingai atlyginant",
+    "bet kada, jei to nori savivaldybė",
+    "Vyriausybės nutarimu, be jokio atlyginimo"
+   ],
+   "optsru": [
+    "в установленном законом порядке для нужд общества, со справедливым возмещением",
+    "в любое время, если этого хочет самоуправление",
+    "постановлением Правительства, без всякого возмещения"
+   ]
+  },
+  {
+   "id": "465cb8fe",
+   "sk": 2,
+   "art": "25",
+   "artsk": "II",
+   "q": "Su kuo nesuderinama laisvė reikšti įsitikinimus ir skleisti informaciją?",
+   "qru": "С чем несовместима свобода выражать убеждения и распространять информацию?",
+   "opts": [
+    "su neapykantos kurstymu, šmeižtu ir dezinformacija",
+    "su valdžios ir pareigūnų kritika",
+    "su religinių įsitikinimų reiškimu"
+   ],
+   "optsru": [
+    "с разжиганием ненависти, клеветой и дезинформацией",
+    "с критикой власти и должностных лиц",
+    "с выражением религиозных убеждений"
+   ]
+  },
+  {
+   "id": "f33abf93",
+   "sk": 2,
+   "art": "27",
+   "artsk": "II",
+   "q": "Ar žmogaus tikėjimas gali pateisinti nusikaltimą?",
+   "qru": "Может ли вера человека оправдать преступление?",
+   "opts": [
+    "ne, negali",
+    "taip, jei religija valstybės pripažinta",
+    "taip, jei nusikaltimas nedidelis"
+   ],
+   "optsru": [
+    "нет, не может",
+    "да, если религия признана государством",
+    "да, если преступление небольшое"
+   ]
+  },
+  {
+   "id": "aaf9f5a0",
+   "sk": 2,
+   "art": "28",
+   "artsk": "II",
+   "q": "Ko privalo laikytis žmogus, naudodamasis savo teisėmis ir laisvėmis?",
+   "qru": "Что обязан соблюдать человек, пользуясь своими правами и свободами?",
+   "opts": [
+    "Konstitucijos ir įstatymų, nevaržyti kitų teisių",
+    "tik savo partijos programos",
+    "tik savivaldybės nustatytų taisyklių"
+   ],
+   "optsru": [
+    "Конституцию и законы, не стеснять права других",
+    "только программу своей партии",
+    "только правила, установленные самоуправлением"
+   ]
+  },
+  {
+   "id": "57a6fec2",
+   "sk": 2,
+   "art": "37",
+   "artsk": "II",
+   "q": "Kokią teisę turi piliečiai, priklausantys tautinėms bendrijoms?",
+   "qru": "Какое право имеют граждане, принадлежащие к национальным общинам?",
+   "opts": [
+    "puoselėti savo kalbą, kultūrą ir papročius",
+    "turėti savo atskirą Seimą ir teismus",
+    "neatlikti krašto apsaugos tarnybos Lietuvoje"
+   ],
+   "optsru": [
+    "развивать свой язык, культуру и обычаи",
+    "иметь свой отдельный Сейм и суды",
+    "не проходить службу охраны края в Литве"
+   ]
+  },
+  {
    "id": "c04f1683",
    "sk": 3,
    "art": "38",
@@ -14012,6 +14210,168 @@ window.KONST = {
    ]
   },
   {
+   "id": "25f76f60",
+   "sk": 3,
+   "art": "38",
+   "artsk": "III",
+   "q": "Kas registruoja santuoką, gimimą ir mirtį?",
+   "qru": "Кто регистрирует брак, рождение и смерть?",
+   "opts": [
+    "valstybė",
+    "tik bažnyčios",
+    "teismai"
+   ],
+   "optsru": [
+    "государство",
+    "только церкви",
+    "суды"
+   ]
+  },
+  {
+   "id": "41245d65",
+   "sk": 3,
+   "art": "38",
+   "artsk": "III",
+   "q": "Kokios yra sutuoktinių teisės šeimoje?",
+   "qru": "Каковы права супругов в семье?",
+   "opts": [
+    "lygios",
+    "vyro teisės didesnės",
+    "priklauso nuo pajamų"
+   ],
+   "optsru": [
+    "равны",
+    "права мужа больше",
+    "зависят от доходов"
+   ]
+  },
+  {
+   "id": "35dcabde",
+   "sk": 3,
+   "art": "39",
+   "artsk": "III",
+   "q": "Ką įstatymas numato dirbančioms motinoms?",
+   "qru": "Что закон предусматривает для работающих матерей?",
+   "opts": [
+    "mokamas atostogas iki gimdymo ir po jo",
+    "trumpesnę darbo dieną visą gyvenimą",
+    "nemokamą būstą kiekvienai šeimai"
+   ],
+   "optsru": [
+    "оплачиваемый отпуск до родов и после них",
+    "сокращённый рабочий день на всю жизнь",
+    "бесплатное жильё каждой семье"
+   ]
+  },
+  {
+   "id": "fff7bdb9",
+   "sk": 3,
+   "art": "40",
+   "artsk": "III",
+   "q": "Kada valstybinėse mokyklose mokoma tikybos?",
+   "qru": "Когда в государственных школах преподают вероучение?",
+   "opts": [
+    "tėvų pageidavimu",
+    "visada, visiems mokiniams",
+    "tik vyskupo leidimu"
+   ],
+   "optsru": [
+    "по желанию родителей",
+    "всегда, всем ученикам",
+    "только с разрешения епископа"
+   ]
+  },
+  {
+   "id": "e83b5703",
+   "sk": 3,
+   "art": "40",
+   "artsk": "III",
+   "q": "Kas suteikiama aukštosioms mokykloms?",
+   "qru": "Что предоставляется высшим школам?",
+   "opts": [
+    "autonomija",
+    "teisė leisti įstatymus",
+    "teisė rinkti mokesčius"
+   ],
+   "optsru": [
+    "автономия",
+    "право издавать законы",
+    "право собирать налоги"
+   ]
+  },
+  {
+   "id": "68972389",
+   "sk": 3,
+   "art": "41",
+   "artsk": "III",
+   "q": "Kam prieinamas aukštasis mokslas?",
+   "qru": "Кому доступно высшее образование?",
+   "opts": [
+    "visiems pagal kiekvieno žmogaus sugebėjimus",
+    "tik Lietuvoje gimusiems piliečiams",
+    "tik tiems, kurie gali sumokėti"
+   ],
+   "optsru": [
+    "всем в соответствии со способностями каждого",
+    "только гражданам, родившимся в Литве",
+    "только тем, кто может заплатить"
+   ]
+  },
+  {
+   "id": "4327d7bc",
+   "sk": 3,
+   "art": "42",
+   "artsk": "III",
+   "q": "Kokie Lietuvoje yra kultūra, mokslas, tyrinėjimai ir dėstymas?",
+   "qru": "Какими в Литве являются культура, наука, исследования и преподавание?",
+   "opts": [
+    "laisvi",
+    "kontroliuojami Vyriausybės",
+    "leidžiami tik gavus leidimą"
+   ],
+   "optsru": [
+    "свободными",
+    "контролируемыми Правительством",
+    "разрешёнными только по разрешению"
+   ]
+  },
+  {
+   "id": "74d9388a",
+   "sk": 3,
+   "art": "43",
+   "artsk": "III",
+   "q": "Kokias bažnyčias ir religines organizacijas valstybė pripažįsta?",
+   "qru": "Какие церкви и религиозные организации признаёт государство?",
+   "opts": [
+    "tradicines Lietuvoje ir kitas, turinčias atramą visuomenėje",
+    "tik Romos katalikų bažnyčią",
+    "tik tas, kurias kasmet patvirtina Seimas"
+   ],
+   "optsru": [
+    "традиционные в Литве и иные, имеющие опору в обществе",
+    "только Римско-католическую церковь",
+    "только те, которые ежегодно утверждает Сейм"
+   ]
+  },
+  {
+   "id": "88094b0b",
+   "sk": 3,
+   "art": "44",
+   "artsk": "III",
+   "q": "Ar kas nors gali monopolizuoti masinės informacijos priemones?",
+   "qru": "Может ли кто-либо монополизировать средства массовой информации?",
+   "opts": [
+    "ne, niekas negali",
+    "taip, valstybė",
+    "taip, didžiausia politinė partija"
+   ],
+   "optsru": [
+    "нет, никто не может",
+    "да, государство",
+    "да, крупнейшая политическая партия"
+   ]
+  },
+  {
    "id": "3e3c1e33",
    "sk": 4,
    "art": "46",
@@ -14171,6 +14531,24 @@ window.KONST = {
     "государство и каждое лицо",
     "только самоуправления и Министерство окружающей среды",
     "только предприятия, которые загрязняют окружающую среду"
+   ]
+  },
+  {
+   "id": "1d38e418",
+   "sk": 4,
+   "art": "54",
+   "artsk": "IV",
+   "q": "Ką įstatymu draudžiama daryti su gamta?",
+   "qru": "Что законом запрещено делать с природой?",
+   "opts": [
+    "niokoti žemę, teršti vandenis ir orą",
+    "rinkti grybus ir uogas miške",
+    "auginti gyvulius savo ūkyje"
+   ],
+   "optsru": [
+    "опустошать землю, загрязнять воды и воздух",
+    "собирать грибы и ягоды в лесу",
+    "разводить скот в своём хозяйстве"
    ]
   },
   {
@@ -14426,6 +14804,204 @@ window.KONST = {
    ]
   },
   {
+   "id": "0b5ffe35",
+   "sk": 5,
+   "art": "58",
+   "artsk": "V",
+   "q": "Kokia balsų dauguma Seimas gali paskelbti pirmalaikius Seimo rinkimus?",
+   "qru": "Каким большинством голосов Сейм может назначить досрочные выборы Сейма?",
+   "opts": [
+    "ne mažiau kaip 3/5 visų Seimo narių",
+    "daugiau kaip pusės posėdyje dalyvaujančių",
+    "ne mažiau kaip 2/3 visų Seimo narių"
+   ],
+   "optsru": [
+    "не менее 3/5 всех членов Сейма",
+    "более половины присутствующих на заседании",
+    "не менее 2/3 всех членов Сейма"
+   ]
+  },
+  {
+   "id": "deb139b8",
+   "sk": 5,
+   "art": "59",
+   "artsk": "V",
+   "q": "Kada išrinktas Seimo narys įgyja visas Tautos atstovo teises?",
+   "qru": "Когда избранный член Сейма приобретает все права представителя Народа?",
+   "opts": [
+    "kai Seime prisiekia būti ištikimas Lietuvai",
+    "kai paskelbiami rinkimų rezultatai",
+    "kai jį patvirtina Respublikos Prezidentas"
+   ],
+   "optsru": [
+    "когда в Сейме присягает на верность Литве",
+    "когда объявлены результаты выборов",
+    "когда его утверждает Президент Республики"
+   ]
+  },
+  {
+   "id": "da87a754",
+   "sk": 5,
+   "art": "60",
+   "artsk": "V",
+   "q": "Į kokias kitas pareigas gali būti skiriamas Seimo narys?",
+   "qru": "На какие другие должности может быть назначен член Сейма?",
+   "opts": [
+    "tik Ministro Pirmininko ar ministro",
+    "savivaldybės mero",
+    "bet kurias valstybės tarnyboje"
+   ],
+   "optsru": [
+    "только Премьер-министра или министра",
+    "мэра самоуправления",
+    "любые на государственной службе"
+   ]
+  },
+  {
+   "id": "ca26a989",
+   "sk": 5,
+   "art": "61",
+   "artsk": "V",
+   "q": "Kokia Seimo narių grupė gali pateikti interpeliaciją Ministrui Pirmininkui ar ministrui?",
+   "qru": "Какая группа членов Сейма может внести интерпелляцию Премьер-министру или министру?",
+   "opts": [
+    "ne mažesnė kaip 1/5 Seimo narių",
+    "ne mažesnė kaip 1/3 Seimo narių",
+    "tik Seimo Pirmininkas su pavaduotojais"
+   ],
+   "optsru": [
+    "не менее 1/5 членов Сейма",
+    "не менее 1/3 членов Сейма",
+    "только Председатель Сейма с заместителями"
+   ]
+  },
+  {
+   "id": "6868a7b9",
+   "sk": 5,
+   "art": "63",
+   "artsk": "V",
+   "q": "Kada nutrūksta Seimo nario įgaliojimai?",
+   "qru": "Когда прекращаются полномочия члена Сейма?",
+   "opts": [
+    "kai jis netenka Lietuvos pilietybės",
+    "kai jis pereina į kitą partiją",
+    "kai jis išvyksta į užsienį ilgiau kaip mėnesiui"
+   ],
+   "optsru": [
+    "когда он утрачивает гражданство Литвы",
+    "когда он переходит в другую партию",
+    "когда он уезжает за границу более чем на месяц"
+   ]
+  },
+  {
+   "id": "955b1ca1",
+   "sk": 5,
+   "art": "65",
+   "artsk": "V",
+   "q": "Per kiek laiko po Seimo išrinkimo turi įvykti pirmasis jo posėdis?",
+   "qru": "Через какое время после избрания Сейма должно состояться его первое заседание?",
+   "opts": [
+    "ne vėliau kaip per 15 dienų",
+    "ne vėliau kaip per 30 dienų",
+    "ne vėliau kaip per 3 mėnesius"
+   ],
+   "optsru": [
+    "не позднее чем через 15 дней",
+    "не позднее чем через 30 дней",
+    "не позднее чем через 3 месяца"
+   ]
+  },
+  {
+   "id": "647c0eb5",
+   "sk": 5,
+   "art": "70",
+   "artsk": "V",
+   "q": "Kada įsigalioja Seimo priimti įstatymai?",
+   "qru": "Когда вступают в силу принятые Сеймом законы?",
+   "opts": [
+    "kai juos pasirašo ir oficialiai paskelbia Respublikos Prezidentas",
+    "iš karto po balsavimo Seime",
+    "kai jiems pritaria Konstitucinis Teismas"
+   ],
+   "optsru": [
+    "после того, как их подписывает и официально публикует Президент Республики",
+    "сразу после голосования в Сейме",
+    "когда их одобряет Конституционный суд"
+   ]
+  },
+  {
+   "id": "c085f507",
+   "sk": 5,
+   "art": "71",
+   "artsk": "V",
+   "q": "Per kiek dienų Respublikos Prezidentas turi pasirašyti Seimo priimtą įstatymą arba grąžinti jį Seimui?",
+   "qru": "В течение скольких дней Президент Республики должен подписать принятый Сеймом закон или вернуть его в Сейм?",
+   "opts": [
+    "ne vėliau kaip per 10 dienų",
+    "ne vėliau kaip per 30 dienų",
+    "ne vėliau kaip per 3 dienas"
+   ],
+   "optsru": [
+    "не позднее чем через 10 дней",
+    "не позднее чем через 30 дней",
+    "не позднее чем через 3 дня"
+   ]
+  },
+  {
+   "id": "82fa5d23",
+   "sk": 5,
+   "art": "72",
+   "artsk": "V",
+   "q": "Kiek Seimo narių balsų reikia, kad Seimas vėl priimtų Prezidento grąžintą įstatymą be jo pataisų?",
+   "qru": "Сколько голосов членов Сейма нужно, чтобы Сейм снова принял возвращённый Президентом закон без его поправок?",
+   "opts": [
+    "daugiau kaip 1/2 visų Seimo narių",
+    "ne mažiau kaip 2/3 visų Seimo narių",
+    "dauguma posėdyje dalyvaujančių narių"
+   ],
+   "optsru": [
+    "более 1/2 всех членов Сейма",
+    "не менее 2/3 всех членов Сейма",
+    "большинство присутствующих на заседании"
+   ]
+  },
+  {
+   "id": "822b1a10",
+   "sk": 5,
+   "art": "74",
+   "artsk": "V",
+   "q": "Kokia balsų dauguma Seimas apkaltos proceso tvarka gali pašalinti Respublikos Prezidentą iš pareigų?",
+   "qru": "Каким большинством голосов Сейм в порядке импичмента может отстранить Президента Республики от должности?",
+   "opts": [
+    "3/5 visų Seimo narių",
+    "1/2 visų Seimo narių",
+    "2/3 posėdyje dalyvaujančių narių"
+   ],
+   "optsru": [
+    "3/5 всех членов Сейма",
+    "1/2 всех членов Сейма",
+    "2/3 присутствующих на заседании"
+   ]
+  },
+  {
+   "id": "6c69dc8d",
+   "sk": 5,
+   "art": "76",
+   "artsk": "V",
+   "q": "Kas nustato Seimo struktūrą ir darbo tvarką?",
+   "qru": "Что устанавливает структуру и порядок работы Сейма?",
+   "opts": [
+    "Seimo statutas",
+    "Respublikos Prezidento dekretas",
+    "Vyriausybės nutarimas"
+   ],
+   "optsru": [
+    "Статут Сейма",
+    "указ Президента Республики",
+    "постановление Правительства"
+   ]
+  },
+  {
    "id": "cb67cc9a",
    "sk": 6,
    "art": "77",
@@ -14624,6 +15200,150 @@ window.KONST = {
    ]
   },
   {
+   "id": "f0458719",
+   "sk": 6,
+   "art": "80",
+   "artsk": "VI",
+   "q": "Kada vykdomi eiliniai Respublikos Prezidento rinkimai?",
+   "qru": "Когда проводятся очередные выборы Президента Республики?",
+   "opts": [
+    "paskutinį sekmadienį likus dviem mėnesiams iki kadencijos pabaigos",
+    "spalio mėnesio antrą sekmadienį",
+    "kovo 11 dieną, kas penkeri metai"
+   ],
+   "optsru": [
+    "в последнее воскресенье за два месяца до окончания срока полномочий",
+    "во второе воскресенье октября",
+    "11 марта, раз в пять лет"
+   ]
+  },
+  {
+   "id": "a49601eb",
+   "sk": 6,
+   "art": "81",
+   "artsk": "VI",
+   "q": "Kas vyksta, jei pirmajame rate nė vienas kandidatas į Respublikos Prezidentus nesurenka reikiamų balsų?",
+   "qru": "Что происходит, если в первом туре ни один кандидат в Президенты Республики не набирает нужного числа голосов?",
+   "opts": [
+    "po dviejų savaičių balsuojama dėl dviejų daugiausia balsų gavusių kandidatų",
+    "Respublikos Prezidentą išrenka Seimas iš visų kandidatų",
+    "po metų rengiami visiškai nauji rinkimai su kitais kandidatais"
+   ],
+   "optsru": [
+    "через две недели голосуют за двух кандидатов, получивших больше всего голосов",
+    "Президента Республики избирает Сейм из всех кандидатов",
+    "через год проводятся совершенно новые выборы с другими кандидатами"
+   ]
+  },
+  {
+   "id": "bcbd31ba",
+   "sk": 6,
+   "art": "83",
+   "artsk": "VI",
+   "q": "Ką turi padaryti asmuo, išrinktas Respublikos Prezidentu?",
+   "qru": "Что должно сделать лицо, избранное Президентом Республики?",
+   "opts": [
+    "sustabdyti veiklą politinėse partijose",
+    "tapti valdančiosios partijos nariu",
+    "atsisakyti savo turto valstybės naudai"
+   ],
+   "optsru": [
+    "приостановить деятельность в политических партиях",
+    "стать членом правящей партии",
+    "отказаться от своего имущества в пользу государства"
+   ]
+  },
+  {
+   "id": "6c50df7b",
+   "sk": 6,
+   "art": "84",
+   "artsk": "VI",
+   "q": "Kas pasirašo Lietuvos tarptautines sutartis ir teikia jas Seimui ratifikuoti?",
+   "qru": "Кто подписывает международные договоры Литвы и представляет их Сейму на ратификацию?",
+   "opts": [
+    "Respublikos Prezidentas",
+    "užsienio reikalų ministras",
+    "Seimo Pirmininkas"
+   ],
+   "optsru": [
+    "Президент Республики",
+    "министр иностранных дел",
+    "Председатель Сейма"
+   ]
+  },
+  {
+   "id": "98e902be",
+   "sk": 6,
+   "art": "84",
+   "artsk": "VI",
+   "q": "Kas Vyriausybės teikimu skiria ir atšaukia Lietuvos diplomatinius atstovus užsienyje?",
+   "qru": "Кто по представлению Правительства назначает и отзывает дипломатических представителей Литвы за рубежом?",
+   "opts": [
+    "Respublikos Prezidentas",
+    "Seimas slaptu balsavimu",
+    "Ministras Pirmininkas"
+   ],
+   "optsru": [
+    "Президент Республики",
+    "Сейм тайным голосованием",
+    "Премьер-министр"
+   ]
+  },
+  {
+   "id": "b6cb263b",
+   "sk": 6,
+   "art": "85",
+   "artsk": "VI",
+   "q": "Kaip vadinami Respublikos Prezidento aktai?",
+   "qru": "Как называются акты Президента Республики?",
+   "opts": [
+    "dekretai",
+    "nutarimai",
+    "įsakymai"
+   ],
+   "optsru": [
+    "указы",
+    "постановления",
+    "приказы"
+   ]
+  },
+  {
+   "id": "b12dc738",
+   "sk": 6,
+   "art": "86",
+   "artsk": "VI",
+   "q": "Ar galima suimti Respublikos Prezidentą, kol jis eina pareigas?",
+   "qru": "Можно ли арестовать Президента Республики, пока он исполняет обязанности?",
+   "opts": [
+    "ne, jo asmuo neliečiamas",
+    "taip, jei sutinka Seimo Pirmininkas",
+    "taip, generalinio prokuroro sprendimu"
+   ],
+   "optsru": [
+    "нет, его личность неприкосновенна",
+    "да, если согласен Председатель Сейма",
+    "да, по решению генерального прокурора"
+   ]
+  },
+  {
+   "id": "9507d40f",
+   "sk": 6,
+   "art": "88",
+   "artsk": "VI",
+   "q": "Kas nusprendžia, kad Respublikos Prezidento sveikatos būklė neleidžia jam eiti pareigų?",
+   "qru": "Кто решает, что состояние здоровья Президента Республики не позволяет ему исполнять обязанности?",
+   "opts": [
+    "Seimas, atsižvelgdamas į Konstitucinio Teismo išvadą",
+    "Vyriausybė, gavusi gydytojų pažymą",
+    "Aukščiausiasis Teismas savo nutartimi"
+   ],
+   "optsru": [
+    "Сейм с учётом заключения Конституционного суда",
+    "Правительство, получив справку врачей",
+    "Верховный суд своим определением"
+   ]
+  },
+  {
    "id": "bc9d3e99",
    "sk": 7,
    "art": "91",
@@ -14768,6 +15488,114 @@ window.KONST = {
    ]
   },
   {
+   "id": "ad46fb16",
+   "sk": 7,
+   "art": "93",
+   "artsk": "VII",
+   "q": "Kur prisiekia Ministras Pirmininkas ir ministrai, pradėdami eiti pareigas?",
+   "qru": "Где присягают Премьер-министр и министры, вступая в должность?",
+   "opts": [
+    "Seime",
+    "Konstituciniame Teisme",
+    "Respublikos Prezidento rezidencijoje"
+   ],
+   "optsru": [
+    "в Сейме",
+    "в Конституционном суде",
+    "в резиденции Президента Республики"
+   ]
+  },
+  {
+   "id": "56137cd0",
+   "sk": 7,
+   "art": "95",
+   "artsk": "VII",
+   "q": "Kas pasirašo Vyriausybės nutarimus?",
+   "qru": "Кто подписывает постановления Правительства?",
+   "opts": [
+    "Ministras Pirmininkas ir tos srities ministras",
+    "Respublikos Prezidentas ir Seimo Pirmininkas",
+    "visi Vyriausybės nariai kartu"
+   ],
+   "optsru": [
+    "Премьер-министр и министр соответствующей сферы",
+    "Президент Республики и Председатель Сейма",
+    "все члены Правительства вместе"
+   ]
+  },
+  {
+   "id": "79a979bb",
+   "sk": 7,
+   "art": "97",
+   "artsk": "VII",
+   "q": "Kas vadovauja Vyriausybės veiklai?",
+   "qru": "Кто руководит деятельностью Правительства?",
+   "opts": [
+    "Ministras Pirmininkas",
+    "Respublikos Prezidentas",
+    "Seimo Pirmininkas"
+   ],
+   "optsru": [
+    "Премьер-министр",
+    "Президент Республики",
+    "Председатель Сейма"
+   ]
+  },
+  {
+   "id": "8862635c",
+   "sk": 7,
+   "art": "97",
+   "artsk": "VII",
+   "q": "Kokiam laikui Respublikos Prezidentas gali pavesti ministrui pavaduoti Ministrą Pirmininką?",
+   "qru": "На какой срок Президент Республики может поручить министру замещать Премьер-министра?",
+   "opts": [
+    "ne ilgesniam kaip 60 dienų",
+    "ne ilgesniam kaip 6 mėnesių",
+    "iki naujų Seimo rinkimų"
+   ],
+   "optsru": [
+    "не более чем на 60 дней",
+    "не более чем на 6 месяцев",
+    "до новых выборов в Сейм"
+   ]
+  },
+  {
+   "id": "5415f2cc",
+   "sk": 7,
+   "art": "99",
+   "artsk": "VII",
+   "q": "Ar ministras gali dirbti privačioje įmonėje?",
+   "qru": "Может ли министр работать на частном предприятии?",
+   "opts": [
+    "ne, negali",
+    "taip, jei pritaria Ministras Pirmininkas",
+    "taip, jei įmonė nedidelė"
+   ],
+   "optsru": [
+    "нет, не может",
+    "да, если одобрит Премьер-министр",
+    "да, если предприятие небольшое"
+   ]
+  },
+  {
+   "id": "dc23e81c",
+   "sk": 7,
+   "art": "100",
+   "artsk": "VII",
+   "q": "Ar galima suimti ministrą be Seimo sutikimo?",
+   "qru": "Можно ли арестовать министра без согласия Сейма?",
+   "opts": [
+    "ne, reikia išankstinio Seimo sutikimo",
+    "taip, prokuroro sprendimu",
+    "taip, jei sutinka Ministras Pirmininkas"
+   ],
+   "optsru": [
+    "нет, нужно предварительное согласие Сейма",
+    "да, по решению прокурора",
+    "да, если согласен Премьер-министр"
+   ]
+  },
+  {
    "id": "eb818c19",
    "sk": 8,
    "art": "102",
@@ -14891,6 +15719,78 @@ window.KONST = {
     "нет, они окончательные и обжалованию не подлежат",
     "да, в Верховный суд",
     "да, в Сейм"
+   ]
+  },
+  {
+   "id": "98f244f4",
+   "sk": 8,
+   "art": "104",
+   "artsk": "VIII",
+   "q": "Kuo vadovaujasi Konstitucinio Teismo teisėjai, eidami pareigas?",
+   "qru": "Чем руководствуются судьи Конституционного суда при исполнении обязанностей?",
+   "opts": [
+    "tik Lietuvos Respublikos Konstitucija",
+    "Seimo ir Vyriausybės nurodymais",
+    "Respublikos Prezidento dekretais"
+   ],
+   "optsru": [
+    "только Конституцией Литовской Республики",
+    "указаниями Сейма и Правительства",
+    "указами Президента Республики"
+   ]
+  },
+  {
+   "id": "feb3064f",
+   "sk": 8,
+   "art": "105",
+   "artsk": "VIII",
+   "q": "Kieno aktus, be įstatymų, tikrina Konstitucinis Teismas?",
+   "qru": "Чьи акты, кроме законов, проверяет Конституционный суд?",
+   "opts": [
+    "Respublikos Prezidento ir Vyriausybės",
+    "tik savivaldybių tarybų",
+    "visų privačių įmonių"
+   ],
+   "optsru": [
+    "Президента Республики и Правительства",
+    "только советов самоуправлений",
+    "всех частных предприятий"
+   ]
+  },
+  {
+   "id": "e6ebb5ac",
+   "sk": 8,
+   "art": "105",
+   "artsk": "VIII",
+   "q": "Ką Konstitucinis Teismas tikrina dėl Lietuvos tarptautinių sutarčių?",
+   "qru": "Что Конституционный суд проверяет в отношении международных договоров Литвы?",
+   "opts": [
+    "ar jos neprieštarauja Konstitucijai",
+    "ar jos naudingos ekonomikai",
+    "ar jas pasirašė visi ministrai"
+   ],
+   "optsru": [
+    "не противоречат ли они Конституции",
+    "выгодны ли они экономике",
+    "подписали ли их все министры"
+   ]
+  },
+  {
+   "id": "31fd2ab2",
+   "sk": 8,
+   "art": "108",
+   "artsk": "VIII",
+   "q": "Kada nutrūksta Konstitucinio Teismo teisėjo įgaliojimai?",
+   "qru": "Когда прекращаются полномочия судьи Конституционного суда?",
+   "opts": [
+    "kai Seimas jį pašalina apkaltos proceso tvarka",
+    "kai pasikeičia Seimo dauguma",
+    "kai jam sukanka 60 metų"
+   ],
+   "optsru": [
+    "когда Сейм отстраняет его в порядке импичмента",
+    "когда меняется большинство в Сейме",
+    "когда ему исполняется 60 лет"
    ]
   },
   {
@@ -15020,6 +15920,78 @@ window.KONST = {
    ]
   },
   {
+   "id": "e6fcf3c2",
+   "sk": 9,
+   "art": "110",
+   "artsk": "IX",
+   "q": "Ką turi daryti teisėjas, jei mano, kad taikytinas įstatymas prieštarauja Konstitucijai?",
+   "qru": "Что должен сделать судья, если считает, что применяемый закон противоречит Конституции?",
+   "opts": [
+    "sustabdyti bylą ir kreiptis į Konstitucinį Teismą",
+    "taikyti įstatymą ir apie tai pranešti Seimui",
+    "pats panaikinti tą įstatymą"
+   ],
+   "optsru": [
+    "приостановить дело и обратиться в Конституционный суд",
+    "применить закон и сообщить об этом Сейму",
+    "самому отменить этот закон"
+   ]
+  },
+  {
+   "id": "3b8b5c71",
+   "sk": 9,
+   "art": "114",
+   "artsk": "IX",
+   "q": "Ar galima kištis į teisėjo ar teismo veiklą?",
+   "qru": "Можно ли вмешиваться в деятельность судьи или суда?",
+   "opts": [
+    "ne, tai draudžiama",
+    "taip, jei tai daro Seimo nariai",
+    "taip, Vyriausybės nutarimu"
+   ],
+   "optsru": [
+    "нет, это запрещено",
+    "да, если это делают члены Сейма",
+    "да, постановлением Правительства"
+   ]
+  },
+  {
+   "id": "deebb87b",
+   "sk": 9,
+   "art": "115",
+   "artsk": "IX",
+   "q": "Kada teisėjas atleidžiamas iš pareigų?",
+   "qru": "Когда судья освобождается от должности?",
+   "opts": [
+    "kai savo poelgiu pažemina teisėjo vardą",
+    "kai išnagrinėja per mažai bylų",
+    "kai jo sprendimas apskundžiamas"
+   ],
+   "optsru": [
+    "когда своим поступком унижает звание судьи",
+    "когда рассматривает слишком мало дел",
+    "когда его решение обжалуют"
+   ]
+  },
+  {
+   "id": "ccb25150",
+   "sk": 9,
+   "art": "116",
+   "artsk": "IX",
+   "q": "Kas apkaltos proceso tvarka gali pašalinti Aukščiausiojo Teismo teisėjus?",
+   "qru": "Кто в порядке импичмента может отстранить судей Верховного суда?",
+   "opts": [
+    "Seimas",
+    "Respublikos Prezidentas",
+    "teisingumo ministras"
+   ],
+   "optsru": [
+    "Сейм",
+    "Президент Республики",
+    "министр юстиции"
+   ]
+  },
+  {
    "id": "74c4509a",
    "sk": 10,
    "art": "119",
@@ -15125,6 +16097,60 @@ window.KONST = {
     "представители, назначаемые Правительством",
     "Председатель Сейма и его заместители",
     "мэры самоуправлений"
+   ]
+  },
+  {
+   "id": "19021da0",
+   "sk": 10,
+   "art": "120",
+   "artsk": "X",
+   "q": "Kaip veikia savivaldybės pagal Konstitucijos ir įstatymų apibrėžtą kompetenciją?",
+   "qru": "Как действуют самоуправления в пределах компетенции, определённой Конституцией и законами?",
+   "opts": [
+    "laisvai ir savarankiškai",
+    "tik Vyriausybės nurodymu",
+    "tik gavusios Seimo leidimą"
+   ],
+   "optsru": [
+    "свободно и самостоятельно",
+    "только по указанию Правительства",
+    "только получив разрешение Сейма"
+   ]
+  },
+  {
+   "id": "33f73340",
+   "sk": 10,
+   "art": "122",
+   "artsk": "X",
+   "q": "Kur gali kreiptis savivaldybių tarybos ir merai dėl jų teisių pažeidimo?",
+   "qru": "Куда могут обратиться советы самоуправлений и мэры при нарушении их прав?",
+   "opts": [
+    "į teismą",
+    "tik į Seimo Pirmininką",
+    "tik į Vyriausybės atstovą"
+   ],
+   "optsru": [
+    "в суд",
+    "только к Председателю Сейма",
+    "только к представителю Правительства"
+   ]
+  },
+  {
+   "id": "a8a09c5e",
+   "sk": 10,
+   "art": "124",
+   "artsk": "X",
+   "q": "Ar galima skųsti savivaldybės tarybos ar mero aktus, pažeidžiančius piliečių teises?",
+   "qru": "Можно ли обжаловать акты совета самоуправления или мэра, нарушающие права граждан?",
+   "opts": [
+    "taip, teisme",
+    "ne, jie neskundžiami",
+    "tik tai pačiai savivaldybės tarybai"
+   ],
+   "optsru": [
+    "да, в суде",
+    "нет, они не обжалуются",
+    "только тому же совету самоуправления"
    ]
   },
   {
@@ -15236,6 +16262,60 @@ window.KONST = {
    ]
   },
   {
+   "id": "b862af0d",
+   "sk": 11,
+   "art": "128",
+   "artsk": "XI",
+   "q": "Kas priima sprendimus dėl valstybinės paskolos?",
+   "qru": "Кто принимает решения о государственном займе?",
+   "opts": [
+    "Seimas Vyriausybės siūlymu",
+    "Lietuvos bankas savarankiškai",
+    "Respublikos Prezidentas dekretu"
+   ],
+   "optsru": [
+    "Сейм по предложению Правительства",
+    "Банк Литвы самостоятельно",
+    "Президент Республики указом"
+   ]
+  },
+  {
+   "id": "b1bdaa95",
+   "sk": 11,
+   "art": "131",
+   "artsk": "XI",
+   "q": "Ką turi nurodyti Seimas, didindamas biudžeto išlaidas?",
+   "qru": "Что должен указать Сейм, увеличивая расходы бюджета?",
+   "opts": [
+    "šių išlaidų finansavimo šaltinius",
+    "ministrų, atsakingų už išlaidas, pavardes",
+    "Respublikos Prezidento pritarimą"
+   ],
+   "optsru": [
+    "источники финансирования этих расходов",
+    "фамилии министров, отвечающих за расходы",
+    "одобрение Президента Республики"
+   ]
+  },
+  {
+   "id": "5d7c361d",
+   "sk": 11,
+   "art": "131",
+   "artsk": "XI",
+   "q": "Iki kada Seimas turi patvirtinti valstybės biudžetą?",
+   "qru": "До какого срока Сейм должен утвердить государственный бюджет?",
+   "opts": [
+    "iki naujųjų biudžetinių metų pradžios",
+    "iki gegužės 1 dienos",
+    "iki pavasario sesijos pabaigos"
+   ],
+   "optsru": [
+    "до начала нового бюджетного года",
+    "до 1 мая",
+    "до конца весенней сессии"
+   ]
+  },
+  {
    "id": "e91df983",
    "sk": 12,
    "art": "134",
@@ -15287,6 +16367,42 @@ window.KONST = {
     "на пять лет",
     "на четыре года",
     "на семь лет"
+   ]
+  },
+  {
+   "id": "e3ae7571",
+   "sk": 12,
+   "art": "133",
+   "artsk": "XII",
+   "q": "Kas skiria valstybės kontrolierių?",
+   "qru": "Кто назначает государственного контролёра?",
+   "opts": [
+    "Seimas Respublikos Prezidento teikimu",
+    "Vyriausybė finansų ministro teikimu",
+    "Respublikos Prezidentas savarankiškai"
+   ],
+   "optsru": [
+    "Сейм по представлению Президента Республики",
+    "Правительство по представлению министра финансов",
+    "Президент Республики самостоятельно"
+   ]
+  },
+  {
+   "id": "bdc951f9",
+   "sk": 12,
+   "art": "134",
+   "artsk": "XII",
+   "q": "Kam valstybės kontrolierius teikia išvadą apie metinę biudžeto įvykdymo apyskaitą?",
+   "qru": "Кому государственный контролёр представляет заключение о годовом отчёте об исполнении бюджета?",
+   "opts": [
+    "Seimui",
+    "Vyriausybei",
+    "Lietuvos bankui"
+   ],
+   "optsru": [
+    "Сейму",
+    "Правительству",
+    "Банку Литвы"
    ]
   },
   {
@@ -15434,6 +16550,96 @@ window.KONST = {
    ]
   },
   {
+   "id": "264daf52",
+   "sk": 13,
+   "art": "136",
+   "artsk": "XIII",
+   "q": "Kada Lietuva dalyvauja tarptautinėse organizacijose?",
+   "qru": "Когда Литва участвует в международных организациях?",
+   "opts": [
+    "jei tai neprieštarauja valstybės interesams ir nepriklausomybei",
+    "tik jei to reikalauja kaimyninės valstybės",
+    "visada, nepaisant jokių sąlygų"
+   ],
+   "optsru": [
+    "если это не противоречит интересам государства и его независимости",
+    "только если этого требуют соседние государства",
+    "всегда, без всяких условий"
+   ]
+  },
+  {
+   "id": "8a9a04ee",
+   "sk": 13,
+   "art": "141",
+   "artsk": "XIII",
+   "q": "Ar asmuo, atliekantis tikrąją karo tarnybą, gali būti Seimo nariu?",
+   "qru": "Может ли лицо, проходящее действительную военную службу, быть членом Сейма?",
+   "opts": [
+    "ne, negali",
+    "taip, jei jį iškelia partija",
+    "taip, jei sutinka kariuomenės vadas"
+   ],
+   "optsru": [
+    "нет, не может",
+    "да, если его выдвигает партия",
+    "да, если согласен командующий армией"
+   ]
+  },
+  {
+   "id": "c1de8b81",
+   "sk": 13,
+   "art": "143",
+   "artsk": "XIII",
+   "q": "Kada turi būti paskirti rinkimai, jei įgaliojimai buvo pratęsti dėl karo?",
+   "qru": "Когда должны быть назначены выборы, если полномочия были продлены из-за войны?",
+   "opts": [
+    "ne vėliau kaip po trijų mėnesių karui pasibaigus",
+    "ne vėliau kaip po metų karui pasibaigus",
+    "tik priėmus naują Konstituciją"
+   ],
+   "optsru": [
+    "не позднее чем через три месяца после окончания войны",
+    "не позднее чем через год после окончания войны",
+    "только после принятия новой Конституции"
+   ]
+  },
+  {
+   "id": "86ef4e2c",
+   "sk": 13,
+   "art": "145",
+   "artsk": "XIII",
+   "q": "Ar įvedus karo ar nepaprastąją padėtį gali būti apribotos kai kurios teisės ir laisvės?",
+   "qru": "Могут ли быть ограничены некоторые права и свободы при введении военного или чрезвычайного положения?",
+   "opts": [
+    "taip, laikinai",
+    "ne, niekada",
+    "taip, visam laikui"
+   ],
+   "optsru": [
+    "да, временно",
+    "нет, никогда",
+    "да, навсегда"
+   ]
+  },
+  {
+   "id": "2f0b7ab0",
+   "sk": 13,
+   "art": "146",
+   "artsk": "XIII",
+   "q": "Ką valstybė daro kariams, kurie eidami karo tarnybą nustojo sveikatos?",
+   "qru": "Что государство делает для военных, которые на военной службе потеряли здоровье?",
+   "opts": [
+    "globoja ir aprūpina juos",
+    "atleidžia juos be jokių išmokų",
+    "perkelia juos į policiją"
+   ],
+   "optsru": [
+    "опекает и обеспечивает их",
+    "увольняет их без всяких выплат",
+    "переводит их в полицию"
+   ]
+  },
+  {
    "id": "e469dd8f",
    "sk": 14,
    "art": "147",
@@ -15557,6 +16763,60 @@ window.KONST = {
     "Конституционный акт «О членстве Литовской Республики в Европейском союзе»",
     "Статут Сейма и Закон о Правительстве Литовской Республики",
     "Договор между Литвой и Польшей о дружественных отношениях и добрососедском сотрудничестве"
+   ]
+  },
+  {
+   "id": "322faee5",
+   "sk": 14,
+   "art": "149",
+   "artsk": "XIV",
+   "q": "Kada įsigalioja įstatymas dėl Konstitucijos keitimo?",
+   "qru": "Когда вступает в силу закон об изменении Конституции?",
+   "opts": [
+    "ne anksčiau kaip po vieno mėnesio nuo jo priėmimo",
+    "kitą dieną po balsavimo Seime",
+    "tik gavus Konstitucinio Teismo išvadą"
+   ],
+   "optsru": [
+    "не ранее чем через месяц после его принятия",
+    "на следующий день после голосования в Сейме",
+    "только после заключения Конституционного суда"
+   ]
+  },
+  {
+   "id": "7d4b8742",
+   "sk": 14,
+   "art": "151",
+   "artsk": "XIV",
+   "q": "Kaip buvo priimta dabartinė Lietuvos Respublikos Konstitucija?",
+   "qru": "Как была принята действующая Конституция Литовской Республики?",
+   "opts": [
+    "referendumu",
+    "Seimo nutarimu",
+    "Respublikos Prezidento dekretu"
+   ],
+   "optsru": [
+    "на референдуме",
+    "постановлением Сейма",
+    "указом Президента Республики"
+   ]
+  },
+  {
+   "id": "0cd37a1f",
+   "sk": 14,
+   "art": "151",
+   "artsk": "XIV",
+   "q": "Kiek piliečių turėjo pritarti Konstitucijai referendume, kad ji įsigaliotų?",
+   "qru": "Сколько граждан должны были одобрить Конституцию на референдуме, чтобы она вступила в силу?",
+   "opts": [
+    "daugiau kaip pusė visų piliečių, turinčių rinkimų teisę",
+    "daugiau kaip pusė balsavusių piliečių",
+    "ne mažiau kaip 3/4 visų piliečių"
+   ],
+   "optsru": [
+    "более половины всех граждан, имеющих избирательное право",
+    "более половины проголосовавших граждан",
+    "не менее 3/4 всех граждан"
    ]
   }
  ],

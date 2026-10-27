@@ -259,7 +259,7 @@
       el('span', {}, lt, el('span', { class: 'ru' }, ru)));
     const fresh = !r.seen && !r.exams.length;
     const next = r.ready ? 'Чтобы не забыть, раз в несколько дней сдавайте пробный экзамен.'
-      : r.seen < r.total ? `Тренировка даёт сначала новые вопросы: ещё ${Math.ceil((r.total - r.seen) / N)} — и вы увидите весь банк.`
+      : r.seen < r.total ? `Тренировка даёт сначала новые вопросы: ещё примерно ${Math.ceil((r.total - r.seen) / N) + 1} — и вы увидите весь банк.`
       : r.weak ? 'Повторите слабые места — кнопка «Silpnos vietos» ниже.'
       : 'Сдайте пробный экзамен на время, три раза подряд.';
     return el('div', { class: 'card ready' + (r.ready ? ' yes' : '') },
