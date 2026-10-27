@@ -5,6 +5,7 @@
 // переведено всё; в экзамене перевода нет — он в разборе в конце, как на настоящем экзамене.
 // Банк — window.KONST.exam (data/egzaminas.tsv → scripts/web.py); история попыток и журнал по вопросам — localStorage.
 // «Pasirengimas» на старте: все вопросы банка встречались, слабых нет, 3 последних экзамена сданы; по главам — полоски.
+// «Pasiruošimo planas»: дата экзамена → главы по дням, «сегодня» — следующие несделанные; ?sk=N — вопросы одной главы.
 (() => {
   'use strict';
   const D = window.KONST, S = window.Speak, app = document.getElementById('app');
@@ -293,16 +294,100 @@
         } } } }, 'Išvalyti statistiką ', el('span', { class: 'ru' }, '(сбросить статистику вопросов)')) : null);
   }
 
+  // ---------- план подготовки: konst.plan.v1 = { date: день экзамена ГГГГ-ММ-ДД, done: { глава: когда отмечена }, t } ----------
+  // Главы идут по порядку; «сегодня» — следующие несделанные, по стольку в день, чтобы успеть до дней повторения
+  // (3 последних дня; если до экзамена меньше 10 дней — 1, меньше 4 — ни одного). Пропустили день — темп пересчитается.
+  const PLAN = 'konst.plan.v1';
+  const ymd = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const daysTo = date => Math.round((new Date(date + 'T00:00') - new Date(ymd(new Date()) + 'T00:00')) / 864e5);
+  const plural = (n, one, few, many) => { const a = n % 10, b = n % 100;
+    return `${n} ${a === 1 && b !== 11 ? one : a >= 2 && a <= 4 && (b < 12 || b > 14) ? few : many}`; };
+  function planToday(p) {
+    const left = daysTo(p.date), done = p.done || {}, rest = D.chapters.filter(c => !done[c.no]);
+    if (left < 0) return { phase: 'past', left, rest };
+    if (left === 0) return { phase: 'day', left, rest };
+    const review = left >= 10 ? 3 : left >= 4 ? 1 : 0;
+    if (!rest.length) return { phase: 'review', left, rest, review };
+    const days = Math.max(1, left - review), per = Math.ceil(rest.length / days);
+    return { phase: 'learn', left, rest, review, days, per, today: rest.slice(0, per) };
+  }
+  const savePlan = p => { write(PLAN, Object.assign(p, { t: Date.now() })); home(); document.getElementById('planas')?.scrollIntoView({ block: 'start' }); };
+  const chapterQs = no => shuffle(D.exam.filter(q => q.sk === no)).slice(0, N).map(q => Object.assign({}, q));
+  const chapterGo = c => {                               // что делать с главой: рассказ, слова, текст, вопросы этой главы
+    const st = (D.stories || {})[c.no] || [], nq = chapterQs(c.no).length;
+    const a = (href, lt, ru) => el('a', { href }, lt, el('span', { class: 'ru' }, ' ' + ru));
+    return el('span', { class: 'go' },
+      st.length ? a(`skaitymas.html#${st[0]}`, 'Skaityti', plural(st.length, 'рассказ', 'рассказа', 'рассказов')) : null, st.length ? ' · ' : null,
+      a(`index.html?d=terms&sk=${c.no}`, 'Žodžiai', 'слова'), ' · ', a(`tekstas.html#sk${c.no}`, 'Tekstas', 'текст главы'), ' · ',
+      el('button', { type: 'button', class: 'linkish', on: { click: () => start('practice', chapterQs(c.no), `${c.roman} skyrius`) } },
+        'Klausimai', el('span', { class: 'ru' }, ' ' + plural(nq, 'вопрос', 'вопроса', 'вопросов'))));
+  };
+  function planCard(r) {
+    const p = read(PLAN, null);
+    const dateForm = (label, value) => el('form', { class: 'planform', on: { submit: e => {
+        e.preventDefault(); const v = e.target.date.value;
+        if (!v || daysTo(v) < 1) { alert('Pasirinkite būsimą datą (выберите дату в будущем).'); return; }
+        savePlan(Object.assign(read(PLAN, null) || { done: {} }, { date: v }));
+      } } },
+      el('label', {}, el('span', {}, 'Egzamino data ', el('span', { class: 'ru' }, '(дата экзамена)')),
+        el('input', { type: 'date', name: 'date', required: '', min: ymd(new Date(Date.now() + 864e5)), value: value || null })),
+      el('button', { type: 'submit' }, label));
+    const head = el('p', { class: 'summary' }, 'Pasiruošimo planas ', el('span', { class: 'ru' }, '(план подготовки)'));
+    if (!p || !p.date) return el('div', { class: 'card plan', id: 'planas' }, head,
+      el('p', { class: 'ru' }, 'Укажите дату экзамена — сайт разложит 14 глав по дням до неё, а последние дни оставит на повторение '
+        + 'и пробные экзамены. Пропустили день — план подстроится сам.'),
+      dateForm('Sudaryti planą (составить план)'));
+    const t = planToday(p), done = p.done || {};
+    const chips = el('ol', { class: 'planchips', 'aria-label': `Pereita skyrių: ${D.chapters.length - t.rest.length} iš ${D.chapters.length} (пройдено глав)` },
+      D.chapters.map(c => el('li', { class: done[c.no] ? 'done' : (t.today || []).includes(c) ? 'now' : null,
+        title: `${c.roman}. ${c.lt}${done[c.no] ? ' — atlikta' : ''}` }, c.roman)));
+    const day = loc => new Date(p.date + 'T00:00').toLocaleDateString(loc, { month: 'long', day: 'numeric' });   // «lapkričio 19 d.», «19 ноября»
+    const when = el('p', { class: 'when' }, t.left > 0 ? `Iki egzamino: ${t.left} d. — ${day('lt-LT')} ` : `${day('lt-LT')} `,
+      el('span', { class: 'ru' }, t.left > 0 ? `(до экзамена ${plural(t.left, 'день', 'дня', 'дней')}, ${day('ru-RU')})` : `(${day('ru-RU')})`));
+    let body;
+    if (t.phase === 'learn') {
+      body = [el('p', { class: 'today' }, 'Šiandien ', el('span', { class: 'ru' }, '(сегодня)'), ':'),
+        el('ul', { class: 'plantoday' }, t.today.map(c => el('li', {}, el('b', {}, `${c.roman}. ${c.lt}`), el('span', { class: 'ru' }, c.ru), chapterGo(c)))),
+        el('div', { class: 'actions planok' }, el('button', { class: 'primary', type: 'button', on: { click: () => {
+          const pl = read(PLAN, p); pl.done = Object.assign(pl.done || {}, Object.fromEntries(t.today.map(c => [c.no, Date.now()]))); savePlan(pl);
+        } } }, `Atlikta ✓ (сделано)`)),
+        el('p', { class: 'ru' }, `Осталось ${plural(t.rest.length, 'глава', 'главы', 'глав')} на ${plural(t.days, 'день', 'дня', 'дней')}: `
+          + `по ${plural(t.per, 'главе', 'главы', 'глав')} в день` + (t.review === 1 ? ', последний день — повторение.'
+            : t.review ? `, последние ${plural(t.review, 'день', 'дня', 'дней')} — повторение.` : '.'))];
+    } else if (t.phase === 'review') {
+      const worst = r.by.filter(b => b.weak + b.new).sort((a, b) => (b.weak * 2 + b.new) - (a.weak * 2 + a.new)).slice(0, 3);
+      body = [el('p', { class: 'today' }, 'Visi skyriai pereiti — kartojimas ', el('span', { class: 'ru' }, '(все главы пройдены — повторение)')),
+        worst.length ? el('ul', { class: 'plantoday' }, worst.map(b => el('li', {}, el('b', {}, `${b.c.roman}. ${b.c.lt}`),
+          el('span', { class: 'ru' }, `слабых ${b.weak}, новых ${b.new}`), chapterGo(b.c)))) : null,
+        el('p', { class: 'ru' }, 'Каждый день: «Silpnos vietos» и пробный экзамен на время — до трёх сданных подряд.')];
+    } else if (t.phase === 'day') {
+      body = [el('p', { class: 'today' }, 'Šiandien egzaminas — sėkmės! ', el('span', { class: 'ru' }, '(сегодня экзамен — удачи!)')),
+        el('p', {}, el('a', { href: 'atmintine.html' }, 'Atmintinė ', el('span', { class: 'ru' }, '— памятка: числа и сроки')))];
+    } else {
+      body = [el('p', { class: 'today' }, 'Egzaminas jau buvo. ', el('span', { class: 'ru' }, '(экзамен уже прошёл — если будете сдавать снова, укажите новую дату)')),
+        dateForm('Nauja data (новая дата)')];
+    }
+    return el('div', { class: 'card plan', id: 'planas' }, head, when, chips, ...body,
+      el('p', { class: 'planfoot' },
+        t.phase !== 'past' ? el('details', { class: 'planchange' }, el('summary', {}, 'Pakeisti datą ', el('span', { class: 'ru' }, '(изменить дату)')),
+          dateForm('Išsaugoti (сохранить)', p.date)) : null,
+        el('button', { type: 'button', class: 'linkish', on: { click: () => {
+          if (confirm('Ištrinti planą? (Удалить план? Ответы и статистика останутся.)')) savePlan({ date: '', done: {} });
+        } } }, 'Ištrinti planą ', el('span', { class: 'ru' }, '(удалить план)'))));
+  }
+
   function home() {
     clearInterval(timer); keyHandler = null;
-    const hist = read(HIST, []), r = readiness(), weak = weakOnes();
+    const hist = read(HIST, []), r = readiness(), weak = weakOnes(), plan = (read(PLAN, null) || {}).date;
     app.replaceChildren(...[
+      plan ? planCard(r) : null,
       readyCard(r),
       el('div', { class: 'actions exam-start' },
         el('button', { class: 'primary', on: { click: () => start('exam') } }, 'Egzaminas (экзамен)'),
         el('button', { on: { click: () => start('practice') } }, 'Treniruotė (с проверкой сразу)'),
         weak.length ? el('button', { on: { click: () => start('practice', weakOnes(), 'Silpnos vietos') } },
           `Silpnos vietos (слабые места) · ${weak.length}`) : null),
+      plan ? null : planCard(r),
       chaptersCard(r),
       el('div', { class: 'card' },
         el('p', {}, `${N} klausimų lietuvių kalba, po 3 atsakymų variantus; išlaikyta, jei teisingai atsakyta į ne mažiau kaip ${PASS}.`),
@@ -335,4 +420,7 @@
   });
   if (S) S.onReady(ok => { if (ok && ex && !ex.done) show(); });
   home();
+  const qsk = +new URLSearchParams(location.search).get('sk'), qc = chapter(qsk);   // ?sk=N — вопросы одной главы (из плана, с витрины)
+  if (qc) { history.replaceState(null, '', location.pathname); start('practice', chapterQs(qsk), `${qc.roman} skyrius`); }
+  else if (location.hash === '#planas') document.getElementById('planas')?.scrollIntoView({ block: 'start' });
 })();

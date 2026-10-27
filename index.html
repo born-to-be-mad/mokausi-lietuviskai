@@ -77,6 +77,8 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
 .goal h3 .ru { display: block; font-weight: 400; font-size: .95rem; }
 .goal > p { margin: 6px 0 12px; font-size: .95rem; }
 .goal .steps { margin: 0; }
+.plannote { margin: 12px 0 0; font-size: .95rem; }
+.plannote a { color: var(--accent); font-weight: 600; }
 .topic { margin-top: 34px; }
 .topic > p { margin: 0 0 6px; }
 .edition { color: var(--muted); font-size: .8rem; line-height: 1.45; margin: 0 0 16px; }
@@ -150,6 +152,14 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
       out.push(item('konstitucija/', 'Kortelės', 'карточки', due ? `Kartoti: ${due}` : 'Viskas pakartota',
         (due ? 'ждут повторения' : 'всё повторено') + ` · выучено ${known}`));
     }
+    const plan = get('konst.plan.v1');                     // план подготовки (exam.js): следующая глава и сколько дней осталось
+    if (plan && plan.date) {
+      const CH = [[1, "I", "Lietuvos valstybė"], [2, "II", "Žmogus ir valstybė"], [3, "III", "Visuomenė ir valstybė"], [4, "IV", "Tautos ūkis ir darbas"], [5, "V", "Seimas"], [6, "VI", "Respublikos Prezidentas"], [7, "VII", "Lietuvos Respublikos Vyriausybė"], [8, "VIII", "Konstitucinis Teismas"], [9, "IX", "Teismas"], [10, "X", "Vietos savivalda ir valdymas"], [11, "XI", "Finansai ir valstybės biudžetas"], [12, "XII", "Valstybės kontrolė"], [13, "XIII", "Užsienio politika ir valstybės gynimas"], [14, "XIV", "Konstitucijos keitimas"]], d = new Date(), today = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+      const left = Math.round((new Date(plan.date + 'T00:00') - today) / 864e5), next = CH.find(c => !(plan.done || {})[c[0]]);
+      if (left >= 0) out.unshift(item('konstitucija/egzaminas.html#planas', 'Planas', 'план',
+        left === 0 ? 'Šiandien egzaminas!' : next ? `Šiandien: ${next[1]}. ${esc(next[2])}` : 'Kartojimas',
+        left === 0 ? 'сегодня экзамен — удачи' : `до экзамена ${left} дн.` + (next ? '' : ' · повторение')));
+    }
     const q = Object.entries(get('konst.examq.v1') || {}).filter(([k]) => k !== '_reset'), hist = get('konst.exam.v1') || [];
     if (q.length || hist.length) {                          // экзамен: сколько из трёх условий готовности выполнено (exam.js)
       const weak = q.filter(([, v]) => v && v.w).length, ex = hist.filter(h => h.mode === 'exam' && h.n === 20).slice(0, 3);
@@ -178,6 +188,8 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
         <li><b><a href="konstitucija/egzaminas.html">Pasitikrinkite <span class="ru">— проверьте себя</span> →</a></b> пробным
           экзаменом: готовность по главам и слабые места.</li>
       </ol>
+      <p class="plannote"><a href="konstitucija/egzaminas.html#planas">Pasiruošimo planas →</a> <span class="ru">знаете дату
+        экзамена? Сайт разложит 14 глав по дням до неё.</span></p>
     </section>
     <section class="goal read group" aria-labelledby="g-read">
       <h3 id="g-read">Noriu skaityti lietuviškai <span class="ru">хочу читать по-литовски</span></h3>

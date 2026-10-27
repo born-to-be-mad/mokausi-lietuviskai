@@ -141,6 +141,7 @@ a.artlink:hover { color: var(--accent); text-decoration-style: solid; }
   [data-look="kids"] .looksw { border-width: 2px; }
   [data-look="kids"] .lookhint { border-width: 2px; border-radius: 18px; font-weight: 500; }
   [data-look="kids"] .readysk .bar { height: 12px; border-radius: 6px; }
+  [data-look="kids"] .planchips li { border-width: 2px; border-radius: 10px; }
   [data-look="kids"] .ready.yes { border-width: 2px; }
 
   /* тренажёр и экзамен */
@@ -296,6 +297,9 @@ a.artlink:hover { color: var(--accent); text-decoration-style: solid; }
   [data-look="contrast"] .lookhint { border: 2px solid var(--text); box-shadow: none; font-size: .95rem; }
   [data-look="contrast"] .lookhint .lh-ru { color: var(--text); }
   [data-look="contrast"] .readysk .bar { border: 1px solid var(--text); height: 12px; }
+  [data-look="contrast"] .planchips li { border: 2px solid var(--text); color: var(--text); }
+  [data-look="contrast"] .planchips li.done { background: var(--text); color: var(--bg); }
+  [data-look="contrast"] .planchips li.now { outline: 3px solid var(--focus); }
   [data-look="contrast"] :is(.readysk .learn, .sw.learn) { background: repeating-linear-gradient(45deg, var(--text) 0 2px, transparent 2px 5px); }
   [data-look="contrast"] .sw { outline: 1px solid var(--text); }
   /* переводы с меткой «RU» (не только цветом) */

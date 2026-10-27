@@ -173,6 +173,30 @@ table.stats button { padding: 6px 10px; border-radius: 8px; border: 1px solid va
 .result .big { font-size: 2.6rem; font-weight: 700; margin: 4px 0; }
 .result.pass { border-color: var(--good); background: var(--good-bg); }
 .result.fail { border-color: var(--bad); background: var(--bad-bg); }
+/* план подготовки (старт экзамена) */
+.plan .when { margin: 0 0 8px; }
+.planchips { list-style: none; display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 12px; padding: 0; }
+.planchips li { min-width: 2.4em; padding: 3px 6px; border-radius: 6px; border: 1px solid var(--control); text-align: center;
+  font-size: .8rem; font-weight: 600; color: var(--muted); }
+.planchips li.done { background: var(--good-bg); border-color: var(--good); color: var(--good); }
+.planchips li.done::before { content: '✓ '; }
+.planchips li.now { border: 2px solid var(--accent); color: var(--accent); }
+.plan .today { font-weight: 700; margin: 0 0 6px; }
+.plantoday { list-style: none; margin: 0 0 12px; padding: 0; }
+.plantoday li { padding: 8px 0; border-top: 1px solid var(--line); }
+.plantoday li > .ru { display: block; font-size: .85rem; }
+.plantoday .go { display: block; margin-top: 4px; font-size: .92rem; color: var(--muted); }
+.plantoday .go a, .plantoday .go .linkish { color: var(--accent); }
+.plantoday .go .linkish { padding: 0; font-size: inherit; }
+.actions.planok button { flex: 0 1 auto; padding: 10px 24px; min-height: 44px; }
+.planform { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: flex-end; }
+.planform label { display: flex; flex-direction: column; gap: 4px; font-size: .9rem; }
+.planform input { padding: 8px 10px; border: 1px solid var(--control); border-radius: 8px; background: var(--card); color: inherit; font: inherit; }
+.planform button { padding: 9px 14px; border-radius: 10px; border: 1px solid var(--accent); background: var(--accent); color: var(--bg); font-weight: 600; cursor: pointer; }
+.planfoot { display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: flex-start; margin: 10px 0 0; font-size: .9rem; }
+.planchange summary { cursor: pointer; color: var(--accent); text-decoration: underline; }
+.planchange[open] summary { margin-bottom: 8px; }
+@media (max-width: 600px) { .plantoday .go .ru { display: none; } }
 /* готовность к экзамену (старт экзамена) */
 .ready .verdict { font-size: 1.15rem; font-weight: 700; margin: 2px 0 8px; }
 .ready.yes { border-color: var(--good); background: var(--good-bg); }
