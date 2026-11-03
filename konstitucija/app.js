@@ -135,21 +135,29 @@
       ltFirst ? el('div', { class: 'main ru-side' }, t.ru) : el('div', { class: 'main' }, ltForms(t), sayBtn(sayText(t))),
       backDetails(t));
     const answer = ok => { grade(t, ok); queue.shift(); if (ok) session.right++; else { session.wrong++; queue.push(t); } nextCard(); };
-    const show = el('button', { class: 'primary', on: { click: reveal } }, 'Rodyti (показать) ', el('span', { class: 'key' }, '␣'));
-    const no = el('button', { class: 'no', hidden: true, on: { click: () => answer(false) } }, 'Nežinojau (не знал) ', el('span', { class: 'key' }, '1'));
-    const yes = el('button', { class: 'yes', hidden: true, on: { click: () => answer(true) } }, 'Žinojau (знал) ', el('span', { class: 'key' }, '2'));
-    function reveal() { back.hidden = false; show.hidden = true; no.hidden = false; yes.hidden = false; yes.focus(); speakNow = () => S.say(sayText(t)); }
+    // «Žinojau / Nežinojau» — сразу (перевод понятен — можно ответить, не открывая); «Rodyti» в карточке только открывает перевод
+    const show = el('button', { class: 'reveal', type: 'button', on: { click: reveal } },
+      ltFirst ? 'Rodyti vertimą ' : 'Rodyti lietuviškai ', el('span', { class: 'ru' }, ltFirst ? '(показать перевод)' : '(показать по-литовски)'),
+      ' ', el('span', { class: 'key' }, '␣'));
+    const no = el('button', { class: 'no', on: { click: () => answer(false) } }, 'Nežinojau (не знал) ', el('span', { class: 'key' }, '1'));
+    const yes = el('button', { class: 'yes', on: { click: () => answer(true) } }, 'Žinojau (знал) ', el('span', { class: 'key' }, '2'));
+    function reveal() {
+      if (!back.hidden) return;
+      back.hidden = false; show.hidden = true; yes.focus(); speakNow = () => S.say(sayText(t));
+      window.Look?.say(back.textContent);                        // экранному диктору — обратная сторона карточки
+    }
     speakNow = ltFirst ? () => S.say(sayText(t)) : null;     // RU → LT: литовское — только после «Rodyti»
     keyHandler = e => {
-      if (e.key === ' ' || e.key === 'Enter') { if (!show.hidden) { e.preventDefault(); reveal(); } }
-      else if (show.hidden && e.key === '1') answer(false);
-      else if (show.hidden && e.key === '2') answer(true);
+      if (e.key === ' ' || e.key === 'Enter') {                  // на другой кнопке (Žinojau…) Enter нажимает её саму
+        if (!show.hidden && (e.target === show || e.target.tagName !== 'BUTTON')) { e.preventDefault(); reveal(); } }
+      else if (e.key === '1') answer(false);                     // ответить можно и не открывая перевод
+      else if (e.key === '2') answer(true);
     };
     app.replaceChildren(
       el('div', { class: 'card' },
         el('div', { class: 'tag' }, `${deck().lt} · ${chTag(t)} · liko (осталось): ${queue.length}`),
-        front, hint, back),
-      el('div', { class: 'actions' }, show, no, yes));
+        front, hint, show, back),
+      el('div', { class: 'actions' }, no, yes));
     show.focus();
   }
 
@@ -221,6 +229,7 @@
       answered = true;
       if (feedback) feedback.hidden = false;
       next.hidden = false; next.focus();
+      window.Look?.say(ok ? 'Teisingai (верно).' : `Neteisingai (неверно). Teisingai: ${opts.find(o => o.t === t).label}.`);
     }
     keyHandler = e => {
       const n = +e.key;
@@ -243,11 +252,11 @@
       prompt = [ltFirst ? el('div', { class: 'front' }, t.lemma, sayBtn(t.lemma)) : el('div', { class: 'front ru-side' }, t.ru),
         !ltFirst && dupRu().has(t.ru) && t.exru ? el('div', { class: 'hint' }, `Pvz. (напр.): ${t.exru}`) : null];
     }
-    app.replaceChildren(
-      el('div', { class: 'card' },
-        el('div', { class: 'tag' }, `${quiz.i + 1} / ${quiz.items.length} · ${deck().lt} · ${chTag(t)}`),
-        prompt, el('div', { class: 'opts' + (isFacts() && !t.num ? ' long' : '') }, buttons), feedback),
-      next);
+    const card = el('div', { class: 'card', tabindex: '-1' },
+      el('div', { class: 'tag' }, `${quiz.i + 1} / ${quiz.items.length} · ${deck().lt} · ${chTag(t)}`),
+      prompt, el('div', { class: 'opts' + (isFacts() && !t.num ? ' long' : '') }, buttons), feedback);
+    app.replaceChildren(card, next);
+    if (quiz.i > 0) card.focus({ preventScroll: true });      // после «Kitas» — к новому вопросу (диктор его прочтёт)
   }
 
   function quizDone() {
@@ -381,6 +390,7 @@
       if (!ok) { buttons[k].classList.add('wrong'); task.mistakes.push(q); } else task.score++;
       if (q.grade) grade(q.grade, ok);
       feedback.hidden = false; next.hidden = false; next.focus();
+      window.Look?.say((ok ? 'Teisingai (верно). ' : 'Neteisingai (неверно). ') + feedback.textContent);
       speakNow = q.sayAfter ? () => S.say(q.sayAfter) : speakNow;
     }
     speakNow = q.say ? () => S.say(q.say) : null;
@@ -390,14 +400,14 @@
       else if ((e.key === 't' || e.key === 'T') && !done && peeks[0]) peeks[0].click();   // T — перевод вопроса
       else if ((e.key === 'Enter' || e.key === ' ') && done) { e.preventDefault(); next.click(); }
     };
-    app.replaceChildren(
-      el('div', { class: 'card' },
+    const card = el('div', { class: 'card', tabindex: '-1' },
         el('div', { class: 'tag' }, `${task.i + 1} / ${task.items.length} · ${TASKS[task.kind].lt}`),
         el('div', { class: 'ask' }, q.ask),
         q.prompt ? el('div', { class: 'front fact' }, q.prompt, q.say ? sayBtn(q.say) : null, peeks[0]) : null,
         qRu,
-        el('div', { class: 'opts' }, buttons.map((b, k) => peeks[k + 1] ? el('div', { class: 'optrow' }, b, peeks[k + 1]) : b)), feedback),
-      next);
+        el('div', { class: 'opts' }, buttons.map((b, k) => peeks[k + 1] ? el('div', { class: 'optrow' }, b, peeks[k + 1]) : b)), feedback);
+    app.replaceChildren(card, next);
+    if (task.i > 0) card.focus({ preventScroll: true });
   }
   function taskDone() {
     keyHandler = null; speakNow = null;

@@ -12593,7 +12593,7 @@ window.KONST = {
      "key": "f:86",
      "lemma": "Lietuvos teismai – Aukščiausiasis, apeliacinis, apygardų ir apylinkių teismai.",
      "lt": "Lietuvos teismai – Aukščiausiasis, apeliacinis, apygardų ir apylinkių teismai.",
-     "ru": "Суды Литвы – Верховный, апелляционный, окружные и апилинковые суды.",
+     "ru": "Суды Литвы – Верховный, апелляционный, окружные и районные суды.",
      "gram": "",
      "syn": [],
      "ex": "",

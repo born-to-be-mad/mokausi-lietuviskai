@@ -64,6 +64,8 @@
 /* фокус с клавиатуры — заметная рамка во всех видах («Kontrastas» — с жёлтым ореолом, ниже) */
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 /* «Pereiti prie turinio» — видна только в фокусе */
+/* только для экранного диктора (Look.say) */
+.sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .skip {
   position: absolute; left: 8px; top: -80px; z-index: 100; padding: 10px 16px; border-radius: 6px;
   background: #ffdd00; color: #0b0b0c; font: 700 .95rem/1.2 var(--font-ui); text-decoration: none;
@@ -142,6 +144,7 @@ a.artlink:hover { color: var(--accent); text-decoration-style: solid; }
   [data-look="kids"] .lookhint { border-width: 2px; border-radius: 18px; font-weight: 500; }
   [data-look="kids"] .readysk .bar { height: 12px; border-radius: 6px; }
   [data-look="kids"] .planchips li { border-width: 2px; border-radius: 10px; }
+  [data-look="kids"] .reveal { border-width: 2px; border-radius: 16px; font-weight: 700; }
   [data-look="kids"] .ready.yes { border-width: 2px; }
 
   /* тренажёр и экзамен */
@@ -298,6 +301,7 @@ a.artlink:hover { color: var(--accent); text-decoration-style: solid; }
   [data-look="contrast"] .lookhint .lh-ru { color: var(--text); }
   [data-look="contrast"] .readysk .bar { border: 1px solid var(--text); height: 12px; }
   [data-look="contrast"] .planchips li { border: 2px solid var(--text); color: var(--text); }
+  [data-look="contrast"] .reveal { border: 2px solid var(--text); color: var(--text); border-radius: 6px; }
   [data-look="contrast"] .planchips li.done { background: var(--text); color: var(--bg); }
   [data-look="contrast"] .planchips li.now { outline: 3px solid var(--focus); }
   [data-look="contrast"] :is(.readysk .learn, .sw.learn) { background: repeating-linear-gradient(45deg, var(--text) 0 2px, transparent 2px 5px); }

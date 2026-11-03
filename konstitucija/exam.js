@@ -33,7 +33,8 @@
   const sayBtn = text => (S && S.available() ? S.button(text) : null);
 
   // журнал по вопросам (id — из текста вопроса): right / wrong — сколько раз, s — верно подряд без подсказки перевода,
-  // w — последний ответ неверный, t — когда (для синхронизации, sync.js). Вопрос новый, слабый (w), выучен (s ≥ KNOWN) или изучается
+  // w — был неверный ответ и после него ещё нет KNOWN верных подряд (одно угадывание — 1 из 3 — слабость не снимает),
+  // t — когда (для синхронизации, sync.js). Вопрос новый, слабый (w), выучен (s ≥ KNOWN) или изучается
   const journal = () => read(JOURNAL, {});
   const state = r => !r ? 'new' : r.w ? 'weak' : (r.s || 0) >= KNOWN ? 'known' : 'learn';
   const RANK = { new: 0, weak: 1, learn: 2, known: 3 };
@@ -41,16 +42,21 @@
     const j = journal();
     for (const { q, ok, hint } of items) {
       const r = Object.assign({ right: 0, wrong: 0, s: 0 }, j[q.id]);
-      if (ok) { r.right++; r.w = false; if (!hint) r.s++; } else { r.wrong++; r.w = true; r.s = 0; }
+      if (ok) { r.right++; if (!hint) r.s++; if (r.s >= KNOWN) r.w = false; } else { r.wrong++; r.w = true; r.s = 0; }
       r.t = Date.now(); j[q.id] = r;
     }
     write(JOURNAL, j);
   }
   const hinted = i => Object.keys(ex.peek).some(k => k.split(':')[0] === String(i));
   const prep = qs => qs.sort((a, b) => a.sk - b.sk).map(q => Object.assign(q, { order: shuffle([0, 1, 2]) }));   // 0 — верный вариант
-  // «Silpnos vietos»: сначала слабые, потом изучаемые — до 20
-  const weakOnes = () => { const j = journal(); return shuffle(D.exam).map(q => [RANK[state(j[q.id])], q])
-    .filter(([r]) => r === 1 || r === 2).sort((a, b) => a[0] - b[0]).slice(0, N).map(([, q]) => Object.assign({}, q)); };
+  // «Silpnos vietos» — слабые (их столько же, сколько в готовности и «Tęsti»), по 20 за раз; слабых нет — «Kartoti»: изучаемые
+  function drill() {
+    const j = journal(), pool = st => shuffle(D.exam).filter(q => state(j[q.id]) === st);
+    const weak = pool('weak'), learn = weak.length ? [] : pool('learn');
+    const qs = (weak.length ? weak : learn).slice(0, N).map(q => Object.assign({}, q));
+    return weak.length ? { n: weak.length, qs, label: 'Silpnos vietos', btn: 'Silpnos vietos (слабые места)' }
+      : { n: learn.length, qs, label: 'Kartojimas', btn: 'Kartoti (повторить изучаемые)' };
+  }
 
   // 20 вопросов: по одному из каждой главы, остальные — из всего банка; порядок — по главам. В экзамене — случайно
   // (честная мера готовности); в тренировке — сначала новые, потом слабые, изучаемые и выученные (внутри — случайно)
@@ -95,13 +101,14 @@
 
   const hints = () => Object.keys(ex.peek).length;
 
-  function show() {
+  // focus: 'q' — к вопросу (переход), 'next' — к главной кнопке (после ответа в тренировке), 'peek:<ключ>' — к той же кнопке RU
+  function show(focus = 'q') {
     const q = ex.qs[ex.i], a = ex.ans[ex.i], practice = ex.mode === 'practice';
     const checked = practice && a !== undefined;
     const canPeek = practice && !checked;                    // подсмотреть — только в тренировке и до ответа
     const shown = key => checked || !!ex.peek[`${ex.i}:${key}`];
-    const peek = key => { ex.peek[`${ex.i}:${key}`] = true; show(); };
-    const peekBtn = key => canPeek ? el('button', { class: 'peek' + (shown(key) ? ' on' : ''), type: 'button',
+    const peek = key => { ex.peek[`${ex.i}:${key}`] = true; show(`peek:${key}`); };
+    const peekBtn = key => canPeek ? el('button', { class: 'peek' + (shown(key) ? ' on' : ''), type: 'button', 'data-peek': key,
       title: 'Rodyti vertimą (показать перевод — считается подсказкой)', 'aria-label': 'Rodyti vertimą (показать перевод)',
       on: { click: () => peek(key) } }, 'RU') : null;
     const opts = q.order.map((o, k) => {
@@ -120,7 +127,8 @@
       ex.ans[ex.i] = k;
       if (practice) record([{ q, ok: q.order[k] === 0, hint: hinted(ex.i) }]);   // в тренировке — сразу, в экзамене — в итоге
       if (!practice && ex.i < ex.qs.length - 1) { ex.i++; }
-      show();
+      const all = Object.keys(ex.ans).length === ex.qs.length;
+      show(practice || (all && ex.i === ex.qs.length - 1) ? 'next' : 'q');   // экзамен: последний ответ — к «Baigti»
     }
     const dots = !practice ? el('div', { class: 'dots' }, ex.qs.map((_, j) =>
       el('button', { class: 'dot' + (j === ex.i ? ' cur' : '') + (ex.ans[j] !== undefined ? ' done' : ''), title: `${j + 1}`,
@@ -166,11 +174,15 @@
       dots, segs,
       el('div', { class: 'card' },
         el('div', { class: 'tag' }, c ? `${c.roman}. ${c.lt}` : ''),
-        el('div', { class: 'front fact' }, q.q, sayBtn(q.q), peekBtn('q')),
+        el('div', { class: 'front fact', tabindex: '-1' }, q.q, sayBtn(q.q), peekBtn('q')),
         shown('q') ? el('div', { class: 'qru' }, q.qru) : null,
         el('div', { class: 'opts long' }, opts),
         feedback),
       nav].filter(Boolean));          // в тренировке вместо сетки номеров (dots = null) — полоска делений (segs)
+    const to = focus === 'next' ? nav.querySelector('.primary')
+      : focus.startsWith('peek:') ? app.querySelector(`[data-peek="${focus.slice(5)}"]`) : app.querySelector('.front');
+    if (focus === 'next' && feedback) window.Look?.say(feedback.textContent);   // диктору — итог ответа
+    to?.focus({ preventScroll: focus !== 'next' });
   }
 
   function finish() {
@@ -188,7 +200,7 @@
     }
     const wrong = ex.qs.map((q, i) => ({ q, a: ex.ans[i] })).filter(x => x.a === undefined || x.q.order[x.a] !== 0);
     app.replaceChildren(...[
-      el('div', { class: 'card result ' + (ex.custom ? '' : passed ? 'pass' : 'fail') },
+      el('div', { class: 'card result ' + (ex.custom ? '' : passed ? 'pass' : 'fail'), tabindex: '-1' },
         el('p', { class: 'big' }, `${right} / ${ex.qs.length}`),
         ex.timeout ? el('p', { class: 'summary' }, 'Laikas baigėsi (время вышло) — neatsakyti klausimai neįskaityti.') : null,
         el('p', { class: 'summary' }, ex.custom ? `${ex.label}: teisingai ${right} iš ${ex.qs.length} (верно)`
@@ -206,6 +218,7 @@
         wrong.length ? el('button', { on: { click: () => start('practice', wrong.map(x => Object.assign({}, x.q)), 'Klaidų kartojimas') } },
           'Kartoti klaidas (повторить ошибки)') : null,
         el('button', { class: 'primary', on: { click: home } }, 'Į pradžią (в начало)'))].filter(Boolean));
+    app.querySelector('.result').focus({ preventScroll: true });   // диктору — сразу результат
   }
 
   // итог по главам: сколько верно в каждой главе этой попытки; у глав с ошибками — ссылки, что повторить
@@ -269,7 +282,7 @@
       el('ul', { class: 'checks' },
         check(r.seen === r.total, `Išbandyti visi klausimai: ${r.seen} iš ${r.total}`, 'все вопросы банка встречались хотя бы раз'),
         check(r.seen > 0 && !r.weak, !r.seen ? 'Silpni klausimai: —' : r.weak ? `Silpnų klausimų: ${r.weak}` : 'Silpnų klausimų nėra',
-          'слабый — последний ответ на него неверный'),
+          'слабый — была ошибка, и после неё ещё нет двух верных ответов подряд'),
         check(r.passed === 3, `Išlaikyti 3 paskutiniai egzaminai: ${r.passed} iš 3`
           + (r.exams.length ? ` (${r.exams.map(h => h.right).join(', ')})` : ''), `режим «Egzaminas», 45 минут; сдано — от ${PASS} из ${N}`)),
       el('p', { class: 'ru next' }, next));
@@ -378,15 +391,14 @@
 
   function home() {
     clearInterval(timer); keyHandler = null;
-    const hist = read(HIST, []), r = readiness(), weak = weakOnes(), plan = (read(PLAN, null) || {}).date;
+    const hist = read(HIST, []), r = readiness(), d = drill(), plan = (read(PLAN, null) || {}).date;
     app.replaceChildren(...[
-      plan ? planCard(r) : null,
-      readyCard(r),
-      el('div', { class: 'actions exam-start' },
+      el('div', { class: 'actions exam-start' },                     // главные кнопки — первыми, на первом экране телефона
         el('button', { class: 'primary', on: { click: () => start('exam') } }, 'Egzaminas (экзамен)'),
         el('button', { on: { click: () => start('practice') } }, 'Treniruotė (с проверкой сразу)'),
-        weak.length ? el('button', { on: { click: () => start('practice', weakOnes(), 'Silpnos vietos') } },
-          `Silpnos vietos (слабые места) · ${weak.length}`) : null),
+        d.n ? el('button', { on: { click: () => { const x = drill(); start('practice', x.qs, x.label); } } }, `${d.btn} · ${d.n}`) : null),
+      plan ? planCard(r) : null,
+      readyCard(r),
       plan ? null : planCard(r),
       chaptersCard(r),
       el('div', { class: 'card' },

@@ -64,6 +64,7 @@ select {
 .bar { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; margin-top: 4px; }
 .bar > span { display: block; height: 100%; background: var(--good); }
 
+[tabindex="-1"]:focus { outline: none; }                    /* служебный фокус (вопрос, итог) — для диктора, без рамки */
 .card {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 22px 18px; margin-bottom: 14px; min-height: 180px;
@@ -72,6 +73,11 @@ select {
 .front { font-family: var(--font-read); font-size: 1.75rem; font-weight: 600; overflow-wrap: anywhere; }
 .front.ru-side { color: var(--accent); }
 .hint { font-size: .9rem; color: var(--muted); margin-top: 6px; }
+.reveal { display: block; width: 100%; margin-top: 16px; padding: 11px 12px; border: 1px dashed var(--control); border-radius: 10px;
+  background: transparent; color: var(--accent); font-weight: 600; cursor: pointer; }
+.reveal[hidden] { display: none; }
+.reveal:hover { border-style: solid; }
+.reveal .ru { font-weight: 400; }
 .back { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); }
 .back .main { font-family: var(--font-read); font-size: 1.35rem; font-weight: 600; }
 .back .main.ru-side { color: var(--accent); }

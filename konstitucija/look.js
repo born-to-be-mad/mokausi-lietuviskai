@@ -79,10 +79,14 @@
     return box;
   };
 
+  // объявления для экранного диктора: Look.say('Teisingai!') — в скрытую строку role="status" (создаётся при загрузке:
+  // живая область должна существовать до первой записи). Вместо aria-live на всём экране, который перерисовывается целиком.
+  let sayEl = null;
+  const say = text => { if (!sayEl) return; sayEl.textContent = ''; setTimeout(() => { sayEl.textContent = text; }, 60); };
   // пара кнопок A− / A+ (экзамен рисует их сам: window.Look.zoomButtons())
   window.Look = {
     progress: { snapshot, restore },
-    backupBox,
+    backupBox, say,
     zoomButtons() {
       const box = document.createElement('span');
       box.className = 'zoom';
@@ -124,6 +128,7 @@
   }
   function mount() {
     syncZoom();
+    sayEl = document.createElement('p'); sayEl.className = 'sr'; sayEl.setAttribute('role', 'status'); document.body.append(sayEl);
     markRu(document.body);
     new MutationObserver(ms => ms.forEach(m => m.addedNodes.forEach(n => {
       if (n.nodeType === 1) markRu(n); else if (n.nodeType === 3 && n.parentElement) markRu(n.parentElement);
