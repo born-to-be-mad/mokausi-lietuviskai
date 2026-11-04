@@ -2,50 +2,55 @@
 <html lang="lt">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="konstitucija/favicon.svg" type="image/svg+xml">
 <title>Mokausi lietuviškai</title>
 <meta name="description" content="Бесплатные материалы для изучения литовского (A2) и подготовки к экзамену по Конституции Литвы: рассказы с переводом, тренажёр слов с произношением, пробный экзамен, книга-пособие. Mokausi lietuviškai.">
+<!-- shell:meta -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mokausi lietuviškai">
+<meta property="og:title" content="Mokausi lietuviškai">
+<meta property="og:description" content="Бесплатные материалы для изучения литовского (A2) и подготовки к экзамену по Конституции Литвы: рассказы с переводом, тренажёр слов с произношением, пробный экзамен, книга-пособие. Mokausi lietuviškai.">
+<meta property="og:url" content="https://born-to-be-mad.github.io/mokausi-lietuviskai/">
+<meta property="og:image" content="https://born-to-be-mad.github.io/mokausi-lietuviskai/konstitucija/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mokausi lietuviškai — Lietuvos Konstitucija, A2, su vertimu į rusų kalbą">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="lt_LT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17181a" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./konstitucija/icons/apple-180.png">
+<!-- /shell:meta -->
 <!-- Шаблон: index.html собирает scripts/web.py ({{…}} — числа из данных и PDF). -->
 <style>
 :root {
   --bg: #f7f6f2; --card: #ffffff; --text: #1d1d1f; --muted: #6b6b70; --line: #dedcd5; --control: #8e8c85;
-  --accent: #2e5a88; --flag-y: #fdb913; --flag-g: #006a44; --flag-r: #c1272d; --soft: #eef3f9;
+  --accent: #2e5a88; --flag-y: #fdb913; --flag-g: #006a44; --flag-r: #c1272d; --soft: #eef3f9; --good: #28724a; --bad: #b3261e;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40; --control: #717279; --soft: #1d2a38;
-    --accent: #8cb4e0; color-scheme: dark;
+    --accent: #8cb4e0; --good: #7fd29b; --bad: #ff8a80; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #17181a; --card: #222326; --text: #ececee; --muted: #a0a0a8; --line: #3a3b40; --control: #717279; --soft: #1d2a38;
-  --accent: #8cb4e0; color-scheme: dark;
+  --accent: #8cb4e0; --good: #7fd29b; --bad: #ff8a80; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text);
   font: 17px/1.55 var(--font-ui); }
 h1, h2, h3 { font-family: var(--font-read); font-weight: 600; }   /* шрифты и вид «Spalvota» — konstitucija/look.css */
-main, .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
-/* каркас, как на страницах разделов (konstitucija/shell.css): шапка с флагом и подвал видны всегда,
-   прокручивается только середина */
-.flag { display: flex; height: 6px; }
-.flag span { flex: 1; } .flag .y { background: var(--flag-y); } .flag .g { background: var(--flag-g); } .flag .r { background: var(--flag-r); }
-html, body { height: 100%; }
-body { display: flex; flex-direction: column; height: 100vh; height: 100dvh; overflow: hidden; }
-.shell-head, .shell-foot { flex: none; background: var(--bg); }
-.shell-head { border-bottom: 1px solid var(--line); }
-.shell-foot { border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; }
-.shell-foot .wrap { padding: 6px 16px max(6px, env(safe-area-inset-bottom)); }
-.shell-main { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior-y: contain; }
-.shell-main:focus { outline: none; }
-.shell-main main { padding-top: 16px; padding-bottom: 24px; }
+main, .top, .foot { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+/* каркас (шапка с разделами, нижняя панель телефона, «Daugiau», подвал) — общий: konstitucija/shell.css */
+.shell-main main { padding-top: 4px; padding-bottom: 24px; }
 h1 { font-size: 1.6rem; margin: 8px 0; line-height: 1.15; }
-@media (max-width: 600px) { h1 { font-size: 1.3rem; } .shell-foot { font-size: .75rem; } }
 .lead { font-size: 1.1rem; margin: 0 0 8px; }
 .ru, .muted { color: var(--muted); }
-.author { color: var(--muted); font-size: .95rem; margin: 0 0 22px; }
 h2 { font-size: 1.35rem; margin: 30px 0 10px; }
 h2 .ru { font-weight: 400; font-size: 1rem; }
 .steps { list-style: none; counter-reset: s; padding: 0; margin: 0 0 8px; display: grid; gap: 10px; }
@@ -66,8 +71,28 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
 .ritem:hover { border-color: var(--accent); }
 .ritem .k { font-size: .8rem; font-weight: 600; color: var(--accent); }
 .ritem .k .ru { font-weight: 400; }
+.ritem .k .i { width: 1.2em; height: 1.2em; margin-right: 5px; vertical-align: -.25em; }
 .ritem b { font-size: 1rem; line-height: 1.3; }
 .ritem small { color: var(--muted); font-size: .8rem; line-height: 1.3; }
+.ritems > .ritem:first-child { grid-column: 1 / -1; padding: 14px 16px; border-color: var(--accent); }   /* самое нужное — крупнее */
+.ritems > .ritem:first-child b { font-size: 1.15rem; }
+.ritem.due b { color: var(--accent); }
+/* новичку: две цели сразу под заголовком (вернувшимся — «Tęsti» вместо них) */
+.cta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 4px 0 22px; }
+.cta a { display: flex; flex-direction: column; justify-content: center; min-height: 64px; padding: 12px 16px; border-radius: 12px;
+  border: 1px solid var(--accent); color: var(--accent); text-decoration: none; font-weight: 700; font-size: 1.05rem; }
+.cta a span { font-weight: 400; font-size: .85rem; opacity: .85; }
+.cta a.primary { background: var(--accent); color: var(--bg); }
+.resume:not([hidden]) ~ .cta { display: none; }
+@media (max-width: 420px) { .cta { grid-template-columns: 1fr; } }
+/* разовая просьба сохранить прогресс (после трёх дней занятий, пока нет ни файла, ни синхронизации) */
+.nudge { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 10px 0 0; padding: 12px 14px; border-radius: 12px;
+  border: 1px dashed var(--accent); background: var(--card); font-size: .92rem; }
+.nudge p { flex: 1 1 260px; margin: 0; }
+.nudge .ru { display: block; font-size: .85rem; }
+.nudge button, .nudge a { min-height: 40px; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--accent); background: var(--card);
+  color: var(--accent); font: 600 .9rem/1.2 var(--font-ui); text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; }
+.nudge .nx { border-color: transparent; color: var(--muted); }
 /* цели: экзамен (путь в три шага) и чтение */
 .goals { display: grid; gap: 14px; grid-template-columns: 1fr; }
 @media (min-width: 720px) { .goals { grid-template-columns: 1.55fr 1fr; align-items: start; } }
@@ -116,15 +141,21 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
 .shell-foot a, .free a { color: var(--accent); }
 .free .star { display: block; margin-top: 8px; }
 </style>
+<link rel="stylesheet" href="konstitucija/shell.css">
 <link rel="stylesheet" href="konstitucija/look.css">
 <script src="konstitucija/look.js"></script>
 <script src="konstitucija/sync.js" defer></script>
 </head>
 <body>
-<header class="shell-head">
+<!-- shell:head -->
+<header class="shell-head" data-sec="home">
 <div class="flag" aria-hidden="true"><span class="y"></span><span class="g"></span><span class="r"></span></div>
-<div class="wrap"><h1>Mokausi lietuviškai</h1></div>
+<div class="hrow">
+  <div class="headbar"><nav class="sitenav" aria-label="Svetainės skyriai (разделы сайта)"><a class="brand" href="./" data-sec="home" title="Mokausi lietuviškai — pradžia (главная)" aria-current="page"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-home"/></svg><span class="sr">Mokausi lietuviškai — pradžia (главная)</span></a><ul><li><a href="konstitucija/skaitymas.html" data-sec="read"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-read"/></svg><span class="l">Skaitymas</span><span class="ru">чтение</span></a></li><li><a href="konstitucija/tekstas.html" data-sec="read"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-text"/></svg><span class="l">Konstitucija</span><span class="ru">текст</span></a></li><li><a href="konstitucija/" data-sec="words"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-words"/></svg><span class="l">Žodžiai</span><span class="ru">слова</span></a></li><li><a href="konstitucija/egzaminas.html" data-sec="exam"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-exam"/></svg><span class="l">Egzaminas</span><span class="ru">экзамен</span></a></li><li><a href="konstitucija/atmintine.html" data-sec="exam"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-memo"/></svg><span class="l">Atmintinė</span><span class="ru">памятка</span></a></li><li><button type="button" class="morebtn" popovertarget="daugiau" aria-haspopup="dialog"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-more"/></svg><span class="l">Daugiau</span><span class="ru">ещё</span></button></li></ul></nav></div>
+  <div class="top"><h1>Mokausi lietuviškai</h1></div>
+</div>
 </header>
+<!-- /shell:head -->
 <div class="shell-main" tabindex="-1" autofocus>
 <main>
   <!-- «Tęsti»: тем, кто уже занимался, — куда вернуться (по записям konst.* этого браузера). Скрипт стоит сразу за
@@ -137,42 +168,67 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
   (() => {
     const get = k => { try { return JSON.parse(localStorage.getItem(k)); } catch { return null; } };
     const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-    const item = (href, k, kru, b, small) => `<a class="ritem" href="${href}"><span class="k">${k} <span class="ru">${kru}</span></span>`
+    const ico = n => `<svg class="i" aria-hidden="true" focusable="false"><use href="#i-${n}"/></svg>`;   // спрайт — в каркасе (web.py)
+    const item = (href, k, kru, b, small, i) => `<a class="ritem" href="${href}"><span class="k">${ico(i)}${k} <span class="ru">${kru}</span></span>`
       + `<b>${b}</b>${small ? `<small>${small}</small>` : ''}</a>`;
     const out = [], now = Date.now(), TOTAL = 196;
-    for (const [key, page, k, kru] of [['konst.reader.v1', 'skaitymas.html', 'Skaitymas', 'чтение'],
-                                       ['konst.tekstas.v1', 'tekstas.html', 'Konstitucija', 'текст']]) {
+    for (const [key, page, k, kru, i] of [['konst.reader.v1', 'skaitymas.html', 'Skaitymas', 'чтение', 'read'],
+                                          ['konst.tekstas.v1', 'tekstas.html', 'Konstitucija', 'текст', 'text']]) {
       const s = get(key);                                   // где остановились (reader.js: last, lastT — название)
       if (s && s.last && s.last !== 'apie') out.push(item(`konstitucija/${page}#${encodeURIComponent(s.last)}`, k, kru,
-        s.lastT ? esc(s.lastT) : 'Tęsti nuo ten, kur baigėte', s.lastT ? '' : 'с того места, где остановились'));
+        s.lastT ? esc(s.lastT) : 'Tęsti nuo ten, kur baigėte', s.lastT ? '' : 'с того места, где остановились', i));
     }
     const cards = Object.entries(get('konst.terms.v1') || {}).filter(([k, v]) => k !== '_reset' && v && typeof v === 'object');
     if (cards.length) {                                     // тренажёр: сколько карточек пора повторить
       const due = cards.filter(([, v]) => v.box > 0 && v.due <= now).length, known = cards.filter(([, v]) => v.box >= 3).length;
-      out.push(item('konstitucija/', 'Kortelės', 'карточки', due ? `Kartoti: ${due}` : 'Viskas pakartota',
-        (due ? 'ждут повторения' : 'всё повторено') + ` · выучено ${known}`));
+      const lt = n => n % 10 === 1 && n % 100 !== 11 ? 'kortelė laukia' : n % 10 >= 2 && (n % 100 < 12 || n % 100 > 19) ? 'kortelės laukia' : 'kortelių laukia';
+      out.push(item('konstitucija/', 'Kortelės', 'карточки', due ? `${due} ${lt(due)}` : 'Viskas pakartota',
+        (due ? 'пора повторить' : 'всё повторено') + ` · выучено ${known}`, 'words').replace('class="ritem"', due ? 'class="ritem due"' : 'class="ritem"'));
     }
     const plan = get('konst.plan.v1');                     // план подготовки (exam.js): следующая глава и сколько дней осталось
     if (plan && plan.date) {
       const CH = [[1, "I", "Lietuvos valstybė"], [2, "II", "Žmogus ir valstybė"], [3, "III", "Visuomenė ir valstybė"], [4, "IV", "Tautos ūkis ir darbas"], [5, "V", "Seimas"], [6, "VI", "Respublikos Prezidentas"], [7, "VII", "Lietuvos Respublikos Vyriausybė"], [8, "VIII", "Konstitucinis Teismas"], [9, "IX", "Teismas"], [10, "X", "Vietos savivalda ir valdymas"], [11, "XI", "Finansai ir valstybės biudžetas"], [12, "XII", "Valstybės kontrolė"], [13, "XIII", "Užsienio politika ir valstybės gynimas"], [14, "XIV", "Konstitucijos keitimas"]], d = new Date(), today = new Date(d.getFullYear(), d.getMonth(), d.getDate());
       const left = Math.round((new Date(plan.date + 'T00:00') - today) / 864e5), next = CH.find(c => !(plan.done || {})[c[0]]);
-      if (left >= 0) out.unshift(item('konstitucija/egzaminas.html#planas', 'Planas', 'план',
-        left === 0 ? 'Šiandien egzaminas!' : next ? `Šiandien: ${next[1]}. ${esc(next[2])}` : 'Kartojimas',
-        left === 0 ? 'сегодня экзамен — удачи' : `до экзамена ${left} дн.` + (next ? '' : ' · повторение')));
+      if (left <= 1 && left >= 0) out.unshift(item('konstitucija/egzaminas.html', 'Planas', 'план',   // день экзамена — только главное
+        left === 0 ? 'Šiandien egzaminas!' : 'Rytoj egzaminas', left === 0 ? 'удачи! перед выходом — памятка' : 'повторите памятку и ошибки', 'plan'));
+      else if (left > 1) out.unshift(item('konstitucija/egzaminas.html#planas', 'Planas', 'план',
+        next ? `Šiandien: ${next[1]}. ${esc(next[2])}` : 'Kartojimas', `до экзамена ${left} дн.` + (next ? '' : ' · повторение'), 'plan'));
+    }
+    const cur = get('konst.exam.cur');                     // незаконченный экзамен (exam.js): продолжить — первым
+    if (cur && cur.t0 && Array.isArray(cur.ids)) {
+      const leftMin = Math.ceil((45 * 60e3 - (Date.now() - cur.t0)) / 60e3), n = Object.keys(cur.ans || {}).length;
+      out.unshift(item('konstitucija/egzaminas.html', 'Egzaminas', 'экзамен', leftMin > 0 ? `Tęsti egzaminą · ${n}/${cur.ids.length}` : 'Laikas baigėsi',
+        leftMin > 0 ? `незаконченный экзамен · осталось ${leftMin} мин` : 'время вышло — посмотреть результат', 'exam'));
     }
     const q = Object.entries(get('konst.examq.v1') || {}).filter(([k]) => k !== '_reset'), hist = get('konst.exam.v1') || [];
     if (q.length || hist.length) {                          // экзамен: сколько из трёх условий готовности выполнено (exam.js)
       const weak = q.filter(([, v]) => v && v.w).length, ex = hist.filter(h => h.mode === 'exam' && h.n === 20).slice(0, 3);
       const met = (q.length >= TOTAL) + (q.length > 0 && !weak) + (ex.length === 3 && ex.every(h => h.passed));
-      out.push(item('konstitucija/egzaminas.html', 'Egzaminas', 'экзамен', `Pasirengimas: ${met} iš 3`,
-        weak ? `готовность · слабых вопросов: ${weak}` : 'готовность к экзамену'));
+      const dots = `<span class="rdots" role="img" aria-label="${met} iš 3">${[0, 1, 2].map(i => `<span class="${i < met ? 'on' : ''}"></span>`).join('')}</span>`;
+      out.push(item('konstitucija/egzaminas.html', 'Egzaminas', 'экзамен', `Pasirengimas ${dots}`,
+        `${met} из 3 условий` + (weak ? ` · слабых вопросов: ${weak}` : ''), 'exam'));
     }
-    if (out.length) { const s = document.getElementById('testi'); s.querySelector('.ritems').innerHTML = out.join(''); s.hidden = false; }
+    const day = window.Look ? window.Look.todayHtml() : '';   // «Šiandien atlikta … · 5 iš 7 dienų» (look.js)
+    // занимаются уже 3 дня, а прогресс только в этом браузере — один раз предложить сохранить (файл или синхронизация)
+    const act = Object.values(get('konst.days.v1') || {}).filter(d => d && (d.c || d.q || d.r || d.p)).length;
+    const nudge = act >= 3 && !(get('konst.sync') || {}).code && !localStorage.getItem('konst.saved') && !localStorage.getItem('konst.nudge')
+      ? `<div class="nudge" id="nudge"><p>Išsaugokite pažangą. <span class="ru">Вы занимаетесь уже ${act} дн., а прогресс хранится только в этом `
+        + 'браузере. Сохраните его в файл или включите синхронизацию — так он не потеряется и будет на телефоне и компьютере.</span></p>'
+        + '<button type="button" data-backup="save">Išsaugoti į failą</button><a href="#pazanga">Sinchronizavimas →</a>'
+        + '<button type="button" class="nx" aria-label="Nebeklausti (больше не спрашивать)">✕</button></div>' : '';
+    if (out.length || day || nudge) { const s = document.getElementById('testi'); s.querySelector('.ritems').innerHTML = out.join('');
+      s.querySelector('.ritems').insertAdjacentHTML('beforebegin', day); s.querySelector('.ritems').insertAdjacentHTML('afterend', nudge); s.hidden = false; }
+    document.getElementById('nudge')?.addEventListener('click', e => {   // любое действие — больше не просить
+      if (!e.target.closest('button, a')) return;
+      try { localStorage.setItem('konst.nudge', String(Date.now())); } catch { /* приватный режим */ }
+      document.getElementById('nudge').remove();
+    });
   })();
   </script>
-  <p class="lead">Учу литовский: бесплатные материалы для уровня A2 — и для подготовки к экзамену по Конституции Литвы,
-    который сдают для гражданства и постоянного вида на жительство.</p>
-  <p class="author">Автор — Marudau Dzmitry. Всё на литовском с переводом на русский, работает на телефоне и компьютере.</p>
+  <p class="lead">Nemokamai: lietuvių kalba A2 ir Konstitucijos egzaminas. <span class="ru">Бесплатно: литовский уровня A2 и подготовка
+    к экзамену по Конституции Литвы — для гражданства и ПМЖ. Всё с переводом на русский.</span></p>
+  <div class="cta"><a class="primary" href="#g-exam">Ruošiuosi egzaminui → <span>готовлюсь к экзамену</span></a>
+    <a href="konstitucija/skaitymas.html">Noriu skaityti → <span>хочу читать по-литовски</span></a></div>
 
   <h2>Ko siekiate? <span class="ru">Какая у вас цель</span></h2>
   <div class="goals">
@@ -276,14 +332,22 @@ h2 .ru { font-weight: 400; font-size: 1rem; }
     <div class="backup-btns"><button type="button" data-backup="save">Išsaugoti į failą <span class="ru">сохранить в файл</span></button>
       <button type="button" data-backup="load">Įkelti iš failo <span class="ru">загрузить из файла</span></button></div></div>
   <p class="free" lang="ru">Бесплатно и свободно: материалы под лицензией CC BY-SA 4.0 — можно копировать, печатать и делиться,
-    указав автора. Перевод Конституции на русский — неофициальный. Нашли ошибку или есть идея —
-    <a href="https://github.com/born-to-be-mad/mokausi-lietuviskai/issues">напишите здесь</a> (нужен аккаунт GitHub).
+    указав автора. Перевод Конституции на русский — неофициальный. Озвучка — синтетические голоса Ona и Leonas (Microsoft
+    Azure): ударения иногда неточны. Нашли ошибку — нажмите <button type="button" class="linkbtn" data-report>«Pranešti apie klaidą»</button>
+    (без регистрации) или <a href="https://github.com/born-to-be-mad/mokausi-lietuviskai/issues">напишите на GitHub</a>.
     <span class="star">Если сайт вам помогает, пожалуйста, <a href="https://github.com/born-to-be-mad/mokausi-lietuviskai">поставьте
     ★ звёздочку репозиторию на GitHub</a> — так его легче найдут другие, кто учит литовский. <span lang="lt">Ačiū!</span> <span class="ru">(спасибо!)</span></span></p>
 </main>
 </div>
-<footer class="shell-foot"><div class="wrap">
-  © 2026 Marudau Dzmitry · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
-</div></footer>
+<!-- shell:foot -->
+<footer class="shell-foot"><div class="foot"><a href="konstitucija/naujienos.html">v2.0.0 · Kas naujo</a> · <button type="button" class="linkbtn" data-report>Pranešti apie klaidą <span class="ru">сообщить об ошибке</span></button> · © 2026 Marudau Dzmitry · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a><span class="long url"> · born-to-be-mad.github.io/mokausi-lietuviskai</span></div></footer>
+<nav class="tabbar" aria-label="Skyriai (разделы)"><a href="./" data-sec="home" aria-current="page"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-home"/></svg><span class="l">Pradžia</span><span class="sr"> (главная)</span></a><a href="konstitucija/skaitymas.html" data-sec="read"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-read"/></svg><span class="l">Skaityti</span><span class="sr"> (читать)</span></a><a href="konstitucija/" data-sec="words"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-words"/></svg><span class="l">Žodžiai</span><span class="sr"> (слова)</span></a><a href="konstitucija/egzaminas.html" data-sec="exam"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-exam"/></svg><span class="l">Egzaminas</span><span class="sr"> (экзамен)</span></a><button type="button" class="morebtn" popovertarget="daugiau" aria-haspopup="dialog" data-sec="more"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-more"/></svg><span class="l">Daugiau</span><span class="sr"> (ещё)</span></button></nav>
+<div id="daugiau" class="sheet" popover role="dialog" aria-labelledby="daugiau-h">
+  <div class="sheethead"><h2 id="daugiau-h">Daugiau <span class="ru">ещё</span></h2><button type="button" class="sheetclose" popovertarget="daugiau" popovertargetaction="hide" aria-label="Uždaryti (закрыть)">✕</button></div>
+  <ul class="sheetlist"><li><a href="konstitucija/tekstas.html"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-text"/></svg><span><span class="l">Konstitucijos tekstas</span><span class="ru">вся Конституция с переводом и озвучкой</span></span></a></li><li><a href="konstitucija/apie-egzamina.html"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg><span><span class="l">Apie egzaminą</span><span class="ru">как устроен экзамен, где записаться — официальные ссылки</span></span></a></li><li><a href="konstitucija/atmintine.html"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-memo"/></svg><span><span class="l">Atmintinė</span><span class="ru">памятка: числа и сроки на одном листе</span></span></a></li><li><a href="konstitucija/Lietuvos_Konstitucijos_vadovas.pdf"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-book"/></svg><span><span class="l">Knyga (PDF)</span><span class="ru">книга-пособие для экрана</span></span></a></li><li><a href="konstitucija/Lietuvos_Konstitucijos_vadovas_spausdinimui.pdf"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-print"/></svg><span><span class="l">Knyga spausdinimui</span><span class="ru">для печати, с QR-кодами</span></span></a></li><li><a href="./#pazanga"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-sync"/></svg><span><span class="l">Pažanga</span><span class="ru">перенести прогресс: файл или код синхронизации</span></span></a></li><li><a href="konstitucija/naujienos.html"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-news"/></svg><span><span class="l">Kas naujo</span><span class="ru">что нового на сайте: последние версии</span></span></a></li><li><button type="button" data-offline><svg class="i" aria-hidden="true" focusable="false"><use href="#i-download"/></svg><span><span class="l">Be interneto</span><span class="ru">без интернета: установить на телефон, скачать озвучку глав</span></span></button></li><li><button type="button" data-report>{icon("flag")}<span><span class="l">Pranešti apie klaidą</span><span class="ru">нашли ошибку в тексте, переводе или озвучке — напишите</span></span></button></li></ul>
+  <p class="sheetfoot"><a href="konstitucija/naujienos.html">v2.0.0 · Kas naujo</a> · © 2026 Marudau Dzmitry · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · <span class="ru">материалы бесплатны, их можно копировать и печатать; озвучка — синтетические голоса (Azure)</span></p>
+</div>
+<svg class="sprite" aria-hidden="true" focusable="false"><defs><symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M6 9.5V20h4.5v-5.5h3V20H18V9.5"/></symbol><symbol id="i-read" viewBox="0 0 24 24"><path d="M12 6.8C10.4 5.4 8 4.7 4.8 4.7H3.5v13.6h1.3c3.2 0 5.6.7 7.2 2.1 1.6-1.4 4-2.1 7.2-2.1h1.3V4.7h-1.3c-3.2 0-5.6.7-7.2 2.1z"/><path d="M12 6.8v13.6"/></symbol><symbol id="i-words" viewBox="0 0 24 24"><rect x="3.5" y="7.5" width="12.5" height="13" rx="2"/><path d="M8 4.5h10.5a2 2 0 0 1 2 2V16"/><path d="M7 12.5h5.5M7 16h3.5"/></symbol><symbol id="i-exam" viewBox="0 0 24 24"><path d="M10 6.5h10M10 12h10M10 17.5h10"/><path d="m3.5 6.5 1.6 1.6L8 5.2M3.5 12l1.6 1.6L8 10.7"/><path d="M4 17.5h3"/></symbol><symbol id="i-more" viewBox="0 0 24 24"><circle cx="5.5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="18.5" cy="12" r="1.4"/></symbol><symbol id="i-text" viewBox="0 0 24 24"><path d="M6 3.5h8.5L19 8v12.5H6z"/><path d="M14.5 3.5V8H19"/><path d="M9 12.5h7M9 16h7"/></symbol><symbol id="i-memo" viewBox="0 0 24 24"><rect x="5" y="5.5" width="14" height="15.5" rx="2"/><path d="M9 3.5h6v4H9z"/><path d="M8.5 12h7M8.5 15.5h5"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M5 5.2A2.2 2.2 0 0 1 7.2 3H19v14.5H7.2A2.2 2.2 0 0 0 5 19.7z"/><path d="M5 19.7A1.8 1.8 0 0 0 6.8 21.5H19"/><path d="M9 7.5h6"/></symbol><symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3.5h10V9"/><rect x="3.5" y="9" width="17" height="8" rx="2"/><path d="M7 14h10v6.5H7z"/></symbol><symbol id="i-sync" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 0 1-13 5.1"/><path d="M4.5 12a7.5 7.5 0 0 1 13-5.1"/><path d="M17.5 3.5v3.4h-3.4"/><path d="M6.5 20.5v-3.4h3.4"/></symbol><symbol id="i-plan" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="m9 15 2 2 4-4"/></symbol><symbol id="i-voice" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="M15.5 9.2a4 4 0 0 1 0 5.6M18.2 6.6a7.6 7.6 0 0 1 0 10.8"/></symbol><symbol id="i-look" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol><symbol id="i-repeat" viewBox="0 0 24 24"><path d="M4.5 11.5a7.5 7.5 0 0 1 13-4.6L19.5 9"/><path d="M19.5 4.5V9H15"/><path d="M19.5 12.5a7.5 7.5 0 0 1-13 4.6L4.5 15"/><path d="M4.5 19.5V15H9"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol><symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.4"/></symbol><symbol id="i-news" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="M7 9h10M7 12.5h10M7 16h6"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5"/><path d="M5 19.5h14"/></symbol></defs></svg>
+<!-- /shell:foot -->
 </body>
 </html>

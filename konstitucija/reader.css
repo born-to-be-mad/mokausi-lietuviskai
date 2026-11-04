@@ -210,6 +210,16 @@ h1 .sub { display: block; font-size: .95rem; font-weight: 400; color: var(--mute
 .storyend .done.isdone { border-color: var(--good); color: var(--good); }
 .storyend .pn { display: flex; gap: 14px; }
 .storyend .pn a { color: var(--accent); text-decoration: none; font-weight: 600; }
+/* конец рассказа главы: слова и вопросы этой главы, отметка в плане подготовки */
+.chapgo { flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 0 0 4px; padding: 10px 12px;
+  border-radius: 10px; background: var(--card); border: 1px solid var(--line); }
+.chapgo .cl { font-weight: 700; margin-right: 4px; }
+.chapgo .cl .ru { font-weight: 400; }
+.chapgo a, .chapgo button { display: inline-flex; align-items: center; gap: 4px; min-height: 38px; padding: 6px 12px; border-radius: 8px;
+  border: 1px solid var(--accent); color: var(--accent); background: transparent; text-decoration: none; font: 600 .9rem/1.2 var(--font-ui); cursor: pointer; }
+.chapgo :is(a, button) .ru { font-weight: 400; }
+.chapgo .planmark { border-color: var(--good); color: var(--good); }
+.chapgo .planmark[hidden] { display: none; }
 
 /* произношение */
 .say {

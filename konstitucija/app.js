@@ -33,6 +33,7 @@
     r.t = Date.now();                                  // когда менялась — для синхронизации между устройствами (sync.js)
     progress[t.key] = r;
     write(STORE, progress);
+    window.Look?.track('c');                           // «сегодня сделано» (look.js)
   }
 
   // ---------- помощники ----------
@@ -350,7 +351,7 @@
     const c = prefs.sk === 'all' ? null : chapter(+prefs.sk);
     app.replaceChildren(
       el('div', { class: 'card' },
-        el('p', { class: 'summary' }, 'Užduotys (задания)'),
+        el('h2', { class: 'cardh' }, 'Užduotys', el('span', { class: 'ru' }, 'задания как в книге')),
         el('p', { class: 'ru' }, 'Как тесты в книге: по 10 вопросов, проверка сразу. ' + (c ? `Глава: ${c.roman}. ${c.lt}.` : 'Все главы (главу можно выбрать выше).'))),
       ...Object.entries(TASKS).map(([k, t]) => el('div', { class: 'card task' },
         el('div', { class: 'front fact' }, t.lt, ' ', el('span', { class: 'ru' }, `(${t.ru})`)),
@@ -439,15 +440,18 @@
     });
     app.replaceChildren(
       el('div', { class: 'card' },
-        el('p', { class: 'summary' }, 'Visi rinkiniai (все наборы)'),
+        el('h2', { class: 'cardh' }, 'Visi rinkiniai', el('span', { class: 'ru' }, 'все наборы: выучено из всех слов')),
         decksRow,
         el('p', { class: 'ru' }, `«Выучено» — слово узнано правильно ${LEARNED} раза подряд с перерывами (10 минут, потом день). ↻ — пора повторить.`)),
       el('div', { class: 'card' },
-        el('p', { class: 'summary' }, `${deck().lt} (${deck().ru}) — pagal skirsnius (по главам)`),
+        el('h2', { class: 'cardh' }, `${deck().lt} — pagal skirsnius`, el('span', { class: 'ru' }, `${deck().ru} по главам`)),
         el('table', { class: 'stats' }, el('tbody', {}, rows))),
       ...(window.Look ? [window.Look.backupBox()] : []),           // сохранить / загрузить прогресс файлом
       el('div', { class: 'actions' }, el('button', {
-        on: { click: () => { if (confirm('Ištrinti visą pažangą? (Удалить весь прогресс во всех наборах?)')) { progress = { _reset: Date.now() }; write(STORE, progress); showProgress(); } } }
+        on: { click: e => window.Look.ask(e.currentTarget, 'Ištrinti visą pažangą?', 'Удалить весь прогресс во всех наборах?',
+          { yes: 'Ištrinti', yesRu: 'удалить', danger: true }).then(ok => {
+          if (ok) { progress = { _reset: Date.now() }; write(STORE, progress); showProgress(); window.Look.toast('Pažanga ištrinta.', 'Прогресс тренажёра удалён.'); }
+        }) }
       }, 'Pradėti iš naujo (сбросить прогресс)')));
   }
 
@@ -464,13 +468,19 @@
     skSel.value = prefs.sk;
   }
 
+  // настройки одной строкой: «Terminai · Visi skyriai · LT → RU» — остальное по нажатию (на телефоне карточка на первом экране)
+  function setSummary() {
+    const c = D.chapters.find(x => String(x.no) === prefs.sk);
+    document.getElementById('setnow').textContent = `${deck().lt} · ${c ? `${c.roman} skyrius` : 'Visi skyriai'} · ${prefs.dir === 'ru-lt' ? 'RU → LT' : 'LT → RU'}`;
+  }
   function setMode(mode) {
-    prefs.mode = mode; savePrefs();
+    prefs.mode = mode; savePrefs(); setSummary();
     skSel.value = prefs.sk;
     document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === mode)));
     ({ cards: startCards, quiz: startQuiz, tasks: showTasks, progress: showProgress })[mode]();
   }
 
+  if (matchMedia('(min-width: 900px)').matches) document.getElementById('nustatymai').open = true;   // компьютер — сразу открыты
   deckSel.append(...Object.entries(D.decks).map(([k, d]) => el('option', { value: k }, `${d.lt} — ${d.items.length}`)));
   deckSel.value = prefs.deck; dirSel.value = prefs.dir;
   fillChapters();

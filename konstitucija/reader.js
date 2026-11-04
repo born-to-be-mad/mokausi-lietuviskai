@@ -62,8 +62,23 @@
   $$('.done input[data-story]').forEach(c => c.addEventListener('change', () => {
     st.done[c.dataset.story] = c.checked;
     (st.dt = st.dt || {})[c.dataset.story] = Date.now();      // когда отмечено — для синхронизации (sync.js)
+    window.Look?.track('r', c.checked ? 1 : -1);               // «сегодня сделано» (look.js)
     save(); applyDone();
   }));
+  // конец рассказа главы: «Pažymėti plane» — отметить главу пройденной в плане подготовки (konst.plan.v1, exam.js), если план
+  // есть и глава ещё не отмечена; «Grąžinti» в сообщении — снять отметку
+  const PLAN = 'konst.plan.v1', plan = () => { try { return JSON.parse(localStorage.getItem(PLAN)); } catch { return null; } };
+  const savePlan = p => { try { localStorage.setItem(PLAN, JSON.stringify(Object.assign(p, { t: Date.now() }))); } catch { /* приватный режим */ } };
+  const showMarks = () => { const p = plan(); $$('.planmark').forEach(b => { b.hidden = !(p && p.date && !(p.done || {})[b.dataset.sk]); }); };
+  $$('.planmark').forEach(b => b.addEventListener('click', () => {
+    const p = plan(), no = b.dataset.sk;
+    if (!p) return;
+    p.done = p.done || {}; p.done[no] = Date.now(); savePlan(p); window.Look?.track('p');
+    showMarks();
+    window.Look?.toast(`${b.dataset.roman} skyrius pažymėtas plane.`, 'глава отмечена в плане подготовки', { undo: () => {
+      const x = plan(); if (x && x.done) { delete x.done[no]; savePlan(x); window.Look?.track('p', -1); } showMarks(); } });
+  }));
+  showMarks();
   // перевод выключен: щелчок / Enter по предложению показывает (и снова прячет) его перевод
   document.addEventListener('click', e => {
     if (st.on) return;

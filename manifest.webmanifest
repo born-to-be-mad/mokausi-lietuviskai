@@ -1,0 +1,21 @@
+{
+  "name": "Mokausi lietuviškai — Konstitucija",
+  "short_name": "Mokausi",
+  "description": "Литовский A2 и экзамен по Конституции Литвы: тренажёр, пробный экзамен, чтение с переводом. Работает и без интернета.",
+  "lang": "lt",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f6f2",
+  "theme_color": "#f7f6f2",
+  "icons": [
+    { "src": "konstitucija/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "konstitucija/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "konstitucija/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Egzaminas", "short_name": "Egzaminas", "url": "konstitucija/egzaminas.html" },
+    { "name": "Žodžiai", "short_name": "Žodžiai", "url": "konstitucija/" },
+    { "name": "Skaitymas", "short_name": "Skaitymas", "url": "konstitucija/skaitymas.html" }
+  ]
+}

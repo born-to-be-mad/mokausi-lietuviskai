@@ -40,6 +40,14 @@ h1 .sub { display: block; font-size: .85rem; font-weight: 400; color: var(--mute
 .ru { color: var(--muted); font-weight: 400; }
 
 .controls { display: flex; flex-wrap: wrap; gap: 10px 16px; margin-bottom: 10px; }
+/* тренажёр: настройки — строкой «Terminai · Visi skyriai · LT → RU», по нажатию — все */
+.settings > summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 48px; margin-bottom: 10px;
+  padding: 8px 12px; border: 1px solid var(--control); border-radius: 10px; background: var(--card); cursor: pointer; list-style: none; }
+.settings > summary::-webkit-details-marker { display: none; }
+.settings .setnow { font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.settings .setgear { display: inline-flex; align-items: center; gap: 6px; flex: none; color: var(--accent); font-weight: 600; font-size: .9rem; }
+.settings[open] .setgear { color: var(--muted); }
+@media (max-width: 600px) { .settings .setgear .gl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } }   /* телефон: только значок */
 .controls label { display: flex; flex-direction: column; font-size: .85rem; gap: 4px; flex: 1 1 180px; }
 .controls .zoomctl { display: flex; flex-direction: column; font-size: .85rem; gap: 4px; flex: 0 0 auto; }   /* размер текста */
 .examhead .tools { display: inline-flex; align-items: center; gap: 10px; }
@@ -104,8 +112,9 @@ select {
   background: var(--card); cursor: pointer; font-weight: 600; min-height: 48px;
 }
 .btn { width: 100%; }
-.actions.exam-start { flex-wrap: wrap; }                       /* старт экзамена: три кнопки — на телефоне третья ниже */
+.actions.exam-start { flex-wrap: wrap; margin-bottom: 14px; }                       /* старт экзамена: три кнопки — на телефоне третья ниже */
 .actions.exam-start button { flex: 1 1 220px; }
+.actions.exam-start .primary { flex-basis: 100%; }   /* экзамен — во всю ширину, тренировки — по две в ряд */
 .btn.primary, .actions .primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 .actions .no { border-color: var(--bad); color: var(--bad); }
 .actions .yes { border-color: var(--good); color: var(--good); }
@@ -161,6 +170,73 @@ table.stats td { padding: 8px 4px; border-bottom: 1px solid var(--line); vertica
 table.stats td.num { text-align: right; white-space: nowrap; color: var(--muted); }
 table.stats button { padding: 6px 10px; border-radius: 8px; border: 1px solid var(--control); background: var(--card); cursor: pointer; }
 .summary { font-size: 1.1rem; }
+details.card, .card:has(> .cardh), .card:has(> summary) { min-height: 0; }   /* высота — только у карточек тренажёра */
+/* заголовок карточки (план, готовность, по главам, ошибки, попытки, прогресс): крупнее текста, русский — второй строкой */
+.cardh { margin: -6px 0 12px; font: 700 1.15rem/1.25 var(--font-read); }
+.cardh .ru { display: block; margin-top: 3px; font: 400 .85rem/1.3 var(--font-ui); color: var(--muted); }
+summary.cardsum { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; list-style: none; cursor: pointer; }
+summary.cardsum::-webkit-details-marker { display: none; }
+summary.cardsum .cardh { margin-bottom: 0; }
+summary.cardsum::after { content: ""; flex: none; width: 10px; height: 10px; margin: 2px 4px 0 0; border: solid var(--muted);
+  border-width: 0 2px 2px 0; transform: rotate(45deg); transition: transform .15s; }
+details[open] > summary.cardsum::after { transform: rotate(-135deg); margin-top: 8px; }
+details[open] > summary.cardsum { margin-bottom: 10px; }
+/* старт экзамена: свёрнутые карточки (план, готовность, по главам, как это работает, попытки) — заголовок в <summary> */
+details.card.fold { padding: 16px 18px; }
+details.card.fold > summary .cardh { margin: 0; }
+details.card.fold[open] > summary { margin-bottom: 12px; }
+/* незаконченный экзамен */
+.card.resume { border: 2px solid var(--accent); padding: 16px 18px; }
+.resume .cardh { margin-top: 0; }
+.resume-st { margin: 0 0 12px; font-size: 1.05rem; }
+.resume-st b { font-variant-numeric: tabular-nums; }
+.resume .actions { flex-wrap: wrap; }
+.resume .actions button { flex: 1 1 200px; }
+/* длина тренировки: 20 или 5 */
+.lenpick { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin: -4px 0 14px; font-size: .9rem; }
+.lenpick .lenlab { color: var(--muted); }
+@media (max-width: 600px) { .lenpick .lenlab { display: none; } }   /* телефон: две кнопки в строку */
+.lenpick button { min-height: 40px; padding: 6px 12px; border: 1px solid var(--control); border-radius: 999px; background: var(--card);
+  font-weight: 600; cursor: pointer; }
+.lenpick button .ru { font-weight: 400; }
+.lenpick button[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, var(--card)); color: var(--accent); }
+/* цитата статьи под ответом и в разборе */
+details.cit { margin-top: 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+details.cit summary { padding: 8px 12px; cursor: pointer; font-size: .9rem; font-weight: 600; color: var(--accent); }
+details.cit[open] summary { border-bottom: 1px solid var(--line); }
+.cit-lt, .cit-ru { padding: 8px 12px; }
+.cit-lt p, .cit-ru p { margin: 0 0 4px; }
+.cit-lt { font-family: var(--font-read); font-size: .98rem; line-height: 1.45; }
+.cit-ru { padding-top: 0; color: var(--accent); font-size: .9rem; font-style: italic; }
+.cit p.hl { font-weight: 700; background: color-mix(in srgb, var(--accent) 12%, transparent); border-radius: 4px; padding: 0 4px; margin-left: -4px; }
+.review details.cit { margin-bottom: 4px; }
+button.linkish.rep { margin-top: 6px; font-size: .82rem; color: var(--muted); }
+/* итог: шкала 0–20, порог 14 */
+.result.pass .big { color: var(--good); }
+.result.fail .big { color: var(--bad); }
+.scale { display: block; position: relative; max-width: 420px; margin: 6px auto 26px; }
+.scale .track { position: relative; display: block; height: 12px; border-radius: 6px; background: var(--line); }
+.scale .fill { position: absolute; inset: 0 auto 0 0; border-radius: 6px; background: var(--muted); }
+.result.pass .scale .fill { background: var(--good); }
+.result.fail .scale .fill { background: var(--bad); }
+.scale .mark14 { position: absolute; top: -5px; bottom: -5px; width: 3px; margin-left: -1.5px; border-radius: 2px; background: var(--text); }
+.scale .ticks { position: absolute; left: 0; right: 0; top: 18px; font-size: .78rem; color: var(--muted); }
+.scale .ticks span { position: absolute; transform: translateX(-50%); }
+.scale .ticks span:first-child { left: 0; transform: none; }
+.scale .ticks span:last-child { transform: translateX(-100%); }
+/* накануне и в день экзамена */
+.card.dayx { border: 2px solid var(--accent); }
+.dayx .cardh { margin-top: 0; }
+.daylist { display: grid; gap: 8px; margin: 4px 0 8px; }
+.daybtn { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 10px 14px; border: 1px solid var(--control); border-radius: 12px;
+  background: var(--card); color: var(--text); text-align: left; text-decoration: none; font: 600 1rem/1.25 var(--font-ui); cursor: pointer; }
+.daybtn .i { width: 24px; height: 24px; color: var(--accent); }
+.daybtn .ru { display: block; font-size: .85rem; font-weight: 400; }
+.daybtn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.daybtn.primary :is(.i, .ru) { color: var(--bg); }
+/* значок на кнопке (старт экзамена) */
+.actions button .i { width: 1.25em; height: 1.25em; margin: -2px 8px 0 0; vertical-align: middle; }
 .mistakes { margin: 10px 0 0; padding-left: 20px; }
 .foot { color: var(--muted); font-size: .8rem; padding: 24px 16px 32px; }
 .foot a { color: var(--accent); }
@@ -182,11 +258,23 @@ table.stats button { padding: 6px 10px; border-radius: 8px; border: 1px solid va
 /* план подготовки (старт экзамена) */
 .plan .when { margin: 0 0 8px; }
 .planchips { list-style: none; display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 12px; padding: 0; }
-.planchips li { min-width: 2.4em; padding: 3px 6px; border-radius: 6px; border: 1px solid var(--control); text-align: center;
-  font-size: .8rem; font-weight: 600; color: var(--muted); }
-.planchips li.done { background: var(--good-bg); border-color: var(--good); color: var(--good); }
-.planchips li.done::before { content: '✓ '; }
-.planchips li.now { border: 2px solid var(--accent); color: var(--accent); }
+.planchips button { min-width: 2.9em; min-height: 36px; padding: 3px 7px; border-radius: 8px; border: 1px solid var(--control); text-align: center;
+  background: var(--card); font-size: .82rem; font-weight: 600; color: var(--muted); cursor: pointer; }
+.planchips button:hover { border-color: var(--accent); }
+.planchips .done { background: var(--good-bg); border-color: var(--good); color: var(--good); }
+.planchips .done::before { content: '✓ '; }
+.planchips .now { border: 2px solid var(--accent); color: var(--accent); }
+.planhint { margin: 0 0 10px; padding: 8px 12px; border-radius: 10px; background: color-mix(in srgb, var(--accent) 9%, transparent); font-size: .92rem; }
+.planhint.warn { background: var(--bad-bg); }
+.planhint .ru { display: block; font-size: .85rem; }
+.plandone { margin: 12px 0 0; font-size: .92rem; }
+.plancal { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: flex-end; margin: 12px 0 0; padding-top: 12px; border-top: 1px dashed var(--line); }
+.plancal label { display: flex; flex-direction: column; gap: 4px; font-size: .9rem; }
+.plancal input { width: 7.5em; padding: 7px 10px; border: 1px solid var(--control); border-radius: 8px; background: var(--card); color: inherit; font: inherit; }
+.plancal button { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 8px 14px; border: 1px solid var(--accent); border-radius: 10px;
+  background: var(--card); color: var(--accent); font-weight: 600; cursor: pointer; }
+.plancal button { flex: 1 1 200px; text-align: left; }
+.plancal button .ru { display: block; font-weight: 400; font-size: .82rem; }
 .plan .today { font-weight: 700; margin: 0 0 6px; }
 .plantoday { list-style: none; margin: 0 0 12px; padding: 0; }
 .plantoday li { padding: 8px 0; border-top: 1px solid var(--line); }

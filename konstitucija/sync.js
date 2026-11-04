@@ -2,15 +2,15 @@
 // Код (XXXX-XXXX-XXXX, 60 бит, алфавит Crockford без O/I/L/U) знает только пользователь: из него в браузере получаются
 // адрес записи (SHA-256) и ключ шифрования (PBKDF2 → AES-GCM); сервер (sync/worker.js: Cloudflare Worker + D1) хранит
 // только шифротекст и номер версии. Синхронизируется учёба: карточки (konst.terms.v1), попытки экзамена (konst.exam.v1),
-// отметки «прочитано» (konst.reader.v1, konst.tekstas.v1); вид, голос, размер текста — у каждого устройства свои.
-// Слияние: у карточки и отметки побеждает более свежая (t / dt), попытки экзамена объединяются, сброс (_reset) стирает
-// всё, что старше него. Когда: при открытии страницы (пришло новое — страница один раз перезагружается), раз в минуту,
+// журнал вопросов (konst.examq.v1), план (konst.plan.v1), «сегодня сделано» (konst.days.v1), отметки «прочитано»
+// (konst.reader.v1, konst.tekstas.v1); вид, голос, размер текста, незаконченный экзамен — у каждого устройства свои.
+// Слияние: у карточки и отметки побеждает более свежая (t / dt), попытки экзамена объединяются, план — свежий целиком,
+// «сегодня сделано» — по дню наибольшее; сброс (_reset) стирает всё, что старше него. Когда: при открытии страницы (пришло новое — страница один раз перезагружается), раз в минуту,
 // если что-то изменилось, и при уходе со страницы. Блок управления — в «Pažanga» (главная, тренажёр).
 // Ссылка …/mokausi-lietuviskai/#sinchronizuoti=КОД включает синхронизацию на другом устройстве.
 (() => {
   'use strict';
-  const API = (() => { try { return localStorage.getItem('mokausi.sync.api'); } catch { return null; } })()   // проверка
-    || 'https://mokausi-sync.d-marudau.workers.dev';               // адрес Worker'а (scripts/deploy_sync.sh)
+  const API = window.Look.api;                                     // адрес Worker'а — look.js (и для «Pranešti apie klaidą»)
   const CFG = 'konst.sync', SITE = 'https://born-to-be-mad.github.io/mokausi-lietuviskai/';
   const READERS = ['konst.reader.v1', 'konst.tekstas.v1'];
   const ABC = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
@@ -46,7 +46,7 @@
   // ---------- документ прогресса и слияние ----------
   function localDoc() {
     const d = { v: 1, terms: read('konst.terms.v1') || {}, exam: read('konst.exam.v1') || [], examq: read('konst.examq.v1') || {},
-                plan: read('konst.plan.v1'), marks: {} };
+                plan: read('konst.plan.v1'), days: read('konst.days.v1') || {}, marks: {} };
     for (const k of READERS) { const s = read(k) || {}; d.marks[k] = { done: s.done || {}, dt: s.dt || {} }; }
     return d;
   }
@@ -55,6 +55,7 @@
     write('konst.exam.v1', d.exam);
     write('konst.examq.v1', d.examq || {});
     if (d.plan) write('konst.plan.v1', d.plan);
+    if (d.days) write('konst.days.v1', d.days);
     for (const k of READERS) {                                     // в чтении — только отметки, остальное (перевод, место) своё
       const s = read(k) || {}, m = d.marks[k] || { done: {}, dt: {} };
       s.done = m.done; s.dt = m.dt; write(k, s);
@@ -86,11 +87,21 @@
     }
     return { done, dt };
   }
+  function mergeDays(a = {}, b = {}) {                             // «сегодня сделано»: по дню и счётчику — наибольшее
+    const out = {};
+    for (const k of new Set([...Object.keys(a), ...Object.keys(b)])) {
+      const x = a[k] || {}, y = b[k] || {}, d = {};
+      for (const f of new Set([...Object.keys(x), ...Object.keys(y)])) d[f] = Math.max(x[f] || 0, y[f] || 0);
+      out[k] = d;
+    }
+    return out;
+  }
   function merge(a, b) {
     const marks = {};
     for (const k of READERS) marks[k] = mergeMarks((a.marks || {})[k], (b.marks || {})[k]);
     const plan = [a.plan, b.plan].filter(Boolean).sort((x, y) => (y.t || 0) - (x.t || 0))[0] || null;   // план — целиком, свежий
-    return { v: 1, terms: mergeTerms(a.terms, b.terms), exam: mergeExam(a.exam, b.exam), examq: mergeTerms(a.examq, b.examq), plan, marks };
+    return { v: 1, terms: mergeTerms(a.terms, b.terms), exam: mergeExam(a.exam, b.exam), examq: mergeTerms(a.examq, b.examq), plan,
+             days: mergeDays(a.days, b.days), marks };
   }
   const canon = v => Array.isArray(v) ? '[' + v.map(canon).join(',') + ']'      // JSON с ключами по алфавиту — для сравнения
     : v && typeof v === 'object' ? '{' + Object.keys(v).sort().map(k => JSON.stringify(k) + ':' + canon(v[k])).join(',') + '}'
@@ -206,33 +217,36 @@
     if (act === 'copy') {
       const l = link(cfg().code);
       try { await navigator.clipboard.writeText(l); b.firstChild.textContent = 'Nukopijuota '; }
-      catch { prompt('Nuoroda (ссылка):', l); }
+      catch { window.Look.toast('Nuoroda: ' + l, 'скопируйте ссылку вручную', { ms: 20000 }); }
       return;
     }
-    if (act === 'off' && confirm('Išjungti sinchronizavimą šiame įrenginyje? Pažanga čia liks.\n(Отключить синхронизацию на этом устройстве? Прогресс здесь останется.)')) return disable();
-    if (act === 'forget' && confirm('Ištrinti pažangą iš serverio ir išjungti sinchronizavimą visuose įrenginiuose? Pačiuose įrenginiuose pažanga liks.\n'
-      + '(Удалить прогресс с сервера и отключить синхронизацию на всех устройствах? На самих устройствах прогресс останется.)')) {
-      try { await forget(); } catch (err) { alert('Nepavyko (не удалось): ' + err.message); }
+    if (act === 'off' && await window.Look.ask(b, 'Išjungti sinchronizavimą šiame įrenginyje? Pažanga čia liks.',
+      'Отключить синхронизацию на этом устройстве? Прогресс здесь останется.', { yes: 'Išjungti', yesRu: 'отключить' })) return disable();
+    if (act === 'forget' && await window.Look.ask(b, 'Ištrinti pažangą iš serverio ir išjungti sinchronizavimą visuose įrenginiuose? Pačiuose įrenginiuose pažanga liks.',
+      'Удалить прогресс с сервера и отключить синхронизацию на всех устройствах? На самих устройствах прогресс останется.',
+      { yes: 'Ištrinti', yesRu: 'удалить', danger: true })) {
+      try { await forget(); } catch (err) { window.Look.toast('Nepavyko: ' + err.message, 'не удалось', { alert: true }); }
     }
   });
   document.addEventListener('submit', e => {
     if (!e.target.classList.contains('syncform')) return;
     e.preventDefault();
     const code = e.target.code.value;
-    if (!valid(code)) { alert('Neteisingas kodas: 12 raidžių ir skaičių, pvz. KX7Q-M2PF-9TRA.\n(Неверный код: 12 букв и цифр.)'); return; }
+    if (!valid(code)) { window.Look.toast('Neteisingas kodas: 12 raidžių ir skaičių, pvz. KX7Q-M2PF-9TRA.', 'Неверный код: 12 букв и цифр.', { alert: true }); return; }
     enable(code);
   });
 
   // ---------- когда синхронизировать ----------
-  function fromLink() {                                            // …#sinchronizuoti=КОД (витрина)
+  function fromLink() {                                            // …#sinchronizuoti=КОД (витрина); true — ссылка была
     const m = location.hash.match(/^#sinchronizuoti=([0-9A-Za-z-]+)$/);
     if (!m) return false;
     history.replaceState(null, '', location.pathname + location.search);
-    if (!valid(m[1])) { alert('Neteisingas sinchronizavimo kodas (неверный код синхронизации).'); return false; }
+    if (!valid(m[1])) { window.Look.toast('Neteisingas sinchronizavimo kodas.', 'Неверный код синхронизации.', { alert: true }); return false; }
     if (cfg().code && norm(cfg().code) === norm(m[1])) return false;
-    if (confirm(`Įjungti sinchronizavimą šiame įrenginyje su kodu ${pretty(m[1])}?\n(Включить синхронизацию на этом устройстве? `
-      + 'Прогресс отсюда и с других устройств с этим кодом объединится.)')) { enable(m[1]); return true; }
-    return false;
+    window.Look.ask(null, `Įjungti sinchronizavimą šiame įrenginyje su kodu ${pretty(m[1])}?`,
+      'Включить синхронизацию на этом устройстве? Прогресс отсюда и с других устройств с этим кодом объединится.',
+      { yes: 'Įjungti', yesRu: 'включить' }).then(ok => { if (ok) enable(m[1]); else if (cfg().code) sync({ reload: true }); });
+    return true;
   }
   function start() {
     document.querySelectorAll('.backup').forEach(mount);

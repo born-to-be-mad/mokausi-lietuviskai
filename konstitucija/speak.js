@@ -12,7 +12,7 @@
   const REC = window.KONST_AUDIO || {};                 // текст (после clean) → путь к mp3 голоса Ona
   const hasRec = Object.keys(REC).length > 0;
   const RECORDED = window.KONST_VOICES || { ona: Object.keys(REC).length };   // голос → сколько фраз записано
-  const VOICES = { ona: ['Ona', 'женский голос'], leonas: ['Leonas', 'мужской голос'] };
+  const VOICES = { ona: ['Ona', 'синтетический женский голос'], leonas: ['Leonas', 'синтетический мужской голос'] };   // записи — Azure
   let voice = null, ready = false, player = null;
   const waiters = [];
   const prefs = (() => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } })();
@@ -75,7 +75,7 @@
       const vs = api.voices();
       if (vs.length < 2) return null;
       const s = document.createElement('select');
-      s.title = 'Balsas (голос)';
+      s.title = 'Sintetinis balsas (синтетический голос Microsoft Azure; ударения иногда неточны)';
       vs.forEach(v => s.add(new Option(short ? VOICES[v][0] : `${VOICES[v][0]} (${VOICES[v][1]})`, v)));
       s.value = api.voice;
       s.addEventListener('change', () => { api.voice = s.value; api.stop(); });

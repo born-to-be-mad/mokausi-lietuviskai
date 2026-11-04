@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Kas naujo – Mokausi lietuviškai</title>
+<meta name="description" content="Что нового на сайте «Mokausi lietuviškai»: последние версии тренажёра, пробного экзамена и чтения по Конституции Литвы.">
+<!-- shell:meta -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mokausi lietuviškai">
+<meta property="og:title" content="Kas naujo – Mokausi lietuviškai">
+<meta property="og:description" content="Что нового на сайте «Mokausi lietuviškai»: последние версии тренажёра, пробного экзамена и чтения по Конституции Литвы.">
+<meta property="og:url" content="https://born-to-be-mad.github.io/mokausi-lietuviskai/konstitucija/naujienos.html">
+<meta property="og:image" content="https://born-to-be-mad.github.io/mokausi-lietuviskai/konstitucija/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mokausi lietuviškai — Lietuvos Konstitucija, A2, su vertimu į rusų kalbą">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="lt_LT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17181a" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../konstitucija/icons/apple-180.png">
+<!-- /shell:meta -->
+<!-- Шаблон: naujienos.html собирает scripts/web.py (news_html) из releases/*.md (<article class="rel" id="v2.0.0"><h2>v2.0.0 — новая навигация, работа без интернета, экзамен, который не теряется, и план, который помогает каждый день</h2>
+<p>Самое большое обновление сайта. Всё, что было, на месте — адреса страниц и ваш прогресс не изменились. Но пользоваться стало проще: на телефоне сайт ведёт себя как приложение, его можно поставить на экран и заниматься без интернета.</p>
+<h3>Навигация</h3>
+<ul><li>
+<b>Внизу экрана телефона — пять вкладок:</b> Pradžia · Skaityti · Žodžiai · Egzaminas · Daugiau. Шапка стала одной тонкой строкой: название страницы и вид. На компьютере разделы — одной строкой вверху, текущий подсвечен.
+</li><li>
+<b>«Daugiau»</b> — всё остальное: текст Конституции, памятка, книга, «Apie egzaminą», «Kas naujo», перенос прогресса, работа без интернета и «Pranešti apie klaidą».
+</li><li>
+<b>Во время экзамена на время навигации нет</b> — ничего не отвлекает.
+</li><li>
+Вместо системных окон «OK / Отмена» вопрос появляется прямо под кнопкой, а удалённый план можно вернуть кнопкой «Grąžinti».
+</li><li>
+<b>«Spalvota»</b> теперь заметно другая: тёплый фон и у каждого раздела свой цвет флага — чтение жёлтое, слова зелёные, экзамен красный.
+</li></ul>
+<h3>Пробный экзамен</h3>
+<ul><li>
+<b>Незаконченный экзамен не теряется.</b> Закрыли вкладку или телефон уснул — на странице экзамена будет «Nebaigtas egzaminas · Atsakyta 9 iš 20 · liko 30:59» и кнопка «Tęsti». Время идёт, как на настоящем экзамене; если оно вышло, засчитываются данные ответы.
+</li><li>
+<b>Текст статьи под ответом.</b> После ответа в тренировке и в разборе раскрывается «Straipsnio tekstas»: та часть статьи, где ответ, на литовском и русском.
+</li><li>
+<b>Короче старт:</b> сначала кнопки, ниже свёрнутые карточки, в заголовках которых уже главное — «Šiandien: IV, V skyriai», «Pasirengimas: 1 iš 3 ●○○».
+</li><li>
+<b>Быстрая тренировка из 5 вопросов</b> — минуты на три, например в очереди.
+</li><li>
+<b>Итог со шкалой 0–20</b> и отметкой 14: видно, сколько не хватило.
+</li><li>
+<b>Накануне и в день экзамена</b> на странице только главное: памятка, слабые места, последние ошибки.
+</li><li>
+Выученный вопрос, который не попадался 14 дней, снова попадает в «Kartoti».
+</li></ul>
+<h3>План и каждый день</h3>
+<ul><li>
+<b>Главы плана можно нажимать</b> — отметить пройденной или снять отметку. «Atlikta» тоже можно вернуть.
+</li><li>
+<b>Честные подсказки:</b> «пропущено 2 дня — теперь по 2 главы в день» и предупреждение, если глав в день слишком много.
+</li><li>
+<b>«Šiandien atlikta»</b> — сколько карточек, вопросов и рассказов сегодня, и «5 iš 7 dienų»: сколько дней из последних семи вы занимались. Пропуск ничего не обнуляет.
+</li><li>
+<b>«Įtraukti į kalendorių»</b> — файл для календаря: напоминание каждый день в выбранное время и сам день экзамена.
+</li><li>
+<b>В конце рассказа и главы Конституции</b> — «Pakartokite: Žodžiai · Klausimai» этой главы и «Pažymėti plane».
+</li><li>
+Дату экзамена теперь можно поставить и на сегодня.
+</li></ul>
+<h3>Главная и тренажёр</h3>
+<ul><li>
+Новичку сразу видны две цели: «Ruošiuosi egzaminui» и «Noriu skaityti». Вернувшимся — «Tęsti»: самое нужное крупнее, готовность точками.
+</li><li>
+После трёх дней занятий сайт один раз предложит сохранить прогресс — файлом или кодом синхронизации.
+</li><li>
+<b>Настройки тренажёра — одной строкой</b> «Terminai · Visi skyriai · LT → RU»; на телефоне карточка сразу на первом экране.
+</li></ul>
+<h3>Без интернета</h3>
+<ul><li>
+<b>Сайт можно установить на телефон как приложение</b>: «Daugiau» → «Be interneto» → «Įdiegti» (на iPhone — «Поделиться» → «На экран „Домой“»).
+</li><li>
+<b>Страницы, слова, вопросы и чтение открываются и без сети</b> — после первого посещения.
+</li><li>
+<b>Озвучку можно скачать по главам</b> (4–7 МБ на главу) — тоже в «Be interneto». Сайт всегда берёт свежую версию, когда есть интернет.
+</li></ul>
+<h3>Доверие</h3>
+<ul><li>
+<b>«Pranešti apie klaidą»</b> — внизу каждой страницы, в «Daugiau» и у каждого вопроса в разборе. Без регистрации, без имени и почты: просто напишите, что не так.
+</li><li>
+<b>«Apie egzaminą»</b> — что это за экзамен, формат (20 вопросов, 3 варианта, сдано от 14), темы и где записаться — только по официальным источникам, со ссылками.
+</li><li>
+<b>«Kas naujo»</b> и номер версии — в подвале. Ссылка на сайт в мессенджерах теперь приходит с картинкой и описанием.
+</li><li>
+Озвучка честно подписана: это синтетические голоса Ona и Leonas (Microsoft Azure), ударения иногда неточны.
+</li></ul>
+<p>Нашли ошибку — нажмите «Pranešti apie klaidą» внизу страницы. Пригодилось — поставьте ★ <a href="https://github.com/born-to-be-mad/mokausi-lietuviskai">репозиторию</a>.</p><p class="when">04.11.2026</p></article>
+<article class="rel" id="v1.10.1"><h2>v1.10.1 — честнее «слабые места», удобнее с клавиатуры и экранным диктором</h2>
+<h3>Пробный экзамен</h3>
+<ul><li>
+<b>Вопрос остаётся «слабым», пока вы не ответите на него верно два раза подряд.</b> Раньше хватало одного верного ответа — а угадать можно в одном случае из трёх, так что вопрос мог уйти из слабых случайно и закрыть условие готовности. Ответ с подсмотренным переводом тоже не считается.
+</li><li>
+<b>Один счётчик слабых вопросов.</b> Кнопка «Silpnos vietos · N», карточка готовности и полоса «Tęsti» на главной показывают одно и то же число, и тренировка состоит ровно из этих вопросов (по 20 за раз). Если слабых нет, кнопка предлагает «Kartoti (повторить изучаемые)».
+</li><li>
+<b>Кнопки «Egzaminas», «Treniruotė» и «Silpnos vietos» — в самом верху</b> страницы экзамена: на телефоне их видно сразу, даже когда составлен план подготовки.
+</li></ul>
+<h3>Карточки тренажёра</h3>
+<ul><li>
+<b>«Žinojau (знал)» и «Nežinojau (не знал)» — сразу.</b> Если перевод и так понятен, отвечайте без лишнего нажатия. «Rodyti vertimą (показать перевод)» теперь в самой карточке, под словом, и только открывает перевод. Клавиши прежние: пробел — показать перевод, 1 и 2 — ответ, в любой момент. Спасибо читателю за идею!
+</li></ul>
+<h3>Клавиатура и экранный диктор</h3>
+<ul><li>
+<b>Фокус больше не теряется.</b> После ответа в тренировке фокус переходит на «Kitas», после «Kitas» — на новый вопрос, после «RU» — обратно на кнопку. В экзамене после ответа фокус переходит к следующему вопросу, после последнего — к «Baigti»; на итоге — к результату.
+</li><li>
+<b>Диктор не перечитывает всю страницу после каждого нажатия.</b> Вместо этого он коротко говорит, что произошло: «Teisingai», «Neteisingai. Teisingai: …», а в карточках — перевод после «Rodyti».
+</li></ul>
+<h3>Исправлено</h3>
+<ul><li>
+Перевод факта о судах: «Суды Литвы – Верховный, апелляционный, окружные и <b>районные</b> суды» (было «апилинковые» — литовское <i>apylinkių</i> без перевода). Исправлено в тренажёре и во всех трёх PDF книги. Спасибо читателю, который заметил!
+</li></ul>
+<p>Нашли ошибку — <a href="https://github.com/born-to-be-mad/mokausi-lietuviskai/issues">напишите</a>. Пригодилось — поставьте ★ репозиторию.</p><p class="when">04.11.2026</p></article>
+<article class="rel" id="v1.10.0"><h2>v1.10.0 — 70 новых вопросов: пробный экзамен по всей Конституции</h2>
+<p>Банк пробного экзамена вырос со 126 до 196 вопросов. Теперь вопросы есть почти по каждой статье, в которой есть что спросить на экзамене, а не только по самым известным фактам.</p>
+<h3>Что добавилось</h3>
+<ul><li>
+<b>70 вопросов по статьям, о которых раньше не спрашивали:</b> как Seimas назначает досрочные выборы и сколько дней у Президента, чтобы подписать закон; кто подписывает международные договоры, а кто их ратифицирует; что делает судья, если закон противоречит Конституции; как принималась сама Конституция и когда вступают в силу её изменения — и многое другое.
+</li><li>
+<b>Меньше перекосов между главами.</b> Раньше по главе XII было 3 вопроса, по X и XI — по 6. Теперь в каждой главе вопросов примерно столько, сколько в ней статей с экзаменационными фактами: от 5 в главе XII (в ней всего две статьи) до 25 в главе V о Сейме.
+</li><li>
+<b>Варианты ответов — как в v1.6.0:</b> неверные правдоподобные, близкой длины, часто из соседних статей. Например, Президент должен подписать закон за 10 дней, а «3 дня» — это срок из соседней статьи для закона, который Сейм принял повторно.
+</li><li>
+<b>Все новые вопросы озвучены</b> обоими голосами, Ona и Leonas.
+</li></ul>
+<h3>Что это значит для подготовки</h3>
+<ul><li>
+Вопросы в пробном экзамене повторяются реже: чтобы увидеть весь банк, нужно 11–12 тренировок вместо 7–8. Тренировка, как и раньше, сначала даёт новые вопросы.
+</li><li>
+Условие готовности «Išbandyti visi klausimai» теперь считается от 196 вопросов: если вы уже видели все 126 старых, в готовности снова появится незакрытое условие — это 70 новых вопросов.
+</li></ul>
+<p>Новые вопросы написаны по официальному тексту Конституции и сверены с ним; литовские формулировки ещё ждут вычитки носителем языка. Нашли неточность — <a href="https://github.com/born-to-be-mad/mokausi-lietuviskai/issues">напишите</a>. Пригодилось — поставьте ★ репозиторию.</p><p class="when">27.10.2026</p></article>
+<article class="rel" id="v1.9.0"><h2>v1.9.0 — план подготовки к дате экзамена</h2>
+<p>Знаете дату экзамена? Сайт разложит 14 глав Конституции по дням до неё и каждый день покажет, что делать.</p>
+<h3>Pasiruošimo planas (план подготовки)</h3>
+<ul><li>
+<b>Где:</b> на странице пробного экзамена, а с главной — ссылка «Pasiruošimo planas →» в карточке «Ruošiuosi Konstitucijos egzaminui». Укажите дату — и план готов.
+</li><li>
+<b>«Šiandien (сегодня)»</b> — глава на сегодня и четыре ссылки: рассказы этой главы, её слова в тренажёре, текст главы и <b>вопросы только этой главы</b> (новая тренировка). Сделали — нажмите «Atlikta (сделано)», и план перейдёт к следующей главе.
+</li><li>
+<b>План подстраивается сам.</b> Пропустили день или времени мало — сайт пересчитает темп: «Осталось 11 глав на 20 дней: по 1 главе в день». Если до экзамена неделя, предложит по 2–3 главы в день.
+</li><li>
+<b>Последние дни — повторение:</b> когда все главы пройдены, план показывает три самых слабых главы по вашим ответам и советует «Silpnos vietos» и пробный экзамен на время. В день экзамена — «Sėkmės! (удачи!)» и ссылка на памятку.
+</li><li>
+Дату можно изменить, план — удалить. План синхронизируется между устройствами вместе с остальным прогрессом.
+</li></ul>
+<h3>Ещё</h3>
+<ul><li>
+<b>Вопросы одной главы</b> можно тренировать и без плана: адрес <code>egzaminas.html?sk=5</code> открывает вопросы главы V.
+</li><li>
+<b>«Tęsti» на главной</b> первым пунктом показывает план: «Šiandien: IV. Tautos ūkis ir darbas · до экзамена 23 дн.».
+</li></ul>
+<p>Нашли ошибку — <a href="https://github.com/born-to-be-mad/mokausi-lietuviskai/issues">напишите</a>. Пригодилось — поставьте ★ репозиторию.</p><p class="when">27.10.2026</p></article>
+<article class="rel" id="v1.8.0"><h2>v1.8.0 — главная: «Продолжить» и вход по цели</h2>
+<h3>Tęsti (продолжить)</h3>
+<ul><li>
+Если вы уже занимались на этом устройстве (или включили синхронизацию), главная начинается с полосы «Tęsti»: рассказ, на котором вы остановились, глава текста Конституции, сколько карточек пора повторить и готовность к экзамену — сколько из трёх условий выполнено и сколько слабых вопросов. Каждый пункт — ссылка прямо туда.
+</li><li>
+Название рассказа появится в полосе, когда вы в следующий раз откроете любой рассказ; до этого там «Tęsti nuo ten, kur baigėte (с того места, где остановились)».
+</li><li>
+Новым посетителям полосы нет: главная начинается, как раньше, с короткого описания сайта.
+</li></ul>
+<h3>Ko siekiate? (какая у вас цель)</h3>
+<ul><li>
+Две карточки вместо блока «С чего начать»:
+<ul><li>
+<b>«Ruošiuosi Konstitucijos egzaminui»</b> — путь в три шага: читать рассказы, учить слова в тренажёре, проверить себя пробным экзаменом;
+</li><li>
+<b>«Noriu skaityti lietuviškai»</b> — 38 лёгких рассказов и весь текст Конституции с переводом и озвучкой.
+</li></ul>
+</li><li>
+Длинный список поправок к Конституции свёрнут в одну строку «Текст — сводная редакция e-TAR … с поправками»: он раскрывается нажатием.
+</li></ul>
+<p>Нашли ошибку — <a href="https://github.com/born-to-be-mad/mokausi-lietuviskai/issues">напишите</a>. Пригодилось — поставьте ★ репозиторию.</p><p class="when">18.10.2026</p></article>). -->
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="shell.css">
+<link rel="stylesheet" href="look.css">
+<style>
+.news { max-width: 720px; margin: 0 auto; padding: 0 16px 24px; }
+.rel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 14px; }
+.rel h2 { font: 700 1.15rem/1.3 var(--font-read); margin: 0 0 6px; }
+.rel h3 { font: 700 1rem/1.3 var(--font-ui); margin: 14px 0 4px; }
+.rel p, .rel li { font-size: .95rem; line-height: 1.5; }
+.rel ul { padding-left: 1.2em; margin: 4px 0; }
+.rel li + li { margin-top: 4px; }
+.rel a { color: var(--accent); }
+.rel .when { color: var(--muted); font-size: .85rem; margin: 10px 0 0; }
+.rel code { font-size: .88em; }
+</style>
+<script src="sync.js" defer></script>
+<script src="look.js"></script>
+</head>
+<body>
+<!-- shell:head -->
+<header class="shell-head" data-sec="news">
+<div class="flag" aria-hidden="true"><span class="y"></span><span class="g"></span><span class="r"></span></div>
+<div class="hrow">
+  <div class="headbar"><nav class="sitenav" aria-label="Svetainės skyriai (разделы сайта)"><a class="brand" href="../" data-sec="home" title="Mokausi lietuviškai — pradžia (главная)"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-home"/></svg><span class="sr">Mokausi lietuviškai — pradžia (главная)</span></a><ul><li><a href="skaitymas.html" data-sec="read"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-read"/></svg><span class="l">Skaitymas</span><span class="ru">чтение</span></a></li><li><a href="tekstas.html" data-sec="read"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-text"/></svg><span class="l">Konstitucija</span><span class="ru">текст</span></a></li><li><a href="./" data-sec="words"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-words"/></svg><span class="l">Žodžiai</span><span class="ru">слова</span></a></li><li><a href="egzaminas.html" data-sec="exam"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-exam"/></svg><span class="l">Egzaminas</span><span class="ru">экзамен</span></a></li><li><a href="atmintine.html" data-sec="exam"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-memo"/></svg><span class="l">Atmintinė</span><span class="ru">памятка</span></a></li><li><button type="button" class="morebtn" popovertarget="daugiau" aria-haspopup="dialog"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-more"/></svg><span class="l">Daugiau</span><span class="ru">ещё</span></button></li></ul></nav></div>
+  <div class="top"><h1>Kas naujo <span class="sub">что нового на сайте</span></h1></div>
+</div>
+</header>
+<!-- /shell:head -->
+<div class="shell-main" tabindex="-1" autofocus>
+<main class="news" lang="ru">
+<article class="rel" id="v2.0.0"><h2>v2.0.0 — новая навигация, работа без интернета, экзамен, который не теряется, и план, который помогает каждый день</h2>
+<p>Самое большое обновление сайта. Всё, что было, на месте — адреса страниц и ваш прогресс не изменились. Но пользоваться стало проще: на телефоне сайт ведёт себя как приложение, его можно поставить на экран и заниматься без интернета.</p>
+<h3>Навигация</h3>
+<ul><li>
+<b>Внизу экрана телефона — пять вкладок:</b> Pradžia · Skaityti · Žodžiai · Egzaminas · Daugiau. Шапка стала одной тонкой строкой: название страницы и вид. На компьютере разделы — одной строкой вверху, текущий подсвечен.
+</li><li>
+<b>«Daugiau»</b> — всё остальное: текст Конституции, памятка, книга, «Apie egzaminą», «Kas naujo», перенос прогресса, работа без интернета и «Pranešti apie klaidą».
+</li><li>
+<b>Во время экзамена на время навигации нет</b> — ничего не отвлекает.
+</li><li>
+Вместо системных окон «OK / Отмена» вопрос появляется прямо под кнопкой, а удалённый план можно вернуть кнопкой «Grąžinti».
+</li><li>
+<b>«Spalvota»</b> теперь заметно другая: тёплый фон и у каждого раздела свой цвет флага — чтение жёлтое, слова зелёные, экзамен красный.
+</li></ul>
+<h3>Пробный экзамен</h3>
+<ul><li>
+<b>Незаконченный экзамен не теряется.</b> Закрыли вкладку или телефон уснул — на странице экзамена будет «Nebaigtas egzaminas · Atsakyta 9 iš 20 · liko 30:59» и кнопка «Tęsti». Время идёт, как на настоящем экзамене; если оно вышло, засчитываются данные ответы.
+</li><li>
+<b>Текст статьи под ответом.</b> После ответа в тренировке и в разборе раскрывается «Straipsnio tekstas»: та часть статьи, где ответ, на литовском и русском.
+</li><li>
+<b>Короче старт:</b> сначала кнопки, ниже свёрнутые карточки, в заголовках которых уже главное — «Šiandien: IV, V skyriai», «Pasirengimas: 1 iš 3 ●○○».
+</li><li>
+<b>Быстрая тренировка из 5 вопросов</b> — минуты на три, например в очереди.
+</li><li>
+<b>Итог со шкалой 0–20</b> и отметкой 14: видно, сколько не хватило.
+</li><li>
+<b>Накануне и в день экзамена</b> на странице только главное: памятка, слабые места, последние ошибки.
+</li><li>
+Выученный вопрос, который не попадался 14 дней, снова попадает в «Kartoti».
+</li></ul>
+<h3>План и каждый день</h3>
+<ul><li>
+<b>Главы плана можно нажимать</b> — отметить пройденной или снять отметку. «Atlikta» тоже можно вернуть.
+</li><li>
+<b>Честные подсказки:</b> «пропущено 2 дня — теперь по 2 главы в день» и предупреждение, если глав в день слишком много.
+</li><li>
+<b>«Šiandien atlikta»</b> — сколько карточек, вопросов и рассказов сегодня, и «5 iš 7 dienų»: сколько дней из последних семи вы занимались. Пропуск ничего не обнуляет.
+</li><li>
+<b>«Įtraukti į kalendorių»</b> — файл для календаря: напоминание каждый день в выбранное время и сам день экзамена.
+</li><li>
+<b>В конце рассказа и главы Конституции</b> — «Pakartokite: Žodžiai · Klausimai» этой главы и «Pažymėti plane».
+</li><li>
+Дату экзамена теперь можно поставить и на сегодня.
+</li></ul>
+<h3>Главная и тренажёр</h3>
+<ul><li>
+Новичку сразу видны две цели: «Ruošiuosi egzaminui» и «Noriu skaityti». Вернувшимся — «Tęsti»: самое нужное крупнее, готовность точками.
+</li><li>
+После трёх дней занятий сайт один раз предложит сохранить прогресс — файлом или кодом синхронизации.
+</li><li>
+<b>Настройки тренажёра — одной строкой</b> «Terminai · Visi skyriai · LT → RU»; на телефоне карточка сразу на первом экране.
+</li></ul>
+<h3>Без интернета</h3>
+<ul><li>
+<b>Сайт можно установить на телефон как приложение</b>: «Daugiau» → «Be interneto» → «Įdiegti» (на iPhone — «Поделиться» → «На экран „Домой“»).
+</li><li>
+<b>Страницы, слова, вопросы и чтение открываются и без сети</b> — после первого посещения.
+</li><li>
+<b>Озвучку можно скачать по главам</b> (4–7 МБ на главу) — тоже в «Be interneto». Сайт всегда берёт свежую версию, когда есть интернет.
+</li></ul>
+<h3>Доверие</h3>
+<ul><li>
+<b>«Pranešti apie klaidą»</b> — внизу каждой страницы, в «Daugiau» и у каждого вопроса в разборе. Без регистрации, без имени и почты: просто напишите, что не так.
+</li><li>
+<b>«Apie egzaminą»</b> — что это за экзамен, формат (20 вопросов, 3 варианта, сдано от 14), темы и где записаться — только по официальным источникам, со ссылками.
+</li><li>
+<b>«Kas naujo»</b> и номер версии — в подвале. Ссылка на сайт в мессенджерах теперь приходит с картинкой и описанием.
+</li><li>
+Озвучка честно подписана: это синтетические голоса Ona и Leonas (Microsoft Azure), ударения иногда неточны.
+</li></ul>
+<p>Нашли ошибку — нажмите «Pranešti apie klaidą» внизу страницы. Пригодилось — поставьте ★ <a href="https://github.com/born-to-be-mad/mokausi-lietuviskai">репозиторию</a>.</p><p class="when">04.11.2026</p></article>
+<article class="rel" id="v1.10.1"><h2>v1.10.1 — честнее «слабые места», удобнее с клавиатуры и экранным диктором</h2>
+<h3>Пробный экзамен</h3>
+<ul><li>
+<b>Вопрос остаётся «слабым», пока вы не ответите на него верно два раза подряд.</b> Раньше хватало одного верного ответа — а угадать можно в одном случае из трёх, так что вопрос мог уйти из слабых случайно и закрыть условие готовности. Ответ с подсмотренным переводом тоже не считается.
+</li><li>
+<b>Один счётчик слабых вопросов.</b> Кнопка «Silpnos vietos · N», карточка готовности и полоса «Tęsti» на главной показывают одно и то же число, и тренировка состоит ровно из этих вопросов (по 20 за раз). Если слабых нет, кнопка предлагает «Kartoti (повторить изучаемые)».
+</li><li>
+<b>Кнопки «Egzaminas», «Treniruotė» и «Silpnos vietos» — в самом верху</b> страницы экзамена: на телефоне их видно сразу, даже когда составлен план подготовки.
+</li></ul>
+<h3>Карточки тренажёра</h3>
+<ul><li>
+<b>«Žinojau (знал)» и «Nežinojau (не знал)» — сразу.</b> Если перевод и так понятен, отвечайте без лишнего нажатия. «Rodyti vertimą (показать перевод)» теперь в самой карточке, под словом, и только открывает перевод. Клавиши прежние: пробел — показать перевод, 1 и 2 — ответ, в любой момент. Спасибо читателю за идею!
+</li></ul>
+<h3>Клавиатура и экранный диктор</h3>
+<ul><li>
+<b>Фокус больше не теряется.</b> После ответа в тренировке фокус переходит на «Kitas», после «Kitas» — на новый вопрос, после «RU» — обратно на кнопку. В экзамене после ответа фокус переходит к следующему вопросу, после последнего — к «Baigti»; на итоге — к результату.
+</li><li>
+<b>Диктор не перечитывает всю страницу после каждого нажатия.</b> Вместо этого он коротко говорит, что произошло: «Teisingai», «Neteisingai. Teisingai: …», а в карточках — перевод после «Rodyti».
+</li></ul>
+<h3>Исправлено</h3>
+<ul><li>
+Перевод факта о судах: «Суды Литвы – Верховный, апелляционный, окружные и <b>районные</b> суды» (было «апилинковые» — литовское <i>apylinkių</i> без перевода). Исправлено в тренажёре и во всех трёх PDF книги. Спасибо читателю, который заметил!
+</li></ul>
+<p>Нашли ошибку — <a href="https://github.com/born-to-be-mad/mokausi-lietuviskai/issues">напишите</a>. Пригодилось — поставьте ★ репозиторию.</p><p class="when">04.11.2026</p></article>
+<article class="rel" id="v1.10.0"><h2>v1.10.0 — 70 новых вопросов: пробный экзамен по всей Конституции</h2>
+<p>Банк пробного экзамена вырос со 126 до 196 вопросов. Теперь вопросы есть почти по каждой статье, в которой есть что спросить на экзамене, а не только по самым известным фактам.</p>
+<h3>Что добавилось</h3>
+<ul><li>
+<b>70 вопросов по статьям, о которых раньше не спрашивали:</b> как Seimas назначает досрочные выборы и сколько дней у Президента, чтобы подписать закон; кто подписывает международные договоры, а кто их ратифицирует; что делает судья, если закон противоречит Конституции; как принималась сама Конституция и когда вступают в силу её изменения — и многое другое.
+</li><li>
+<b>Меньше перекосов между главами.</b> Раньше по главе XII было 3 вопроса, по X и XI — по 6. Теперь в каждой главе вопросов примерно столько, сколько в ней статей с экзаменационными фактами: от 5 в главе XII (в ней всего две статьи) до 25 в главе V о Сейме.
+</li><li>
+<b>Варианты ответов — как в v1.6.0:</b> неверные правдоподобные, близкой длины, часто из соседних статей. Например, Президент должен подписать закон за 10 дней, а «3 дня» — это срок из соседней статьи для закона, который Сейм принял повторно.
+</li><li>
+<b>Все новые вопросы озвучены</b> обоими голосами, Ona и Leonas.
+</li></ul>
+<h3>Что это значит для подготовки</h3>
+<ul><li>
+Вопросы в пробном экзамене повторяются реже: чтобы увидеть весь банк, нужно 11–12 тренировок вместо 7–8. Тренировка, как и раньше, сначала даёт новые вопросы.
+</li><li>
+Условие готовности «Išbandyti visi klausimai» теперь считается от 196 вопросов: если вы уже видели все 126 старых, в готовности снова появится незакрытое условие — это 70 новых вопросов.
+</li></ul>
+<p>Новые вопросы написаны по официальному тексту Конституции и сверены с ним; литовские формулировки ещё ждут вычитки носителем языка. Нашли неточность — <a href="https://github.com/born-to-be-mad/mokausi-lietuviskai/issues">напишите</a>. Пригодилось — поставьте ★ репозиторию.</p><p class="when">27.10.2026</p></article>
+<article class="rel" id="v1.9.0"><h2>v1.9.0 — план подготовки к дате экзамена</h2>
+<p>Знаете дату экзамена? Сайт разложит 14 глав Конституции по дням до неё и каждый день покажет, что делать.</p>
+<h3>Pasiruošimo planas (план подготовки)</h3>
+<ul><li>
+<b>Где:</b> на странице пробного экзамена, а с главной — ссылка «Pasiruošimo planas →» в карточке «Ruošiuosi Konstitucijos egzaminui». Укажите дату — и план готов.
+</li><li>
+<b>«Šiandien (сегодня)»</b> — глава на сегодня и четыре ссылки: рассказы этой главы, её слова в тренажёре, текст главы и <b>вопросы только этой главы</b> (новая тренировка). Сделали — нажмите «Atlikta (сделано)», и план перейдёт к следующей главе.
+</li><li>
+<b>План подстраивается сам.</b> Пропустили день или времени мало — сайт пересчитает темп: «Осталось 11 глав на 20 дней: по 1 главе в день». Если до экзамена неделя, предложит по 2–3 главы в день.
+</li><li>
+<b>Последние дни — повторение:</b> когда все главы пройдены, план показывает три самых слабых главы по вашим ответам и советует «Silpnos vietos» и пробный экзамен на время. В день экзамена — «Sėkmės! (удачи!)» и ссылка на памятку.
+</li><li>
+Дату можно изменить, план — удалить. План синхронизируется между устройствами вместе с остальным прогрессом.
+</li></ul>
+<h3>Ещё</h3>
+<ul><li>
+<b>Вопросы одной главы</b> можно тренировать и без плана: адрес <code>egzaminas.html?sk=5</code> открывает вопросы главы V.
+</li><li>
+<b>«Tęsti» на главной</b> первым пунктом показывает план: «Šiandien: IV. Tautos ūkis ir darbas · до экзамена 23 дн.».
+</li></ul>
+<p>Нашли ошибку — <a href="https://github.com/born-to-be-mad/mokausi-lietuviskai/issues">напишите</a>. Пригодилось — поставьте ★ репозиторию.</p><p class="when">27.10.2026</p></article>
+<article class="rel" id="v1.8.0"><h2>v1.8.0 — главная: «Продолжить» и вход по цели</h2>
+<h3>Tęsti (продолжить)</h3>
+<ul><li>
+Если вы уже занимались на этом устройстве (или включили синхронизацию), главная начинается с полосы «Tęsti»: рассказ, на котором вы остановились, глава текста Конституции, сколько карточек пора повторить и готовность к экзамену — сколько из трёх условий выполнено и сколько слабых вопросов. Каждый пункт — ссылка прямо туда.
+</li><li>
+Название рассказа появится в полосе, когда вы в следующий раз откроете любой рассказ; до этого там «Tęsti nuo ten, kur baigėte (с того места, где остановились)».
+</li><li>
+Новым посетителям полосы нет: главная начинается, как раньше, с короткого описания сайта.
+</li></ul>
+<h3>Ko siekiate? (какая у вас цель)</h3>
+<ul><li>
+Две карточки вместо блока «С чего начать»:
+<ul><li>
+<b>«Ruošiuosi Konstitucijos egzaminui»</b> — путь в три шага: читать рассказы, учить слова в тренажёре, проверить себя пробным экзаменом;
+</li><li>
+<b>«Noriu skaityti lietuviškai»</b> — 38 лёгких рассказов и весь текст Конституции с переводом и озвучкой.
+</li></ul>
+</li><li>
+Длинный список поправок к Конституции свёрнут в одну строку «Текст — сводная редакция e-TAR … с поправками»: он раскрывается нажатием.
+</li></ul>
+<p>Нашли ошибку — <a href="https://github.com/born-to-be-mad/mokausi-lietuviskai/issues">напишите</a>. Пригодилось — поставьте ★ репозиторию.</p><p class="when">18.10.2026</p></article>
+</main>
+</div>
+<!-- shell:foot -->
+<footer class="shell-foot"><div class="foot"><a href="naujienos.html">v2.0.0 · Kas naujo</a> · <button type="button" class="linkbtn" data-report>Pranešti apie klaidą <span class="ru">сообщить об ошибке</span></button> · © 2026 Marudau Dzmitry · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a><span class="long url"> · born-to-be-mad.github.io/mokausi-lietuviskai</span></div></footer>
+<nav class="tabbar" aria-label="Skyriai (разделы)"><a href="../" data-sec="home"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-home"/></svg><span class="l">Pradžia</span><span class="sr"> (главная)</span></a><a href="skaitymas.html" data-sec="read"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-read"/></svg><span class="l">Skaityti</span><span class="sr"> (читать)</span></a><a href="./" data-sec="words"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-words"/></svg><span class="l">Žodžiai</span><span class="sr"> (слова)</span></a><a href="egzaminas.html" data-sec="exam"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-exam"/></svg><span class="l">Egzaminas</span><span class="sr"> (экзамен)</span></a><button type="button" class="morebtn" popovertarget="daugiau" aria-haspopup="dialog" data-sec="more" aria-current="true"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-more"/></svg><span class="l">Daugiau</span><span class="sr"> (ещё)</span></button></nav>
+<div id="daugiau" class="sheet" popover role="dialog" aria-labelledby="daugiau-h">
+  <div class="sheethead"><h2 id="daugiau-h">Daugiau <span class="ru">ещё</span></h2><button type="button" class="sheetclose" popovertarget="daugiau" popovertargetaction="hide" aria-label="Uždaryti (закрыть)">✕</button></div>
+  <ul class="sheetlist"><li><a href="tekstas.html"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-text"/></svg><span><span class="l">Konstitucijos tekstas</span><span class="ru">вся Конституция с переводом и озвучкой</span></span></a></li><li><a href="apie-egzamina.html"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg><span><span class="l">Apie egzaminą</span><span class="ru">как устроен экзамен, где записаться — официальные ссылки</span></span></a></li><li><a href="atmintine.html"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-memo"/></svg><span><span class="l">Atmintinė</span><span class="ru">памятка: числа и сроки на одном листе</span></span></a></li><li><a href="Lietuvos_Konstitucijos_vadovas.pdf"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-book"/></svg><span><span class="l">Knyga (PDF)</span><span class="ru">книга-пособие для экрана</span></span></a></li><li><a href="Lietuvos_Konstitucijos_vadovas_spausdinimui.pdf"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-print"/></svg><span><span class="l">Knyga spausdinimui</span><span class="ru">для печати, с QR-кодами</span></span></a></li><li><a href="../#pazanga"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-sync"/></svg><span><span class="l">Pažanga</span><span class="ru">перенести прогресс: файл или код синхронизации</span></span></a></li><li><a href="naujienos.html" aria-current="page"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-news"/></svg><span><span class="l">Kas naujo</span><span class="ru">что нового на сайте: последние версии</span></span></a></li><li><button type="button" data-offline><svg class="i" aria-hidden="true" focusable="false"><use href="#i-download"/></svg><span><span class="l">Be interneto</span><span class="ru">без интернета: установить на телефон, скачать озвучку глав</span></span></button></li><li><button type="button" data-report>{icon("flag")}<span><span class="l">Pranešti apie klaidą</span><span class="ru">нашли ошибку в тексте, переводе или озвучке — напишите</span></span></button></li></ul>
+  <p class="sheetfoot"><a href="naujienos.html">v2.0.0 · Kas naujo</a> · © 2026 Marudau Dzmitry · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · <span class="ru">материалы бесплатны, их можно копировать и печатать; озвучка — синтетические голоса (Azure)</span></p>
+</div>
+<svg class="sprite" aria-hidden="true" focusable="false"><defs><symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M6 9.5V20h4.5v-5.5h3V20H18V9.5"/></symbol><symbol id="i-read" viewBox="0 0 24 24"><path d="M12 6.8C10.4 5.4 8 4.7 4.8 4.7H3.5v13.6h1.3c3.2 0 5.6.7 7.2 2.1 1.6-1.4 4-2.1 7.2-2.1h1.3V4.7h-1.3c-3.2 0-5.6.7-7.2 2.1z"/><path d="M12 6.8v13.6"/></symbol><symbol id="i-words" viewBox="0 0 24 24"><rect x="3.5" y="7.5" width="12.5" height="13" rx="2"/><path d="M8 4.5h10.5a2 2 0 0 1 2 2V16"/><path d="M7 12.5h5.5M7 16h3.5"/></symbol><symbol id="i-exam" viewBox="0 0 24 24"><path d="M10 6.5h10M10 12h10M10 17.5h10"/><path d="m3.5 6.5 1.6 1.6L8 5.2M3.5 12l1.6 1.6L8 10.7"/><path d="M4 17.5h3"/></symbol><symbol id="i-more" viewBox="0 0 24 24"><circle cx="5.5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="18.5" cy="12" r="1.4"/></symbol><symbol id="i-text" viewBox="0 0 24 24"><path d="M6 3.5h8.5L19 8v12.5H6z"/><path d="M14.5 3.5V8H19"/><path d="M9 12.5h7M9 16h7"/></symbol><symbol id="i-memo" viewBox="0 0 24 24"><rect x="5" y="5.5" width="14" height="15.5" rx="2"/><path d="M9 3.5h6v4H9z"/><path d="M8.5 12h7M8.5 15.5h5"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M5 5.2A2.2 2.2 0 0 1 7.2 3H19v14.5H7.2A2.2 2.2 0 0 0 5 19.7z"/><path d="M5 19.7A1.8 1.8 0 0 0 6.8 21.5H19"/><path d="M9 7.5h6"/></symbol><symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3.5h10V9"/><rect x="3.5" y="9" width="17" height="8" rx="2"/><path d="M7 14h10v6.5H7z"/></symbol><symbol id="i-sync" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 0 1-13 5.1"/><path d="M4.5 12a7.5 7.5 0 0 1 13-5.1"/><path d="M17.5 3.5v3.4h-3.4"/><path d="M6.5 20.5v-3.4h3.4"/></symbol><symbol id="i-plan" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="m9 15 2 2 4-4"/></symbol><symbol id="i-voice" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="M15.5 9.2a4 4 0 0 1 0 5.6M18.2 6.6a7.6 7.6 0 0 1 0 10.8"/></symbol><symbol id="i-look" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol><symbol id="i-repeat" viewBox="0 0 24 24"><path d="M4.5 11.5a7.5 7.5 0 0 1 13-4.6L19.5 9"/><path d="M19.5 4.5V9H15"/><path d="M19.5 12.5a7.5 7.5 0 0 1-13 4.6L4.5 15"/><path d="M4.5 19.5V15H9"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol><symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.4"/></symbol><symbol id="i-news" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="M7 9h10M7 12.5h10M7 16h6"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5"/><path d="M5 19.5h14"/></symbol></defs></svg>
+<!-- /shell:foot -->
+</body>
+</html>
