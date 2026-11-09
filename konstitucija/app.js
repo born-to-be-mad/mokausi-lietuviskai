@@ -26,14 +26,18 @@
   const savePrefs = () => write(PREFS, prefs);
 
   const rec = t => progress[t.key] || { box: 0, due: 0, right: 0, wrong: 0 };
+  // досрочно — с прошлого шага прошло меньше половины перерыва (5 минут из 10, полдня из дня…): верный ответ отмечается,
+  // но шага к «выучено» не даёт и срок не сдвигает — иначе два прохода подряд «выучивают» слово за минуту
+  const early = r => r.box > 0 && Date.now() < r.due - INTERVAL[r.box] / 2;
   function grade(t, ok) {
-    const r = Object.assign({}, rec(t));
-    if (ok) { r.box = Math.min(5, r.box + 1); r.right++; } else { r.box = 1; r.wrong++; }
-    r.due = Date.now() + INTERVAL[r.box];
+    const r = Object.assign({}, rec(t)), soon = ok && early(r);
+    if (ok) { if (!soon) r.box = Math.min(5, r.box + 1); r.right++; } else { r.box = 1; r.wrong++; }
+    if (!soon) r.due = Date.now() + INTERVAL[r.box];
     r.t = Date.now();                                  // когда менялась — для синхронизации между устройствами (sync.js)
     progress[t.key] = r;
     write(STORE, progress);
     window.Look?.track('c');                           // «сегодня сделано» (look.js)
+    return soon;
   }
 
   // ---------- помощники ----------
@@ -113,11 +117,11 @@
 
   function meter() {
     const s = stats(pool()), w = s.next ? whenNext(s.next) : null;
-    document.getElementById('meter').replaceChildren(
+    document.getElementById('meter').replaceChildren(...[      // replaceChildren(null) напишет «null» — пустое убираем
       el('span', { class: 'mline' }, `Išmokta (выучено): ${s.learned} · mokomasi (учу): ${s.learning} · nauji (новые): ${s.fresh} — iš ${s.total}`),
       s.due ? el('span', { class: 'mline due' }, `Kartoti dabar (повторить сейчас): ${s.due}`)
         : w ? el('span', { class: 'mline' }, `Kitas kartojimas: ${w[0]} `, el('span', { class: 'ru' }, `(следующее повторение ${w[1]})`)) : null,
-      segBar(s));
+      segBar(s)].filter(Boolean));
   }
 
   // ---------- карточки ----------
@@ -127,10 +131,15 @@
     const list = pool();
     const due = list.filter(isDue).sort((a, b) => rec(a).due - rec(b).due);
     const fresh = list.filter(t => rec(t).box === 0).slice(0, NEW_PER_SESSION);
-    queue = [...due, ...fresh];
-    session = { right: 0, wrong: 0, total: queue.length };
-    nextCard();
+    run([...due, ...fresh]);
   }
+  const run = list => { queue = list; session = { right: 0, wrong: 0, early: 0, total: queue.length }; nextCard(); };
+  const EXTRA = 10;                                    // «Neišmokti» и «Atsitiktiniai» — по 10 карточек вне расписания
+  // невыученные: сначала «учу» (меньше шагов — раньше), потом новые
+  const unlearned = () => {
+    const learning = shuffle(pool().filter(t => rec(t).box > 0 && rec(t).box < LEARNED)).sort((a, b) => rec(a).box - rec(b).box);
+    return [...learning, ...shuffle(pool().filter(t => rec(t).box === 0))].slice(0, EXTRA);
+  };
 
   function backDetails(t) {
     if (prefs.deck === 'facts') return t.art ? el('div', { class: 'ex' }, el('span', { class: 'art' }, cite(t))) : null;
@@ -155,7 +164,10 @@
     const back = el('div', { class: 'back', hidden: true },
       ltFirst ? el('div', { class: 'main ru-side' }, t.ru) : el('div', { class: 'main' }, ltForms(t), sayBtn(sayText(t))),
       backDetails(t));
-    const answer = ok => { grade(t, ok); queue.shift(); if (ok) session.right++; else { session.wrong++; queue.push(t); } nextCard(); };
+    const answer = ok => {
+      if (grade(t, ok)) session.early++;
+      queue.shift(); if (ok) session.right++; else { session.wrong++; queue.push(t); } nextCard();
+    };
     // «Žinojau / Nežinojau» — сразу (перевод понятен — можно ответить, не открывая); «Rodyti» в карточке только открывает перевод
     const show = el('button', { class: 'reveal', type: 'button', on: { click: reveal } },
       ltFirst ? 'Rodyti vertimą ' : 'Rodyti lietuviškai ', el('span', { class: 'ru' }, ltFirst ? '(показать перевод)' : '(показать по-литовски)'),
@@ -192,12 +204,15 @@
       s.learning ? el('p', {}, `Mokomasi: ${s.learning}. `, el('span', { class: 'ru' }, `Слова, которые вы узнали один раз, теперь «учу». `
         + 'Выученными они станут, когда вы узнаете их ещё два раза: через 10 минут и на следующий день — карточки сами вернутся'
         + (w && !s.due ? ` (ближайшее повторение ${w[1]}).` : '.'))) : null,
+      session.early ? el('p', {}, `Anksčiau laiko: ${session.early}. `, el('span', { class: 'ru' }, `Раньше срока: ${session.early}. `
+        + 'Верный ответ отмечен, но шаг к «выучено» засчитывается, когда пройдёт хотя бы половина перерыва: 5 минут из 10, полдня из дня.')) : null,
       s.due ? el('p', {}, `Jau galima kartoti (уже пора повторить): ${s.due}.`) : null,
       left ? el('p', {}, `Dar nauji žodžiai (ещё новые слова): ${left}.`) : null,
-      el('div', { class: 'actions' },
+      el('div', { class: 'actions wrap' },
         left || s.due ? el('button', { class: 'primary', on: { click: startCards } }, 'Toliau (дальше)') : null,
-        el('button', { on: { click: () => { queue = shuffle(pool()).slice(0, 10); session = { right: 0, wrong: 0, total: queue.length }; nextCard(); } } },
-          'Atsitiktiniai 10 (случайные 10)'))));
+        s.learning ? el('button', { class: 'unlearned', on: { click: () => run(unlearned()) } },
+          `Neišmokti ${Math.min(EXTRA, s.learning + s.fresh)} (невыученные)`) : null,
+        el('button', { on: { click: () => run(shuffle(pool()).slice(0, EXTRA)) } }, `Atsitiktiniai ${EXTRA} (случайные)`))));
   }
 
   // ---------- тест ----------
@@ -459,16 +474,22 @@
         el('td', {}, el('button', { on: { click: () => { prefs.sk = String(c.no); setMode('cards'); } } }, 'Mokytis')));
     });
     const decksRow = Object.entries(D.decks).map(([k, d]) => {
-      const s = stats(d.items);
-      return el('div', { class: 'deckstat' }, el('div', {}, `${d.lt} `, el('span', { class: 'ru' }, `(${d.ru})`),
-        ` — ${s.learned} / ${s.total}`, s.learning ? el('span', { class: 'ru' }, ` · учу ${s.learning}`) : null), segBar(s));
+      const s = stats(d.items), started = s.learned + s.learning;
+      return el('div', { class: 'deckstat confirm-host' },
+        el('div', { class: 'dsrow' },
+          el('div', {}, `${d.lt} `, el('span', { class: 'ru' }, `(${d.ru})`),
+            ` — ${s.learned} / ${s.total}`, s.learning ? el('span', { class: 'ru' }, ` · учу ${s.learning}`) : null),
+          started ? el('button', { class: 'dsreset', 'data-reset': k, 'aria-label': `${d.lt}: pradėti iš naujo (сбросить прогресс набора «${d.ru}»)`,
+            on: { click: e => resetDeck(e.currentTarget, k) } }, 'Iš naujo ', el('span', { class: 'ru' }, '(сбросить)')) : null),
+        segBar(s));
     });
     app.replaceChildren(
       el('div', { class: 'card' },
         el('h2', { class: 'cardh' }, 'Visi rinkiniai', el('span', { class: 'ru' }, 'все наборы: выучено из всех слов')),
         decksRow,
         el('p', { class: 'ru' }, `«Выучено» — слово узнано правильно ${LEARNED} раза подряд с перерывами (10 минут, потом день); `
-          + '«учу» — уже отвечали, но ещё не выучено (зелёным — выучено, светлее — учу). ↻ — пора повторить.')),
+          + '«учу» — уже отвечали, но ещё не выучено (зелёным — выучено, светлее — учу). ↻ — пора повторить. '
+          + 'Раньше срока шаг засчитывается, если прошла хотя бы половина перерыва. «Iš naujo» — сбросить один набор.')),
       el('div', { class: 'card' },
         el('h2', { class: 'cardh' }, `${deck().lt} — pagal skirsnius`, el('span', { class: 'ru' }, `${deck().ru} по главам`)),
         el('table', { class: 'stats' }, el('tbody', {}, rows))),
@@ -478,7 +499,26 @@
           { yes: 'Ištrinti', yesRu: 'удалить', danger: true }).then(ok => {
           if (ok) { progress = { _reset: Date.now() }; write(STORE, progress); showProgress(); window.Look.toast('Pažanga ištrinta.', 'Прогресс тренажёра удалён.'); }
         }) }
-      }, 'Pradėti iš naujo (сбросить прогресс)')));
+      }, 'Visi rinkiniai iš naujo (сбросить все наборы)')));
+  }
+  // сброс одного набора: его слова снова новые. Не удаляем записи, а пишем «пустые» с новым t — так сброс доходит
+  // и до других устройств (sync.js: по слову побеждает более свежая запись); «Grąžinti» возвращает прежние
+  function resetDeck(btn, k) {
+    const d = D.decks[k], had = d.items.filter(t => progress[t.key]), n = had.filter(t => rec(t).box > 0).length;
+    window.Look.ask(btn, `Ištrinti rinkinio „${d.lt}“ pažangą?`, `Удалить прогресс набора «${d.ru}» (${n} сл.)? Другие наборы не изменятся.`,
+      { yes: 'Ištrinti', yesRu: 'удалить', danger: true }).then(ok => {
+      if (!ok) return;
+      const before = Object.fromEntries(had.map(t => [t.key, progress[t.key]])), now = Date.now();
+      for (const t of had) progress[t.key] = { box: 0, due: 0, right: 0, wrong: 0, t: now };
+      write(STORE, progress);
+      const redraw = () => { if (prefs.mode === 'progress') showProgress(); else meter(); };
+      redraw();
+      window.Look.toast(`„${d.lt}“ — iš naujo.`, `Прогресс набора «${d.ru}» удалён.`, { undo: () => {
+        const t = Date.now();
+        for (const [key, r] of Object.entries(before)) progress[key] = Object.assign({}, r, { t });   // свежее t — чтобы вернулось и при синхронизации
+        write(STORE, progress); redraw();
+      } });
+    });
   }
 
   // ---------- каркас ----------
@@ -489,7 +529,7 @@
       ...D.chapters.map(c => {
         const n = items().filter(t => t.sk === c.no).length;
         return n ? el('option', { value: String(c.no) }, `${c.roman}. ${c.lt} — ${n}`) : null;
-      }));
+      }).filter(Boolean));
     if (![...skSel.options].some(o => o.value === prefs.sk)) prefs.sk = 'all';
     skSel.value = prefs.sk;
   }

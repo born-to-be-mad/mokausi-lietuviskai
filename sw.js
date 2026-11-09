@@ -4,7 +4,7 @@
 // свежий), нет сети или она молчит дольше 4 секунд — из сохранённого. Озвучка — из своего кэша mokausi-garsas
 // (пакеты по главам скачивает «Be interneto», look.js); чего нет — из сети, без сохранения. Книги (PDF) — только сеть.
 // Новая версия сайта = новый VERSION (хеш файлов): браузер ставит новый worker, тот сразу включается и убирает старый кэш.
-const VERSION = 'v2.0.1-0f447b48f6';
+const VERSION = 'v2.1.0-ecabe8e82f';
 const CORE = 'mokausi-core-' + VERSION, AUDIO = 'mokausi-garsas';
 const FILES = ["./", "manifest.webmanifest", "konstitucija/", "konstitucija/index.html", "konstitucija/egzaminas.html", "konstitucija/skaitymas.html", "konstitucija/tekstas.html", "konstitucija/atmintine.html", "konstitucija/naujienos.html", "konstitucija/apie-egzamina.html", "konstitucija/style.css", "konstitucija/shell.css", "konstitucija/look.css", "konstitucija/reader.css", "konstitucija/app.js", "konstitucija/exam.js", "konstitucija/look.js", "konstitucija/reader.js", "konstitucija/speak.js", "konstitucija/sync.js", "konstitucija/data/decks.js", "konstitucija/data/audio.js", "konstitucija/data/citatos.js", "konstitucija/data/garsas.js", "konstitucija/favicon.svg", "konstitucija/icons/icon-192.png", "konstitucija/icons/icon-512.png", "konstitucija/icons/maskable-512.png", "konstitucija/icons/apple-180.png", "konstitucija/fonts/Literata.woff", "konstitucija/fonts/Literata-Italic.woff", "konstitucija/fonts/Nunito.woff"];
 const ROOT = new URL('./', self.location).href;

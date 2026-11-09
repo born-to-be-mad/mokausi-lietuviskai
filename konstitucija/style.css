@@ -97,6 +97,11 @@ select {
 .gram { font-size: .85rem; color: var(--muted); }
 .syn { font-size: .95rem; margin-top: 6px; }
 .deckstat { margin: 10px 0; }
+.deckstat .dsrow { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.dsreset { flex: none; min-height: 36px; padding: 4px 10px; border-radius: 8px; border: 1px solid var(--control); background: var(--card);
+  color: var(--text); font: 600 .82rem/1.2 var(--font-ui); cursor: pointer; }
+.dsreset .ru { font-weight: 400; color: var(--muted); }
+.dsreset:hover { border-color: var(--bad); color: var(--bad); }
 .ex { margin-top: 10px; font-family: var(--font-read); }
 .ex .exru { color: var(--accent); font-size: .92rem; font-style: italic; }
 .ex .art { color: var(--muted); font-style: italic; font-size: .85rem; }
@@ -120,6 +125,9 @@ select {
 .actions.exam-start { flex-wrap: wrap; margin-bottom: 14px; }                       /* старт экзамена: три кнопки — на телефоне третья ниже */
 .actions.exam-start button { flex: 1 1 220px; }
 .actions.exam-start .primary { flex-basis: 100%; }   /* экзамен — во всю ширину, тренировки — по две в ряд */
+.actions.wrap { flex-wrap: wrap; }                       /* «Atlikta»: «Toliau» — во всю ширину, остальные — по две в ряд */
+.actions.wrap button { flex: 1 1 200px; }
+.actions.wrap .primary { flex-basis: 100%; }
 .btn.primary, .actions .primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 .actions .no { border-color: var(--bad); color: var(--bad); }
 .actions .yes { border-color: var(--good); color: var(--good); }
