@@ -455,7 +455,7 @@ a.artlink:hover { color: var(--accent); text-decoration-style: solid; }
   [data-look="contrast"] .reveal { border: 2px solid var(--text); color: var(--text); border-radius: 6px; }
   [data-look="contrast"] .planchips .done { background: var(--text); color: var(--bg); }
   [data-look="contrast"] .planchips .now { outline: 3px solid var(--focus); }
-  [data-look="contrast"] :is(.readysk .learn, .sw.learn) { background: repeating-linear-gradient(45deg, var(--text) 0 2px, transparent 2px 5px); }
+  [data-look="contrast"] :is(.readysk .learn, .sw.learn, .bar.seg > .learn) { background: repeating-linear-gradient(45deg, var(--text) 0 2px, transparent 2px 5px); }
   [data-look="contrast"] .sw { outline: 1px solid var(--text); }
   /* переводы с меткой «RU» (не только цветом) */
   [data-look="contrast"] :is(.row .ru, .optru, .qru, .exru)::before {

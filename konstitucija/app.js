@@ -81,23 +81,43 @@
     `(${t.artsk} SK. ${t.art} str.)`) : '';
   const chTag = t => { const c = chapter(t.sk); return c ? `${c.roman}. ${c.lt}` : ''; };
 
+  // слово новое (ни разу не отвечали), учу (отвечали, но ещё не выучено) или выучено (коробка ≥ LEARNED: узнано 3 раза
+  // подряд — сразу, через 10 минут и через день); due — пора повторить сейчас, next — когда ближайшее следующее повторение
   function stats(list) {
     const now = Date.now();
-    let learned = 0, due = 0, fresh = 0;
+    let learned = 0, learning = 0, due = 0, fresh = 0, next = Infinity;
     for (const t of list) {
       const r = rec(t);
-      if (r.box >= LEARNED) learned++;
-      if (r.box === 0) fresh++; else if (r.due <= now) due++;
+      if (r.box === 0) { fresh++; continue; }
+      if (r.box >= LEARNED) learned++; else learning++;
+      if (r.due <= now) due++; else next = Math.min(next, r.due);
     }
-    return { total: list.length, learned, due, fresh };
+    return { total: list.length, learned, learning, due, fresh, next: next === Infinity ? 0 : next };
   }
   const bar = (part, total) => el('div', { class: 'bar' }, el('span', { style: `width:${total ? Math.round(100 * part / total) : 0}%` }));
+  // полоска набора: выучено (зелёное) и учу (светлее), остальное — новые
+  const pct = (n, total) => `${total ? (100 * n / total).toFixed(1) : 0}%`;
+  const segBar = s => el('div', { class: 'bar seg', role: 'img',
+    'aria-label': `Išmokta ${s.learned}, mokomasi ${s.learning}, nauji ${s.fresh} iš ${s.total} (выучено, учу, новые)` },
+    el('span', { class: 'known', style: `width:${pct(s.learned, s.total)}` }), el('span', { class: 'learn', style: `width:${pct(s.learning, s.total)}` }));
+  // «через 8 мин», «сегодня в 18:40», «завтра», «через 3 дня» — когда следующее повторение
+  function whenNext(ts) {
+    const d = ts - Date.now(), at = new Date(ts), day = x => new Date(x).toDateString();
+    const hm = at.toLocaleTimeString('lt-LT', { hour: '2-digit', minute: '2-digit' });
+    if (d < 60 * MIN) { const m = Math.max(1, Math.ceil(d / MIN)); return [`po ${m} min.`, `через ${m} мин`]; }
+    if (day(ts) === day(Date.now())) return [`šiandien ${hm}`, `сегодня в ${hm}`];
+    if (day(ts) === day(Date.now() + DAY)) return [`rytoj ${hm}`, `завтра в ${hm}`];
+    const n = Math.round((new Date(at.toDateString()) - new Date(new Date().toDateString())) / DAY);
+    return [`po ${n} d.`, `через ${n} ${n % 10 === 1 && n % 100 !== 11 ? 'день' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'дня' : 'дней'}`];
+  }
 
   function meter() {
-    const s = stats(pool());
+    const s = stats(pool()), w = s.next ? whenNext(s.next) : null;
     document.getElementById('meter').replaceChildren(
-      `Išmokta (выучено): ${s.learned} / ${s.total} · kartoti (повторить): ${s.due} · nauji (новые): ${s.fresh}`,
-      bar(s.learned, s.total));
+      el('span', { class: 'mline' }, `Išmokta (выучено): ${s.learned} · mokomasi (учу): ${s.learning} · nauji (новые): ${s.fresh} — iš ${s.total}`),
+      s.due ? el('span', { class: 'mline due' }, `Kartoti dabar (повторить сейчас): ${s.due}`)
+        : w ? el('span', { class: 'mline' }, `Kitas kartojimas: ${w[0]} `, el('span', { class: 'ru' }, `(следующее повторение ${w[1]})`)) : null,
+      segBar(s));
   }
 
   // ---------- карточки ----------
@@ -164,14 +184,18 @@
 
   function cardsDone() {
     keyHandler = null;
-    const left = pool().filter(t => rec(t).box === 0).length;
+    const s = stats(pool()), left = s.fresh, w = s.next ? whenNext(s.next) : null;
     app.replaceChildren(el('div', { class: 'card empty' },
       session.total
         ? el('p', { class: 'summary' }, `Atlikta! (готово) Žinojau (знал): ${session.right}, nežinojau (не знал): ${session.wrong}.`)
         : el('p', { class: 'summary' }, 'Šiandien kartoti nieko nereikia. (Сегодня повторять нечего.)'),
+      s.learning ? el('p', {}, `Mokomasi: ${s.learning}. `, el('span', { class: 'ru' }, `Слова, которые вы узнали один раз, теперь «учу». `
+        + 'Выученными они станут, когда вы узнаете их ещё два раза: через 10 минут и на следующий день — карточки сами вернутся'
+        + (w && !s.due ? ` (ближайшее повторение ${w[1]}).` : '.'))) : null,
+      s.due ? el('p', {}, `Jau galima kartoti (уже пора повторить): ${s.due}.`) : null,
       left ? el('p', {}, `Dar nauji žodžiai (ещё новые слова): ${left}.`) : null,
       el('div', { class: 'actions' },
-        left ? el('button', { class: 'primary', on: { click: startCards } }, 'Toliau (дальше)') : null,
+        left || s.due ? el('button', { class: 'primary', on: { click: startCards } }, 'Toliau (дальше)') : null,
         el('button', { on: { click: () => { queue = shuffle(pool()).slice(0, 10); session = { right: 0, wrong: 0, total: queue.length }; nextCard(); } } },
           'Atsitiktiniai 10 (случайные 10)'))));
   }
@@ -430,19 +454,21 @@
       if (!list.length) return null;
       const s = stats(list);
       return el('tr', {},
-        el('td', {}, el('div', {}, `${c.roman}. ${c.lt}`), el('div', { class: 'ru' }, c.ru), bar(s.learned, s.total)),
+        el('td', {}, el('div', {}, `${c.roman}. ${c.lt}`), el('div', { class: 'ru' }, c.ru), segBar(s)),
         el('td', { class: 'num' }, `${s.learned}/${s.total}`, s.due ? el('div', {}, `↻ ${s.due}`) : null),
         el('td', {}, el('button', { on: { click: () => { prefs.sk = String(c.no); setMode('cards'); } } }, 'Mokytis')));
     });
     const decksRow = Object.entries(D.decks).map(([k, d]) => {
       const s = stats(d.items);
-      return el('div', { class: 'deckstat' }, el('div', {}, `${d.lt} `, el('span', { class: 'ru' }, `(${d.ru})`), ` — ${s.learned} / ${s.total}`), bar(s.learned, s.total));
+      return el('div', { class: 'deckstat' }, el('div', {}, `${d.lt} `, el('span', { class: 'ru' }, `(${d.ru})`),
+        ` — ${s.learned} / ${s.total}`, s.learning ? el('span', { class: 'ru' }, ` · учу ${s.learning}`) : null), segBar(s));
     });
     app.replaceChildren(
       el('div', { class: 'card' },
         el('h2', { class: 'cardh' }, 'Visi rinkiniai', el('span', { class: 'ru' }, 'все наборы: выучено из всех слов')),
         decksRow,
-        el('p', { class: 'ru' }, `«Выучено» — слово узнано правильно ${LEARNED} раза подряд с перерывами (10 минут, потом день). ↻ — пора повторить.`)),
+        el('p', { class: 'ru' }, `«Выучено» — слово узнано правильно ${LEARNED} раза подряд с перерывами (10 минут, потом день); `
+          + '«учу» — уже отвечали, но ещё не выучено (зелёным — выучено, светлее — учу). ↻ — пора повторить.')),
       el('div', { class: 'card' },
         el('h2', { class: 'cardh' }, `${deck().lt} — pagal skirsnius`, el('span', { class: 'ru' }, `${deck().ru} по главам`)),
         el('table', { class: 'stats' }, el('tbody', {}, rows))),

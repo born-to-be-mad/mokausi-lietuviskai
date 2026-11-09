@@ -69,6 +69,11 @@ select {
 .tabs button[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 
 .meter { font-size: .85rem; color: var(--muted); margin-bottom: 14px; }
+.meter .mline { display: block; }
+.meter .due { color: var(--accent); font-weight: 700; }
+/* полоска набора: выучено — good, учу — accent, смешанный с line (как «Pagal skyrius» в экзамене), новые — дорожка */
+.bar.seg { display: flex; }
+.bar.seg > .learn { background: color-mix(in srgb, var(--accent) 55%, var(--line)); }
 .bar { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; margin-top: 4px; }
 .bar > span { display: block; height: 100%; background: var(--good); }
 
