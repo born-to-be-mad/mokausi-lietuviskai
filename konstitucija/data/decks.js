@@ -13318,13 +13318,13 @@ window.KONST = {
    "qru": "Каким является Литовское государство по Конституции?",
    "opts": [
     "nepriklausoma demokratinė respublika",
-    "konstitucinė monarchija",
-    "federacinė respublika"
+    "nepriklausoma demokratinė federacija",
+    "demokratinė konstitucinė monarchija"
    ],
    "optsru": [
     "независимой демократической республикой",
-    "конституционной монархией",
-    "федеративной республикой"
+    "независимой демократической федерацией",
+    "демократической конституционной монархией"
    ]
   },
   {
@@ -13516,13 +13516,31 @@ window.KONST = {
    "qru": "Какой государственный герб Литвы?",
    "opts": [
     "baltas Vytis raudoname lauke",
-    "auksinis liūtas mėlyname lauke",
-    "baltas erelis žaliame lauke"
+    "Gedimino stulpai raudoname lauke",
+    "baltas Vytis mėlyname lauke"
    ],
    "optsru": [
     "белый Витис на красном поле",
-    "золотой лев на синем поле",
-    "белый орёл на зелёном поле"
+    "Столпы Гедимина на красном поле",
+    "белый Витис на синем поле"
+   ]
+  },
+  {
+   "id": "97cd743f",
+   "sk": 1,
+   "art": "15",
+   "artsk": "I",
+   "q": "Kokia spalva yra Lietuvos valstybės vėliavoje?",
+   "qru": "Какой цвет есть на государственном флаге Литвы?",
+   "opts": [
+    "žalia",
+    "mėlyna",
+    "balta"
+   ],
+   "optsru": [
+    "зелёный",
+    "синий",
+    "белый"
    ]
   },
   {
@@ -14225,6 +14243,24 @@ window.KONST = {
     "государство",
     "только церкви",
     "суды"
+   ]
+  },
+  {
+   "id": "02b02a65",
+   "sk": 3,
+   "art": "38",
+   "artsk": "III",
+   "q": "Ar valstybė pripažįsta bažnyčioje įregistruotą santuoką?",
+   "qru": "Признаёт ли государство брак, зарегистрированный в церкви?",
+   "opts": [
+    "taip, pripažįsta",
+    "pripažįsta tik iš dalies",
+    "ne, nepripažįsta"
+   ],
+   "optsru": [
+    "да, признаёт",
+    "признаёт только частично",
+    "нет, не признаёт"
    ]
   },
   {
@@ -15046,13 +15082,13 @@ window.KONST = {
    "qru": "Сколько лет ко дню выборов должно быть кандидату в Президенты?",
    "opts": [
     "ne mažiau kaip 40",
-    "ne mažiau kaip 35",
-    "ne mažiau kaip 30"
+    "ne mažiau kaip 50",
+    "ne mažiau kaip 25"
    ],
    "optsru": [
     "не менее 40",
-    "не менее 35",
-    "не менее 30"
+    "не менее 50",
+    "не менее 25"
    ]
   },
   {
@@ -15110,6 +15146,24 @@ window.KONST = {
    ]
   },
   {
+   "id": "5c6534f4",
+   "sk": 6,
+   "art": "79",
+   "artsk": "VI",
+   "q": "Kiek gali būti kandidatų į Respublikos Prezidento vietą?",
+   "qru": "Сколько может быть кандидатов на пост Президента Республики?",
+   "opts": [
+    "skaičius neribojamas",
+    "ne daugiau kaip 5",
+    "ne daugiau kaip 10"
+   ],
+   "optsru": [
+    "число не ограничено",
+    "не более 5",
+    "не более 10"
+   ]
+  },
+  {
    "id": "53108768",
    "sk": 6,
    "art": "82",
@@ -15128,21 +15182,21 @@ window.KONST = {
    ]
   },
   {
-   "id": "883a46b9",
+   "id": "0f6c5a96",
    "sk": 6,
    "art": "84",
    "artsk": "VI",
-   "q": "Kas Seimo pritarimu skiria Ministrą Pirmininką?",
-   "qru": "Кто с одобрения Сейма назначает Премьер-министра?",
+   "q": "Kas skiria Ministrą Pirmininką?",
+   "qru": "Кто назначает Премьер-министра?",
    "opts": [
     "Respublikos Prezidentas",
-    "Seimo Pirmininkas",
-    "Konstitucinis Teismas"
+    "Seimas",
+    "Vyriausybė"
    ],
    "optsru": [
     "Президент Республики",
-    "Председатель Сейма",
-    "Конституционный суд"
+    "Сейм",
+    "Правительство"
    ]
   },
   {
@@ -15920,6 +15974,24 @@ window.KONST = {
    ]
   },
   {
+   "id": "e17bd01b",
+   "sk": 9,
+   "art": "118",
+   "artsk": "IX",
+   "q": "Kokia yra prokuroro funkcija baudžiamosiose bylose?",
+   "qru": "Какова функция прокурора по уголовным делам?",
+   "opts": [
+    "palaiko valstybinį kaltinimą",
+    "skelbia teismo priimtą nuosprendį",
+    "gina kaltinamąjį teisme"
+   ],
+   "optsru": [
+    "поддерживает государственное обвинение",
+    "объявляет вынесенный судом приговор",
+    "защищает обвиняемого в суде"
+   ]
+  },
+  {
    "id": "e6fcf3c2",
    "sk": 9,
    "art": "110",
@@ -16547,6 +16619,24 @@ window.KONST = {
     "до шести месяцев",
     "до двух лет",
     "до одной недели"
+   ]
+  },
+  {
+   "id": "5967493e",
+   "sk": 13,
+   "art": "144",
+   "artsk": "XIII",
+   "q": "Kada Seimas gali įvesti nepaprastąją padėtį?",
+   "qru": "Когда Сейм может ввести чрезвычайное положение?",
+   "opts": [
+    "iškilus grėsmei konstitucinei santvarkai ar visuomenės rimčiai",
+    "kai atsistatydina Vyriausybė, o nauja dar nesudaryta",
+    "kai Seimas iki metų pradžios nepatvirtina naujo valstybės biudžeto"
+   ],
+   "optsru": [
+    "при угрозе конституционному строю или общественному спокойствию",
+    "когда Правительство ушло в отставку, а новое ещё не сформировано",
+    "когда Сейм до начала года не утвердил новый государственный бюджет"
    ]
   },
   {
